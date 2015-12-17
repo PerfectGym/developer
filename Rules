@@ -1,0 +1,77 @@
+#!/usr/bin/env ruby
+
+# A few helpful tips about the Rules file:
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+
+preprocess do
+  create_individual_blog_pages
+  generate_redirects(config[:redirects])
+end
+
+passthrough '/CNAME'
+
+compile '/changes.atom' do
+  filter :erb
+end
+
+compile '/integrations-directory/*' do
+  filter :erb
+  filter :html_pipeline, @config[:pipeline_config]
+  layout item[:layout] || '/integrations-directory.*'
+end
+
+compile '/v3{.*,/**/*}' do
+  filter :erb
+  filter :html_pipeline, @config[:pipeline_config]
+  filter :enterprise_only_filter
+  layout(item[:layout] ? "/#{item[:layout]}.*" : '/api.*')
+end
+
+compile "/changes/20*" do
+  filter :erb
+  filter :html_pipeline, @config[:pipeline_config]
+  layout '/changes.*'
+  layout(item[:layout] ? "/#{item[:layout]}.*" : '/blog.*')
+end
+
+compile '/guides/**/*' do
+  filter :html_pipeline, @config[:pipeline_config]
+  filter :erb
+  layout(item[:layout] ? "/#{item[:layout]}.*" : '/guides.*')
+end
+
+compile '/webhooks/**/*' do
+  filter :erb
+  filter :html_pipeline, @config[:pipeline_config]
+  layout(item[:layout] ? "/#{item[:layout]}.*" : '/webhooks.*')
+end
+
+compile '/search/search-index.json' do
+  filter :erb
+end
+
+compile '/**/*' do
+  filter :erb
+  filter :html_pipeline, @config[:pipeline_config]
+  layout(item[:layout] ? "/#{item[:layout]}.*" : '/default.*')
+end
+
+route '/changes.atom' do
+  '/changes.atom'
+end
+
+route '/search/search-index.json' do
+  item.identifier.to_s
+end
+
+route '/**/index.*' do
+  item.identifier.without_ext + '.html'
+end
+
+route '/**/*' do
+  item.identifier.without_ext + '/index.html'
+end
+
+layout '/**/*', :erb
