@@ -8,6 +8,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    adsf (1.2.0)
+      rack (>= 1.0.0)
     awesome_print (1.6.1)
     builder (3.2.2)
     colorator (0.1)
@@ -133,6 +135,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  adsf
   awesome_print (= 1.6.1)
   builder (~> 3.2)
   extended-markdown-filter (= 0.4.3)
@@ -149,4 +152,4 @@ DEPENDENCIES
   rake (= 10.3.2)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

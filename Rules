@@ -16,13 +16,13 @@ compile '/changes.atom' do
   filter :erb
 end
 
-compile '/integrations-directory/*' do
-  filter :erb
-  filter :html_pipeline, @config[:pipeline_config]
-  layout item[:layout] || '/integrations-directory.*'
-end
+# compile '/integrations-directory/*' do
+#   filter :erb
+#   filter :html_pipeline, @config[:pipeline_config]
+#   layout item[:layout] || '/integrations-directory.*'
+# end
 
-compile '/v3{.*,/**/*}' do
+compile '/api{.*,/**/*}' do
   filter :erb
   filter :html_pipeline, @config[:pipeline_config]
   filter :enterprise_only_filter
@@ -42,11 +42,11 @@ compile '/guides/**/*' do
   layout(item[:layout] ? "/#{item[:layout]}.*" : '/guides.*')
 end
 
-compile '/webhooks/**/*' do
-  filter :erb
-  filter :html_pipeline, @config[:pipeline_config]
-  layout(item[:layout] ? "/#{item[:layout]}.*" : '/webhooks.*')
-end
+# compile '/webhooks/**/*' do
+#   filter :erb
+#   filter :html_pipeline, @config[:pipeline_config]
+#   layout(item[:layout] ? "/#{item[:layout]}.*" : '/webhooks.*')
+# end
 
 compile '/search/search-index.json' do
   filter :erb

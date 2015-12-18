@@ -11,6 +11,8 @@ gem 'github-markdown', '0.6.9'
 gem 'html-pipeline-rouge_filter', '~> 1.0'
 gem 'extended-markdown-filter', '0.4.3'
 gem 'page-toc-filter', '~> 0.0.1'
+gem 'adsf'
+
 
 # for sitemap
 gem 'builder', '~> 3.2'
