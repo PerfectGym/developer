@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>GitHub API Changes | Perfectgym Developer Guide</title>
+  <title>Troubleshooting | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -16,7 +16,7 @@
 </head>
 
 
-<body>
+<body class="api dev-mode">
   
 
 <div id="header-wrapper">
@@ -39,97 +39,65 @@
 </div><!-- #header-wrapper -->
 
 
+  <div class="sub-nav">
+    <h2><a href="/api/">API</a></h2>
+
+    <ul>
+      <li><a href="/api/" class="active">Reference</a></li>      
+      <!-- <li><a href="/guides/">Guides</a></li> -->
+    </ul>
+  </div>
+
   <div id="wrapper">
     <div class="content">
       
 
-<div class="change" id="/changes/2015-11-11-protected-branches-api/">
-  <h2 class="title">
-<a id="--protected-branches-api-preview-period" class="anchor" href="#--protected-branches-api-preview-period" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-  <a href="/changes/2015-11-11-protected-branches-api/">Protected Branches API Preview Period</a>
-</h2>
+<h1>
+<a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting</h1>
 
-<div class="meta">
-  <ul>
-  <li class="published">
-    <span class="octicon octicon-calendar"></span>
-    November 11, 2015
-    
-  </li>
-  <li class="who_when">
-    <img height="16" width="16" src="https://github.com/nakajima.png" alt="Avatar for nakajima" data-proofer-ignore>
-      <a href="https://github.com/nakajima" data-proofer-ignore>nakajima</a>
-  </li>
+<ul id="markdown-toc">
+<li><a href="#why-am-i-getting-a-404-error-on-a-repository-that-exists" id="markdown-toc-why-am-i-getting-a-404-error-on-a-repository-that-exists">Why am I getting a 404 error on a repository that exists?</a></li>
+<li><a href="#why-am-i-not-seeing-all-my-results" id="markdown-toc-why-am-i-not-seeing-all-my-results">Why am I not seeing all my results?</a></li>
+<li><a href="#can-i-get-my-rate-limits-bumped" id="markdown-toc-can-i-get-my-rate-limits-bumped">Can I get my rate limits bumped?</a></li>
 </ul>
-</div>
 
-<p>We're starting a preview period for the <a href="https://github.com/blog/2051-protected-branches-and-required-status-checks">protected branches</a> API. Protecting a branch prevents force-pushes to it as well as deleting it. You can also specify required status checks that are required to merge code into the branch.</p>
+<p>If you're encountering some oddities in the API, here's a list of resolutions to
+some of the problems you may be experiencing.</p>
 
-<p>To protect a branch, make a <code>PATCH</code> request to the URL of the branch:</p>
+<h2>
+<a id="why-am-i-getting-a-404-error-on-a-repository-that-exists" class="anchor" href="#why-am-i-getting-a-404-error-on-a-repository-that-exists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why am I getting a <code>404</code> error on a repository that exists?</h2>
 
-<pre class="command-line">
-curl "https://api.github.com/repos/github/hubot/branches/master" \
-  -XPATCH \
-  -H 'Authorization: token TOKEN' \
-  -H "Accept: application/vnd.github.loki-preview" \
-  -d '{
-    "protection": {
-      "enabled": true,
-      "required_status_checks": {
-        "enforcement_level": "everyone",
-        "contexts": [
-          "required-status"
-        ]
-      }
-    }
-  }'
-</pre>
+<p>Typically, we send a <code>404</code> error when your client isn't properly authenticated.
+You might expect to see a <code>403 Forbidden</code> in these cases. However, since we don't
+want to provide <em>any</em> information about private repositories, the API returns a
+<code>404</code> error instead.</p>
 
-<h4>
-<a id="how-can-i-try-it" class="anchor" href="#how-can-i-try-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a id="how-can-i-try-it" class="anchor" href="#how-can-i-try-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I try it?</h4>
+<p>To troubleshoot, ensure <a href="/guides/getting-started/">you're authenticating correctly</a>, <a href="/v3/oauth/#scopes">your OAuth access token has the required scopes</a>, and <a href="/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/">third-party application restrictions</a> are not blocking access.</p>
 
-<p>To access this functionality during the preview period, you’ll need to provide the following custom media type in the Accept header:</p>
+<h2>
+<a id="why-am-i-not-seeing-all-my-results" class="anchor" href="#why-am-i-not-seeing-all-my-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why am I not seeing all my results?</h2>
 
-<pre><code>application/vnd.github.loki-preview+json
-</code></pre>
+<p>Most API calls accessing a list of resources (<em>e.g.</em>, users, issues, <em>e.t.c.</em>) support
+pagination. If you're making requests and receiving an incomplete set of results, you're
+probably only seeing the first page. You'll need to request the remaining pages
+in order to get more results.</p>
 
-<p>Take a look at <a href="/v3/repos/#enabling-and-disabling-branch-protection">the docs here</a>.</p>
+<p>It's important to <em>not</em> try and guess the format of the pagination URL. Not every
+API call uses the same structure. Instead, extract the pagination information from
+<a href="/v3/#pagination">the Link Header</a>, which is sent with every request.</p>
 
-<p>If you have any questions, please <a href="https://github.com/contact?form%5Bsubject%5D=Protected+Branches+API+Preview">get in touch</a>.</p>
+<h2>
+<a id="can-i-get-my-rate-limits-bumped" class="anchor" href="#can-i-get-my-rate-limits-bumped" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can I get my rate limits bumped?</h2>
 
-<p></p>
-</div>
+<p>The GitHub API has a pretty lenient quota for rate limits, for your enjoyment and
+our safety. You can read more about it <a href="/v3/#rate-limiting">here</a>.</p>
 
-<div class="paginate-container">
-  <!-- @count_gap refers to the minimum number of sibling pages to show -->
+<p>If you're using OAuth or Basic Authentication and are hitting your rate limits,
+you might be able to fix the issue by either caching our results, or <a href="/v3/#conditional-requests">using conditional requests</a>.</p>
 
-<div class="pagination">
-  
-  <span class="disabled">Previous</span>
-  
-
-  <!-- using a while loop here as it's the only way to skip several iterations -->
-  
-    
-    <!-- first half ensures we're not caught in an infinite loop at @total_pages - 1 -->
-    <!-- second half, with the .abs, checks for gap siblings ahead *and* behind the current page -->
-    
-
-    
-      <a href="/changes/1" class="current">1</a>
-    
-
-    
-  
-
-  
-    <span class="disabled">Next</span>
-  
-</div>
-
-<p></p>
-</div>
+<p>In certain exceptional cases, we may temporarily bump your rate limit higher. You
+should be prepared to answer technical questions about your goal and your planned usage of the API. We may still choose not to bump your limit if we feel that you can achieve your wildest
+dreams with the current rate limit (but don't worry, we'll help you out).</p>
 
 
     </div>
