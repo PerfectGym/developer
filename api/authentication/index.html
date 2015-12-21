@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>Other Authentication Methods | Perfectgym Developer Guide</title>
+  <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
+  <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/assets/javascripts/application.js" type="text/javascript"></script>
+  
+  <script src="/assets/javascripts/dev_mode.js" type="text/javascript"></script>
+  
+</head>
+
+
+<body class="api dev-mode">
+  
+
+<div id="header-wrapper">
+  <div id="header">
+    <div>
+      <a class="logo" href="/">PerfectGym:Developer</a>
+      <ul class="nav">
+        <li><a href="/api/" class="nav-api">API</a></li>        
+        <!-- <li><a href="/changes/" class="nav-blog">Blog</a></li>         -->
+        <li id="search-container">
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <div class="cancel-search"></div>
+          <ul id="search-results">
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div><!-- #header -->
+</div><!-- #header-wrapper -->
+
+
+  <div class="sub-nav">
+    <h2><a href="/api/">API</a></h2>
+
+    <ul>
+      <li><a href="/api/" class="active">Reference</a></li>      
+      <!-- <li><a href="/guides/">Guides</a></li> -->
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+
+<h1>
+<a id="authentication" class="anchor" href="#authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h1>
+
+<ul id="markdown-toc">
+<li><a href="#prerequisites" id="markdown-toc-prerequisites">
+Prerequisites</a></li>
+<li><a href="#authentication-flow" id="markdown-toc-authentication-flow">Authentication flow</a></li>
+</ul>
+
+<p>PerfectGym API uses token-based authentification as an authentification protocol. 
+Requests that require authentication will return <code>401 Unauthorized</code> if no valid token
+is provided. </p>
+
+<h2>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="prerequisites"></a>Prerequisites</h2>
+
+<p>Before accessing API, you need a special API user in your Perfect Gym instalation. 
+Please <a href="mailto:pomoc@perfectgym.com">contact Perfect Gym</a> and we will provide you user name
+and password used to authenticate your app with PerfectGYm API</p>
+
+<h2>
+<a id="authentication-flow" class="anchor" href="#authentication-flow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication flow</h2>
+
+<h3>
+<a id="1-request-access-token" class="anchor" href="#1-request-access-token" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Request access token</h3>
+
+<pre><code>POST https://yoursubdomain.perfectgym.com/api/oauth/authorize
+</code></pre>
+
+<h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. User name you received from PerfectGym, see <a href="#prerequisites">prerequisites</a>.</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. User password you received from PerfectGym, see <a href="#prerequisites">prerequisites</a>.</td>
+</tr>
+<tr>
+<td><code>grant_type</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. This has to be explicitly set to <code>password</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Authentication parameters must be encoded using <code>application/x-www-form-urlencoded</code> content type.</p>
+
+<h3>
+<a id="request-example" class="anchor" href="#request-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request example</h3>
+
+<pre class="command-line">
+curl -i -X POST 
+    -H "Content-Type: application/x-www-form-urlencoded" 
+    -d "password=yourpassword
+        &amp;username=yourusername
+        &amp;grant_type=password" 
+    https://yoursubdomain.perfectgym.com/api/oauth/authorize
+<!-- > HTTP/1.1 200 OK
+<span class="output">Cache-Control: no-cache</span>
+<span class="output">Pragma: no-cache</span>
+<span class="output">Content-Length: 318</span>
+<span class="output">Content-Type: application/json;charset=UTF-8</span>
+<span class="output">Expires: -1</span>
+<span class="output">Server: Microsoft-IIS/8.5</span>
+<span class="output">Access-Control-Allow-Origin: *</span>
+<span class="output">X-Powered-By: ASP.NET</span>
+<span class="output">pg-app: externalapi</span>
+<span class="output">X-Powered-By: ARR/3.0</span>
+<span class="output">pg-app: Routing</span>
+<span class="output">Date: Mon, 21 Dec 2015 14:08:23 GMT</span>
+
+{"access_token":"abcdefgh12345678","token_type":"bearer","expires_in":7775999} -->
+</pre>
+
+<h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcdefgh12345678"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">7775999</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+
+<p>Token expiration time is presented in seconds.</p>
+
+<h3>
+<a id="2-use-the-access-token-to-access-the-api" class="anchor" href="#2-use-the-access-token-to-access-the-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Use the access token to access the API</h3>
+
+<p>The access token allows you to make authenticated requests to the API. 
+You can pass the token by including it in the Authorization header.</p>
+
+<pre><code>Authorization: bearer OAUTH-TOKEN
+</code></pre>
+
+<p>Authorization header should be included in all subsequent API requests.</p>
+
+<h3>
+<a id="authenticated-request-example" class="anchor" href="#authenticated-request-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authenticated request example</h3>
+
+<pre class="command-line">
+curl -i 
+    -H "Authorization: Bearer abcdefgh12345678"     
+    https://yoursubdomain.perfectgym.com/api/Classes/GetClasses/1/0
+</pre>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/">Overview</a></h3>
+        <ul class="js-guides">
+          <!-- <li><a href="/api/media/">Media Types</a></li> -->
+          <li><a href="/api/authentication/">Authentication</a></li>
+          <!-- <li><a href="/api/oauth_authorizations/">OAuth Authorizations API</a></li> -->
+          <!-- <li><a href="/api/auth/">Other Authentication Methods</a></li> -->
+          <!-- <li><a href="/api/troubleshooting/">Troubleshooting</a></li> -->
+          <!-- <li><a href="/api/versions/">Versions</a></li> -->
+        </ul>
+      </li>
+      <!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/activity/">Activity</a></h3>
+        <ul class="js-guides">
+          <li><a href="/api/activity/events/">Events</a></li>
+          <li><a href="/api/activity/events/types/">Event Types &amp; Payloads</a></li>
+          <li><a href="/api/activity/feeds/">Feeds</a></li>
+          <li><a href="/api/activity/notifications/">Notifications</a></li>
+          <li><a href="/api/activity/starring/">Starring</a></li>
+          <li><a href="/api/activity/watching/">Watching</a></li>
+        </ul>
+      </li> -->
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <!-- <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/github/developer.github.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div> -->
+	<!-- <div class="sidebar-module api-status"><a href="https://status.github.com" class="unknown">API Status</a></div> -->
+</div><!-- /sidebar-shell -->
+
+  </div><!-- #wrapper -->
+
+    <!-- <div id="footer" >
+    <div class="lower_footer">
+      <ul class="footer-cell">
+        <li><a href="https://github.com/github/developer.github.com#licenses">&copy; 2015 GitHub, Inc.</a></li>
+        <li><a href="https://help.github.com/terms-of-service/">Terms</a></li>
+        <li><a href="https://help.github.com/privacy-policy/">Privacy</a></li>
+        <li><a href="https://help.github.com/security/">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+      </ul>
+
+      <span class="footer-cell">
+        <a href="https://github.com" class="mega-octicon octicon-mark-github"></a>
+      </span>
+
+      <ul class="footer-cell">
+        <li><a href="https://status.github.com/">Status</a></li>
+        <li><a href="http://training.github.com/">Training</a></li>
+        <li><a href="http://shop.github.com/">Shop</a></li>
+        <li><a href="https://github.com/blog">Blog</a></li>
+        <li><a href="https://github.com/about">About</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /#footer --> 
+  <script>
+  //   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  //   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  //   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  //   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  //   ga('create', 'UA-3769691-37', 'github.com');
+  //   ga('send', 'pageview');
+  </script>
+
+</body>
+</html>

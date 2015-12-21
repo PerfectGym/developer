@@ -239,52 +239,7 @@ representation of the class:</p>
 <p>The documentation provides an example response for each API method. The example
 response illustrates all attributes that are returned by that method.</p>
 
-<!--## Authentication
-
-There are three ways to authenticate through GitHub API v3.  Requests that
-require authentication will return `404 Not Found`, instead of
-`403 Forbidden`, in some places.  This is to prevent the accidental leakage
-of private repositories to unauthorized users.
-
-### Basic Authentication
-
-<pre class="command-line">
-<span class="command">curl -u "username" https://api.github.com</span>
-</pre>
-
-
-### OAuth2 Token (sent in a header)
-
-<pre class="command-line">
-<span class="command">curl -H "Authorization: token OAUTH-TOKEN" https://api.github.com</span>
-</pre>
-
-
-### OAuth2 Token (sent as a parameter)
-
-<pre class="command-line">
-<span class="command">curl https://api.github.com/?access_token=OAUTH-TOKEN</span>
-</pre>
-
-
-Read [more about OAuth2](/v3/oauth/).  Note that OAuth2 tokens can be [acquired
-programmatically](/v3/oauth_authorizations/#create-a-new-authorization), for applications that
-are not websites.
-
-### OAuth2 Key/Secret
-
-<pre class="command-line">
-<span class="command">curl 'https://api.github.com/users/whatever?client_id=xxxx&client_secret=yyyy'</span>
-</pre>
-
-
-This should only be used in server to server scenarios.  Don't leak your
-OAuth application's client secret to your users.  Read [more about
-unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
-
-
-
-## Hypermedia
+<!--## Hypermedia
 
 All resources may have one or more `*_url` properties linking to other
 resources.  These are meant to provide explicit URLs so that proper API clients
@@ -332,12 +287,12 @@ parameter will return the first page. -->
       <li class="js-topic">
         <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/">Overview</a></h3>
         <ul class="js-guides">
-          <!-- <li><a href="/api/media/">Media Types</a></li>
-          <li><a href="/api/oauth/">OAuth</a></li>
-          <li><a href="/api/oauth_authorizations/">OAuth Authorizations API</a></li>
-          <li><a href="/api/auth/">Other Authentication Methods</a></li>
-          <li><a href="/api/troubleshooting/">Troubleshooting</a></li>
-          <li><a href="/api/versions/">Versions</a></li> -->
+          <!-- <li><a href="/api/media/">Media Types</a></li> -->
+          <li><a href="/api/authentication/">Authentication</a></li>
+          <!-- <li><a href="/api/oauth_authorizations/">OAuth Authorizations API</a></li> -->
+          <!-- <li><a href="/api/auth/">Other Authentication Methods</a></li> -->
+          <!-- <li><a href="/api/troubleshooting/">Troubleshooting</a></li> -->
+          <!-- <li><a href="/api/versions/">Versions</a></li> -->
         </ul>
       </li>
       <!-- <li class="js-topic">
