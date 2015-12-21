@@ -58,13 +58,14 @@
 <p>This describes the resources that make up the official PerfectGym API.</p>
 
 <ul id="markdown-toc">
-<li><a href="#schema" id="markdown-toc-schema">Schema</a></li>
+<li><a href="#general" id="markdown-toc-general">General</a></li>
+<li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
 <li><a href="#requests" id="markdown-toc-requests">Requests</a></li>
 <li><a href="#responses" id="markdown-toc-responses">Responses</a></li>
 </ul>
 
 <h2>
-<a id="schema" class="anchor" href="#schema" aria-hidden="true"><span class="octicon octicon-link"></span></a>Schema</h2>
+<a id="general" class="anchor" href="#general" aria-hidden="true"><span class="octicon octicon-link"></span></a>General</h2>
 
 <p>All API access is over HTTPS, and accessed from the <code>yoursubdomain.perfectgym.com/api/</code>.  All data is
 sent and received as JSON.</p>
@@ -88,6 +89,9 @@ sent and received as JSON.</p>
 <span class="output">Date: Fri, 18 Dec 2015 16:47:49 GMT</span>
 </pre>
 
+<h3>
+<a id="blank-fields" class="anchor" href="#blank-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Blank fields</h3>
+
 <p>Blank fields are included as <code>null</code> instead of being omitted.</p>
 
 <h3>
@@ -98,10 +102,32 @@ sent and received as JSON.</p>
 <h3>
 <a id="date-format" class="anchor" href="#date-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Date format</h3>
 
-<p>All timestamps are returned in ISO 8601 format:</p>
+<p>All dates and times follow the ISO 8601 format and are provided in local time zone:</p>
 
-<pre><code>YYYY-MM-DDTHH:MM:SSZ
+<pre><code>YYYY-MM-DDTHH:MM:SS
 </code></pre>
+
+<h2>
+<a id="http-verbs" class="anchor" href="#http-verbs" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP Verbs</h2>
+
+<table>
+<thead>
+<tr>
+<th>Verb</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td>Used for retrieving resources.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>Used for creating / updating resources or invoking actions.</td>
+</tr>
+</tbody>
+</table>
 
 <h2>
 <a id="requests" class="anchor" href="#requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requests</h2>
@@ -128,7 +154,7 @@ when explicitly required).</p>
 <a id="timestamp-parameter" class="anchor" href="#timestamp-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timestamp parameter</h3>
 
 <p>Requests with timestamp parameter returns list of resources added or changed after point in time represented
-by <code>timestamp</code> value.</p>
+by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> ascending.</p>
 
 <p><strong>Example</strong>: In this example we fetch list of classes from the club with <code>id</code> of <code>1</code> and with <code>timestamp</code> 
 value greater then <code>654321</code>.</p>
@@ -139,6 +165,47 @@ value greater then <code>654321</code>.</p>
 
 <h2>
 <a id="responses" class="anchor" href="#responses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Responses</h2>
+
+<h3>
+<a id="get-response-schema" class="anchor" href="#get-response-schema" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET Response schema</h3>
+
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>elements</code></td>
+<td>This means a required field on a resource has not been set.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="post-response-schema" class="anchor" href="#post-response-schema" aria-hidden="true"><span class="octicon octicon-link"></span></a>POST Response schema</h3>
+
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>success</code></td>
+<td>
+<code>true</code> if request completed successfuly, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>details</code></td>
+<td>Information containing request result details.</td>
+</tr>
+</tbody>
+</table>
 
 <h3>
 <a id="summary-representations" class="anchor" href="#summary-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary Representations</h3>
@@ -172,104 +239,7 @@ representation of the class:</p>
 <p>The documentation provides an example response for each API method. The example
 response illustrates all attributes that are returned by that method.</p>
 
-<!--## Root Endpoint
-
-You can issue a `GET` request to the root endpoint to get all the endpoint categories that the API supports:
-
-<pre class="command-line">
-<span class="command">curl https://api.github.com</span>
-</pre>
-
-
-Note that for GitHub Enterprise, [as with all other endpoints](https://developer.github.com/v3/enterprise/#endpoint-urls), you'll need to pass in your GitHub Enterprise endpoint as the hostname, *as well as your username and password*:
-
-<pre class="command-line">
-<span class="command">curl https://<em>hostname</em>/api/v3/ -u <em>username</em>:<em>password</em></span>
-</pre>
-
-
-## Client Errors
-
-There are three possible types of client errors on API calls that
-receive request bodies:
-
-1. Sending invalid JSON will result in a `400 Bad Request` response.
-
-        HTTP/1.1 400 Bad Request
-        Content-Length: 35
-
-        {"message":"Problems parsing JSON"}
-
-2. Sending the wrong type of JSON values will result in a `400 Bad
-   Request` response.
-
-        HTTP/1.1 400 Bad Request
-        Content-Length: 40
-
-        {"message":"Body should be a JSON object"}
-
-3. Sending invalid fields will result in a `422 Unprocessable Entity`
-   response.
-
-        HTTP/1.1 422 Unprocessable Entity
-        Content-Length: 149
-
-        {
-          "message": "Validation Failed",
-          "errors": [
-            {
-              "resource": "Issue",
-              "field": "title",
-              "code": "missing_field"
-            }
-          ]
-        }
-
-All error objects have resource and field properties so that your client
-can tell what the problem is.  There's also an error code to let you
-know what is wrong with the field.  These are the possible validation error
-codes:
-
-
-Error Name | Description
------------|-----------|
-`missing` | This means a resource does not exist.
-`missing_field` | This means a required field on a resource has not been set.
-`invalid` | This means the formatting of a field is invalid.  The documentation for that resource should be able to give you more specific information.
-`already_exists` | This means another resource has the same value as this field.  This can happen in resources that must have some unique key (such as Label names).
-
-Resources may also send custom validation errors (where `code` is `custom`). Custom errors will always have a `message` field describing the error, as well as a `documentation_url` field pointing to some content that might help you resolve the error.
-
-## HTTP Redirects
-
-API v3 uses HTTP redirection where appropriate. Clients should assume that any
-request may result in a redirection. Receiving an HTTP redirection is *not* an
-error and clients should follow that redirect. Redirect responses will have a
-`Location` header field which contains the URI of the resource to which the
-client should repeat the requests.
-
-Status Code | Description
------------|-----------|
-`301` | Permanent redirection. The URI you used to make the request has been superseded by the one specified in the `Location` header field. This and all future requests to this resource should be directed to the new URI.
-`302`, `307` | Temporary redirection. The request should be repeated verbatim to the URI specified in the `Location` header field but clients should continue to use the original URI for future requests.
-
-Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
-
-## HTTP Verbs
-
-Where possible, API v3 strives to use appropriate HTTP verbs for each
-action.
-
-Verb | Description
------|-----------
-`HEAD` | Can be issued against any resource to get just the HTTP header info.
-`GET` | Used for retrieving resources.
-`POST` | Used for creating resources.
-`PATCH` | Used for updating resources with partial JSON data.  For instance, an Issue resource has `title` and `body` attributes.  A PATCH request may accept one or more of the attributes to update the resource.  PATCH is a relatively new and uncommon HTTP verb, so resource endpoints also accept `POST` requests.
-`PUT` | Used for replacing resources or collections. For `PUT` requests with no `body` attribute, be sure to set the `Content-Length` header to zero.
-`DELETE` |Used for deleting resources.
-
-## Authentication
+<!--## Authentication
 
 There are three ways to authenticate through GitHub API v3.  Requests that
 require authentication will return `404 Not Found`, instead of
@@ -312,34 +282,6 @@ This should only be used in server to server scenarios.  Don't leak your
 OAuth application's client secret to your users.  Read [more about
 unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
 
-### Failed login limit
-
-Authenticating with invalid credentials will return `401 Unauthorized`:
-
-<pre class="command-line">
-<span class="command">curl -i https://api.github.com -u foo:bar</span>
-<span class="output">HTTP/1.1 401 Unauthorized</span>
-
-<span class="output">{</span>
-<span class="output">  "message": "Bad credentials",</span>
-<span class="output">  "documentation_url": "https://developer.github.com/v3"</span>
-<span class="output">}</span>
-</pre>
-
-
-After detecting several requests with invalid credentials within a short period,
-the API will temporarily reject all authentication attempts for that user
-(including ones with valid credentials) with `403 Forbidden`:
-
-<pre class="command-line">
-<span class="command">curl -i https://api.github.com -u valid_username:valid_password</span>
-<span class="output">HTTP/1.1 403 Forbidden</span>
-
-<span class="output">{</span>
-<span class="output">  "message": "Maximum number of login attempts exceeded. Please try again later.",</span>
-<span class="output">  "documentation_url": "https://developer.github.com/v3"</span>
-<span class="output">}</span>
-</pre>
 
 
 ## Hypermedia
@@ -364,398 +306,22 @@ gem:
     => "/notifications?all=1&participating=1"
 
 
+[uri]: https://github.com/hannesg/uri_template -->
 
+<!-- ## Pagination
 
-## Pagination
-
-Requests that return multiple items will be paginated to 30 items by
-default.  You can specify further pages with the `?page` parameter. For some
-resources, you can also set a custom page size up to 100 with the `?per_page` parameter.
-Note that for technical reasons not all endpoints respect the `?per_page` parameter,
-see [events](https://developer.github.com/v3/activity/events/) for example.
+Requests that return multiple items will be paginated to 100 items. 
+You can specify further pages with the `?page` parameter. 
 
 <pre class="command-line">
-<span class="command">curl 'https://api.github.com/user/repos?page=2&per_page=100'</span>
+<span class="command">curl 'https://yoursubdomain.perfectgym.com/api/Classes/GetClasses/1/0?page=2'</span>
 </pre>
 
 
 Note that page numbering is 1-based and that omitting the `?page`
-parameter will return the first page.
+parameter will return the first page. -->
 
-For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide].
-
-### Link Header
-
-The pagination info is included in [the Link
-header](http://tools.ietf.org/html/rfc5988). It is important to
-follow these Link header values instead of constructing your own URLs. In some
-instances, such as in the [Commits
-API](/v3/repos/commits/), pagination is based on
-SHA1 and not on page number.
-
-    Link: <https://api.github.com/user/repos?page=3&per_page=100>; rel="next",
-      <https://api.github.com/user/repos?page=50&per_page=100>; rel="last"
-
-_Linebreak is included for readability._
-
-This `Link` response header contains one or more [Hypermedia](/v3/#hypermedia) link relations, some of which may require expansion as [URI templates](http://tools.ietf.org/html/rfc6570).
-
-The possible `rel` values are:
-
-Name | Description
------------|-----------|
-`next` |The link relation for the immediate next page of results.
-`last` |The link relation for the last page of results.
-`first` |The link relation for the first page of results.
-`prev` |The link relation for the immediate previous page of results.
-
-## Rate Limiting
-
-For requests using Basic Authentication or OAuth, you can make up to 5,000
-requests per hour. For unauthenticated requests, the rate limit allows you to
-make up to 60 requests per hour. Unauthenticated requests are associated with your IP address,
-and not the user making requests. Note that [the Search API has custom rate limit
-rules](/v3/search/#rate-limit).
-
-You can check the returned HTTP headers of any API request to see your current
-rate limit status:
-
-<pre class="command-line">
-<span class="command">curl -i https://api.github.com/users/whatever</span>
-<span class="output">HTTP/1.1 200 OK</span>
-<span class="output">Date: Mon, 01 Jul 2013 17:27:06 GMT</span>
-<span class="output">Status: 200 OK</span>
-<span class="output">X-RateLimit-Limit: 60</span>
-<span class="output">X-RateLimit-Remaining: 56</span>
-<span class="output">X-RateLimit-Reset: 1372700873</span>
-</pre>
-
-
-The headers tell you everything you need to know about your current rate limit status:
-
-Header Name | Description
------------|-----------|
-`X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make per hour.
-`X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window.
-`X-RateLimit-Reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
-
-If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.
-
-``` javascript
-new Date(1372700873 * 1000)
-// => Mon Jul 01 2013 13:47:53 GMT-0400 (EDT)
-```
-
-Once you go over the rate limit you will receive an error response:
-
-<pre class="command-line">
-<span class="output">HTTP/1.1 403 Forbidden</span>
-<span class="output">Date: Tue, 20 Aug 2013 14:50:41 GMT</span>
-<span class="output">Status: 403 Forbidden</span>
-<span class="output">X-RateLimit-Limit: 60</span>
-<span class="output">X-RateLimit-Remaining: 0</span>
-<span class="output">X-RateLimit-Reset: 1377013266</span>
-
-<span class="output">{</span>
-<span class="output">   "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",</span>
-<span class="output">   "documentation_url": "https://developer.github.com/v3/#rate-limiting"</span>
-<span class="output">}</span>
-</pre>
-
-
-You can also [check your rate limit status](/v3/rate_limit) without incurring an
-API hit.
-<br>
-
-### Increasing the unauthenticated rate limit for OAuth applications
-
-If your OAuth application needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret as part of the query string.
-
-<pre class="command-line">
-<span class="command">curl -i 'https://api.github.com/users/whatever?client_id=xxxx&client_secret=yyyy'</span>
-<span class="output">HTTP/1.1 200 OK</span>
-<span class="output">Date: Mon, 01 Jul 2013 17:27:06 GMT</span>
-<span class="output">Status: 200 OK</span>
-<span class="output">X-RateLimit-Limit: 5000</span>
-<span class="output">X-RateLimit-Remaining: 4966</span>
-<span class="output">X-RateLimit-Reset: 1372700873</span>
-</pre>
-
-
-This method should only be used for server-to-server calls. You should never
-share your client secret with anyone or include it in client-side browser code.
-
-### Staying within the rate limit
-
-If you are using Basic Authentication or OAuth, and you are exceeding
-your rate limit, you can likely fix the issue by caching API responses
-and using [conditional requests](#conditional-requests).
-
-If you're using conditional requests and still exceeding your rate
-limit, please [contact us][support] to request a
-higher rate limit for your OAuth application.
-
-### Abuse Rate Limits
-
-To protect the quality of service from GitHub, additional rate limits may apply to some actions.
-For example, rapidly creating content, polling aggressively instead of using webhooks,
-making API calls with a high concurrency, or repeatedly requesting data that is computationally expensive
-may result in abuse rate limiting. These rate limits do not apply to GitHub Enterprise installations.
-
-It is not intended for this rate limit to interfere with any legitimate use of
-the API. Your normal [rate limits](/v3/#rate-limiting) should be the only
-limit you target. Please [contact support][abuse-support] if your use is affected by
-this rate limit. To ensure you're acting as a good API citizen, check out our
-[Best Practices guidelines](/guides/best-practices-for-integrators/).
-
-If your application triggers this rate limit, you'll receive an informative
-response:
-
-<pre class="command-line">
-<span class="output">HTTP/1.1 403 Forbidden</span>
-<span class="output">Content-Type: application/json; charset=utf-8</span>
-<span class="output">Connection: close</span>
-
-<span class="output">{</span>
-<span class="output">  "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",</span>
-<span class="output">  "documentation_url": "https://developer.github.com/v3#abuse-rate-limits"</span>
-<span class="output">}</span>
-</pre>
-
-
-## User Agent Required
-
-All API requests MUST include a valid `User-Agent` header. Requests with no `User-Agent`
-header will be rejected. We request that you use your GitHub username, or the name of your
-application, for the `User-Agent` header value. This allows us to contact you if there are problems.
-
-Here's an example:
-
-<pre class="command-line">
-User-Agent: Awesome-Octocat-App
-</pre>
-
-
-If you provide an invalid `User-Agent` header, you will receive a `403 Forbidden` response:
-
-<pre class="command-line">
-<span class="command">curl -iH 'User-Agent: ' https://api.github.com/meta</span>
-<span class="output">HTTP/1.0 403 Forbidden</span>
-<span class="output">Connection: close</span>
-<span class="output">Content-Type: text/html</span>
-
-<span class="output">Request forbidden by administrative rules.</span>
-<span class="output">Please make sure your request has a User-Agent header.</span>
-<span class="output">Check https://developer.github.com for other possible causes.</span>
-</pre>
-
-
-## Conditional requests
-
-Most responses return an `ETag` header. Many responses also return a `Last-Modified` header. You can use the values
-of these headers to make subsequent requests to those resources using the
-`If-None-Match` and `If-Modified-Since` headers, respectively. If the resource
-has not changed, the server will return a `304 Not Modified`. Also note: making
-a conditional request and receiving a 304 response does not count against your
-[Rate Limit](#rate-limiting), so we encourage you to use it whenever possible.
-
-<pre class="command-line">
-<span class="command">curl -i https://api.github.com/user</span>
-<span class="output">HTTP/1.1 200 OK</span>
-<span class="output">Cache-Control: private, max-age=60</span>
-<span class="output">ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"</span>
-<span class="output">Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT</span>
-<span class="output">Status: 200 OK</span>
-<span class="output">Vary: Accept, Authorization, Cookie</span>
-<span class="output">X-RateLimit-Limit: 5000</span>
-<span class="output">X-RateLimit-Remaining: 4996</span>
-<span class="output">X-RateLimit-Reset: 1372700873</span>
-
-<span class="command">curl -i https://api.github.com/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'</span>
-<span class="output">HTTP/1.1 304 Not Modified</span>
-<span class="output">Cache-Control: private, max-age=60</span>
-<span class="output">ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"</span>
-<span class="output">Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT</span>
-<span class="output">Status: 304 Not Modified</span>
-<span class="output">Vary: Accept, Authorization, Cookie</span>
-<span class="output">X-RateLimit-Limit: 5000</span>
-<span class="output">X-RateLimit-Remaining: 4996</span>
-<span class="output">X-RateLimit-Reset: 1372700873</span>
-
-<span class="command">curl -i https://api.github.com/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"</span>
-<span class="output">HTTP/1.1 304 Not Modified</span>
-<span class="output">Cache-Control: private, max-age=60</span>
-<span class="output">Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT</span>
-<span class="output">Status: 304 Not Modified</span>
-<span class="output">Vary: Accept, Authorization, Cookie</span>
-<span class="output">X-RateLimit-Limit: 5000</span>
-<span class="output">X-RateLimit-Remaining: 4996</span>
-<span class="output">X-RateLimit-Reset: 1372700873</span>
-</pre>
-
-
-## Cross Origin Resource Sharing
-
-The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
-any origin.
-You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors/), or
-[this intro](http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity) from the
-HTML 5 Security Guide.
-
-Here's a sample request sent from a browser hitting
-`http://example.com`:
-
-<pre class="command-line">
-<span class="command">curl -i https://api.github.com -H "Origin: http://example.com"</span>
-HTTP/1.1 302 Found
-Access-Control-Allow-Origin: *
-Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
-Access-Control-Allow-Credentials: true
-</pre>
-
-
-This is what the CORS preflight request looks like:
-
-<pre class="command-line">
-<span class="command">curl -i https://api.github.com -H "Origin: http://example.com" -X OPTIONS</span>
-HTTP/1.1 204 No Content
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
-Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE
-Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
-Access-Control-Max-Age: 86400
-Access-Control-Allow-Credentials: true
-</pre>
-
-
-## JSON-P Callbacks
-
-You can send a `?callback` parameter to any GET call to have the results
-wrapped in a JSON function.  This is typically used when browsers want
-to embed GitHub content in web pages by getting around cross domain
-issues.  The response includes the same data output as the regular API,
-plus the relevant HTTP Header information.
-
-<pre class="command-line">
-<span class="command">curl https://api.github.com?callback=foo</span>
-
-<span class="output">/**/foo({</span>
-<span class="output">  "meta": {</span>
-<span class="output">    "status": 200,</span>
-<span class="output">    "X-RateLimit-Limit": "5000",</span>
-<span class="output">    "X-RateLimit-Remaining": "4966",</span>
-<span class="output">    "X-RateLimit-Reset": "1372700873",</span>
-<span class="output">    "Link": [ // pagination headers and other links</span>
-<span class="output">      ["https://api.github.com?page=2", {"rel": "next"}]</span>
-<span class="output">    ]</span>
-<span class="output">  },</span>
-<span class="output">  "data": {</span>
-<span class="output">    // the data</span>
-<span class="output">  }</span>
-<span class="output">})</span>
-</pre>
-
-
-You can write a JavaScript handler to process the callback. Here's a minimal example you can try out:
-
-    <html>
-    <head>
-    <script type="text/javascript">
-    function foo(response) {
-      var meta = response.meta;
-      var data = response.data;
-      console.log(meta);
-      console.log(data);
-    }
-
-    var script = document.createElement('script');
-    script.src = 'https://api.github.com?callback=foo';
-
-    document.getElementsByTagName('head')[0].appendChild(script);
-    </script>
-    </head>
-
-    <body>
-      <p>Open up your browser's console.</p>
-    </body>
-    </html>
-
-All of the headers are the same String value as the HTTP Headers with one
-notable exception: Link.  Link headers are pre-parsed for you and come
-through as an array of `[url, options]` tuples.
-
-A link that looks like this:
-
-    Link: <url1>; rel="next", <url2>; rel="foo"; bar="baz"
-
-... will look like this in the Callback output:
-
-``` json
-{
-  "Link": [
-    [
-      "url1",
-      {
-        "rel": "next"
-      }
-    ],
-    [
-      "url2",
-      {
-        "rel": "foo",
-        "bar": "baz"
-      }
-    ]
-  ]
-}
-```
-
-
-## Timezones
-
-Some requests allow for specifying timestamps or generate timestamps with time
-zone information. We apply the following rules, in order of priority, to
-determine timezone information for API calls.
-
-#### Explicitly provide an ISO 8601 timestamp with timezone information
-
-For API calls that allow for a timestamp to be specified, we use that exact
-timestamp. An example of this is the [Commits API](/v3/git/commits).
-
-These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see
-[this example](https://developer.github.com/v3/git/commits/#example-input) for
-how these timestamps can be specified.
-
-#### Using the `Time-Zone` header
-
-It is possible to supply a `Time-Zone` header which defines a timezone according
-to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-
-<pre class="command-line">
-<span class="command">curl -H "Time-Zone: Europe/Amsterdam" -X POST https://api.github.com/repos/github/linguist/contents/new_file.md</span>
-</pre>
-
-
-This means that we generate a timestamp for the moment your API call is made in
-the timezone this header defines. For example, the [Contents API](/v3/repos/contents/)
-generates a git commit for each addition or change and uses the current time
-as the timestamp. This header will determine the timezone used for generating
-that current timestamp.
-
-#### Using the last known timezone for the user
-
-If no `Time-Zone` header is specified and you make an authenticated call to the
-API, we use the last known timezone for the authenticated user. The last known
-timezone is updated whenever you browse the GitHub.com website.
-
-#### UTC
-
-If the steps above don't result in any information, we use UTC as the timezone
-to create the git commit.
-
-
-
-[pagination-guide]: /guides/traversing-with-pagination -->
+<!-- For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide]. -->
 
 
     </div>
