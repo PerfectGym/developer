@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Activity | Perfectgym Developer Guide</title>
+  <title>Feeds | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -51,48 +51,84 @@
   <div id="wrapper">
     <div class="content">
       
+<!-- # Feeds
 
-<h1>
-<a id="activity" class="anchor" href="#activity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activity</h1>
+{:toc}
 
-<p>Serving up the 'social' in Social Coding, the Activity APIs provide access to
-notifications, subscriptions, and timelines.</p>
+## List Feeds
 
-<h2>
-<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="/v3/activity/events/">Events</a>
-</h2>
+GitHub provides several timeline resources in [Atom][] format. The Feeds API
+lists all the feeds available to the authenticated user:
 
-<p>The <a href="/v3/activity/events/">Events API</a> is a read-only interface to all the <a href="/v3/activity/events/types/">event
-types</a> that power the various activity streams on GitHub.</p>
+* **Timeline**: The GitHub global public timeline
+* **User**: The public timeline for any user, using [URI template][]
+* **Current user public**: The public timeline for the authenticated user
+* **Current user**: The private timeline for the authenticated user
+* **Current user actor**: The private timeline for activity created by the authenticated user
+* **Current user organizations**: The private timeline for the organizations the authenticated user is a member of.
 
-<h2>
-<a id="feeds" class="anchor" href="#feeds" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="/v3/activity/feeds/">Feeds</a>
-</h2>
+**Note**: Private feeds are only returned when [authenticating via Basic
+Auth][authenticating] since current feed URIs use the older, non revocable auth
+tokens.
 
-<p>List of <a href="/v3/activity/feeds/">Atom feeds</a> available for the authenticated user.</p>
+    GET /feeds
 
-<h2>
-<a id="notifications" class="anchor" href="#notifications" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="/v3/activity/notifications/">Notifications</a>
-</h2>
+### Response
 
-<p>Notifications of new comments are delivered to users.  <a href="/v3/activity/notifications/">The Notifications
-API</a> lets you view these notifications and mark them as read.</p>
+``` headers
+Status: 200 OK
+```
 
-<h2>
-<a id="starring" class="anchor" href="#starring" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="/v3/activity/starring/">Starring</a>
-</h2>
+``` json
+{
+  "timeline_url": "https://github.com/timeline",
+  "user_url": "https://github.com/{user}",
+  "current_user_public_url": "https://github.com/defunkt",
+  "current_user_url": "https://github.com/defunkt.private?token=abc123",
+  "current_user_actor_url": "https://github.com/defunkt.private.actor?token=abc123",
+  "current_user_organization_url": "",
+  "current_user_organization_urls": [
+    "https://github.com/organizations/github/defunkt.private.atom?token=abc123"
+  ],
+  "_links": {
+    "timeline": {
+      "href": "https://github.com/timeline",
+      "type": "application/atom+xml"
+    },
+    "user": {
+      "href": "https://github.com/{user}",
+      "type": "application/atom+xml"
+    },
+    "current_user_public": {
+      "href": "https://github.com/defunkt",
+      "type": "application/atom+xml"
+    },
+    "current_user": {
+      "href": "https://github.com/defunkt.private?token=abc123",
+      "type": "application/atom+xml"
+    },
+    "current_user_actor": {
+      "href": "https://github.com/defunkt.private.actor?token=abc123",
+      "type": "application/atom+xml"
+    },
+    "current_user_organization": {
+      "href": "",
+      "type": ""
+    },
+    "current_user_organizations": [
+      {
+        "href": "https://github.com/organizations/github/defunkt.private.atom?token=abc123",
+        "type": "application/atom+xml"
+      }
+    ]
+  }
+}
+```
 
-<p><a href="/v3/activity/starring/">Repository Starring</a> is a feature that lets users bookmark repositories.  Stars
-are shown next to repositories to show an approximate level of interest.  Stars
-have no effect on notifications or the activity feed.</p>
 
-<h2>
-<a id="watching" class="anchor" href="#watching" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="/v3/activity/watching/">Watching</a>
-</h2>
 
-<p><a href="/v3/activity/watching/">Watching a Repository</a> registers the user to receive notifications on new
-discussions, as well as events in the user's activity feed.</p>
 
+[URI template]: https://developer.github.com/v3/#hypermedia -->
 
     </div>
 
@@ -101,26 +137,19 @@ discussions, as well as events in the user's activity feed.</p>
     <ul>
       <li class="js-topic">
         <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/">Overview</a></h3>
-        <ul class="js-guides">
-          <!-- <li><a href="/api/media/">Media Types</a></li> -->
-          <li><a href="/api/authentication/">Authentication</a></li>
-          <!-- <li><a href="/api/oauth_authorizations/">OAuth Authorizations API</a></li> -->
-          <!-- <li><a href="/api/auth/">Other Authentication Methods</a></li> -->
-          <!-- <li><a href="/api/troubleshooting/">Troubleshooting</a></li> -->
-          <li><a href="/api/versions/">Versions</a></li>
+        <ul class="js-guides">          
+          <li><a href="/api/overview/authentication/">Authentication</a></li>          
+          <li><a href="/api/overview/versions/">Versions</a></li>
         </ul>
       </li>
-      <!-- <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/activity/">Activity</a></h3>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/classes/">Classes</a></h3>
         <ul class="js-guides">
-          <li><a href="/api/activity/events/">Events</a></li>
-          <li><a href="/api/activity/events/types/">Event Types &amp; Payloads</a></li>
-          <li><a href="/api/activity/feeds/">Feeds</a></li>
-          <li><a href="/api/activity/notifications/">Notifications</a></li>
-          <li><a href="/api/activity/starring/">Starring</a></li>
-          <li><a href="/api/activity/watching/">Watching</a></li>
+          <li><a href="/api/classes/classes/">Classes</a></li>
+          <li><a href="/api/classes/booking/">Booking</a></li>
+          <li><a href="/api/classes/ratings/">Ratings</a></li>          
         </ul>
-      </li> -->
+      </li>
     </ul>
   </div> <!-- /sidebar-module -->
   <!-- <div class="sidebar-module notice">
