@@ -1391,6 +1391,11 @@ pre span.comment {color: #aaa;}
     background-size: 188px 30px;
   }
 
+  .feature .logo_hero {
+    background-image: url(/assets/images/logo@2x.png);    
+    background-size: 512px 512px;
+  }
+
   #searchfield {
     background-image: url(/assets/images/search@2x.png);
     background-size: 13px 13px;
