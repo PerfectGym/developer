@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Notifications | Perfectgym Developer Guide</title>
+  <title>Ratings | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -51,403 +51,212 @@
   <div id="wrapper">
     <div class="content">
       
-<!-- # Notifications
 
-{:toc}
+<h1>
+<a id="ratings" class="anchor" href="#ratings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ratings</h1>
 
-Users receive notifications for conversations in repositories they watch
-including:
+<p>This API allow users to rate classes and instructors.</p>
 
-* Issues and their comments
-* Pull Requests and their comments
-* Comments on any commits
+<ul id="markdown-toc">
+<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+<li><a href="#rate-class" id="markdown-toc-rate-class">Rate class</a></li>
+<li><a href="#cancel-class" id="markdown-toc-cancel-class">Cancel class</a></li>
+</ul>
 
-Notifications are also sent for conversations in unwatched repositories when the
-user is involved including:
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
-* **@mentions**
-* Issue assignments
-* Commits the user authors or commits
-* Any discussion in which the user actively participates
+<h2>
+<a id="rate-class" class="anchor" href="#rate-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rate class</h2>
 
-All Notification API calls require the `notifications` or
-`repo` API scopes.  Doing this will give read-only access to
-some Issue/Commit content. You will still need the "repo" scope to access
-Issues and Commits from their respective endpoints.
+<pre><code>POST Classes/RateClass/{classId}/{userId}/{rating}
+</code></pre>
 
-Notifications come back as "threads".  A Thread contains information about the
-current discussion of an Issue/PullRequest/Commit.
+<p>Signs up user for fitness class.</p>
 
-Notifications are optimized for polling with the "Last-Modified" header.  If
-there are no new notifications, you will see a "304 Not Modified" response,
-leaving your current rate limit untouched.  There is an "X-Poll-Interval"
-header that specifies how often (in seconds) you are allowed to poll.  In times
-of high server load, the time may increase.  Please obey the header.
+<h3>
+<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classId</code></td>
+<td><code>long</code></td>
+<td>Class identifier. Request rates fitness class identified by <code>classId</code>.</td>
+</tr>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>User identifier.  Request rates fitness class on behalf of user identified by <code>userId</code>.</td>
+</tr>
+<tr>
+<td><code>rating</code></td>
+<td><code>int</code></td>
+<td>Rating. Value of <code>1</code> to <code>5</code>. Rating user assigns to selected classes.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-properties" class="anchor" href="#response-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response properties</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classAlreadyRated</code></td>
+<td><code>bool</code></td>
+<td>
+<code>true</code> if user has already rated selected class.</td>
+</tr>
+<tr>
+<td><code>userDidNotAttendClass</code></td>
+<td><code>bool</code></td>
+<td>
+<code>true</code> if user didn't attend selected class.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <pre class="command-line">
-<span class="comment"># Add authentication to your requests</span>
-<span class="command">curl -I https://api.github.com/notifications</span>
-HTTP/1.1 200 OK
-Last-Modified: Thu, 25 Oct 2012 15:16:27 GMT
-X-Poll-Interval: 60
-
-<span class="comment"># Pass the Last-Modified header exactly</span>
-<span class="command">curl -I https://api.github.com/notifications</span>
-<span class="command">   -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"</span>
-<span class="output">HTTP/1.1 304 Not Modified</span>
-<span class="output">X-Poll-Interval: 60</span>
+curl -i 
+     -X POST 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/RateClass/1677/40/5
 </pre>
 
+<p>In this example we assign rating <code>5</code> to classes with id = <code>1677</code> by user with id = <code>40</code>.</p>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"rateDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"classAlreadyRated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userDidNotAttendClass"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="cancel-class" class="anchor" href="#cancel-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cancel class</h2>
+
+<pre><code>POST Classes/RateInstructor/{classId}/{userId}/{rating}
+</code></pre>
+
+<p>Cancels user booking.</p>
+
+<h3>
+<a id="path-parameters-1" class="anchor" href="#path-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classId</code></td>
+<td><code>long</code></td>
+<td>Class identifier. Request cancels user booking for fitness class identified by <code>classId</code>.</td>
+</tr>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>User identifier.  Request cancels user identified by <code>userId</code> booking for fitness class.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-properties-1" class="anchor" href="#response-properties-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response properties</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classId</code></td>
+<td><code>long</code></td>
+<td>Class identifier. Request rates instructor conducting class identified by <code>classId</code>.</td>
+</tr>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>User identifier.  Request rates instructor on behalf of user identified by <code>userId</code>.</td>
+</tr>
+<tr>
+<td><code>rating</code></td>
+<td><code>int</code></td>
+<td>Rating. Value of <code>1</code> to <code>5</code>. Rating user assigns to selected instructor.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/RateInstructor/1677/40/4
+</pre>
+
+<p>In this example we assign rating <code>4</code> to instructor conducting classes with id = <code>1677</code> by user with id = <code>40</code>.</p>
+
+<h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
 
-## Notification Reasons
-
-When retrieving responses from the Notifications API, each payload has a key titled
-`reason`. These correspond to events that trigger a notification.
-
-Here's a list of potential `reason`s for receiving a notification:
-
-Reason Name | Description
-------------|------------
-`subscribed` | The notification arrived because you're watching the repository
-`manual` | The notification arrived because you've specifically decided to subscribe to the thread (via an Issue or Pull Request)
-`author` | The notification arrived because you've created the thread
-`comment` | The notification arrived because you've commented on the thread
-`mention` | The notification arrived because you were specifically **@mentioned** in the content
-`team_mention` | The notification arrived because you were on a team that was mentioned (like @org/team)
-`state_change` | The notification arrived because you changed the thread state (like closing an Issue or merging a Pull Request)
-`assign` | The notification arrived because you were assigned to the Issue
-
-Note that the `reason` is modified on a per-thread basis, and can change, if the
-`reason` on a later notification is different.
-
-For example, if you are the author of an issue, subsequent notifications on that
-issue will have a `reason` of `author`. If you're then  **@mentioned** on the same
-issue, the notifications you fetch thereafter will have a `reason` of `mention`.
-The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
-
-## List your notifications
-
-List all notifications for the current user, grouped by repository.
-
-    GET /notifications
-
-### Parameters
-
-Name | Type | Description
------|------|--------------
-`all`|`boolean` | If `true`, show notifications marked as read. Default: `false`
-`participating`|`boolean` | If `true`, only shows notifications in which the user is directly participating or mentioned. Default: `false`
-`since`|`string` | Only show notifications updated after the given time. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Default: `Time.now`
-`before`|`string` | Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-
-### Response
-
-``` headers
-Status: 200 OK
-```
-
-``` json
-[
-  {
-    "id": "1",
-    "repository": {
-      "id": 1296269,
-      "owner": {
-        "login": "octocat",
-        "id": 1,
-        "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/octocat",
-        "html_url": "https://github.com/octocat",
-        "followers_url": "https://api.github.com/users/octocat/followers",
-        "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-        "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-        "organizations_url": "https://api.github.com/users/octocat/orgs",
-        "repos_url": "https://api.github.com/users/octocat/repos",
-        "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/octocat/received_events",
-        "type": "User",
-        "site_admin": false
-      },
-      "name": "Hello-World",
-      "full_name": "octocat/Hello-World",
-      "description": "This your first repo!",
-      "private": false,
-      "fork": false,
-      "url": "https://api.github.com/repos/octocat/Hello-World",
-      "html_url": "https://github.com/octocat/Hello-World"
-    },
-    "subject": {
-      "title": "Greetings",
-      "url": "https://api.github.com/repos/octokit/octokit.rb/issues/123",
-      "latest_comment_url": "https://api.github.com/repos/octokit/octokit.rb/issues/comments/123",
-      "type": "Issue"
-    },
-    "reason": "subscribed",
-    "unread": true,
-    "updated_at": "2014-11-07T22:01:45Z",
-    "last_read_at": "2014-11-07T22:01:45Z",
-    "url": "https://api.github.com/notifications/threads/1"
-  }
-]
-```
-
-
-## List your notifications in a repository
-
-List all notifications for the current user.
-
-    GET /repos/:owner/:repo/notifications
-
-### Parameters
-
-Name | Type | Description
------|------|--------------
-`all`|`boolean` | If `true`, show notifications marked as read. Default: `false`
-`participating`|`boolean` | If `true`, only shows notifications in which the user is directly participating or mentioned. Default: `false`
-`since`|`string` | Only show notifications updated after the given time. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Default: `Time.now`
-`before`|`string` | Only show notifications updated before the given time. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-
-### Response
-
-``` headers
-Status: 200 OK
-```
-
-``` json
-[
-  {
-    "id": "1",
-    "repository": {
-      "id": 1296269,
-      "owner": {
-        "login": "octocat",
-        "id": 1,
-        "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/octocat",
-        "html_url": "https://github.com/octocat",
-        "followers_url": "https://api.github.com/users/octocat/followers",
-        "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-        "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-        "organizations_url": "https://api.github.com/users/octocat/orgs",
-        "repos_url": "https://api.github.com/users/octocat/repos",
-        "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/octocat/received_events",
-        "type": "User",
-        "site_admin": false
-      },
-      "name": "Hello-World",
-      "full_name": "octocat/Hello-World",
-      "description": "This your first repo!",
-      "private": false,
-      "fork": false,
-      "url": "https://api.github.com/repos/octocat/Hello-World",
-      "html_url": "https://github.com/octocat/Hello-World"
-    },
-    "subject": {
-      "title": "Greetings",
-      "url": "https://api.github.com/repos/octokit/octokit.rb/issues/123",
-      "latest_comment_url": "https://api.github.com/repos/octokit/octokit.rb/issues/comments/123",
-      "type": "Issue"
-    },
-    "reason": "subscribed",
-    "unread": true,
-    "updated_at": "2014-11-07T22:01:45Z",
-    "last_read_at": "2014-11-07T22:01:45Z",
-    "url": "https://api.github.com/notifications/threads/1"
-  }
-]
-```
-
-
-## Mark as read
-
-Marking a notification as "read" removes it from the [default view
-on GitHub.com](https://github.com/notifications).
-
-    PUT /notifications
-
-### Parameters
-
-Name | Type | Description
------|------|--------------
-`last_read_at`|`string` | Describes the last point that notifications were checked.  Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Default: `Time.now`
-
-
-### Response
-
-``` headers
-Status: 205 Reset Content
-```
-
-
-## Mark notifications as read in a repository
-
-Marking all notifications in a repository as "read" removes them
-from the [default view on GitHub.com](https://github.com/notifications).
-
-    PUT /repos/:owner/:repo/notifications
-
-### Parameters
-
-Name | Type | Description
------|------|--------------
-`last_read_at`|`string` | Describes the last point that notifications were checked.  Anything updated since this time will not be updated. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. Default: `Time.now`
-
-
-### Response
-
-``` headers
-Status: 205 Reset Content
-```
-
-
-## View a single thread
-
-    GET /notifications/threads/:id
-
-### Response
-
-``` headers
-Status: 200 OK
-```
-
-``` json
-{
-  "id": "1",
-  "repository": {
-    "id": 1296269,
-    "owner": {
-      "login": "octocat",
-      "id": 1,
-      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/octocat",
-      "html_url": "https://github.com/octocat",
-      "followers_url": "https://api.github.com/users/octocat/followers",
-      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-      "organizations_url": "https://api.github.com/users/octocat/orgs",
-      "repos_url": "https://api.github.com/users/octocat/repos",
-      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/octocat/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "name": "Hello-World",
-    "full_name": "octocat/Hello-World",
-    "description": "This your first repo!",
-    "private": false,
-    "fork": false,
-    "url": "https://api.github.com/repos/octocat/Hello-World",
-    "html_url": "https://github.com/octocat/Hello-World"
-  },
-  "subject": {
-    "title": "Greetings",
-    "url": "https://api.github.com/repos/octokit/octokit.rb/issues/123",
-    "latest_comment_url": "https://api.github.com/repos/octokit/octokit.rb/issues/comments/123",
-    "type": "Issue"
-  },
-  "reason": "subscribed",
-  "unread": true,
-  "updated_at": "2014-11-07T22:01:45Z",
-  "last_read_at": "2014-11-07T22:01:45Z",
-  "url": "https://api.github.com/notifications/threads/1"
-}
-```
-
-
-## Mark a thread as read
-
-    PATCH /notifications/threads/:id
-
-### Response
-
-``` headers
-Status: 205 Reset Content
-```
-
-
-## Get a Thread Subscription
-
-This checks to see if the current user is subscribed to a thread.  You can also
-[get a Repository subscription](/v3/activity/watching/#get-a-repository-subscription).
-
-[[#tip]]
-
-Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were **@mention**ed, or manually subscribe to a thread.
-
-[[/tip]]
-
-    GET /notifications/threads/:id/subscription
-
-### Response
-
-``` headers
-Status: 200 OK
-```
-
-``` json
-{
-  "subscribed": true,
-  "ignored": false,
-  "reason": null,
-  "created_at": "2012-10-06T21:34:12Z",
-  "url": "https://api.github.com/notifications/threads/1/subscription",
-  "thread_url": "https://api.github.com/notifications/threads/1"
-}
-```
-
-
-## Set a Thread Subscription
-
-This lets you subscribe or unsubscribe from a conversation. Unsubscribing from a conversation mutes all future notifications (until you comment or get **@mention**ed once more).
-
-    PUT /notifications/threads/:id/subscription
-
-### Parameters
-
-Name | Type | Description
------|------|--------------
-`subscribed`|`boolean`| Determines if notifications should be received from this thread
-`ignored`|`boolean`| Determines if all notifications should be blocked from this thread
-
-
-### Response
-
-``` headers
-Status: 200 OK
-```
-
-``` json
-{
-  "subscribed": true,
-  "ignored": false,
-  "reason": null,
-  "created_at": "2012-10-06T21:34:12Z",
-  "url": "https://api.github.com/notifications/threads/1/subscription",
-  "thread_url": "https://api.github.com/notifications/threads/1"
-}
-```
-
-
-## Delete a Thread Subscription
-
-    DELETE /notifications/threads/:id/subscription
-
-### Response
-
-``` headers
-Status: 204 No Content
-```
- -->
+
+<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"rateDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"instructorAlreadyRated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"classWithoutAssignedInstructor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userDidNotAttendClass"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+
 
     </div>
 
