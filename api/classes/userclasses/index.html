@@ -63,72 +63,61 @@ available in your gym.</p>
 <li><a href="#class-properties" id="markdown-toc-class-properties">Class properties</a></li>
 <li><a href="#list-classes-in-a-given-timeframe" id="markdown-toc-list-classes-in-a-given-timeframe">List classes in a given timeframe</a></li>
 <li><a href="#list-classes-with-timestamp" id="markdown-toc-list-classes-with-timestamp">List classes with timestamp</a></li>
+<li><a href="#user-classes" id="markdown-toc-user-classes">User classes</a></li>
 </ul>
 
 <h2>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
-<p>Class represents fitness class conducted in your club.</p>
+<p>Each fitness class has a class type assigned . Class type is for example 'Zumba', 
+and a class is an instance of a class type (for example Zumba at 'Fibo' club, starting on 2015-12-21 18:00).
+Class types are global accross all clubs of a company (in case company has more then 1 club).</p>
 
 <h2>
 <a id="class-properties" class="anchor" href="#class-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class properties</h2>
 
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>classType</code></td>
-<td><a href="/api/classes/classestypes#properties">Class type</a></td>
-<td>Class type.</td>
-</tr>
-<tr>
-<td><code>instructor</code></td>
-<td><code>Instructor</code></td>
-<td>Instructor conducting class.</td>
-</tr>
-<tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of class.</td>
-</tr>
-<tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp of class. Indicates when class was last modified.</td>
-</tr>
-<tr>
-<td><code>isDeleted</code></td>
-<td><code>bool</code></td>
-<td>Indicates if class was deleted from the club schedule.</td>
-</tr>
-<tr>
-<td><code>startDate</code></td>
-<td><code>datetime</code></td>
-<td>Class start date and time.</td>
-</tr>
-<tr>
-<td><code>endDate</code></td>
-<td><code>datetime</code></td>
-<td>Class end date and time.</td>
-</tr>
-<tr>
-<td><code>attendeesCount</code></td>
-<td><code>int</code></td>
-<td>Number of users signed up for class.</td>
-</tr>
-<tr>
-<td><code>attendeesLimit</code></td>
-<td><code>int</code></td>
-<td>Maximum number of attendees allowed to attend class.</td>
-</tr>
-</tbody>
-</table>
+<p>All classes share the same response format</p>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"classType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">263952</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box perfectly combines cardio and strength training under the guise of groove!"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"instructor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">376826</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agatha"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"laastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strickland"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.3</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1677</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">254718</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T06:15:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T07:15:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
 
 <h2>
 <a id="list-classes-in-a-given-timeframe" class="anchor" href="#list-classes-in-a-given-timeframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes in a given timeframe</h2>
@@ -136,137 +125,17 @@ available in your gym.</p>
 <pre><code>GET Classes/GetClasses/{clubId}/{startDate}/{endDate}  
 </code></pre>
 
-<p>Returns classes list from club that take place in a given timeframe.</p>
-
-<h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>clubId</code></td>
-<td><code>long</code></td>
-<td>Club identifier. Request returns classes that take place in club identified by <code>clubId</code>.</td>
-</tr>
-<tr>
-<td><code>startDate</code></td>
-<td><code>datetime</code></td>
-<td>Start date. Request returns classes that starts leter then <code>startDate</code>.</td>
-</tr>
-<tr>
-<td><code>endDate</code></td>
-<td><code>datetime</code></td>
-<td>End date. Request returns classes that ends earlier then <code>endtDate</code>.</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://fibo.waw-piotrekz.creadhoc.local/ExternalApi/Classes/GetClasses/2/2015-12-01/2015-12-31/
-</pre>
-
-<p>In this example we fetch list of all classes in club with id = <code>2</code>, that starts in december 2015</p>
-
-<h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
-
-<pre class="highlight highlight-headers"><code>Status: 200 OK
-</code></pre>
-
-
-<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"classType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">263952</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box perfectly combines cardio and strength training under the guise of groove!"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"instructor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">376826</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agatha"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"laastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strickland"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1677</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">254718</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T06:15:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T07:15:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-
 <h2>
 <a id="list-classes-with-timestamp" class="anchor" href="#list-classes-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes with timestamp</h2>
 
 <pre><code>GET Classes/GetClasses/{clubId}/{timestamp}
 </code></pre>
 
-<p>Returns classes list modified after point in time specified by <code>timestamp</code>.</p>
+<h2>
+<a id="user-classes" class="anchor" href="#user-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>User classes</h2>
 
-<h3>
-<a id="path-parameters-1" class="anchor" href="#path-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp. Request returns classes with timestamp grater then <code>timestamp</code>
-</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/254000
-</pre>
-
-<p>In this example we fetch list of all classes with timestamp greater then <code>254000</code></p>
-
-<h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<p>All user classes share the same response format. It combines
+class data with user specific information.</p>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -274,83 +143,97 @@ curl -i
 
 <pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"classType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">263952</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box perfectly combines cardio and strength training under the guise of groove!"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"instructor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">376826</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agatha"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"laastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strickland"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1677</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">254718</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T06:15:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T07:15:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="nt">"booked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"userClassRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"userInstructorRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"classType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">263952</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box perfectly combines cardio and strength training under the guise of groove!"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"instructor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">376826</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agatha"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"laastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strickland"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.3</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1677</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">254718</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T06:15:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T07:15:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
 
-<!-- ``` headers
-Status: 200 OK
-```
+<h3>
+<a id="list-user-classes-in-a-given-timeframe" class="anchor" href="#list-user-classes-in-a-given-timeframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user classes in a given timeframe</h3>
 
-``` json
-[
-  {
-    "elements": [
-      {
-        "classType": {
-          "id": 4,
-          "timestamp": 263952,
-          "name": "Box",
-          "description": "Box perfectly combines cardio and strength training under the guise of groove!",
-          "rating": 4.3,
-          "votesCount": 1234,
-          "rankingSort": 2.3
-        },
-        "instructor": {
-          "id": 52,
-          "timestamp": 376826,
-          "firstName": "Agatha",
-          "laastName": "Strickland",
-          "rating": 4.7,
-          "votesCount": 1234,
-          "rankingSort": 3.3
-        },
-        "id": 1677,
-        "timestamp": 254718,
-        "isDeleted": false,
-        "startDate": "2015-12-03T06:15:00",
-        "endDate": "2015-12-03T07:15:00",
-        "attendeesCount": 7,
-        "attendeesLimit": 20,
-        "clubZone": "Fitness"
-      }
-    ]
-  }
-]
-```
+<pre><code>GET Classes/GetClassesForUser/{userId}/{clubId}/{startDate}/{endDate} 
+</code></pre>
 
- -->
+<h3>
+<a id="list-user-classes-with-timestamp" class="anchor" href="#list-user-classes-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user classes with timestamp</h3>
+
+<pre><code>GET Classes/GetClassesForUser/{userId}/{clubId}/{timestamp}
+</code></pre>
+
+<!-- ## List issue events for a repository
+
+Repository issue events have a different format than other events,
+as documented in the [Issue Events API](https://developer.github.com/v3/issues/events/).
+
+    GET /repos/:owner/:repo/issues/events
+
+## List public events for a network of repositories
+
+    GET /networks/:owner/:repo/events
+
+## List public events for an organization
+
+    GET /orgs/:org/events
+
+## List events that a user has received
+
+These are events that you've received by watching repos and following
+users.  If you are authenticated as the given user, you will see private
+events.  Otherwise, you'll only see public events.
+
+    GET /users/:username/received_events
+
+## List public events that a user has received
+
+    GET /users/:username/received_events/public
+
+## List events performed by a user
+
+If you are authenticated as the given user, you will see your private
+events.  Otherwise, you'll only see public events.
+
+    GET /users/:username/events
+
+## List public events performed by a user
+
+    GET /users/:username/events/public
+
+## List events for an organization
+
+This is the user's organization dashboard.  You must be authenticated as
+the user to view this.
+
+    GET /users/:username/events/orgs/:org -->
 
 
     </div>

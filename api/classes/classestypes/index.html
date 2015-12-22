@@ -58,22 +58,22 @@
 <p>This API gives you read only access to list classes types in your gym.</p>
 
 <ul id="markdown-toc">
-<li><a href="#overview" id="markdown-toc-overview">
-Overview</a></li>
-<li><a href="#class-type-properties" id="markdown-toc-class-type-properties">Class type properties</a></li>
+<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+<li><a href="#class-type-properties" id="markdown-toc-class-type-properties">
+Class type properties</a></li>
 <li><a href="#list-classes-types-with-timestamp" id="markdown-toc-list-classes-types-with-timestamp">List classes types with timestamp</a></li>
 </ul>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="classesTypes"></a>Overview</h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
 <p>Each fitness class has a class type assigned . Class type is for example 'Zumba', 
 and a class is an instance of a class type (for example Zumba at 'Fibo' club, starting on 2015-12-21 18:00).
 Class types are global accross all clubs of a company (in case company has more then 1 club).</p>
 
 <h2>
-<a id="class-type-properties" class="anchor" href="#class-type-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class type properties</h2>
+<a id="class-type-properties" class="anchor" href="#class-type-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>Class type properties</h2>
 
 <table>
 <thead>
@@ -145,7 +145,8 @@ Class types are global accross all clubs of a company (in case company has more 
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
-<td>Timestamp.</td>
+<td>Timestamp. Request returns classes types with timestamp grater then <code>timestamp</code>
+</td>
 </tr>
 </tbody>
 </table>
