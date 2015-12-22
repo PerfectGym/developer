@@ -60,7 +60,8 @@ available in your gym.</p>
 
 <ul id="markdown-toc">
 <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#class-properties" id="markdown-toc-class-properties">Class properties</a></li>
+<li><a href="#class-properties" id="markdown-toc-class-properties">
+Class properties</a></li>
 <li><a href="#list-classes-in-a-given-timeframe" id="markdown-toc-list-classes-in-a-given-timeframe">List classes in a given timeframe</a></li>
 <li><a href="#list-classes-with-timestamp" id="markdown-toc-list-classes-with-timestamp">List classes with timestamp</a></li>
 </ul>
@@ -71,7 +72,8 @@ available in your gym.</p>
 <p>Class represents fitness class conducted in your club.</p>
 
 <h2>
-<a id="class-properties" class="anchor" href="#class-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class properties</h2>
+<a id="class-properties" class="anchor" href="#class-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>Class properties</h2>
 
 <table>
 <thead>
@@ -125,7 +127,7 @@ available in your gym.</p>
 <tr>
 <td><code>attendeesLimit</code></td>
 <td><code>int</code></td>
-<td>Maximum number of attendees allowed to attend class.</td>
+<td>Maximum number of attendees allowed to attend class. <code>null</code> if there is no limit.</td>
 </tr>
 </tbody>
 </table>
@@ -227,10 +229,10 @@ curl -i
 <h2>
 <a id="list-classes-with-timestamp" class="anchor" href="#list-classes-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes with timestamp</h2>
 
-<pre><code>GET Classes/GetClasses/{clubId}/{timestamp}
+<pre><code>GET Classes/GetClassesWithTimestamp/{clubId}/{timestamp}
 </code></pre>
 
-<p>Returns classes list modified after point in time specified by <code>timestamp</code>.</p>
+<p>Returns classes list from club, modified after point in time specified by <code>timestamp</code>.</p>
 
 <h3>
 <a id="path-parameters-1" class="anchor" href="#path-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
@@ -244,6 +246,11 @@ curl -i
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>Club identifier. Request returns classes that take place in club identified by <code>clubId</code>.</td>
+</tr>
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
@@ -260,10 +267,10 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/254000
+     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesWithTimestamp/2/254000
 </pre>
 
-<p>In this example we fetch list of all classes with timestamp greater then <code>254000</code></p>
+<p>In this example we fetch list of all classes in club with id = <code>2</code> and with timestamp greater then <code>254000</code></p>
 
 <h3>
 <a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
@@ -370,6 +377,7 @@ Status: 200 OK
         <ul class="js-guides">
           <li><a href="/api/classes/classestypes/">Classes types</a></li>
           <li><a href="/api/classes/classes/">Classes</a></li>
+          <li><a href="/api/classes/userclasses/">User classes</a></li>
           <li><a href="/api/classes/booking/">Booking</a></li>
           <li><a href="/api/classes/ratings/">Ratings</a></li>          
         </ul>
