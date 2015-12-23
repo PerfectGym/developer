@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Classes types | Perfectgym Developer Guide</title>
+  <title>Responses | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,111 +53,49 @@
       
 
 <h1>
-<a id="classes-types" class="anchor" href="#classes-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes types</h1>
+<a id="responses" class="anchor" href="#responses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Responses</h1>
 
-<p>This API gives you read only access to list classes types in your gym.</p>
+<p>This describes PerfectGym API responses basics.</p>
 
 <ul id="markdown-toc">
 <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#class-type-properties" id="markdown-toc-class-type-properties">
-Class type properties</a></li>
-<li><a href="#list-classes-types-with-timestamp" id="markdown-toc-list-classes-types-with-timestamp">List classes types with timestamp</a></li>
+<li><a href="#get-response-envelope" id="markdown-toc-get-response-envelope">GET Response Envelope</a></li>
+<li><a href="#post-response-envelope" id="markdown-toc-post-response-envelope">POST Response Envelope</a></li>
+<li><a href="#summary-representations" id="markdown-toc-summary-representations">Summary Representations</a></li>
+<li><a href="#detailed-representations" id="markdown-toc-detailed-representations">Detailed Representations</a></li>
 </ul>
 
 <h2>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
-<p>Each fitness class has a class type assigned . Class type is for example 'Zumba', 
-and a class is an instance of a class type (for example Zumba at 'Fibo' club, starting on 2015-12-21 18:00).
-Class types are global accross all clubs of a company (in case company has more then 1 club).</p>
+<p>Each API response is wrapped in a standard structure called the envelope, 
+which holds the results of the API call, plus the metadata related to the request.</p>
 
 <h2>
-<a id="class-type-properties" class="anchor" href="#class-type-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="properties"></a>Class type properties</h2>
+<a id="get-response-envelope" class="anchor" href="#get-response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET Response Envelope</h2>
 
-<p>Class type is described by the following properties</p>
+<p>GET responses contains resources list or individual resources. </p>
+
+<h3>
+<a id="envelope" class="anchor" href="#envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Envelope</h3>
 
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th>Attribute Name</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of class type.</td>
-</tr>
-<tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp of class type. Indicates when class type was last modified.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>Class type name.</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td><code>string</code></td>
-<td>Class type description.</td>
-</tr>
-<tr>
-<td><code>rating</code></td>
-<td><a href="/api/classes/ratings#properties">Rating</a></td>
-<td>Class type rating.</td>
-</tr>
-</tbody>
-</table>
-
-<h2>
-<a id="list-classes-types-with-timestamp" class="anchor" href="#list-classes-types-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes types with timestamp</h2>
-
-<pre><code>GET Classes/GetClassesTypes/{timestamp}
-</code></pre>
-
-<p>Request returns classes type list.</p>
-
-<h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp. Request returns classes types with timestamp grater then <code>timestamp</code>
-</td>
+<td><code>elements</code></td>
+<td>A collection of objects the payload carries. In case of individual resource, <code>elements</code> contain only one object.</td>
 </tr>
 </tbody>
 </table>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesTypes/0
-</pre>
-
-<p>In this example we fetch list of all classes types (<code>timestamp</code> parameter set to <code>0</code>) 
-available in a company.</p>
-
-<h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -187,6 +125,96 @@ available in a company.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+
+<h2>
+<a id="post-response-envelope" class="anchor" href="#post-response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>POST Response Envelope</h2>
+
+<p>POST request are used to create / update elements or invoke actions.</p>
+
+<h3>
+<a id="envelope-1" class="anchor" href="#envelope-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Envelope</h3>
+
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>success</code></td>
+<td>
+<code>true</code> if action completed successfuly, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>details</code></td>
+<td>Information containing request result details.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"standbyList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"classAlreadyBooked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bookingRejected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bookingBlockedForUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bookingInZoneNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bookingWithDebitNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bookingWithoutActiveContractNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bookingNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bookingToLate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bookingToSoon"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dailyBookingLimitReached"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dailyZoneBookingLimitReached"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"userNotAllowedToAccessClub"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"standbyListLimitReached"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rejectionReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="summary-representations" class="anchor" href="#summary-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary Representations</h2>
+
+<p>When you fetch a list of resources, the response includes a <em>subset</em> of the
+attributes for that resource. This is the "summary" representation of the
+resource. (Some attributes are computationally expensive for the API to provide.
+For performance reasons, the summary representation excludes those attributes.
+To obtain those attributes, fetch the "detailed" representation.)</p>
+
+<p><strong>Example</strong>: When you get a list of classes, you get the summary
+representation of each class type. Here, we fetch the list of classes
+in a given club:</p>
+
+<pre><code>GET Classes/GetClasses/{clubId}/{timestamp}
+</code></pre>
+
+<h2>
+<a id="detailed-representations" class="anchor" href="#detailed-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Detailed Representations</h2>
+
+<p>When you fetch an individual resource, the response typically includes <em>all</em>
+attributes for that resource. This is the "detailed" representation of the
+resource.</p>
+
+<p><strong>Example</strong>: When you get an individual class, you get the detailed
+representation of the class:</p>
+
+<pre><code>GET Classes/GetClass/{classId}
+</code></pre>
+
+<p>The documentation provides an example response for each API method. The example
+response illustrates all attributes that are returned by that method.</p>
 
 
     </div>

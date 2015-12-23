@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>PerfectGym API Overview | Perfectgym Developer Guide</title>
+  <title>Requests | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,87 +53,45 @@
       
 
 <h1>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h1>
+<a id="requests" class="anchor" href="#requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requests</h1>
 
-<p>This describes the resources that make up the official PerfectGym API.</p>
+<p>This describes PerfectGym API requests basics.</p>
 
 <ul id="markdown-toc">
-<li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
-<li><a href="#general" id="markdown-toc-general">General</a></li>
-<li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
+<li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+<li><a href="#timestamp-parameter" id="markdown-toc-timestamp-parameter">Timestamp parameter</a></li>
 </ul>
 
 <h2>
-<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h2>
 
-<p>The PerfectGym API lets you tap into PerfectGym and build your own PerfectGym-powered web, desktop and mobile applications.</p>
+<p>GET requests parameters are specified as path segments.    </p>
 
-<p>The API provides a simple, resource-oriented, RESTful interface with JSON-formatted responses to use PerfectGym’s features.</p>
+<p>POST requests parameters are specified as path segment (or JSON body with Content-Type of 'application-json'
+when explicitly required).</p>
 
-<h2>
-<a id="general" class="anchor" href="#general" aria-hidden="true"><span class="octicon octicon-link"></span></a>General</h2>
+<p><strong>Example</strong>: In this example, the <code>1</code> and <code>0</code> values are provided for the <code>clubId</code>
+and <code>timestamp</code> parameters in the path.</p>
 
-<p>All API access is over HTTPS, and accessed from the <code>yourcompany.perfectgym.com/api/</code>.  All data is
-sent and received as JSON.</p>
+<pre><code>GET Classes/GetClasses/{clubId}/{timestamp}
+</code></pre>
 
 <pre class="command-line">
 <span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/0</span>
-
-<span class="output">HTTP/1.1 200 OK</span>
-<span class="output">Cache-Control: no-cache</span>
-<span class="output">Pragma: no-cache</span>
-<span class="output">Content-Length: 61</span>
-<span class="output">Content-Type: application/json; charset=utf-8</span>
-<span class="output">Expires: -1</span>
-<span class="output">Server: Microsoft-IIS/8.5</span>
-<span class="output">WWW-Authenticate: Bearer</span>
-<span class="output">X-AspNet-Version: 4.0.30319</span>
-<span class="output">X-Powered-By: ASP.NET</span>
-<span class="output">pg-app: externalapi</span>
-<span class="output">X-Powered-By: ARR/3.0</span>
-<span class="output">pg-app: Routing</span>
-<span class="output">Date: Fri, 18 Dec 2015 16:47:49 GMT</span>
 </pre>
 
-<h3>
-<a id="blank-fields" class="anchor" href="#blank-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Blank fields</h3>
-
-<p>Blank fields are included as <code>null</code> instead of being omitted.</p>
-
-<h3>
-<a id="identifiers--timestamps" class="anchor" href="#identifiers--timestamps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Identifiers &amp; timestamps</h3>
-
-<p>All resources are identified with  long <code>id</code> and <code>timestamp</code> attributes.</p>
-
-<h3>
-<a id="date-format" class="anchor" href="#date-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Date format</h3>
-
-<p>All dates and times follow the ISO 8601 format and are provided in local time zone:</p>
-
-<pre><code>YYYY-MM-DDTHH:MM:SS
-</code></pre>
-
 <h2>
-<a id="http-verbs" class="anchor" href="#http-verbs" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP Verbs</h2>
+<a id="timestamp-parameter" class="anchor" href="#timestamp-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timestamp parameter</h2>
 
-<table>
-<thead>
-<tr>
-<th>Verb</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GET</code></td>
-<td>Used for retrieving resources.</td>
-</tr>
-<tr>
-<td><code>POST</code></td>
-<td>Used for creating / updating resources or invoking actions.</td>
-</tr>
-</tbody>
-</table>
+<p>Requests with timestamp parameter returns list of resources added or changed after point in time represented
+by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> ascending.</p>
+
+<p><strong>Example</strong>: In this example we fetch list of classes from the club with <code>id</code> of <code>1</code> and with <code>timestamp</code> 
+value greater then <code>654321</code>.</p>
+
+<pre class="command-line">
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/0</span>
+</pre>
 
 
     </div>

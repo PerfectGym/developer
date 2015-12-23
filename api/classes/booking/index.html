@@ -68,7 +68,7 @@
 <pre><code>POST Classes/BookClass/{classId}/{userId} 
 </code></pre>
 
-<p>Signs up user for fitness class.</p>
+<p>Request signs up user for fitness class.</p>
 
 <h3>
 <a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
@@ -96,7 +96,7 @@
 </table>
 
 <h3>
-<a id="response-properties" class="anchor" href="#response-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response properties</h3>
+<a id="response-details-properties" class="anchor" href="#response-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response details properties</h3>
 
 <table>
 <thead>
@@ -214,12 +214,14 @@ curl -i
 <h3>
 <a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
+<p>In this example booking is unsuccessful because it is to late to book selected classes.</p>
+
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
 
 
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"bookingDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"standbyList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"classAlreadyBooked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"bookingRejected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -247,7 +249,7 @@ curl -i
 <pre><code>POST Classes/CancelBooking/{classId}/{userId}
 </code></pre>
 
-<p>Cancels user booking.</p>
+<p>Request cancels user booking.</p>
 
 <h3>
 <a id="path-parameters-1" class="anchor" href="#path-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
@@ -275,7 +277,7 @@ curl -i
 </table>
 
 <h3>
-<a id="response-properties-1" class="anchor" href="#response-properties-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response properties</h3>
+<a id="response-details-properties-1" class="anchor" href="#response-details-properties-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response details properties</h3>
 
 <table>
 <thead>
@@ -316,12 +318,14 @@ curl -i
 <h3>
 <a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
+<p>In this example class cancelation is unsuccessful because class was not booked.</p>
+
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
 
 
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"cancelDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"classNotBooked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"toLateToCancel"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -339,6 +343,8 @@ curl -i
       <li class="js-topic">
         <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/">Overview</a></h3>
         <ul class="js-guides">          
+          <li><a href="/api/overview/requests/">Requests</a></li>          
+          <li><a href="/api/overview/responses/">Responses</a></li>          
           <li><a href="/api/overview/authentication/">Authentication</a></li>          
           <li><a href="/api/overview/versions/">Versions</a></li>
         </ul>
