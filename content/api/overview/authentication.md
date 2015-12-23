@@ -1,5 +1,5 @@
 ---
-title: Other Authentication Methods
+title: Authentication
 ---
 
 # Authentication
@@ -67,7 +67,7 @@ curl -i -X POST
 ### Response
 
 <%= headers 200 %>
-<%= json(:oauth_response) { |h| [h] } %>
+<%= json(:oauth_response) %>
 Token expiration time is presented in seconds.
 
 
