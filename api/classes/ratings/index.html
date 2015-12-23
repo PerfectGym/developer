@@ -197,14 +197,14 @@ elements by <code>rankingFactor</code> ascending sets elements in the proper ran
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
+<p>In this example we assign rating <code>5</code> to classes with id = <code>1677</code> by user with id = <code>40</code>.</p>
+
 <pre class="command-line">
 curl -i 
      -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
      http://yoursubdomain.perfectgym.com/api/Classes/RateClass/1677/40/5
 </pre>
-
-<p>In this example we assign rating <code>5</code> to classes with id = <code>1677</code> by user with id = <code>40</code>.</p>
 
 <h3>
 <a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
@@ -299,14 +299,14 @@ curl -i
 <h3>
 <a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
+<p>In this example we assign rating <code>4</code> to instructor conducting classes with id = <code>1677</code> by user with id = <code>40</code>.</p>
+
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
      http://yoursubdomain.perfectgym.com/api/Classes/RateInstructor/1677/40/4
 </pre>
-
-<p>In this example we assign rating <code>4</code> to instructor conducting classes with id = <code>1677</code> by user with id = <code>40</code>.</p>
 
 <h3>
 <a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>

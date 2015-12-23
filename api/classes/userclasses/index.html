@@ -157,14 +157,14 @@ Only user specyfic properties are described here.</p>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
+<p>In this example we fetch list of all user (with id = <code>40</code>) classes in club with id = <code>2</code>, that starts in december 2015</p>
+
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
      http://fibo.waw-piotrekz.creadhoc.local/ExternalApi/Classes/GetClassesForUser/40/2/2015-12-01/2015-12-31/
 </pre>
-
-<p>In this example we fetch list of all user (with id = <code>40</code>) classes in club with id = <code>2</code>, that starts in december 2015</p>
 
 <h3>
 <a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
@@ -254,14 +254,14 @@ curl -i
 <h3>
 <a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
+<p>In this example we fetch list of all user (with id = <code>40</code>) classes in club with id = <code>2</code>, with timestamp greater then <code>254000</code></p>
+
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
      http://yoursubdomain.perfectgym.com/api/Classes/GetClassesForUserWithTimestamp/40/2/254000
 </pre>
-
-<p>In this example we fetch list of all user (with id = <code>40</code>) classes in club with id = <code>2</code>, with timestamp greater then <code>254000</code></p>
 
 <h3>
 <a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
