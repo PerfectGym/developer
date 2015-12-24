@@ -89,8 +89,11 @@ by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> asc
 <p><strong>Example</strong>: In this example we fetch list of classes from the club with <code>id</code> of <code>1</code> and with <code>timestamp</code> 
 value greater then <code>654321</code>.</p>
 
+<pre><code>GET Classes/GetClasses/{clubId}/{timestamp}
+</code></pre>
+
 <pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/0</span>
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/654321</span>
 </pre>
 
 
