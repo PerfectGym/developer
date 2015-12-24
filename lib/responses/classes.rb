@@ -1,5 +1,14 @@
 require_relative 'user'
 
+# "club": {
+#         "id": 2,
+#         "timestamp": 271990,
+#         "name": "Club Poznań",
+#         "shortName": null,
+#         "symbol": null
+#       },
+
+
 module GitHub
   module Resources
     module Responses
@@ -12,18 +21,22 @@ module GitHub
             "timestamp" => 263952,
             "name" => "Box",
             "description" => "Box perfectly combines cardio and strength training under the guise of groove!",
-            "rating": 4.1,
-            "votesCount": 1234,
-            "rankingSort": 2.3                        
+            "rating" => {
+              "rating": 4.1,
+              "votesCount": 1234,
+              "rankingSort": 2.3                        
+            }            
           },
           {
             "id": 2,
             "timestamp": 382653,
             "name": "POWER JOGA",
             "description": "Power Yoga is definitely an intense workout that will make you sweat.",
-            "rating": 4.1,
-            "votesCount": 4321,
-            "rankingSort": 4.3
+            "rating" => {
+              "rating": 4.1,
+              "votesCount": 4321,
+              "rankingSort": 4.3
+            }            
           }
         ]
       }      
@@ -33,24 +46,33 @@ module GitHub
         "elements" => [
           {
             "classType" => {
-
               "id" => 4,
               "timestamp" => 263952,
               "name" => "Box",
               "description" => "Box perfectly combines cardio and strength training under the guise of groove!",
-              "rating": 4.3,
-              "votesCount": 1234,
-              "rankingSort": 2.3
+              "rating" => {
+                "rating": 4.3,
+                "votesCount": 1234,
+                "rankingSort": 2.3
+              }              
             },
-            "instructor" => {
-          
+            "instructor" => {          
               "id": 52,
               "timestamp": 376826,
               "firstName": "Agatha",
               "laastName": "Strickland",
-              "rating": 4.7,
-              "votesCount": 1234,
-              "rankingSort": 3.3      
+              "rating" => {
+                "rating": 4.7,
+                "votesCount": 1234,
+                "rankingSort": 3.3        
+              }              
+            },
+            "club" => {
+              "id": 2,
+              "timestamp": 271990,
+              "name": "Fibo Cyberbotics",
+              "shortName": "Cyberbotics",
+              "symbol": "FCBR"      
             },
             "id": 1677,
             "timestamp": 254718,
@@ -78,19 +100,29 @@ module GitHub
                 "timestamp" => 263952,
                 "name" => "Box",
                 "description" => "Box perfectly combines cardio and strength training under the guise of groove!",
-                "rating": 4.3,
-                "votesCount": 1234,
-                "rankingSort": 2.3
+                "rating" => {
+                  "rating": 4.3,
+                  "votesCount": 1234,
+                  "rankingSort": 2.3                  
+                }                
               },
-            "instructor" => {
-          
+            "instructor" => {          
               "id": 52,
               "timestamp": 376826,
               "firstName": "Agatha",
               "laastName": "Strickland",
-              "rating": 4.7,
-              "votesCount": 1234,
-              "rankingSort": 3.3      
+              "rating" => {
+                "rating": 4.7,
+                "votesCount": 1234,
+                "rankingSort": 3.3      
+              }              
+            },
+            "club" => {
+              "id": 2,
+              "timestamp": 271990,
+              "name": "Fibo Cyberbotics",
+              "shortName": "Cyberbotics",
+              "symbol": "FCBR"           
             },
             "id": 1677,
             "timestamp": 254718,

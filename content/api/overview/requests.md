@@ -36,6 +36,7 @@ by `timestamp` value. Result is ordered by `timestamp` ascending.
 **Example**: In this example we fetch list of classes from the club with `id` of `1` and with `timestamp` 
 value greater then `654321`.
 
+	GET Classes/GetClasses/{clubId}/{timestamp}
 ``` command-line
-$ curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/0
+$ curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/654321
 ```

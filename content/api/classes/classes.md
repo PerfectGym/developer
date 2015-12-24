@@ -24,6 +24,7 @@ Name            | Type                        | Description
 -----|----------|------------------------------------------
 `classType`     |[Class type][ClassesTypes]   | Class type.
 `instructor`    |`Instructor`                 | Instructor conducting class.
+`club`			|`Club`						  | Club class take place in.
 `id`            |`long`                       | Unique identifier of class.
 `timestamp`     |`long`                       | Timestamp of class. Indicates when class was last modified.
 `isDeleted`     |`bool`                       | Indicates if class was deleted from the club schedule.
