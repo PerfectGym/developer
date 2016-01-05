@@ -50,6 +50,30 @@
   
   
   {
+    "title": "Club details",
+    
+    "url": "/api/clubs/clubdetails/",
+    "body": " Club details This API gives you read only access to detailed information about clubs available in your company. "
+  },
+  
+  
+  {
+    "title": "Clubs",
+    
+    "url": "/api/clubs/clubs/",
+    "body": " Clubs This API gives you read only access to list of clubs available in your company.  Overview  Club properties List clubs with timestamp   Overview Club is a summary representation of single club in your company.   Club properties Class is described by the following properties    Name Type Description     id long Unique identifier of class.   timestamp long Timestamp of class. Indicates when class was last modified.   name string Club name.   shortName long Club short name.   symbol long Club symbol.   type long Club type.   isDeleted bool Indicates if club was deleted from your company club list.     List clubs with timestamp GET Clubs/GetClubsWithTimestamp/{timestamp}  Request returns list of clubs available in your company.  Path parameters    Name Type Description     timestamp long Timestamp. Request returns clubs with timestamp grater then timestamp      Example request In this example we fetch list of all clubs with timestamp greater then 254000  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Clubs/GetClubsWithTimestamp/254000   Example response Status: 200 OK  { \"elements\": [ { \"id\": 2, \"timestamp\": 271990, \"name\": \"Club Poznan\", \"shortName\": \"Poznan\", \"symbol\": \"POZ\", \"type\": \"Normal\", \"isDeleted\": false }, { \"id\": 3, \"timestamp\": 255980, \"name\": \"Club Cracow\", \"shortName\": \"Cracow\", \"symbol\": \"CRA\", \"type\": \"Normal\", \"isDeleted\": false }, { \"id\": 9, \"timestamp\": 255968, \"name\": \"Club Monaco\", \"shortName\": \"Monaco\", \"symbol\": \"MON\", \"type\": \"Platinum\", \"isDeleted\": false }, { \"id\": 14, \"timestamp\": 256064, \"name\": \"Club Moscow\", \"shortName\": \"Moscow\", \"symbol\": \"\", \"type\": \"Normal\", \"isDeleted\": true } ] } "
+  },
+  
+  
+  {
+    "title": "Clubs",
+    
+    "url": "/api/clubs/",
+    "body": " Clubs The Clubs APIs provides access to clubs list and club details that are part of your company.  Clubs  Clubs API gives you read only access to list of clubs available in your company.  Club details  Club details API gives you read only access to detailed information about clubs available in your company."
+  },
+  
+  
+  {
     "title": "Authentication",
     
     "url": "/api/overview/authentication/",

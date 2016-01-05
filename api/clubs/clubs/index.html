@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Classes types | Perfectgym Developer Guide</title>
+  <title>Clubs | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,29 +53,28 @@
       
 
 <h1>
-<a id="classes-types" class="anchor" href="#classes-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes types</h1>
+<a id="clubs" class="anchor" href="#clubs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clubs</h1>
 
-<p>This API gives you read only access to list classes types in your gym.</p>
+<p>This API gives you read only access to list of clubs 
+available in your company.</p>
 
 <ul id="markdown-toc">
 <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#class-type-properties" id="markdown-toc-class-type-properties">
-Class type properties</a></li>
-<li><a href="#list-classes-types-with-timestamp" id="markdown-toc-list-classes-types-with-timestamp">List classes types with timestamp</a></li>
+<li><a href="#club-properties" id="markdown-toc-club-properties">
+Club properties</a></li>
+<li><a href="#list-clubs-with-timestamp" id="markdown-toc-list-clubs-with-timestamp">List clubs with timestamp</a></li>
 </ul>
 
 <h2>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
-<p>Each fitness class has a class type assigned . Class type is for example 'Zumba', 
-and a class is an instance of a class type (for example Zumba at 'Fibo' club, starting on 2015-12-21 18:00).
-Class types are global accross all clubs of a company (in case company has more then 1 club).</p>
+<p>Club is a summary representation of single club in your company.</p>
 
 <h2>
-<a id="class-type-properties" class="anchor" href="#class-type-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="properties"></a>Class type properties</h2>
+<a id="club-properties" class="anchor" href="#club-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>Club properties</h2>
 
-<p>Class type is described by the following properties</p>
+<p>Class is described by the following properties</p>
 
 <table>
 <thead>
@@ -89,38 +88,48 @@ Class types are global accross all clubs of a company (in case company has more 
 <tr>
 <td><code>id</code></td>
 <td><code>long</code></td>
-<td>Unique identifier of class type.</td>
+<td>Unique identifier of class.</td>
 </tr>
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
-<td>Timestamp of class type. Indicates when class type was last modified.</td>
+<td>Timestamp of class. Indicates when class was last modified.</td>
 </tr>
 <tr>
 <td><code>name</code></td>
 <td><code>string</code></td>
-<td>Class type name.</td>
+<td>Club name.</td>
 </tr>
 <tr>
-<td><code>description</code></td>
-<td><code>string</code></td>
-<td>Class type description.</td>
+<td><code>shortName</code></td>
+<td><code>long</code></td>
+<td>Club short name.</td>
 </tr>
 <tr>
-<td><code>rating</code></td>
-<td><a href="/api/classes/ratings#properties">Rating</a></td>
-<td>Class type rating.</td>
+<td><code>symbol</code></td>
+<td><code>long</code></td>
+<td>Club symbol.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>long</code></td>
+<td>Club type.</td>
+</tr>
+<tr>
+<td><code>isDeleted</code></td>
+<td><code>bool</code></td>
+<td>Indicates if club was deleted from your company club list.</td>
 </tr>
 </tbody>
 </table>
 
 <h2>
-<a id="list-classes-types-with-timestamp" class="anchor" href="#list-classes-types-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes types with timestamp</h2>
+<a id="list-clubs-with-timestamp" class="anchor" href="#list-clubs-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List clubs with timestamp</h2>
 
-<pre><code>GET Classes/GetClassesTypes/{timestamp}
+<pre><code>GET Clubs/GetClubsWithTimestamp/{timestamp}
 </code></pre>
 
-<p>Request returns classes type list.</p>
+<p>Request returns list of clubs available in your company.</p>
 
 <h3>
 <a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
@@ -137,7 +146,7 @@ Class types are global accross all clubs of a company (in case company has more 
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
-<td>Timestamp. Request returns classes types with timestamp grater then <code>timestamp</code>
+<td>Timestamp. Request returns clubs with timestamp grater then <code>timestamp</code>
 </td>
 </tr>
 </tbody>
@@ -146,14 +155,13 @@ Class types are global accross all clubs of a company (in case company has more 
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all classes types (<code>timestamp</code> parameter set to <code>0</code>) 
-available in a company.</p>
+<p>In this example we fetch list of all clubs with timestamp greater then <code>254000</code></p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesTypes/0
+     http://yoursubdomain.perfectgym.com/api/Clubs/GetClubsWithTimestamp/254000
 </pre>
 
 <h3>
@@ -166,26 +174,40 @@ curl -i
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">263952</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box perfectly combines cardio and strength training under the guise of groove!"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">271990</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Poznan"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poznan"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POZ"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">382653</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POWER JOGA"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Power Yoga is definitely an intense workout that will make you sweat."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4321</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.3</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">255980</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Cracow"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cracow"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CRA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">255968</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Monaco"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monaco"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Platinum"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">256064</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Moscow"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moscow"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
