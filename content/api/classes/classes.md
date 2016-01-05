@@ -38,7 +38,7 @@ Name            | Type                        | Description
 
 ## List classes in a given timeframe
 
-    GET Classes/GetClasses/{clubId}/{startDate}/{endDate}  
+    GET Classes/GetClasses/{clubId} 
 
 Request returns classes list.
 
@@ -48,19 +48,28 @@ Request returns classes list.
 Name         | Type       | Description
 -----|-------|------------|------------
 `clubId`     |`long`      | Club identifier. Request returns classes that take place in club identified by `clubId`.
-`startDate`  |`datetime`  | Start date. Request returns classes that starts leter then `startDate`.
-`endDate`    |`datetime`  | End date. Request returns classes that ends earlier then `endtDate`.
+
+
+### Query string parameters
+
+Name         | Type       | Description
+-----|-------|------------|------------
+`startDate`  |`datetime`  | **Required**. Start date. Request returns classes that starts leter then `startDate`.
+`endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
+`page`       |`int`       | Optional. Page number, defaults to `1`.
 
 
 ### Example request
 
-In this example we fetch list of all classes in club with id = `2`, that starts in december 2015
+In this example we fetch first 100 classes in club with id = `2`, that starts in december 2015
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/2/2015-12-01/2015-12-31/
+     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/2?
+     	startDate=2015-12-01T00:00:00&
+     	endDate=2015-12-31T23:59:59
 ```
 
 

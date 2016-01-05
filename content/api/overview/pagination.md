@@ -1,14 +1,14 @@
 ---
-title: Requests
+title: Pagination
 ---
 
-# Requests
+# Pagination
 
-This describes PerfectGym API requests basics.
+This describes PerfectGym API pagination mechanism.
 
 {:toc}
 
-
+<!-- 
 
 ## Request parameters
 
@@ -58,3 +58,4 @@ value greater then `654321`.
 ``` command-line
 $ curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/654321
 ```
+ -->
