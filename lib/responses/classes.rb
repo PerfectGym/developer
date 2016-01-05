@@ -1,13 +1,5 @@
 require_relative 'user'
 
-# "club": {
-#         "id": 2,
-#         "timestamp": 271990,
-#         "name": "Club Poznań",
-#         "shortName": null,
-#         "symbol": null
-#       },
-
 
 module GitHub
   module Resources
