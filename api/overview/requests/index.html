@@ -58,19 +58,23 @@
 <p>This describes PerfectGym API requests basics.</p>
 
 <ul id="markdown-toc">
-<li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+<li><a href="#request-parameters" id="markdown-toc-request-parameters">Request parameters</a></li>
+<li><a href="#filter-and-pagination-parameters" id="markdown-toc-filter-and-pagination-parameters">Filter and pagination parameters</a></li>
 <li><a href="#timestamp-parameter" id="markdown-toc-timestamp-parameter">Timestamp parameter</a></li>
 </ul>
 
 <h2>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h2>
+<a id="request-parameters" class="anchor" href="#request-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request parameters</h2>
 
 <p>GET requests parameters are specified as path segments.    </p>
 
 <p>POST requests parameters are specified as path segment (or JSON body with Content-Type of 'application-json'
 when explicitly required).</p>
 
-<p><strong>Example</strong>: In this example, the <code>1</code> and <code>0</code> values are provided for the <code>clubId</code>
+<h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<p>In this example, the <code>1</code> and <code>0</code> values are provided for the <code>clubId</code>
 and <code>timestamp</code> parameters in the path.</p>
 
 <pre><code>GET Classes/GetClasses/{clubId}/{timestamp}
@@ -81,12 +85,39 @@ and <code>timestamp</code> parameters in the path.</p>
 </pre>
 
 <h2>
+<a id="filter-and-pagination-parameters" class="anchor" href="#filter-and-pagination-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filter and pagination parameters</h2>
+
+<p>We use query string parameters for filtering and pagination in the PerfectGym API. 
+The format for query string parameters is the full resource URL followed by a question mark, and the parameters.
+Available query string parameters are described for each API endpoint.</p>
+
+<h3>
+<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<p>In this example, we retrive classes availeble in club identified by <code>id</code> of value <code>1</code>, that take place
+between <code>2016-01-01</code> and <code>2016-01-31</code></p>
+
+<pre><code>GET Classes/GetClasses/{clubId}
+</code></pre>
+
+<pre class="command-line">
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1?</span>
+    startDate=2016-01-01T00:00:00&amp;
+    endDate=2016-01-31T23:59:59
+</pre>
+
+<p>For details about pagination with <code>page</code> parameter go to <a href="/api/overview/pagination#page">Pagination with query string parameters</a></p>
+
+<h2>
 <a id="timestamp-parameter" class="anchor" href="#timestamp-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timestamp parameter</h2>
 
 <p>Requests with timestamp parameter returns list of resources added or changed after point in time represented
 by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> ascending.</p>
 
-<p><strong>Example</strong>: In this example we fetch list of classes from the club with <code>id</code> of <code>1</code> and with <code>timestamp</code> 
+<h3>
+<a id="example-2" class="anchor" href="#example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<p>In this example we fetch list of classes from the club with <code>id</code> of <code>1</code> and with <code>timestamp</code> 
 value greater then <code>654321</code>.</p>
 
 <pre><code>GET Classes/GetClasses/{clubId}/{timestamp}
@@ -95,6 +126,8 @@ value greater then <code>654321</code>.</p>
 <pre class="command-line">
 <span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/654321</span>
 </pre>
+
+<p>For details about pagination with <code>timestamp</code> parameter go to <a href="/api/overview/pagination#timestamp">Pagination using timestamp</a></p>
 
 
     </div>
@@ -105,7 +138,8 @@ value greater then <code>654321</code>.</p>
       <li class="js-topic">
         <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/">Overview</a></h3>
         <ul class="js-guides">          
-          <li><a href="/api/overview/requests/">Requests</a></li>          
+          <li><a href="/api/overview/requests/">Requests</a></li> 
+          <li><a href="/api/overview/pagination/">Pagination</a></li>          
           <li><a href="/api/overview/responses/">Responses</a></li>          
           <li><a href="/api/overview/authentication/">Authentication</a></li>          
           <li><a href="/api/overview/versions/">Versions</a></li>
@@ -134,7 +168,7 @@ value greater then <code>654321</code>.</p>
     <!-- <div id="footer" >
     <div class="lower_footer">
       <ul class="footer-cell">
-        <li><a href="https://github.com/github/developer.github.com#licenses">&copy; 2015 GitHub, Inc.</a></li>
+        <li><a href="https://github.com/github/developer.github.com#licenses">&copy; 2016 GitHub, Inc.</a></li>
         <li><a href="https://help.github.com/terms-of-service/">Terms</a></li>
         <li><a href="https://help.github.com/privacy-policy/">Privacy</a></li>
         <li><a href="https://help.github.com/security/">Security</a></li>

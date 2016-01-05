@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>Pagination | Perfectgym Developer Guide</title>
+  <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
+  <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/assets/javascripts/application.js" type="text/javascript"></script>
+  
+  <script src="/assets/javascripts/dev_mode.js" type="text/javascript"></script>
+  
+</head>
+
+
+<body class="api dev-mode">
+  
+
+<div id="header-wrapper">
+  <div id="header">
+    <div>
+      <a class="logo" href="/">PerfectGym:Developer</a>
+      <ul class="nav">
+        <li><a href="/api/" class="nav-api">API</a></li>        
+        <!-- <li><a href="/changes/" class="nav-blog">Blog</a></li>         -->
+        <li id="search-container">
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <div class="cancel-search"></div>
+          <ul id="search-results">
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div><!-- #header -->
+</div><!-- #header-wrapper -->
+
+
+  <div class="sub-nav">
+    <h2><a href="/api/">API</a></h2>
+
+    <ul>
+      <li><a href="/api/" class="active">Reference</a></li>      
+      <!-- <li><a href="/guides/">Guides</a></li> -->
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+
+<h1>
+<a id="pagination" class="anchor" href="#pagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pagination</h1>
+
+<p>This describes PerfectGym API pagination mechanism.</p>
+
+<ul id="markdown-toc">
+<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+<li><a href="#pagination-using-timestamp" id="markdown-toc-pagination-using-timestamp">
+Pagination using timestamp</a></li>
+<li><a href="#pagination-using-query-string-parameter" id="markdown-toc-pagination-using-query-string-parameter">
+Pagination using query string parameter</a></li>
+</ul>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>Each PerfectGym API endpoint that returns list of resources uses pagination. </p>
+
+<p>For pagination API uses <code>timestamp</code> for methods with <code>timestamp</code> parameter, 
+or <code>page</code> query string parameter otherwise.
+Page numbering is <strong>1-based</strong>, page size is 100.</p>
+
+<h2>
+<a id="pagination-using-timestamp" class="anchor" href="#pagination-using-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="timestamp"></a>Pagination using timestamp</h2>
+
+<p>Requests with timestamp parameter return list of resources added or changed after point in time represented
+by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> ascending and is paged with page size of 100.</p>
+
+<p>To get next page, use last element's <code>timestamp</code> in subsequent request. </p>
+
+<p>To get all elements iterate with <code>timestamp</code> parameter untill you get result with less then 100 elements.</p>
+
+<h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<p>In this example we fetch list of available in club with id = <code>2</code> classes. 
+<em>(Several element properties in JSON response were ommited for clarity)</em></p>
+
+<p>First page, <code>timestamp</code> parameter is equal <code>0</code>. It means that we fetch all elements, 
+regardless of time they were last modified.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesWithTimestamp/2/0        
+</pre>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Elements omitted for clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1677</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">254718</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T06:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T07:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<p>Second page, <code>timestamp</code> parameter of value <code>254718</code> is provided. It means that we fetch all elements with 
+<code>timestamp</code> greater then <code>254718</code> (value of last element's timestamp` in previous request).</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesWithTimestamp/2/254718       
+</pre>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2345</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">366718</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-28T08:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-28T09:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="pagination-using-query-string-parameter" class="anchor" href="#pagination-using-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="page"></a>Pagination using query string parameter</h2>
+
+<p>We use <code>page</code> query string parameter to choose a page. <code>page</code> parameter is always optional. 
+The default page is the first one, so if you ommit <code>page</code> parameter, API will return first page.</p>
+
+<p>To get all elements iterate with <code>page</code> parameter untill you get result with less then 100 elements.</p>
+
+<h3>
+<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<p>In this example we fetch list of available in club with id = <code>2</code> classes, that starts in december 2015.</p>
+
+<p>First page (<code>page</code> parameter is ommited, so it defaults to <code>1</code>)</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/2?
+        startDate=2015-12-01T00:00:00&amp;
+        endDate=2015-12-31T23:59:59
+</pre>
+
+<p>Second page (<code>page</code> parameter of value <code>2</code> is provided)</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/2?
+        startDate=2015-12-01T00:00:00&amp;
+        endDate=2015-12-31T23:59:59&amp;
+        page=2
+</pre>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/">Overview</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/overview/requests/">Requests</a></li> 
+          <li><a href="/api/overview/pagination/">Pagination</a></li>          
+          <li><a href="/api/overview/responses/">Responses</a></li>          
+          <li><a href="/api/overview/authentication/">Authentication</a></li>          
+          <li><a href="/api/overview/versions/">Versions</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/classes/">Classes</a></h3>
+        <ul class="js-guides">
+          <li><a href="/api/classes/classestypes/">Classes types</a></li>
+          <li><a href="/api/classes/classes/">Classes</a></li>
+          <li><a href="/api/classes/userclasses/">User classes</a></li>
+          <li><a href="/api/classes/booking/">Booking</a></li>
+          <li><a href="/api/classes/ratings/">Ratings</a></li>          
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <!-- <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/github/developer.github.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div> -->
+	<!-- <div class="sidebar-module api-status"><a href="https://status.github.com" class="unknown">API Status</a></div> -->
+</div><!-- /sidebar-shell -->
+
+  </div><!-- #wrapper -->
+
+    <!-- <div id="footer" >
+    <div class="lower_footer">
+      <ul class="footer-cell">
+        <li><a href="https://github.com/github/developer.github.com#licenses">&copy; 2016 GitHub, Inc.</a></li>
+        <li><a href="https://help.github.com/terms-of-service/">Terms</a></li>
+        <li><a href="https://help.github.com/privacy-policy/">Privacy</a></li>
+        <li><a href="https://help.github.com/security/">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+      </ul>
+
+      <span class="footer-cell">
+        <a href="https://github.com" class="mega-octicon octicon-mark-github"></a>
+      </span>
+
+      <ul class="footer-cell">
+        <li><a href="https://status.github.com/">Status</a></li>
+        <li><a href="http://training.github.com/">Training</a></li>
+        <li><a href="http://shop.github.com/">Shop</a></li>
+        <li><a href="https://github.com/blog">Blog</a></li>
+        <li><a href="https://github.com/about">About</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /#footer --> 
+  <script>
+  //   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  //   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  //   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  //   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  //   ga('create', 'UA-3769691-37', 'github.com');
+  //   ga('send', 'pageview');
+  </script>
+
+</body>
+</html>
