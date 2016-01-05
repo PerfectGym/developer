@@ -61,7 +61,8 @@ resource. (Some attributes are computationally expensive for the API to provide.
 For performance reasons, the summary representation excludes those attributes.
 To obtain those attributes, fetch the "detailed" representation.)
 
-**Example**: When you get a list of classes, you get the summary
+### Example
+When you get a list of classes, you get the summary
 representation of each class type. Here, we fetch the list of classes
 in a given club:
 
@@ -75,7 +76,8 @@ When you fetch an individual resource, the response typically includes _all_
 attributes for that resource. This is the "detailed" representation of the
 resource.
 
-**Example**: When you get an individual class, you get the detailed
+### Example
+When you get an individual class, you get the detailed
 representation of the class:
 
     GET Classes/GetClass/{classId}

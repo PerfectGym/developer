@@ -86,6 +86,41 @@ module GitHub
         ]              
       }
 
+      CLASSES_FIRST_PAGE_RESPONSE ||= {  
+
+        "elements" => [          
+          {
+            "Elements omitted for clarity": "..." 
+          },
+          {            
+            "id": 1677,
+            "timestamp": 254718,
+            "isDeleted": false,
+            "startDate": "2015-12-03T06:15:00",
+            "endDate": "2015-12-03T07:15:00",
+            "attendeesCount": 7,
+            "attendeesLimit": 20,
+            "clubZone": "Fitness"                
+          }
+        ]              
+      }
+
+      CLASSES_SECOND_PAGE_RESPONSE ||= {  
+
+        "elements" => [          
+          {            
+            "id": 2345,
+            "timestamp": 366718,
+            "isDeleted": false,
+            "startDate": "2015-12-28T08:00:00",
+            "endDate": "2015-12-28T09:00:00",
+            "attendeesCount": 0,
+            "attendeesLimit": 20,
+            "clubZone": "Fitness"                
+          }
+        ]              
+      }
+
       USERCLASSES_RESPONSE ||= {      
         
         "elements" => [

@@ -8,54 +8,94 @@ This describes PerfectGym API pagination mechanism.
 
 {:toc}
 
-<!-- 
-
-## Request parameters
-
-GET requests parameters are specified as path segments.    
-
-POST requests parameters are specified as path segment (or JSON body with Content-Type of 'application-json'
-when explicitly required).
 
 
-**Example**: In this example, the `1` and `0` values are provided for the `clubId`
-and `timestamp` parameters in the path.
+## Overview
 
-    GET Classes/GetClasses/{clubId}/{timestamp}
+Each PerfectGym API endpoint that returns list of resources uses pagination. 
+
+For pagination API uses `timestamp` for methods with `timestamp` parameter, 
+or `page` query string parameter otherwise.
+Page numbering is **1-based**, page size is 100.
+
+
+## <a name="timestamp"></a>Pagination using timestamp
+
+Requests with timestamp parameter return list of resources added or changed after point in time represented
+by `timestamp` value. Result is ordered by `timestamp` ascending and is paged with page size of 100.
+
+To get next page, use last element's `timestamp` in subsequent request. 
+
+To get all elements iterate with `timestamp` parameter untill you get result with less then 100 elements.
+
+
+### Example
+
+In this example we fetch list of available in club with id = `2` classes. 
+_(Several element properties in JSON response were ommited for clarity)_
+
+
+First page, `timestamp` parameter is equal `0`. It means that we fetch all elements, 
+regardless of time they were last modified.
+
 ``` command-line
-$ curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/0
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesWithTimestamp/2/0     	
+```
+
+<%= headers 200 %>
+<%= json(:classes_first_page_response) %>
+
+
+Second page, `timestamp` parameter of value `254718` is provided. It means that we fetch all elements with 
+`timestamp` greater then `254718` (value of last element's timestamp` in previous request).
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesWithTimestamp/2/254718     	
+```
+
+<%= headers 200 %>
+<%= json(:classes_second_page_response) %>
+
+
+
+## <a name="page"></a>Pagination using query string parameter
+
+We use `page` query string parameter to choose a page. `page` parameter is always optional. 
+The default page is the first one, so if you ommit `page` parameter, API will return first page.
+
+To get all elements iterate with `page` parameter untill you get result with less then 100 elements.
+
+
+### Example
+In this example we fetch list of available in club with id = `2` classes, that starts in december 2015.
+
+
+First page (`page` parameter is ommited, so it defaults to `1`)
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/2?
+     	startDate=2015-12-01T00:00:00&
+     	endDate=2015-12-31T23:59:59
 ```
 
 
-## Filter and pagination parameters
+Second page (`page` parameter of value `2` is provided)
 
-We use query string parameters for filtering and pagination in the PerfectGym API. 
-The format for query string parameters is the full resource URL followed by a question mark, and the parameters.
-Available query string parameters are described for each API endpoint.
-
-
-**Example**: In this example, we retrive classes availeble in club identified by `id` of value `1`, that take place
-between `2016-01-01` and `2016-01-31`
-
-	GET Classes/GetClasses/{clubId}
 ``` command-line
-$ curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1?
-	startDate=2016-01-01T00:00:00&
-	endDate=2016-01-31T23:59:59
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/2?
+     	startDate=2015-12-01T00:00:00&
+     	endDate=2015-12-31T23:59:59&
+     	page=2
 ```
-
-
-
-## Timestamp parameter
-
-Requests with timestamp parameter returns list of resources added or changed after point in time represented
-by `timestamp` value. Result is ordered by `timestamp` ascending.
-
-**Example**: In this example we fetch list of classes from the club with `id` of `1` and with `timestamp` 
-value greater then `654321`.
-
-	GET Classes/GetClasses/{clubId}/{timestamp}
-``` command-line
-$ curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/654321
-```
- -->
