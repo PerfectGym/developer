@@ -11,107 +11,80 @@ available in your company.
 
 
 
-<!-- ## Overview 
+## Overview 
 
-User class represents fitness class conducted in your club. User classes share most 
-of its data with [Classes][Classes], and holds additional properties specific to club user.
+Club details is detaild representation of single club in your company. Club details share 
+its data with [Club][Club], and holds additional detailed properties.
 
 
-## Class properties
+## Club details properties
 
-User class holds the same data as [Classes][ClassesProperties] plus user specyfic properties.
-Only user specyfic properties are described here.
+Club details holds the same data as [Club][ClubProperties] plus some detailed features of a club.
+Only club details specyfic properties are described here.
 
 
 Name            		| Type    | Description
 -----|------------------|----------------------
-`booked`     			|`bool`   | `true` if user is signed up for classes, `false` otherwise.
-`attended`    			|`bool`   | `true` if user has attended classes, `false` otherwise.
-`userClassRating`       |`int`    | User class rating. Value of `1` - `5`, represents user rating of selected class. `null` if user didn't rate class.
-`userInstructorRating`  |`int`    | User instructor rating. Value of `1` - `5`, represents user rating of instructor conducting class. `null` if user didn't rate instructor.
+`displayName`           |`string`   | Club's display name.
+`description`     		|`string`   | Club's detailed description.
+`languageCode`    		|`string`   | Language identifier club information are translated to (for example `EN`, `DE` etc.)
+`street`                |`string`   | Club's street name.
+`city`                  |`string`   | Club's city name.
+`postalCode`            |`string`   | Club's zip code or equivalent.
+`country`               |`string`   | Club's country name.
+`longitude`             |`decimal`  | Club's latitude.
+`longitude`             |`decimal`  | Club's longitude.
+`email`                 |`string`   | Club's e-mail address.
+`phoneNumber`           |`string`   | Club's phone number.
+`equipment`             |`array`    | An array of [Equipment][Equipment] objects, each representing equipment type available in club.
+`facilities`            |`array`    | An array of [Facility][Facility] objects, each representing facility available in club.
+`openingHours`          |`array`    | An array of [Opening hours][OpeningHours] objects, each representing club opening hours in a given week day.
+`urls`                  |`array`    | An array of [Url][Url] objects, each representing an url to your club's social service site.
+`contacts`              |`array`    | An array of [Contact][Contact] objects, each representing an individual or a departament in your club, user can reach using e-mail or phone.
+`zones`                 |`array`    | An array of [Zone][Zone] objects, each representing a distinct area in club.
 
 
 
-## List user classes in a given timeframe
+## Get detailed information about specyfic club.
 
-    GET Classes/GetClassesForUser/{userId}/{clubId}  
+    GET Clubs/GetClubDetails/{clubId}/{languageCode}  
 
-Request returns user classes list.
+Request returns detailed club informations.
 
 
 ### Path parameters
 
-Name         | Type       | Description
------|-------|------------|------------
-`userId`     |`long`      | UserId identifier. Request returns classes data for user identified by `userId`.
-`clubId`     |`long`      | Club identifier. Request returns classes that take place in club identified by `clubId`.
+Name            | Type       | Description
+-----|----------|------------|------------
+`clubId`        |`long`      | Club identifier.
+`languageCode`  |`string`    | Optional. Language identifier club information should be translated to (for example `EN`, `DE` etc.).
 
-
-### Query string parameters
-
-Name         | Type       | Description
------|-------|------------|------------
-`startDate`  |`datetime`  | **Required**. Start date. Request returns classes that starts leter then `startDate`.
-`endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
-`page`       |`int`       | Optional. Page number, defaults to `1`.
 
 
 ### Example request
 
-In this example we fetch first 100 of all user (with id = `40`) classes in club with id = `2`, that starts in december 2015
+In this example we fetch club with id = `16` detailed information. Information will be returned in club's language (`languageCode` parameter is ommited).
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesForUser/40/2?
-     	startDate=2015-12-01T00:00:00&
-     	endDate=2015-12-31T23:59:59
+     http://yoursubdomain.perfectgym.com/api/Clubs/GetClubDetails/16     	
 ```
 
 
 ### Example response
 
 <%= headers 200 %>
-<%= json(:userclasses_response) %>
+<%= json(:clubdetails_response) %>
 
 
 
-## List classes with timestamp 
-
-    GET Classes/GetClassesForUserWithTimestamp/{userId}/{clubId}/{timestamp}
-
-Request returns user classes list.
-
-
-### Path parameters
-
-Name         | Type   | Description
------|-------|--------|------------
-`userId`     |`long`  | UserId identifier. Request returns classes data for user identified by `userId`.
-`clubId`     |`long`  | Club identifier. Request returns classes that take place in club identified by `clubId`.
-`timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`
-
-
-### Example request
-
-In this example we fetch list of all user (with id = `40`) classes in club with id = `2`, with timestamp greater then `254000`
-
-``` command-line
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesForUserWithTimestamp/40/2/254000
-```
-
-
-### Example response
-
-<%= headers 200 %>
-<%= json(:userclasses_response) %>
-
-
-
-
-[Classes]:  /api/classes/classes
-[ClassesProperties]:  /api/classes/classes#properties -->
+[Club]: /api/clubs/clubs
+[ClubProperties]: /api/clubs/clubs#properties 
+[Contact]: /api/clubs/contact
+[Equipment]: /api/clubs/equipment
+[Facility]: /api/clubs/facility
+[OpeningHours]: /api/clubs/openinghours
+[Url]: /api/clubs/url
+[Zone]: /api/clubs/zone
