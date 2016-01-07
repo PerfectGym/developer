@@ -58,218 +58,352 @@
 <p>This API gives you read only access to detailed information about clubs
 available in your company.</p>
 
+<ul id="markdown-toc">
+<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+<li><a href="#club-details-properties" id="markdown-toc-club-details-properties">Club details properties</a></li>
+<li><a href="#get-detailed-information-about-specyfic-club" id="markdown-toc-get-detailed-information-about-specyfic-club">Get detailed information about specyfic club.</a></li>
+</ul>
 
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
-<!-- ## Overview 
+<p>Club details is detaild representation of single club in your company. Club details share 
+its data with <a href="/api/clubs/clubs">Club</a>, and holds additional detailed properties.</p>
 
-User class represents fitness class conducted in your club. User classes share most 
-of its data with [Classes][Classes], and holds additional properties specific to club user.
+<h2>
+<a id="club-details-properties" class="anchor" href="#club-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Club details properties</h2>
 
+<p>Club details holds the same data as <a href="/api/clubs/clubs#properties">Club</a> plus some detailed features of a club.
+Only club details specyfic properties are described here.</p>
 
-## Class properties
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>displayName</code></td>
+<td><code>string</code></td>
+<td>Club's display name.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>Club's detailed description.</td>
+</tr>
+<tr>
+<td><code>languageCode</code></td>
+<td><code>string</code></td>
+<td>Language identifier club information are translated to (for example <code>EN</code>, <code>DE</code> etc.)</td>
+</tr>
+<tr>
+<td><code>street</code></td>
+<td><code>string</code></td>
+<td>Club's street name.</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td><code>string</code></td>
+<td>Club's city name.</td>
+</tr>
+<tr>
+<td><code>postalCode</code></td>
+<td><code>string</code></td>
+<td>Club's zip code or equivalent.</td>
+</tr>
+<tr>
+<td><code>country</code></td>
+<td><code>string</code></td>
+<td>Club's country name.</td>
+</tr>
+<tr>
+<td><code>longitude</code></td>
+<td><code>decimal</code></td>
+<td>Club's latitude.</td>
+</tr>
+<tr>
+<td><code>longitude</code></td>
+<td><code>decimal</code></td>
+<td>Club's longitude.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>Club's e-mail address.</td>
+</tr>
+<tr>
+<td><code>phoneNumber</code></td>
+<td><code>string</code></td>
+<td>Club's phone number.</td>
+</tr>
+<tr>
+<td><code>equipment</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/api/clubs/equipment">Equipment</a> objects, each representing equipment type available in club.</td>
+</tr>
+<tr>
+<td><code>facilities</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/api/clubs/facility">Facility</a> objects, each representing facility available in club.</td>
+</tr>
+<tr>
+<td><code>openingHours</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/api/clubs/openinghours">Opening hours</a> objects, each representing club opening hours in a given week day.</td>
+</tr>
+<tr>
+<td><code>urls</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/api/clubs/url">Url</a> objects, each representing an url to your club's social service site.</td>
+</tr>
+<tr>
+<td><code>contacts</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/api/clubs/contact">Contact</a> objects, each representing an individual or a departament in your club, user can reach using e-mail or phone.</td>
+</tr>
+<tr>
+<td><code>zones</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/api/clubs/zone">Zone</a> objects, each representing a distinct area in club.</td>
+</tr>
+</tbody>
+</table>
 
-User class holds the same data as [Classes][ClassesProperties] plus user specyfic properties.
-Only user specyfic properties are described here.
+<h2>
+<a id="get-detailed-information-about-specyfic-club" class="anchor" href="#get-detailed-information-about-specyfic-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get detailed information about specyfic club.</h2>
 
+<pre><code>GET Clubs/GetClubDetails/{clubId}/{languageCode}  
+</code></pre>
 
-Name                    | Type    | Description
------|------------------|----------------------
-`booked`                |`bool`   | `true` if user is signed up for classes, `false` otherwise.
-`attended`              |`bool`   | `true` if user has attended classes, `false` otherwise.
-`userClassRating`       |`int`    | User class rating. Value of `1` - `5`, represents user rating of selected class. `null` if user didn't rate class.
-`userInstructorRating`  |`int`    | User instructor rating. Value of `1` - `5`, represents user rating of instructor conducting class. `null` if user didn't rate instructor.
+<p>Request returns detailed club informations.</p>
 
+<h3>
+<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
 
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>Club identifier.</td>
+</tr>
+<tr>
+<td><code>languageCode</code></td>
+<td><code>string</code></td>
+<td>Optional. Language identifier club information should be translated to (for example <code>EN</code>, <code>DE</code> etc.).</td>
+</tr>
+</tbody>
+</table>
 
-## List user classes in a given timeframe
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-    GET Classes/GetClassesForUser/{userId}/{clubId}  
-
-Request returns user classes list.
-
-
-### Path parameters
-
-Name         | Type       | Description
------|-------|------------|------------
-`userId`     |`long`      | UserId identifier. Request returns classes data for user identified by `userId`.
-`clubId`     |`long`      | Club identifier. Request returns classes that take place in club identified by `clubId`.
-
-
-### Query string parameters
-
-Name         | Type       | Description
------|-------|------------|------------
-`startDate`  |`datetime`  | **Required**. Start date. Request returns classes that starts leter then `startDate`.
-`endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
-`page`       |`int`       | Optional. Page number, defaults to `1`.
-
-
-### Example request
-
-In this example we fetch first 100 of all user (with id = `40`) classes in club with id = `2`, that starts in december 2015
+<p>In this example we fetch club with id = <code>16</code> detailed information. Information will be returned in club's language (<code>languageCode</code> parameter is ommited).</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesForUser/40/2?
-        startDate=2015-12-01T00:00:00&
-        endDate=2015-12-31T23:59:59
+     http://yoursubdomain.perfectgym.com/api/Clubs/GetClubDetails/16        
 </pre>
 
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
 
 
-### Example response
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics Berlin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our club began in 1979 and has always been a favorite of different types of athletes and fitness enthusiasts. Refined and updated to offer a setting that is open and light where both staff and clientele are friendly and casual and the focus is on well-balanced health."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"languageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leipziger Str. 46/47"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-117"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.51038</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.39763</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"club@cyberbotics.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 12 123 456 789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"equipment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Treadmill"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Treadmill"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StationaryBicycle"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stationary bicycle"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"facilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WiFi"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WiFi"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coffee"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coffee"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sunbed"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sunbed"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"openHours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isClosed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"dayOfWeekOrHoliday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isClosed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"dayOfWeekOrHoliday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sunday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isClosed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"dayOfWeekOrHoliday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tuesday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isClosed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"dayOfWeekOrHoliday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wednesday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isClosed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"dayOfWeekOrHoliday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thursday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isClosed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"dayOfWeekOrHoliday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Friday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isClosed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"dayOfWeekOrHoliday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saturday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"openUntil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mediaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Facebook"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://facebook.com/Cyberbotics"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mediaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Twitter"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://twitter.com/Cyberbotics"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mediaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YouTube"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://youtube.com/Cyberbotics"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mediaType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Instagram"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://instagram.com/Cyberbotics"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Support"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"support@club@cyberbotics.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 12 123 456 789"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"zones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mind &amp; Body"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Studio Mind &amp; Body"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spinning"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spinning"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"parentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fit &amp; Dance"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fit &amp; Dance"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">271990</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics Berlin"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CBTCS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-``` headers
-Status: 200 OK
-```
-
-``` json
-{
-  "elements": [
-    {
-      "booked": true,
-      "attended": true,
-      "userClassRating": 5,
-      "userInstructorRating": 4,
-      "classType": {
-        "id": 4,
-        "timestamp": 263952,
-        "name": "Box",
-        "description": "Box perfectly combines cardio and strength training under the guise of groove!",
-        "rating": {
-          "rating": 4.3,
-          "votesCount": 1234,
-          "rankingSort": 2.3
-        }
-      },
-      "instructor": {
-        "id": 52,
-        "timestamp": 376826,
-        "firstName": "Agatha",
-        "laastName": "Strickland",
-        "rating": {
-          "rating": 4.7,
-          "votesCount": 1234,
-          "rankingSort": 3.3
-        }
-      },
-      "club": {
-        "id": 2,
-        "timestamp": 271990,
-        "name": "Fibo Cyberbotics",
-        "shortName": "Cyberbotics",
-        "symbol": "FCBR"
-      },
-      "id": 1677,
-      "timestamp": 254718,
-      "isDeleted": false,
-      "startDate": "2015-12-03T06:15:00",
-      "endDate": "2015-12-03T07:15:00",
-      "attendeesCount": 7,
-      "attendeesLimit": 20,
-      "clubZone": "Fitness"
-    }
-  ]
-}
-```
-
-
-
-
-## List classes with timestamp 
-
-    GET Classes/GetClassesForUserWithTimestamp/{userId}/{clubId}/{timestamp}
-
-Request returns user classes list.
-
-
-### Path parameters
-
-Name         | Type   | Description
------|-------|--------|------------
-`userId`     |`long`  | UserId identifier. Request returns classes data for user identified by `userId`.
-`clubId`     |`long`  | Club identifier. Request returns classes that take place in club identified by `clubId`.
-`timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`
-
-
-### Example request
-
-In this example we fetch list of all user (with id = `40`) classes in club with id = `2`, with timestamp greater then `254000`
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesForUserWithTimestamp/40/2/254000
-</pre>
-
-
-
-### Example response
-
-``` headers
-Status: 200 OK
-```
-
-``` json
-{
-  "elements": [
-    {
-      "booked": true,
-      "attended": true,
-      "userClassRating": 5,
-      "userInstructorRating": 4,
-      "classType": {
-        "id": 4,
-        "timestamp": 263952,
-        "name": "Box",
-        "description": "Box perfectly combines cardio and strength training under the guise of groove!",
-        "rating": {
-          "rating": 4.3,
-          "votesCount": 1234,
-          "rankingSort": 2.3
-        }
-      },
-      "instructor": {
-        "id": 52,
-        "timestamp": 376826,
-        "firstName": "Agatha",
-        "laastName": "Strickland",
-        "rating": {
-          "rating": 4.7,
-          "votesCount": 1234,
-          "rankingSort": 3.3
-        }
-      },
-      "club": {
-        "id": 2,
-        "timestamp": 271990,
-        "name": "Fibo Cyberbotics",
-        "shortName": "Cyberbotics",
-        "symbol": "FCBR"
-      },
-      "id": 1677,
-      "timestamp": 254718,
-      "isDeleted": false,
-      "startDate": "2015-12-03T06:15:00",
-      "endDate": "2015-12-03T07:15:00",
-      "attendeesCount": 7,
-      "attendeesLimit": 20,
-      "clubZone": "Fitness"
-    }
-  ]
-}
-```
-
-
-
-
-
-
-[ClassesProperties]:  /api/classes/classes#properties -->
 
 
     </div>
@@ -291,7 +425,7 @@ Status: 200 OK
         <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/clubs/">Clubs</a></h3>
         <ul class="js-guides">          
           <li><a href="/api/clubs/clubs/">Clubs</a></li> 
-          <li><a href="/api/clubs/clubdetails/">Club details</a></li>                    
+          <li><a href="/api/clubs/clubdetails/">Club details</a></li> 
         </ul>
       </li>
       <li class="js-topic">

@@ -53,7 +53,7 @@
     "title": "Club details",
     
     "url": "/api/clubs/clubdetails/",
-    "body": " Club details This API gives you read only access to detailed information about clubs available in your company. "
+    "body": " Club details This API gives you read only access to detailed information about clubs available in your company.  Overview Club details properties Get detailed information about specyfic club.   Overview Club details is detaild representation of single club in your company. Club details share its data with Club, and holds additional detailed properties.  Club details properties Club details holds the same data as Club plus some detailed features of a club. Only club details specyfic properties are described here.    Name Type Description     displayName string Club's display name.   description string Club's detailed description.   languageCode string Language identifier club information are translated to (for example EN, DE etc.)   street string Club's street name.   city string Club's city name.   postalCode string Club's zip code or equivalent.   country string Club's country name.   longitude decimal Club's latitude.   longitude decimal Club's longitude.   email string Club's e-mail address.   phoneNumber string Club's phone number.   equipment array An array of Equipment objects, each representing equipment type available in club.   facilities array An array of Facility objects, each representing facility available in club.   openingHours array An array of Opening hours objects, each representing club opening hours in a given week day.   urls array An array of Url objects, each representing an url to your club's social service site.   contacts array An array of Contact objects, each representing an individual or a departament in your club, user can reach using e-mail or phone.   zones array An array of Zone objects, each representing a distinct area in club.     Get detailed information about specyfic club. GET Clubs/GetClubDetails/{clubId}/{languageCode}  Request returns detailed club informations.  Path parameters    Name Type Description     clubId long Club identifier.   languageCode string Optional. Language identifier club information should be translated to (for example EN, DE etc.).     Example request In this example we fetch club with id = 16 detailed information. Information will be returned in club's language (languageCode parameter is ommited).  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Clubs/GetClubDetails/16   Example response Status: 200 OK  { \"elements\": [ { \"displayName\": \"Cyberbotics Berlin\", \"description\": \"Our club began in 1979 and has always been a favorite of different types of athletes and fitness enthusiasts. Refined and updated to offer a setting that is open and light where both staff and clientele are friendly and casual and the focus is on well-balanced health.\", \"languageCode\": \"\", \"street\": \"Leipziger Str. 46/47\", \"city\": \"Berlin\", \"postalCode\": \"10-117\", \"country\": \"Germany\", \"latitude\": 52.51038, \"longitude\": 13.39763, \"email\": \"club@cyberbotics.com\", \"phoneNumber\": \"+49 12 123 456 789\", \"equipment\": [ { \"id\": 10, \"type\": \"Treadmill\", \"name\": \"Treadmill\", \"quantity\": 10, \"isDeleted\": false }, { \"id\": 11, \"type\": \"StationaryBicycle\", \"name\": \"Stationary bicycle\", \"quantity\": 10, \"isDeleted\": false } ], \"facilities\": [ { \"id\": 7, \"type\": \"WiFi\", \"name\": \"WiFi\", \"isDeleted\": false }, { \"id\": 8, \"type\": \"Coffee\", \"name\": \"Coffee\", \"isDeleted\": false }, { \"id\": 9, \"type\": \"Sunbed\", \"name\": \"Sunbed\", \"isDeleted\": false } ], \"openHours\": [ { \"id\": 11, \"isClosed\": false, \"dayOfWeekOrHoliday\": \"Monday\", \"openFrom\": \"07:00:00\", \"openUntil\": \"23:00:00\", \"isDeleted\": false }, { \"id\": 12, \"isClosed\": false, \"dayOfWeekOrHoliday\": \"Sunday\", \"openFrom\": \"10:00:00\", \"openUntil\": \"18:00:00\", \"isDeleted\": false }, { \"id\": 13, \"isClosed\": false, \"dayOfWeekOrHoliday\": \"Tuesday\", \"openFrom\": \"07:00:00\", \"openUntil\": \"23:00:00\", \"isDeleted\": false }, { \"id\": 14, \"isClosed\": false, \"dayOfWeekOrHoliday\": \"Wednesday\", \"openFrom\": \"07:00:00\", \"openUntil\": \"23:00:00\", \"isDeleted\": false }, { \"id\": 15, \"isClosed\": false, \"dayOfWeekOrHoliday\": \"Thursday\", \"openFrom\": \"07:00:00\", \"openUntil\": \"23:00:00\", \"isDeleted\": false }, { \"id\": 16, \"isClosed\": false, \"dayOfWeekOrHoliday\": \"Friday\", \"openFrom\": \"07:00:00\", \"openUntil\": \"23:00:00\", \"isDeleted\": false }, { \"id\": 17, \"isClosed\": false, \"dayOfWeekOrHoliday\": \"Saturday\", \"openFrom\": \"09:00:00\", \"openUntil\": \"20:00:00\", \"isDeleted\": false } ], \"urls\": [ { \"id\": 3, \"mediaType\": \"Facebook\", \"url\": \"http://facebook.com/Cyberbotics\", \"isDeleted\": false }, { \"id\": 4, \"mediaType\": \"Twitter\", \"url\": \"http://twitter.com/Cyberbotics\", \"isDeleted\": false }, { \"id\": 5, \"mediaType\": \"YouTube\", \"url\": \"http://youtube.com/Cyberbotics\", \"isDeleted\": false }, { \"id\": 6, \"mediaType\": \"Instagram\", \"url\": \"http://instagram.com/Cyberbotics\", \"isDeleted\": false } ], \"contacts\": [ { \"id\": 4, \"title\": \"\", \"name\": \"Support\", \"email\": \"support@club@cyberbotics.com\", \"phoneNumber\": \"+49 12 123 456 789\", \"isDeleted\": false } ], \"zones\": [ { \"id\": 38, \"parentId\": \"\", \"name\": \"Mind &amp; Body\", \"description\": \"Studio Mind &amp; Body\", \"isDeleted\": false }, { \"id\": 39, \"parentId\": \"\", \"name\": \"Spinning\", \"description\": \"Spinning\", \"isDeleted\": false }, { \"id\": 40, \"parentId\": \"\", \"name\": \"Fit &amp; Dance\", \"description\": \"Fit &amp; Dance\", \"isDeleted\": false } ], \"id\": 16, \"timestamp\": 271990, \"name\": \"Cyberbotics Berlin\", \"shortName\": \"Cyberbotics\", \"symbol\": \"CBTCS\", \"type\": \"Normal\", \"isDeleted\": false } ] } "
   },
   
   
@@ -62,6 +62,54 @@
     
     "url": "/api/clubs/clubs/",
     "body": " Clubs This API gives you read only access to list of clubs available in your company.  Overview  Club properties List clubs with timestamp   Overview Club is a summary representation of single club in your company.   Club properties Class is described by the following properties    Name Type Description     id long Unique identifier of class.   timestamp long Timestamp of class. Indicates when class was last modified.   name string Club name.   shortName long Club short name.   symbol long Club symbol.   type long Club type.   isDeleted bool Indicates if club was deleted from your company club list.     List clubs with timestamp GET Clubs/GetClubsWithTimestamp/{timestamp}  Request returns list of clubs available in your company.  Path parameters    Name Type Description     timestamp long Timestamp. Request returns clubs with timestamp grater then timestamp      Example request In this example we fetch list of all clubs with timestamp greater then 254000  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Clubs/GetClubsWithTimestamp/254000   Example response Status: 200 OK  { \"elements\": [ { \"id\": 2, \"timestamp\": 271990, \"name\": \"Club Poznan\", \"shortName\": \"Poznan\", \"symbol\": \"POZ\", \"type\": \"Normal\", \"isDeleted\": false }, { \"id\": 3, \"timestamp\": 255980, \"name\": \"Club Cracow\", \"shortName\": \"Cracow\", \"symbol\": \"CRA\", \"type\": \"Normal\", \"isDeleted\": false }, { \"id\": 9, \"timestamp\": 255968, \"name\": \"Club Monaco\", \"shortName\": \"Monaco\", \"symbol\": \"MON\", \"type\": \"Platinum\", \"isDeleted\": false }, { \"id\": 14, \"timestamp\": 256064, \"name\": \"Club Moscow\", \"shortName\": \"Moscow\", \"symbol\": \"\", \"type\": \"Normal\", \"isDeleted\": true } ] } "
+  },
+  
+  
+  {
+    "title": "Contact",
+    
+    "url": "/api/clubs/contact/",
+    "body": " Contact  Overview Contact properties   Overview Contact represents an individual or a departament in your club, user can reach using e-mail or phone.  Contact properties Contact is described by the following properties    Name Type Description     id long Unique identifier of contact.   title string Contact's job title.   name string Contact's name.   email string Contact's e-mail address.   phoneNumber string Contact's phone number.   isDeleted bool Indicates if contact was deleted from your club contacts list.   "
+  },
+  
+  
+  {
+    "title": "Equipment",
+    
+    "url": "/api/clubs/equipment/",
+    "body": " Equipment  Overview Equipment properties   Overview Equipment represents an equipment type available in your club.  Equipment properties Equipment is described by the following properties    Name Type Description     id long Unique identifier of equipment.   type string Equipment's type.   name string Equipment's name.   quantity int Total number of equipment's units.   isDeleted bool Indicates if equipment was deleted from your club equipment list.   "
+  },
+  
+  
+  {
+    "title": "Facility",
+    
+    "url": "/api/clubs/facility/",
+    "body": " Facility  Overview Facility properties   Overview Facility represents a facility available to your club users.  Facility properties Facility is described by the following properties    Name Type Description     id long Unique identifier of facility.   type string Facility type.   name string Facility name.   isDeleted bool Indicates if facility was deleted from your club facilities list.   "
+  },
+  
+  
+  {
+    "title": "Opening hours",
+    
+    "url": "/api/clubs/openinghours/",
+    "body": " Opening hours  Overview Opening hours properties   Overview Opening hours represents a timeframe your club is opened on a given day.  Opening hours properties Opening hours are described by the following properties    Name Type Description     id long Unique identifier of opening hours.   isClosed bool Indicates if club is closed on a given week day.   dayOfWeekOrHoliday string Day of week given object refers to. Possible values:  Monday Tuesday Wednesday Thursday Friday Saturday Sunday Holidays     openFrom string Opening hour.   openUntil string Closing hour.   isDeleted bool Indicates if opening hours was deleted.   "
+  },
+  
+  
+  {
+    "title": "Url",
+    
+    "url": "/api/clubs/url/",
+    "body": " Url  Overview Url properties   Overview Url represents an url to your social media service site.  Url properties Url is described by the following properties    Name Type Description     id long Unique identifier of an url.   mediaType string Type of internet site or social media service. Possible values:  Facebook Twitter LinkedIn YouTube Pinterest Instagram, Foursquare Blog GooglePlus GoogleMaps     url string Url to a site.   isDeleted string Indicates if url was deleted.   "
+  },
+  
+  
+  {
+    "title": "Zone",
+    
+    "url": "/api/clubs/zone/",
+    "body": " Zone  Overview Zone properties   Overview Zone represents a distinct area in your club.  Zone properties Zone is described by the following properties    Name Type Description     id long Unique identifier of zone.   parentId string Unique identifier of zone's parrent zone.   name string Zone's name.   description string Zone's description.   isDeleted string Indicates if zone was deleted from your club zones list.   "
   },
   
   
