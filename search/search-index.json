@@ -66,46 +66,6 @@
   
   
   {
-    "title": "Contact",
-    
-    "url": "/api/clubs/contact/",
-    "body": " Contact  Overview Contact properties   Overview Contact represents an individual or a departament in your club, user can reach using e-mail or phone.  Contact properties Contact is described by the following properties    Name Type Description     id long Unique identifier of contact.   title string Contact's job title.   name string Contact's name.   email string Contact's e-mail address.   phoneNumber string Contact's phone number.   isDeleted bool Indicates if contact was deleted from your club contacts list.   "
-  },
-  
-  
-  {
-    "title": "Equipment",
-    
-    "url": "/api/clubs/equipment/",
-    "body": " Equipment  Overview Equipment properties   Overview Equipment represents an equipment type available in your club.  Equipment properties Equipment is described by the following properties    Name Type Description     id long Unique identifier of equipment.   type string Equipment's type.   name string Equipment's name.   quantity int Total number of equipment's units.   isDeleted bool Indicates if equipment was deleted from your club equipment list.   "
-  },
-  
-  
-  {
-    "title": "Facility",
-    
-    "url": "/api/clubs/facility/",
-    "body": " Facility  Overview Facility properties   Overview Facility represents a facility available to your club users.  Facility properties Facility is described by the following properties    Name Type Description     id long Unique identifier of facility.   type string Facility type.   name string Facility name.   isDeleted bool Indicates if facility was deleted from your club facilities list.   "
-  },
-  
-  
-  {
-    "title": "Opening hours",
-    
-    "url": "/api/clubs/openinghours/",
-    "body": " Opening hours  Overview Opening hours properties   Overview Opening hours represents a timeframe your club is opened on a given day.  Opening hours properties Opening hours are described by the following properties    Name Type Description     id long Unique identifier of opening hours.   isClosed bool Indicates if club is closed on a given week day.   dayOfWeekOrHoliday string Day of week given object refers to. Possible values:  Monday Tuesday Wednesday Thursday Friday Saturday Sunday Holidays     openFrom string Opening hour.   openUntil string Closing hour.   isDeleted bool Indicates if opening hours was deleted.   "
-  },
-  
-  
-  {
-    "title": "Url",
-    
-    "url": "/api/clubs/url/",
-    "body": " Url  Overview Url properties   Overview Url represents an url to your social media service site.  Url properties Url is described by the following properties    Name Type Description     id long Unique identifier of an url.   mediaType string Type of internet site or social media service. Possible values:  Facebook Twitter LinkedIn YouTube Pinterest Instagram, Foursquare Blog GooglePlus GoogleMaps     url string Url to a site.   isDeleted string Indicates if url was deleted.   "
-  },
-  
-  
-  {
     "title": "Zone",
     
     "url": "/api/clubs/zone/",
@@ -182,6 +142,62 @@
     
     "url": "/api/",
     "body": " Overview This describes the resources that make up the official PerfectGym API.  Introduction General HTTP Verbs   Introduction The PerfectGym API lets you tap into PerfectGym and build your own PerfectGym-powered web, desktop and mobile applications. The API provides a simple, resource-oriented, RESTful interface with JSON-formatted responses to use PerfectGym’s features.  General All API access is over HTTPS, and accessed from the yourcompany.perfectgym.com/api/. All data is sent and received as JSON.  curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/0 HTTP/1.1 200 OK Cache-Control: no-cache Pragma: no-cache Content-Length: 61 Content-Type: application/json; charset=utf-8 Expires: -1 Server: Microsoft-IIS/8.5 WWW-Authenticate: Bearer X-AspNet-Version: 4.0.30319 X-Powered-By: ASP.NET pg-app: externalapi X-Powered-By: ARR/3.0 pg-app: Routing Date: Fri, 18 Dec 2015 16:47:49 GMT   Blank fields Blank fields are included as null instead of being omitted.  Identifiers &amp; timestamps All resources are identified with long id and timestamp attributes.  Date format All dates and times follow the ISO 8601 format and are provided in local time zone: YYYY-MM-DDTHH:MM:SS   HTTP Verbs    Verb Description     GET Used for retrieving resources.   POST Used for creating / updating resources or invoking actions.   "
+  },
+  
+  
+  {
+    "title": "Contact",
+    
+    "url": "/appendix/contact/",
+    "body": " Contact  Overview Contact properties   Overview Contact represents an individual or a departament in your club, user can reach using e-mail or phone.  Contact properties Contact is described by the following properties    Name Type Description     id long Unique identifier of contact.   title string Contact's job title.   name string Contact's name.   email string Contact's e-mail address.   phoneNumber string Contact's phone number.   isDeleted bool Indicates if contact was deleted from your club contacts list.   "
+  },
+  
+  
+  {
+    "title": "Equipment",
+    
+    "url": "/appendix/equipment/",
+    "body": " Equipment  Overview Equipment properties   Overview Equipment represents an equipment type available in your club.  Equipment properties Equipment is described by the following properties    Name Type Description     id long Unique identifier of equipment.   type string Equipment's type.   name string Equipment's name.   quantity int Total number of equipment's units.   isDeleted bool Indicates if equipment was deleted from your club equipment list.   "
+  },
+  
+  
+  {
+    "title": "Facility",
+    
+    "url": "/appendix/facility/",
+    "body": " Facility  Overview Facility properties   Overview Facility represents a facility available to your club users.  Facility properties Facility is described by the following properties    Name Type Description     id long Unique identifier of facility.   type string Facility type.   name string Facility name.   isDeleted bool Indicates if facility was deleted from your club facilities list.   "
+  },
+  
+  
+  {
+    "title": "Opening hours",
+    
+    "url": "/appendix/openinghours/",
+    "body": " Opening hours  Overview Opening hours properties   Overview Opening hours represents a timeframe your club is opened on a given day.  Opening hours properties Opening hours are described by the following properties    Name Type Description     id long Unique identifier of opening hours.   isClosed bool Indicates if club is closed on a given week day.   dayOfWeekOrHoliday string Day of week given object refers to. Possible values:  Monday Tuesday Wednesday Thursday Friday Saturday Sunday Holidays     openFrom string Opening hour.   openUntil string Closing hour.   isDeleted bool Indicates if opening hours was deleted.   "
+  },
+  
+  
+  {
+    "title": "Url",
+    
+    "url": "/appendix/url/",
+    "body": " Url  Overview Url properties   Overview Url represents an url to your social media service site.  Url properties Url is described by the following properties    Name Type Description     id long Unique identifier of an url.   mediaType string Type of internet site or social media service. Possible values:  Facebook Twitter LinkedIn YouTube Pinterest Instagram, Foursquare Blog GooglePlus GoogleMaps     url string Url to a site.   isDeleted string Indicates if url was deleted.   "
+  },
+  
+  
+  {
+    "title": "Zone",
+    
+    "url": "/appendix/zone/",
+    "body": " Zone  Overview Zone properties   Overview Zone represents a distinct area in your club.  Zone properties Zone is described by the following properties    Name Type Description     id long Unique identifier of zone.   parentId string Unique identifier of zone's parrent zone.   name string Zone's name.   description string Zone's description.   isDeleted string Indicates if zone was deleted from your club zones list.   "
+  },
+  
+  
+  {
+    "title": "Appendix",
+    
+    "url": "/appendix/",
+    "body": " Appendix"
   },
   
   
