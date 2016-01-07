@@ -1,5 +1,6 @@
 ---
 title: Url
+layout: appendix
 ---
 
 # Url

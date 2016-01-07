@@ -1,5 +1,6 @@
 ---
 title: Facility
+layout: appendix
 ---
 
 # Facility

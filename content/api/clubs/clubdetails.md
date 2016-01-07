@@ -82,9 +82,9 @@ curl -i
 
 [Club]: /api/clubs/clubs
 [ClubProperties]: /api/clubs/clubs#properties 
-[Contact]: /api/clubs/contact
-[Equipment]: /api/clubs/equipment
-[Facility]: /api/clubs/facility
-[OpeningHours]: /api/clubs/openinghours
-[Url]: /api/clubs/url
-[Zone]: /api/clubs/zone
+[Contact]: /appendix/contact
+[Equipment]: /appendix/equipment
+[Facility]: /appendix/facility
+[OpeningHours]: /appendix/openinghours
+[Url]: /appendix/url
+[Zone]: /appendix/zone

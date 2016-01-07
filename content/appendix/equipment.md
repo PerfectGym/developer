@@ -1,5 +1,6 @@
 ---
 title: Equipment
+layout: appendix
 ---
 
 # Equipment

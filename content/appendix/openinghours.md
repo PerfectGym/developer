@@ -1,5 +1,6 @@
 ---
 title: Opening hours
+layout: appendix
 ---
 
 # Opening hours

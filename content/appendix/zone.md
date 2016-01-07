@@ -1,5 +1,6 @@
 ---
 title: Zone
+layout: appendix
 ---
 
 # Zone
