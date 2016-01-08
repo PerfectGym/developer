@@ -5,13 +5,7 @@ layout: appendix
 
 # Facility
 
-{:toc}
-
-
-
-## Overview 
-
-Facility represents a facility available to your club users.
+Represents a facility available to your club users.
 
 
 ## Facility properties

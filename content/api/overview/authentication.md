@@ -4,12 +4,10 @@ title: Authentication
 
 # Authentication
 
-{:toc}
-
-
 PerfectGym API uses token-based authentification as an authentification protocol. 
 Requests that require authentication will return `401 Unauthorized` if no valid token
 is provided. 
+
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -46,21 +44,6 @@ curl -i -X POST
 		&username=yourusername
 		&grant_type=password" 
 	https://yoursubdomain.perfectgym.com/api/oauth/authorize
-<!-- > HTTP/1.1 200 OK
-> Cache-Control: no-cache
-> Pragma: no-cache
-> Content-Length: 318
-> Content-Type: application/json;charset=UTF-8
-> Expires: -1
-> Server: Microsoft-IIS/8.5
-> Access-Control-Allow-Origin: *
-> X-Powered-By: ASP.NET
-> pg-app: externalapi
-> X-Powered-By: ARR/3.0
-> pg-app: Routing
-> Date: Mon, 21 Dec 2015 14:08:23 GMT
-
-{"access_token":"abcdefgh12345678","token_type":"bearer","expires_in":7775999} -->
 ```
 
 
@@ -87,7 +70,7 @@ Authorization header should be included in all subsequent API requests.
 ``` command-line
 curl -i 
 	-H "Authorization: Bearer abcdefgh12345678" 	
-	https://yoursubdomain.perfectgym.com/api/Classes/GetClasses/1/0
+	https://yoursubdomain.perfectgym.com/api/Classes/Classes/1
 ```
 
 

@@ -4,15 +4,6 @@ title: Club details
 
 # Club details
 
-This API gives you read only access to detailed information about clubs
-available in your company.
-
-{:toc}
-
-
-
-## Overview 
-
 Club details is detaild representation of single club in your company. Club details share 
 its data with [Club][Club], and holds additional detailed properties.
 
@@ -45,11 +36,11 @@ Name            		| Type    | Description
 
 
 
-## Get detailed information about specyfic club.
+## Retrive detailed information about specyfic club.
 
-    GET Clubs/GetClubDetails/{clubId}/{languageCode}  
+    GET Clubs/Club/{clubId}/{languageCode}  
 
-Request returns detailed club informations.
+Returns detailed club informations.
 
 
 ### Path parameters
@@ -69,7 +60,7 @@ In this example we fetch club with id = `16` detailed information. Information w
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/GetClubDetails/16     	
+     http://yoursubdomain.perfectgym.com/api/Clubs/Club/16     	
 ```
 
 

@@ -5,13 +5,7 @@ layout: appendix
 
 # Url
 
-{:toc}
-
-
-
-## Overview 
-
-Url represents an url to your social media service site.
+Represents an url to your social media service site.
 
 
 ## Url properties

@@ -4,15 +4,6 @@ title: User classes
 
 # User classes
 
-This API gives you read only access to list of fitness classes 
-available in your gym.
-
-{:toc}
-
-
-
-## Overview 
-
 User class represents fitness class conducted in your club. User classes share most 
 of its data with [Classes][Classes], and holds additional properties specific to club user.
 
@@ -34,9 +25,9 @@ Name            		| Type    | Description
 
 ## List user classes in a given timeframe
 
-    GET Classes/GetClassesForUser/{userId}/{clubId}  
+    GET Classes/UserClasses/{userId}/{clubId}  
 
-Request returns user classes list.
+Returns paginated user classes list.
 
 
 ### Path parameters
@@ -64,7 +55,7 @@ In this example we fetch first 100 of all user (with id = `40`) classes in club 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesForUser/40/2?
+     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses/40/2?
      	startDate=2015-12-01T00:00:00&
      	endDate=2015-12-31T23:59:59
 ```
@@ -79,9 +70,9 @@ curl -i
 
 ## List classes with timestamp 
 
-    GET Classes/GetClassesForUserWithTimestamp/{userId}/{clubId}/{timestamp}
+    GET Classes/UserClasses/{userId}/{clubId}
 
-Request returns user classes list.
+Returns paginated user classes list.
 
 
 ### Path parameters
@@ -90,7 +81,13 @@ Name         | Type   | Description
 -----|-------|--------|------------
 `userId`     |`long`  | UserId identifier. Request returns classes data for user identified by `userId`.
 `clubId`     |`long`  | Club identifier. Request returns classes that take place in club identified by `clubId`.
-`timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`
+
+
+### Query string parameters
+
+Name         | Type   | Description
+-----|-------|--------|------------
+`timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
 
 
 ### Example request
@@ -101,7 +98,7 @@ In this example we fetch list of all user (with id = `40`) classes in club with 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesForUserWithTimestamp/40/2/254000
+     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses/40/2?timestamp=254000
 ```
 
 

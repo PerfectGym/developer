@@ -6,8 +6,6 @@ title: Ratings
 
 This API allow users to rate classes and instructors.
 
-{:toc}
-
 
 ## Overview
 

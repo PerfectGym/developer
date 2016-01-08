@@ -4,14 +4,6 @@ title: Classes types
 
 # Classes types
 
-This API gives you read only access to list classes types in your gym.
-
-{:toc}
-
-
-
-## Overview
-
 Each fitness class has a class type assigned . Class type is for example 'Zumba', 
 and a class is an instance of a class type (for example Zumba at 'Fibo' club, starting on 2015-12-21 18:00).
 Class types are global accross all clubs of a company (in case company has more then 1 club).
@@ -33,28 +25,28 @@ Name         | Type     | Description
 
 ## List classes types with timestamp
 
-    GET Classes/GetClassesTypes/{timestamp}
+    GET Classes/ClassesTypes
 
-Request returns classes type list.
+Returns paginated classes type list.
 
 
-### Path parameters
+### Query string parameters
 
 Name         | Type   | Description
 -----|-------|--------|------------
-`timestamp`  |`long`  | Timestamp. Request returns classes types with timestamp grater then `timestamp`
+`timestamp`  |`long`  | Timestamp. Request returns classes types with timestamp grater then `timestamp`, defaults to `0`.
 
 
 ### Example request
 
-In this example we fetch list of all classes types (`timestamp` parameter set to `0`) 
+In this example we fetch list of all classes types (`timestamp` parameter defaults to `0`) 
 available in a company.
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesTypes/0
+     http://yoursubdomain.perfectgym.com/api/Classes/ClassesTypes
 ```
 
 

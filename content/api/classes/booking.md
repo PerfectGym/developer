@@ -6,9 +6,6 @@ title: Booking
 
 This API allow users to sign up (book) and sign out (cancel) for fitness classes.
 
-{:toc}
-
-
 
 ## Book class
 

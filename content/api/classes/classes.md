@@ -4,15 +4,6 @@ title: Classes
 
 # Classes
 
-This API gives you read only access to list of fitness classes 
-available in your gym.
-
-{:toc}
-
-
-
-## Overview 
-
 Class represents fitness class conducted in your club.
 
 
@@ -24,7 +15,7 @@ Name            | Type                        | Description
 -----|----------|------------------------------------------
 `classType`     |[Class type][ClassesTypes]   | Class type.
 `instructor`    |`Instructor`                 | Instructor conducting class.
-`club`			|`Club`						  | Club class take place in.
+`club`			|[Club][Club]				  | Club class take place in.
 `id`            |`long`                       | Unique identifier of class.
 `timestamp`     |`long`                       | Timestamp of class. Indicates when class was last modified.
 `isDeleted`     |`bool`                       | Indicates if class was deleted from the club schedule.
@@ -38,9 +29,9 @@ Name            | Type                        | Description
 
 ## List classes in a given timeframe
 
-    GET Classes/GetClasses/{clubId} 
+    GET Classes/Classes/{clubId} 
 
-Request returns classes list.
+Returns paginated classes list.
 
 
 ### Path parameters
@@ -67,7 +58,7 @@ In this example we fetch first 100 classes in club with id = `2`, that starts in
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/2?
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?
      	startDate=2015-12-01T00:00:00&
      	endDate=2015-12-31T23:59:59
 ```
@@ -82,9 +73,9 @@ curl -i
 
 ## List classes with timestamp 
 
-    GET Classes/GetClassesWithTimestamp/{clubId}/{timestamp}
+    GET Classes/Classes/{clubId}
 
-Request returns classes list.
+Returns paginated classes list.
 
 
 ### Path parameters
@@ -92,7 +83,13 @@ Request returns classes list.
 Name         | Type   | Description
 -----|-------|--------|------------
 `clubId`     |`long`  | Club identifier. Request returns classes that take place in club identified by `clubId`.
-`timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`
+
+
+### Query string parameters
+
+Name         | Type   | Description
+-----|-------|--------|------------
+`timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
 
 
 ### Example request
@@ -103,7 +100,7 @@ In this example we fetch list of all classes in club with id = `2` and with time
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesWithTimestamp/2/254000
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?timestamp=254000
 ```
 
 
@@ -116,3 +113,4 @@ curl -i
 
 
 [ClassesTypes]:  /api/classes/classestypes#properties
+[Club]:  /api/clubs/clubs#properties

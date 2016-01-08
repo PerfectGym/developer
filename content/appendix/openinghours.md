@@ -5,13 +5,7 @@ layout: appendix
 
 # Opening hours
 
-{:toc}
-
-
-
-## Overview 
-
-Opening hours represents a timeframe your club is opened on a given day.
+Represents a timeframe your club is opened on a given day.
 
 
 ## Opening hours properties

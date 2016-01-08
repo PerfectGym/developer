@@ -4,15 +4,6 @@ title: Clubs
 
 # Clubs
 
-This API gives you read only access to list of clubs 
-available in your company.
-
-{:toc}
-
-
-
-## Overview 
-
 Club is a summary representation of single club in your company.
 
 
@@ -34,16 +25,16 @@ Name            | Type                        | Description
 
 ## List clubs with timestamp 
 
-    GET Clubs/GetClubsWithTimestamp/{timestamp}
+    GET Clubs/Clubs
 
-Request returns list of clubs available in your company.
+Returns paginated list of clubs available in your company.
 
 
-### Path parameters
+### Query string parameters
 
 Name         | Type   | Description
 -----|-------|--------|------------
-`timestamp`  |`long`  | Timestamp. Request returns clubs with timestamp grater then `timestamp`
+`timestamp`  |`long`  | Timestamp. Request returns clubs with timestamp grater then `timestamp`, defaults to `0`
 
 
 ### Example request
@@ -54,7 +45,7 @@ In this example we fetch list of all clubs with timestamp greater then `254000`
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/GetClubsWithTimestamp/254000
+     http://yoursubdomain.perfectgym.com/api/Clubs/Clubs?timestamp=254000
 ```
 
 

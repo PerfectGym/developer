@@ -5,13 +5,7 @@ layout: appendix
 
 # Contact
 
-{:toc}
-
-
-
-## Overview 
-
-Contact represents an individual or a departament in your club, user can reach using e-mail or phone.
+Represents an individual or a departament in your club, user can reach using e-mail or phone.
 
 
 ## Contact properties

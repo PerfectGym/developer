@@ -5,13 +5,7 @@ layout: appendix
 
 # Zone
 
-{:toc}
-
-
-
-## Overview 
-
-Zone represents a distinct area in your club.
+Represents a distinct area in your club.
 
 
 ## Zone properties

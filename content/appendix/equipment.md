@@ -5,13 +5,7 @@ layout: appendix
 
 # Equipment
 
-{:toc}
-
-
-
-## Overview 
-
-Equipment represents an equipment type available in your club.
+Represents an equipment type available in your club.
 
 
 ## Equipment properties

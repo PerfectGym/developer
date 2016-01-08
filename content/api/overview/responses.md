@@ -4,14 +4,6 @@ title: Responses
 
 # Responses
 
-This describes PerfectGym API responses basics.
-
-{:toc}
-
-
-
-## Overview
-
 Each API response is wrapped in a standard structure called the envelope, 
 which holds the results of the API call, plus the metadata related to the request.
 
@@ -66,7 +58,7 @@ When you get a list of classes, you get the summary
 representation of each class type. Here, we fetch the list of classes
 in a given club:
 
-    GET Classes/GetClasses/{clubId}/{timestamp}
+    GET Classes/Classes/{clubId}
 
 
 
@@ -80,7 +72,7 @@ resource.
 When you get an individual class, you get the detailed
 representation of the class:
 
-    GET Classes/GetClass/{classId}
+    GET Classes/Class/{classId}
 
 The documentation provides an example response for each API method. The example
 response illustrates all attributes that are returned by that method.
