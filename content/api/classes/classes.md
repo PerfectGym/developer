@@ -13,8 +13,8 @@ Class is described by the following properties
 
 Name            | Type                        | Description
 -----|----------|------------------------------------------
-`classType`     |[Class type][ClassesTypes]   | Class type.
-`instructor`    |`Instructor`                 | Instructor conducting class.
+`classType`     |[Class type][ClassesType]    | Class type.
+`instructor`    |[Instructor][Instructor]     | Instructor conducting class.
 `club`			|[Club][Club]				  | Club class take place in.
 `id`            |`long`                       | Unique identifier of class.
 `timestamp`     |`long`                       | Timestamp of class. Indicates when class was last modified.
@@ -112,5 +112,6 @@ curl -i
 
 
 
-[ClassesTypes]:  /api/classes/classestypes#properties
+[ClassesType]:  /api/classes/classestypes#properties
+[Instructor]:  /api/instructors/instructors#properties
 [Club]:  /api/clubs/clubs#properties

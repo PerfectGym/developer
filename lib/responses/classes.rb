@@ -1,4 +1,4 @@
-require_relative 'user'
+require_relative 'instructors'
 
 
 module GitHub
@@ -48,17 +48,7 @@ module GitHub
                 "rankingSort": 2.3
               }              
             },
-            "instructor" => {          
-              "id": 52,
-              "timestamp": 376826,
-              "firstName": "Agatha",
-              "laastName": "Strickland",
-              "rating" => {
-                "rating": 4.7,
-                "votesCount": 1234,
-                "rankingSort": 3.3        
-              }              
-            },
+            "instructor" => INSTRUCTOR_AGATHA_STRICKLAND,
             "club" => {
               "id": 2,
               "timestamp": 271990,
@@ -133,17 +123,7 @@ module GitHub
                   "rankingSort": 2.3                  
                 }                
               },
-            "instructor" => {          
-              "id": 52,
-              "timestamp": 376826,
-              "firstName": "Agatha",
-              "laastName": "Strickland",
-              "rating" => {
-                "rating": 4.7,
-                "votesCount": 1234,
-                "rankingSort": 3.3      
-              }              
-            },
+            "instructor" => INSTRUCTOR_AGATHA_STRICKLAND,
             "club" => {
               "id": 2,
               "timestamp": 271990,
