@@ -55,19 +55,6 @@
 <h1>
 <a id="responses" class="anchor" href="#responses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Responses</h1>
 
-<p>This describes PerfectGym API responses basics.</p>
-
-<ul id="markdown-toc">
-<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#get-response-envelope" id="markdown-toc-get-response-envelope">GET Response Envelope</a></li>
-<li><a href="#post-response-envelope" id="markdown-toc-post-response-envelope">POST Response Envelope</a></li>
-<li><a href="#summary-representations" id="markdown-toc-summary-representations">Summary Representations</a></li>
-<li><a href="#detailed-representations" id="markdown-toc-detailed-representations">Detailed Representations</a></li>
-</ul>
-
-<h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
-
 <p>Each API response is wrapped in a standard structure called the envelope, 
 which holds the results of the API call, plus the metadata related to the request.</p>
 
@@ -204,7 +191,7 @@ To obtain those attributes, fetch the "detailed" representation.)</p>
 representation of each class type. Here, we fetch the list of classes
 in a given club:</p>
 
-<pre><code>GET Classes/GetClasses/{clubId}/{timestamp}
+<pre><code>GET Classes/Classes/{clubId}
 </code></pre>
 
 <h2>
@@ -220,7 +207,7 @@ resource.</p>
 <p>When you get an individual class, you get the detailed
 representation of the class:</p>
 
-<pre><code>GET Classes/GetClass/{classId}
+<pre><code>GET Classes/Class/{classId}
 </code></pre>
 
 <p>The documentation provides an example response for each API method. The example

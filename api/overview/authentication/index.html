@@ -55,12 +55,6 @@
 <h1>
 <a id="authentication" class="anchor" href="#authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h1>
 
-<ul id="markdown-toc">
-<li><a href="#prerequisites" id="markdown-toc-prerequisites">
-Prerequisites</a></li>
-<li><a href="#authentication-flow" id="markdown-toc-authentication-flow">Authentication flow</a></li>
-</ul>
-
 <p>PerfectGym API uses token-based authentification as an authentification protocol. 
 Requests that require authentication will return <code>401 Unauthorized</code> if no valid token
 is provided. </p>
@@ -127,21 +121,6 @@ curl -i -X POST
         &amp;username=yourusername
         &amp;grant_type=password" 
     https://yoursubdomain.perfectgym.com/api/oauth/authorize
-<!-- > HTTP/1.1 200 OK
-<span class="output">Cache-Control: no-cache</span>
-<span class="output">Pragma: no-cache</span>
-<span class="output">Content-Length: 318</span>
-<span class="output">Content-Type: application/json;charset=UTF-8</span>
-<span class="output">Expires: -1</span>
-<span class="output">Server: Microsoft-IIS/8.5</span>
-<span class="output">Access-Control-Allow-Origin: *</span>
-<span class="output">X-Powered-By: ASP.NET</span>
-<span class="output">pg-app: externalapi</span>
-<span class="output">X-Powered-By: ARR/3.0</span>
-<span class="output">pg-app: Routing</span>
-<span class="output">Date: Mon, 21 Dec 2015 14:08:23 GMT</span>
-
-{"access_token":"abcdefgh12345678","token_type":"bearer","expires_in":7775999} -->
 </pre>
 
 <h3>
@@ -178,7 +157,7 @@ You can pass the token by including it in the Authorization header.</p>
 <pre class="command-line">
 curl -i 
     -H "Authorization: Bearer abcdefgh12345678"     
-    https://yoursubdomain.perfectgym.com/api/Classes/GetClasses/1/0
+    https://yoursubdomain.perfectgym.com/api/Classes/Classes/1
 </pre>
 
 

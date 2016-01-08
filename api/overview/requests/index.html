@@ -57,12 +57,6 @@
 
 <p>This describes PerfectGym API requests basics.</p>
 
-<ul id="markdown-toc">
-<li><a href="#request-parameters" id="markdown-toc-request-parameters">Request parameters</a></li>
-<li><a href="#filter-and-pagination-parameters" id="markdown-toc-filter-and-pagination-parameters">Filter and pagination parameters</a></li>
-<li><a href="#timestamp-parameter" id="markdown-toc-timestamp-parameter">Timestamp parameter</a></li>
-</ul>
-
 <h2>
 <a id="request-parameters" class="anchor" href="#request-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request parameters</h2>
 
@@ -74,14 +68,13 @@ when explicitly required).</p>
 <h3>
 <a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
 
-<p>In this example, the <code>1</code> and <code>0</code> values are provided for the <code>clubId</code>
-and <code>timestamp</code> parameters in the path.</p>
+<p>In this example, the <code>1</code> values are provided for the <code>clubId</code> parameter in the path.</p>
 
-<pre><code>GET Classes/GetClasses/{clubId}/{timestamp}
+<pre><code>GET Classes/Classes/{clubId}
 </code></pre>
 
 <pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/0</span>
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1</span>
 </pre>
 
 <h2>
@@ -97,11 +90,11 @@ Available query string parameters are described for each API endpoint.</p>
 <p>In this example, we retrive classes availeble in club identified by <code>id</code> of value <code>1</code>, that take place
 between <code>2016-01-01</code> and <code>2016-01-31</code></p>
 
-<pre><code>GET Classes/GetClasses/{clubId}
+<pre><code>GET Classes/Classes/{clubId}
 </code></pre>
 
 <pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1?</span>
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1?</span>
     startDate=2016-01-01T00:00:00&amp;
     endDate=2016-01-31T23:59:59
 </pre>
@@ -109,10 +102,11 @@ between <code>2016-01-01</code> and <code>2016-01-31</code></p>
 <p>For details about pagination with <code>page</code> parameter go to <a href="/api/overview/pagination#page">Pagination with query string parameters</a></p>
 
 <h2>
-<a id="timestamp-parameter" class="anchor" href="#timestamp-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timestamp parameter</h2>
+<a id="timestamp-query-string-parameter" class="anchor" href="#timestamp-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timestamp query string parameter</h2>
 
 <p>Requests with timestamp parameter returns list of resources added or changed after point in time represented
-by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> ascending.</p>
+by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> ascending. This let's you fetch only resources that 
+changed since your last api call.</p>
 
 <h3>
 <a id="example-2" class="anchor" href="#example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
@@ -120,11 +114,11 @@ by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> asc
 <p>In this example we fetch list of classes from the club with <code>id</code> of <code>1</code> and with <code>timestamp</code> 
 value greater then <code>654321</code>.</p>
 
-<pre><code>GET Classes/GetClasses/{clubId}/{timestamp}
+<pre><code>GET Classes/Classes/{clubId}
 </code></pre>
 
 <pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/GetClasses/1/654321</span>
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1?timestamp=654321</span>
 </pre>
 
 <p>For details about pagination with <code>timestamp</code> parameter go to <a href="/api/overview/pagination#timestamp">Pagination using timestamp</a></p>

@@ -55,30 +55,27 @@
 <h1>
 <a id="pagination" class="anchor" href="#pagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pagination</h1>
 
-<p>This describes PerfectGym API pagination mechanism.</p>
+<p>PerfectGym API endpoint that returns list of resources usualy use pagination. </p>
 
-<ul id="markdown-toc">
-<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#pagination-using-timestamp" id="markdown-toc-pagination-using-timestamp">
-Pagination using timestamp</a></li>
-<li><a href="#pagination-using-query-string-parameter" id="markdown-toc-pagination-using-query-string-parameter">
-Pagination using query string parameter</a></li>
+<p>For pagination API uses to distinct techniques:</p>
+
+<ul>
+<li>
+<code>timestamp</code> query string parameter </li>
+<li>
+<code>page</code> query string parameter</li>
 </ul>
 
-<h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<p>Page numbering is <strong>1-based</strong>, page size is 100.</p>
 
-<p>Each PerfectGym API endpoint that returns list of resources uses pagination. </p>
-
-<p>For pagination API uses <code>timestamp</code> for methods with <code>timestamp</code> parameter, 
-or <code>page</code> query string parameter otherwise.
-Page numbering is <strong>1-based</strong>, page size is 100.</p>
+<p>Each API endpoint that returns paginated result is marked as paginated in endpoint description. 
+Selected pagination method is described alongside endpoint parameters description.</p>
 
 <h2>
-<a id="pagination-using-timestamp" class="anchor" href="#pagination-using-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="timestamp"></a>Pagination using timestamp</h2>
+<a id="pagination-using-timestamp-query-string-parameter" class="anchor" href="#pagination-using-timestamp-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="timestamp"></a>Pagination using <code>timestamp</code> query string parameter</h2>
 
-<p>Requests with timestamp parameter return list of resources added or changed after point in time represented
+<p>Requests with timestamp query string parameter return list of resources added or changed after point in time represented
 by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> ascending and is paged with page size of 100.</p>
 
 <p>To get next page, use last element's <code>timestamp</code> in subsequent request. </p>
@@ -98,7 +95,7 @@ regardless of time they were last modified.</p>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesWithTimestamp/2/0        
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?timestamp=0      
 </pre>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
@@ -132,7 +129,7 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesWithTimestamp/2/254718       
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?timestamp=254718         
 </pre>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
@@ -157,8 +154,8 @@ curl -i
 
 
 <h2>
-<a id="pagination-using-query-string-parameter" class="anchor" href="#pagination-using-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="page"></a>Pagination using query string parameter</h2>
+<a id="pagination-using-page-query-string-parameter" class="anchor" href="#pagination-using-page-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="page"></a>Pagination using <code>page</code> query string parameter</h2>
 
 <p>We use <code>page</code> query string parameter to choose a page. <code>page</code> parameter is always optional. 
 The default page is the first one, so if you ommit <code>page</code> parameter, API will return first page.</p>
@@ -176,7 +173,7 @@ The default page is the first one, so if you ommit <code>page</code> parameter, 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/2?
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?
         startDate=2015-12-01T00:00:00&amp;
         endDate=2015-12-31T23:59:59
 </pre>
@@ -187,7 +184,7 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClasses/2?
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?
         startDate=2015-12-01T00:00:00&amp;
         endDate=2015-12-31T23:59:59&amp;
         page=2

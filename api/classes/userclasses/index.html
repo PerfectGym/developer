@@ -55,19 +55,6 @@
 <h1>
 <a id="user-classes" class="anchor" href="#user-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>User classes</h1>
 
-<p>This API gives you read only access to list of fitness classes 
-available in your gym.</p>
-
-<ul id="markdown-toc">
-<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#class-properties" id="markdown-toc-class-properties">Class properties</a></li>
-<li><a href="#list-user-classes-in-a-given-timeframe" id="markdown-toc-list-user-classes-in-a-given-timeframe">List user classes in a given timeframe</a></li>
-<li><a href="#list-classes-with-timestamp" id="markdown-toc-list-classes-with-timestamp">List classes with timestamp</a></li>
-</ul>
-
-<h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
-
 <p>User class represents fitness class conducted in your club. User classes share most 
 of its data with <a href="/api/classes/classes">Classes</a>, and holds additional properties specific to club user.</p>
 
@@ -114,10 +101,10 @@ Only user specyfic properties are described here.</p>
 <h2>
 <a id="list-user-classes-in-a-given-timeframe" class="anchor" href="#list-user-classes-in-a-given-timeframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user classes in a given timeframe</h2>
 
-<pre><code>GET Classes/GetClassesForUser/{userId}/{clubId}  
+<pre><code>GET Classes/UserClasses/{userId}/{clubId}  
 </code></pre>
 
-<p>Request returns user classes list.</p>
+<p>Returns paginated user classes list.</p>
 
 <h3>
 <a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
@@ -185,7 +172,7 @@ Only user specyfic properties are described here.</p>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesForUser/40/2?
+     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses/40/2?
         startDate=2015-12-01T00:00:00&amp;
         endDate=2015-12-31T23:59:59
 </pre>
@@ -250,10 +237,10 @@ curl -i
 <h2>
 <a id="list-classes-with-timestamp" class="anchor" href="#list-classes-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes with timestamp</h2>
 
-<pre><code>GET Classes/GetClassesForUserWithTimestamp/{userId}/{clubId}/{timestamp}
+<pre><code>GET Classes/UserClasses/{userId}/{clubId}
 </code></pre>
 
-<p>Request returns user classes list.</p>
+<p>Returns paginated user classes list.</p>
 
 <h3>
 <a id="path-parameters-1" class="anchor" href="#path-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
@@ -277,11 +264,25 @@ curl -i
 <td><code>long</code></td>
 <td>Club identifier. Request returns classes that take place in club identified by <code>clubId</code>.</td>
 </tr>
+</tbody>
+</table>
+
+<h3>
+<a id="query-string-parameters-1" class="anchor" href="#query-string-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
-<td>Timestamp. Request returns classes with timestamp grater then <code>timestamp</code>
-</td>
+<td>Timestamp. Request returns classes with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -295,7 +296,7 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesForUserWithTimestamp/40/2/254000
+     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses/40/2?timestamp=254000
 </pre>
 
 <h3>

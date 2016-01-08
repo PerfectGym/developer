@@ -55,18 +55,6 @@
 <h1>
 <a id="club-details" class="anchor" href="#club-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Club details</h1>
 
-<p>This API gives you read only access to detailed information about clubs
-available in your company.</p>
-
-<ul id="markdown-toc">
-<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#club-details-properties" id="markdown-toc-club-details-properties">Club details properties</a></li>
-<li><a href="#get-detailed-information-about-specyfic-club" id="markdown-toc-get-detailed-information-about-specyfic-club">Get detailed information about specyfic club.</a></li>
-</ul>
-
-<h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
-
 <p>Club details is detaild representation of single club in your company. Club details share 
 its data with <a href="/api/clubs/clubs">Club</a>, and holds additional detailed properties.</p>
 
@@ -174,12 +162,12 @@ Only club details specyfic properties are described here.</p>
 </table>
 
 <h2>
-<a id="get-detailed-information-about-specyfic-club" class="anchor" href="#get-detailed-information-about-specyfic-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get detailed information about specyfic club.</h2>
+<a id="retrive-detailed-information-about-specyfic-club" class="anchor" href="#retrive-detailed-information-about-specyfic-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed information about specyfic club.</h2>
 
-<pre><code>GET Clubs/GetClubDetails/{clubId}/{languageCode}  
+<pre><code>GET Clubs/Club/{clubId}/{languageCode}  
 </code></pre>
 
-<p>Request returns detailed club informations.</p>
+<p>Returns detailed club informations.</p>
 
 <h3>
 <a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
@@ -215,7 +203,7 @@ Only club details specyfic properties are described here.</p>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/GetClubDetails/16        
+     http://yoursubdomain.perfectgym.com/api/Clubs/Club/16      
 </pre>
 
 <h3>

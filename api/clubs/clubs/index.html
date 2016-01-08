@@ -55,19 +55,6 @@
 <h1>
 <a id="clubs" class="anchor" href="#clubs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clubs</h1>
 
-<p>This API gives you read only access to list of clubs 
-available in your company.</p>
-
-<ul id="markdown-toc">
-<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#club-properties" id="markdown-toc-club-properties">
-Club properties</a></li>
-<li><a href="#list-clubs-with-timestamp" id="markdown-toc-list-clubs-with-timestamp">List clubs with timestamp</a></li>
-</ul>
-
-<h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
-
 <p>Club is a summary representation of single club in your company.</p>
 
 <h2>
@@ -126,13 +113,13 @@ Club properties</a></li>
 <h2>
 <a id="list-clubs-with-timestamp" class="anchor" href="#list-clubs-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List clubs with timestamp</h2>
 
-<pre><code>GET Clubs/GetClubsWithTimestamp/{timestamp}
+<pre><code>GET Clubs/Clubs
 </code></pre>
 
-<p>Request returns list of clubs available in your company.</p>
+<p>Returns paginated list of clubs available in your company.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
 
 <table>
 <thead>
@@ -146,7 +133,7 @@ Club properties</a></li>
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
-<td>Timestamp. Request returns clubs with timestamp grater then <code>timestamp</code>
+<td>Timestamp. Request returns clubs with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>
 </td>
 </tr>
 </tbody>
@@ -161,7 +148,7 @@ Club properties</a></li>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/GetClubsWithTimestamp/254000
+     http://yoursubdomain.perfectgym.com/api/Clubs/Clubs?timestamp=254000
 </pre>
 
 <h3>

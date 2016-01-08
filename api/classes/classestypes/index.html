@@ -55,18 +55,6 @@
 <h1>
 <a id="classes-types" class="anchor" href="#classes-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes types</h1>
 
-<p>This API gives you read only access to list classes types in your gym.</p>
-
-<ul id="markdown-toc">
-<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#class-type-properties" id="markdown-toc-class-type-properties">
-Class type properties</a></li>
-<li><a href="#list-classes-types-with-timestamp" id="markdown-toc-list-classes-types-with-timestamp">List classes types with timestamp</a></li>
-</ul>
-
-<h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
-
 <p>Each fitness class has a class type assigned . Class type is for example 'Zumba', 
 and a class is an instance of a class type (for example Zumba at 'Fibo' club, starting on 2015-12-21 18:00).
 Class types are global accross all clubs of a company (in case company has more then 1 club).</p>
@@ -117,13 +105,13 @@ Class types are global accross all clubs of a company (in case company has more 
 <h2>
 <a id="list-classes-types-with-timestamp" class="anchor" href="#list-classes-types-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes types with timestamp</h2>
 
-<pre><code>GET Classes/GetClassesTypes/{timestamp}
+<pre><code>GET Classes/ClassesTypes
 </code></pre>
 
-<p>Request returns classes type list.</p>
+<p>Returns paginated classes type list.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
 
 <table>
 <thead>
@@ -137,8 +125,7 @@ Class types are global accross all clubs of a company (in case company has more 
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
-<td>Timestamp. Request returns classes types with timestamp grater then <code>timestamp</code>
-</td>
+<td>Timestamp. Request returns classes types with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -146,14 +133,14 @@ Class types are global accross all clubs of a company (in case company has more 
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all classes types (<code>timestamp</code> parameter set to <code>0</code>) 
+<p>In this example we fetch list of all classes types (<code>timestamp</code> parameter defaults to <code>0</code>) 
 available in a company.</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/GetClassesTypes/0
+     http://yoursubdomain.perfectgym.com/api/Classes/ClassesTypes
 </pre>
 
 <h3>
