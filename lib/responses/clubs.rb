@@ -5,18 +5,34 @@ module GitHub
   module Resources
     module Responses      
 
+      CLUB_CYBERBOTIX ||= {
+
+        "id": 2,
+        "timestamp": 271990,
+        "name": "Fibo Cyberbotics",
+        "shortName": "Cyberbotics",
+        "symbol": "FCBR",  
+        "type": "Normal",
+        "isDeleted": false
+      }
+
+      CLUB_MONACO ||= {
+
+        "id": 9,
+        "timestamp": 255968,
+        "name": "Club Monaco",
+        "shortName": "Monaco",
+        "symbol": "MON",
+        "type": "Platinum",
+        "isDeleted": false
+      }
+
+
       CLUBS_RESPONSE ||= {  
 
         "elements" => [          
-          {
-            "id": 2,
-            "timestamp": 271990,
-            "name": "Club Poznan",
-            "shortName": "Poznan",
-            "symbol": "POZ",
-            "type": "Normal",
-            "isDeleted": false
-          },
+          CLUB_CYBERBOTIX,
+          CLUB_MONACO,
           {
             "id": 3,
             "timestamp": 255980,
@@ -25,16 +41,7 @@ module GitHub
             "symbol": "CRA",
             "type": "Normal",
             "isDeleted": false
-          },                    
-          {
-            "id": 9,
-            "timestamp": 255968,
-            "name": "Club Monaco",
-            "shortName": "Monaco",
-            "symbol": "MON",
-            "type": "Platinum",
-            "isDeleted": false
-          },                    
+          },                              
           {
             "id": 14,
             "timestamp": 256064,

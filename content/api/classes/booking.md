@@ -7,7 +7,7 @@ title: Booking
 This API allow users to sign up (book) and sign out (cancel) for fitness classes.
 
 
-## Book class
+## Execute class booking
 
     POST Classes/BookClass/{classId}/{userId} 
 
@@ -63,7 +63,7 @@ In this example booking is unsuccessful because it is to late to book selected c
 
 
 
-## Cancel class
+## Execute class cancel
 
     POST Classes/CancelBooking/{classId}/{userId}
 

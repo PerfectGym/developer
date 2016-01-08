@@ -1,35 +1,43 @@
 require_relative 'instructors'
+require_relative 'clubs'
 
 
 module GitHub
   module Resources
     module Responses
 
+      CLASSTYPE_BOX ||= {        
+        
+        "id" => 1,
+        "timestamp" => 263952,
+        "name" => "Box",
+        "description" => "Box perfectly combines cardio and strength training under the guise of groove!",
+        "rating" => {
+          "rating": 4.1,
+          "votesCount": 1234,
+          "rankingSort": 2.3                        
+        }                    
+      }    
+
+      CLASSTYPE_POWERYOGA ||= {        
+        
+        "id": 2,
+        "timestamp": 382653,
+        "name": "POWER JOGA",
+        "description": "Power Yoga is definitely an intense workout that will make you sweat.",
+        "rating" => {
+          "rating": 4.1,
+          "votesCount": 4321,
+          "rankingSort": 4.3
+        }                   
+      }      
+
+
       CLASSTYPE_RESPONSE ||= {        
         
         "elements" => [
-          {
-            "id" => 1,
-            "timestamp" => 263952,
-            "name" => "Box",
-            "description" => "Box perfectly combines cardio and strength training under the guise of groove!",
-            "rating" => {
-              "rating": 4.1,
-              "votesCount": 1234,
-              "rankingSort": 2.3                        
-            }            
-          },
-          {
-            "id": 2,
-            "timestamp": 382653,
-            "name": "POWER JOGA",
-            "description": "Power Yoga is definitely an intense workout that will make you sweat.",
-            "rating" => {
-              "rating": 4.1,
-              "votesCount": 4321,
-              "rankingSort": 4.3
-            }            
-          }
+          CLASSTYPE_BOX,
+          CLASSTYPE_POWERYOGA
         ]
       }      
 
@@ -37,25 +45,9 @@ module GitHub
 
         "elements" => [
           {
-            "classType" => {
-              "id" => 4,
-              "timestamp" => 263952,
-              "name" => "Box",
-              "description" => "Box perfectly combines cardio and strength training under the guise of groove!",
-              "rating" => {
-                "rating": 4.3,
-                "votesCount": 1234,
-                "rankingSort": 2.3
-              }              
-            },
+            "classType" => CLASSTYPE_BOX,
             "instructor" => INSTRUCTOR_AGATHA_STRICKLAND,
-            "club" => {
-              "id": 2,
-              "timestamp": 271990,
-              "name": "Fibo Cyberbotics",
-              "shortName": "Cyberbotics",
-              "symbol": "FCBR"      
-            },
+            "club" => CLUB_CYBERBOTIX,
             "id": 1677,
             "timestamp": 254718,
             "isDeleted": false,
@@ -111,26 +103,9 @@ module GitHub
             "attended": true,
             "userClassRating": 5,
             "userInstructorRating": 4,  
-            "classType" => {
-
-                "id" => 4,
-                "timestamp" => 263952,
-                "name" => "Box",
-                "description" => "Box perfectly combines cardio and strength training under the guise of groove!",
-                "rating" => {
-                  "rating": 4.3,
-                  "votesCount": 1234,
-                  "rankingSort": 2.3                  
-                }                
-              },
+            "classType" => CLASSTYPE_BOX,
             "instructor" => INSTRUCTOR_AGATHA_STRICKLAND,
-            "club" => {
-              "id": 2,
-              "timestamp": 271990,
-              "name": "Fibo Cyberbotics",
-              "shortName": "Cyberbotics",
-              "symbol": "FCBR"           
-            },
+            "club" => CLUB_CYBERBOTIX,
             "id": 1677,
             "timestamp": 254718,
             "isDeleted": false,

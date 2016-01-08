@@ -46,7 +46,7 @@ Name         		| Type       | Description
 
 
 
-## Rate class
+## Execute class rating
 
     POST Classes/RateClass/{classId}/{userId}/{rating}
 
@@ -90,7 +90,7 @@ In this example class rating is unsuccessful because it has been already rated.
 
 
 
-## Rate instructor
+## Execute instructor rating
 
     POST Classes/RateInstructor/{classId}/{userId}/{rating}
 
