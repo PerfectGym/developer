@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>PerfectGym API Overview | Perfectgym Developer Guide</title>
+  <title>Instructors | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,87 +53,150 @@
       
 
 <h1>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h1>
+<a id="instructors" class="anchor" href="#instructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructors</h1>
 
-<p>The PerfectGym API lets you tap into PerfectGym and build your own PerfectGym-powered web, desktop and mobile applications.</p>
-
-<p>The API provides a simple, resource-oriented, RESTful interface with JSON-formatted responses to use PerfectGym’s features.</p>
+<p>Instructor is a summary representation of a fitness class instructor.</p>
 
 <h2>
-<a id="general-api-conventions" class="anchor" href="#general-api-conventions" aria-hidden="true"><span class="octicon octicon-link"></span></a>General API conventions</h2>
+<a id="instructor-properties" class="anchor" href="#instructor-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>Instructor properties</h2>
 
-<p>All API access is over HTTPS, and accessed from the <code>yourcompany.perfectgym.com/api/</code>.  All data is
-sent and received as JSON.</p>
-
-<pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1/0</span>
-
-<span class="output">HTTP/1.1 200 OK</span>
-<span class="output">Cache-Control: no-cache</span>
-<span class="output">Pragma: no-cache</span>
-<span class="output">Content-Length: 61</span>
-<span class="output">Content-Type: application/json; charset=utf-8</span>
-<span class="output">Expires: -1</span>
-<span class="output">Server: Microsoft-IIS/8.5</span>
-<span class="output">WWW-Authenticate: Bearer</span>
-<span class="output">X-AspNet-Version: 4.0.30319</span>
-<span class="output">X-Powered-By: ASP.NET</span>
-<span class="output">pg-app: externalapi</span>
-<span class="output">X-Powered-By: ARR/3.0</span>
-<span class="output">pg-app: Routing</span>
-<span class="output">Date: Fri, 18 Dec 2015 16:47:49 GMT</span>
-</pre>
-
-<h3>
-<a id="blank-fields" class="anchor" href="#blank-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Blank fields</h3>
-
-<p>Blank fields are included as <code>null</code> instead of being omitted.</p>
-
-<h3>
-<a id="identifiers--timestamps" class="anchor" href="#identifiers--timestamps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Identifiers &amp; timestamps</h3>
-
-<p>All resources are identified with  long <code>id</code> and <code>timestamp</code> attributes.</p>
-
-<h3>
-<a id="date-format" class="anchor" href="#date-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Date format</h3>
-
-<p>All dates and times follow the ISO 8601 format and are provided in local time zone:</p>
-
-<pre><code>YYYY-MM-DDTHH:MM:SS
-</code></pre>
-
-<h2>
-<a id="endpoint-names-and-return-values" class="anchor" href="#endpoint-names-and-return-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Endpoint names and return values</h2>
-
-<p>An endpoint's name indicates the type of data it handles and the action it performs on that data. 
-The most common actions are:</p>
+<p>Instructor is described by the following properties</p>
 
 <table>
 <thead>
 <tr>
-<th>Action</th>
-<th>HTTP Method</th>
+<th>Name</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>List</td>
-<td><code>GET</code></td>
-<td>Returns <em>summary</em> information for all entities that match query parameters you provide. To get <em>detailed</em> information for a particular entity, first get the entity's id with the appropriate List endpoint, then provide the id to the corresponding Retrieve endpoint.</td>
+<td><code>id</code></td>
+<td><code>long</code></td>
+<td>Unique identifier of instructor.</td>
 </tr>
 <tr>
-<td>Retrive</td>
-<td><code>GET</code></td>
-<td>Provides <em>detailed</em> information for the single entity that matches the identifier you provide.</td>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp of instructor. Indicates when instructor was last modified.</td>
 </tr>
 <tr>
-<td>Call</td>
-<td><code>POST</code></td>
-<td>Used for creating / updating resources or invoking actions.</td>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Instructor's name.</td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Instructor's last name.</td>
+</tr>
+<tr>
+<td><code>displayName</code></td>
+<td><code>string</code></td>
+<td>Instructor's display name.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>Instructor's email.</td>
+</tr>
+<tr>
+<td><code>sex</code></td>
+<td><code>string</code></td>
+<td>Instructor's sex. <br><strong>Possible values</strong>: <br><ul>
+<li>Male</li>
+<li>Female</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>rating</code></td>
+<td><a href="/api/classes/ratings#properties">Rating</a></td>
+<td>Instructor's rating.</td>
+</tr>
+<tr>
+<td><code>isActive</code></td>
+<td><code>bool</code></td>
+<td>Indicates if instructor is active.</td>
+</tr>
+<tr>
+<td><code>isDeleted</code></td>
+<td><code>bool</code></td>
+<td>Indicates if instructor was deleted from your company instructors list.</td>
 </tr>
 </tbody>
 </table>
+
+<h2>
+<a id="list-instructors-with-timestamp" class="anchor" href="#list-instructors-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List instructors with timestamp</h2>
+
+<pre><code>GET Instructors/Instructors
+</code></pre>
+
+<p>Returns paginated list of instructors available in your company.</p>
+
+<h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp. Request returns instructors with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch list of all instructors with timestamp greater then <code>254000</code></p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Instructors/Instructors?timestamp=254000
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">376826</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agatha"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strickland"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agatha Strickland"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a.strickland@cyberbotics.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Female"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.3</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 
 
     </div>
