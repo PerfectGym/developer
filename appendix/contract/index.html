@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Appendix | Perfectgym Developer Guide</title>
+  <title>Contract | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -51,8 +51,79 @@
   <div id="wrapper">
     <div class="content">
       
+
 <h1>
-<a id="appendix" class="anchor" href="#appendix" aria-hidden="true"><span class="octicon octicon-link"></span></a>Appendix</h1>
+<a id="contract" class="anchor" href="#contract" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contract</h1>
+
+<p>Represents an individual user's contract.</p>
+
+<h2>
+<a id="contract-properties" class="anchor" href="#contract-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contract properties</h2>
+
+<p>Contract is described by the following properties</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>long</code></td>
+<td>Unique identifier of contract.</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp of contract. Indicates when contract was last modified.</td>
+</tr>
+<tr>
+<td><code>signDate</code></td>
+<td><code>string</code></td>
+<td>Contract's sign date.</td>
+</tr>
+<tr>
+<td><code>startDate</code></td>
+<td><code>string</code></td>
+<td>Contract's start date.</td>
+</tr>
+<tr>
+<td><code>cancelDate</code></td>
+<td><code>string</code></td>
+<td>Contract's cancel date.</td>
+</tr>
+<tr>
+<td><code>endDate</code></td>
+<td><code>string</code></td>
+<td>Contract's end date.</td>
+</tr>
+<tr>
+<td><code>membership</code></td>
+<td><a href="/appendix/membership">Membership</a></td>
+<td>Contract's membership.</td>
+</tr>
+<tr>
+<td><code>paymentPlan</code></td>
+<td><a href="/appendix/paymentplan">Payment paln</a></td>
+<td>Contract's payment plan.</td>
+</tr>
+<tr>
+<td><code>isActive</code></td>
+<td><code>bool</code></td>
+<td>Indicates if contract is marked as active.</td>
+</tr>
+<tr>
+<td><code>isDeleted</code></td>
+<td><code>bool</code></td>
+<td>Indicates if contract was deleted from your user's contracts list.</td>
+</tr>
+</tbody>
+</table>
+
 
     </div>
 

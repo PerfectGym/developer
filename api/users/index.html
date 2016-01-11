@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>GitHub API Changes | Perfectgym Developer Guide</title>
+  <title>Users | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -16,7 +16,7 @@
 </head>
 
 
-<body>
+<body class="api dev-mode">
   
 
 <div id="header-wrapper">
@@ -39,97 +39,29 @@
 </div><!-- #header-wrapper -->
 
 
+  <div class="sub-nav">
+    <h2><a href="/api/">API</a></h2>
+
+    <ul>
+      <li><a href="/api/" class="active">Reference</a></li>      
+      <li><a href="/appendix/contact">Appendix</a></li>
+    </ul>
+  </div>
+
   <div id="wrapper">
     <div class="content">
       
 
-<div class="change" id="/changes/2015-11-11-protected-branches-api/">
-  <h2 class="title">
-<a id="--protected-branches-api-preview-period" class="anchor" href="#--protected-branches-api-preview-period" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-  <a href="/changes/2015-11-11-protected-branches-api/">Protected Branches API Preview Period</a>
+<h1>
+<a id="users" class="anchor" href="#users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Users</h1>
+
+<p>The Users APIs provides access to users list available in your company.</p>
+
+<h2>
+<a id="user-details" class="anchor" href="#user-details" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="/api/users/userdetails/">User details</a>
 </h2>
 
-<div class="meta">
-  <ul>
-  <li class="published">
-    <span class="octicon octicon-calendar"></span>
-    November 11, 2015
-    
-  </li>
-  <li class="who_when">
-    <img height="16" width="16" src="https://github.com/nakajima.png" alt="Avatar for nakajima" data-proofer-ignore>
-      <a href="https://github.com/nakajima" data-proofer-ignore>nakajima</a>
-  </li>
-</ul>
-</div>
-
-<p>We're starting a preview period for the <a href="https://github.com/blog/2051-protected-branches-and-required-status-checks">protected branches</a> API. Protecting a branch prevents force-pushes to it as well as deleting it. You can also specify required status checks that are required to merge code into the branch.</p>
-
-<p>To protect a branch, make a <code>PATCH</code> request to the URL of the branch:</p>
-
-<pre class="command-line">
-curl "https://api.github.com/repos/github/hubot/branches/master" \
-  -XPATCH \
-  -H 'Authorization: token TOKEN' \
-  -H "Accept: application/vnd.github.loki-preview" \
-  -d '{
-    "protection": {
-      "enabled": true,
-      "required_status_checks": {
-        "enforcement_level": "everyone",
-        "contexts": [
-          "required-status"
-        ]
-      }
-    }
-  }'
-</pre>
-
-<h4>
-<a id="how-can-i-try-it" class="anchor" href="#how-can-i-try-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a id="how-can-i-try-it" class="anchor" href="#how-can-i-try-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I try it?</h4>
-
-<p>To access this functionality during the preview period, you’ll need to provide the following custom media type in the Accept header:</p>
-
-<pre><code>application/vnd.github.loki-preview+json
-</code></pre>
-
-<p>Take a look at <a href="/v3/repos/#enabling-and-disabling-branch-protection">the docs here</a>.</p>
-
-<p>If you have any questions, please <a href="https://github.com/contact?form%5Bsubject%5D=Protected+Branches+API+Preview">get in touch</a>.</p>
-
-<p></p>
-</div>
-
-<div class="paginate-container">
-  <!-- @count_gap refers to the minimum number of sibling pages to show -->
-
-<div class="pagination">
-  
-  <span class="disabled">Previous</span>
-  
-
-  <!-- using a while loop here as it's the only way to skip several iterations -->
-  
-    
-    <!-- first half ensures we're not caught in an infinite loop at @total_pages - 1 -->
-    <!-- second half, with the .abs, checks for gap siblings ahead *and* behind the current page -->
-    
-
-    
-      <a href="/changes/1" class="current">1</a>
-    
-
-    
-  
-
-  
-    <span class="disabled">Next</span>
-  
-</div>
-
-<p></p>
-</div>
+<p><a href="/api/users/userdetails/">User details API</a> gives you read only access to detailed information about your clubs users.</p>
 
 
     </div>

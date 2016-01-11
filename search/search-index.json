@@ -61,7 +61,7 @@
     "title": "Clubs",
     
     "url": "/api/clubs/clubs/",
-    "body": " Clubs Club is a summary representation of single club in your company.   Club properties Class is described by the following properties    Name Type Description     id long Unique identifier of class.   timestamp long Timestamp of class. Indicates when class was last modified.   name string Club name.   shortName long Club short name.   symbol long Club symbol.   type long Club type.   isDeleted bool Indicates if club was deleted from your company club list.     List clubs with timestamp GET Clubs/Clubs  Returns paginated list of clubs available in your company.  Query string parameters    Name Type Description     timestamp long Timestamp. Request returns clubs with timestamp grater then timestamp, defaults to 0      Example request In this example we fetch list of all clubs with timestamp greater then 254000  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Clubs/Clubs?timestamp=254000   Example response Status: 200 OK  { \"elements\": [ { \"id\": 2, \"timestamp\": 271990, \"name\": \"Fibo Cyberbotics\", \"shortName\": \"Cyberbotics\", \"symbol\": \"FCBR\", \"type\": \"Normal\", \"isDeleted\": false }, { \"id\": 9, \"timestamp\": 255968, \"name\": \"Club Monaco\", \"shortName\": \"Monaco\", \"symbol\": \"MON\", \"type\": \"Platinum\", \"isDeleted\": false }, { \"id\": 3, \"timestamp\": 255980, \"name\": \"Club Cracow\", \"shortName\": \"Cracow\", \"symbol\": \"CRA\", \"type\": \"Normal\", \"isDeleted\": false }, { \"id\": 14, \"timestamp\": 256064, \"name\": \"Club Moscow\", \"shortName\": \"Moscow\", \"symbol\": \"\", \"type\": \"Normal\", \"isDeleted\": true } ] } "
+    "body": " Clubs Club is a summary representation of single club in your company.   Club properties Class is described by the following properties    Name Type Description     id long Unique identifier of class.   timestamp long Timestamp of club. Indicates when club was last modified.   name string Club name.   shortName long Club short name.   symbol long Club symbol.   type long Club type.   isDeleted bool Indicates if club was deleted from your company club list.     List clubs with timestamp GET Clubs/Clubs  Returns paginated list of clubs available in your company.  Query string parameters    Name Type Description     timestamp long Timestamp. Request returns clubs with timestamp grater then timestamp, defaults to 0      Example request In this example we fetch list of all clubs with timestamp greater then 254000  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Clubs/Clubs?timestamp=254000   Example response Status: 200 OK  { \"elements\": [ { \"id\": 2, \"timestamp\": 271990, \"name\": \"Fibo Cyberbotics\", \"shortName\": \"Cyberbotics\", \"symbol\": \"FCBR\", \"type\": \"Normal\", \"isDeleted\": false }, { \"id\": 9, \"timestamp\": 255968, \"name\": \"Club Monaco\", \"shortName\": \"Monaco\", \"symbol\": \"MON\", \"type\": \"Platinum\", \"isDeleted\": false }, { \"id\": 3, \"timestamp\": 255980, \"name\": \"Club Cracow\", \"shortName\": \"Cracow\", \"symbol\": \"CRA\", \"type\": \"Normal\", \"isDeleted\": false }, { \"id\": 14, \"timestamp\": 256064, \"name\": \"Club Moscow\", \"shortName\": \"Moscow\", \"symbol\": \"\", \"type\": \"Normal\", \"isDeleted\": true } ] } "
   },
   
   
@@ -130,6 +130,22 @@
   
   
   {
+    "title": "User details",
+    
+    "url": "/api/users/userdetails/",
+    "body": " User details User details is detaild representation of single user of your gym.    User details properties User is described by the following properties    Name Type Description     id long Unique identifier of user.   timestamp long Timestamp of user. Indicates when user was last modified.   number string User's number.   firstName string User's first name.   lastName string User's last name.   email string User's email address.   birthDate string User's birth date.   sex string User's sex. Possible values:  Male Female     phoneNumber string user's phone number.   country string User's country name.   city string User's city name.   postalCode string User's zip code or equivalent..   street string User's street name.   isActive bool Indicates if cuser is marked as active.   isDeleted bool Indicates if user was deleted from your user's list.   currentContract Contract User's current contract.     Retrive detailed information about user identified by user unique identifier. GET Userss/User/{userId}  Returns detailed user informations.  Path parameters    Name Type Description     userId long User's identifier.     Example request In this example we fetch user (with id = 1) detailed information.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Users/User/1   Example response Status: 200 OK  { \"id\": 1, \"timestamp\": 447183, \"number\": \"102000001\", \"firstName\": \"Jan\", \"lastName\": \"Nowak\", \"email\": \"nowak@example.com\", \"birthDate\": \"1944-09-17T00:00:00\", \"sex\": \"Male\", \"phone\": \"0048123456789\", \"country\": \"Poland\", \"city\": \"Warszawa\", \"postalCode\": \"20-259\", \"street\": \"al. Jerozolimskie 114\", \"homeClubId\": 12, \"isActive\": true, \"isDeleted\": false, \"currentContract\": { \"id\": 1, \"timestamp\": 350287, \"signUpDate\": \"2014-03-28T00:00:00\", \"startDate\": \"2014-04-01T00:00:00\", \"cancelDate\": \"2015-03-31T23:59:59\", \"endDate\": \"2015-03-31T23:59:59\", \"membership\": { \"id\": 1, \"timestamp\": 349423, \"name\": \"Open\", \"isActive\": true, \"isDeleted\": false }, \"paymentPlan\": { \"id\": 2, \"timestamp\": 252688, \"name\": \"Student weekly 45\", \"isActive\": true, \"isDeleted\": false }, \"isActive\": true, \"isDeleted\": false } }   Retrive detailed information about user identified by phone number or e-mail address. GET Userss/User/{userAttribute}  Returns detailed informations of user identified by phone number or e-mail address. User must be uniquly identified by userAttribute parameter. If more then one user with given userAttribute exists, empty result is returned. userAttribute must be URL encoded.  Path parameters    Name Type Description     userAtribute string User's phone number or e-mail address.     Example request In this example we fetch user (with phone number = 0048123456789) detailed information.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Users/User/'0048123456789'/   Example response Status: 200 OK  { \"id\": 1, \"timestamp\": 447183, \"number\": \"102000001\", \"firstName\": \"Jan\", \"lastName\": \"Nowak\", \"email\": \"nowak@example.com\", \"birthDate\": \"1944-09-17T00:00:00\", \"sex\": \"Male\", \"phone\": \"0048123456789\", \"country\": \"Poland\", \"city\": \"Warszawa\", \"postalCode\": \"20-259\", \"street\": \"al. Jerozolimskie 114\", \"homeClubId\": 12, \"isActive\": true, \"isDeleted\": false, \"currentContract\": { \"id\": 1, \"timestamp\": 350287, \"signUpDate\": \"2014-03-28T00:00:00\", \"startDate\": \"2014-04-01T00:00:00\", \"cancelDate\": \"2015-03-31T23:59:59\", \"endDate\": \"2015-03-31T23:59:59\", \"membership\": { \"id\": 1, \"timestamp\": 349423, \"name\": \"Open\", \"isActive\": true, \"isDeleted\": false }, \"paymentPlan\": { \"id\": 2, \"timestamp\": 252688, \"name\": \"Student weekly 45\", \"isActive\": true, \"isDeleted\": false }, \"isActive\": true, \"isDeleted\": false } } "
+  },
+  
+  
+  {
+    "title": "Users",
+    
+    "url": "/api/users/",
+    "body": " Users The Users APIs provides access to users list available in your company.  User details  User details API gives you read only access to detailed information about your clubs users."
+  },
+  
+  
+  {
     "title": "Versions",
     
     "url": "/api/versions/",
@@ -154,6 +170,14 @@
   
   
   {
+    "title": "Contract",
+    
+    "url": "/appendix/contract/",
+    "body": " Contract Represents an individual user's contract.  Contract properties Contract is described by the following properties    Name Type Description     id long Unique identifier of contract.   timestamp long Timestamp of contract. Indicates when contract was last modified.   signDate string Contract's sign date.   startDate string Contract's start date.   cancelDate string Contract's cancel date.   endDate string Contract's end date.   membership Membership Contract's membership.   paymentPlan Payment paln Contract's payment plan.   isActive bool Indicates if contract is marked as active.   isDeleted bool Indicates if contract was deleted from your user's contracts list.   "
+  },
+  
+  
+  {
     "title": "Equipment",
     
     "url": "/appendix/equipment/",
@@ -170,10 +194,26 @@
   
   
   {
+    "title": "Membership",
+    
+    "url": "/appendix/membership/",
+    "body": " Membership Represents your club membership.  Membership properties Membership is described by the following properties    Name Type Description     id long Unique identifier of membership.   timestamp long Timestamp of membership. Indicates when membership was last modified.   name string Membership's name.   isActive bool Indicates if membership is marked as active.   isDeleted bool Indicates if membership was deleted from your club memberships list.   "
+  },
+  
+  
+  {
     "title": "Opening hours",
     
     "url": "/appendix/openinghours/",
     "body": " Opening hours Represents a timeframe your club is opened on a given day.  Opening hours properties Opening hours are described by the following properties    Name Type Description     id long Unique identifier of opening hours.   isClosed bool Indicates if club is closed on a given week day.   dayOfWeekOrHoliday string Day of week given object refers to. Possible values:  Monday Tuesday Wednesday Thursday Friday Saturday Sunday Holidays     openFrom string Opening hour.   openUntil string Closing hour.   isDeleted bool Indicates if opening hours was deleted.   "
+  },
+  
+  
+  {
+    "title": "Payment plan",
+    
+    "url": "/appendix/paymentplan/",
+    "body": " Payment plan Represents a club payment plan.  Payment plan properties Payment plan is described by the following properties    Name Type Description     id long Unique identifier of payment plan.   timestamp long Timestamp of payment plan. Indicates when payment plan was last modified.   name string Payment plan's name.   isActive bool Indicates if payment plan is marked as active.   isDeleted bool Indicates if payment plan was deleted from your club payment plan's list.   "
   },
   
   
