@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Membership | Perfectgym Developer Guide</title>
+  <title>Address | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,14 +53,14 @@
       
 
 <h1>
-<a id="membership" class="anchor" href="#membership" aria-hidden="true"><span class="octicon octicon-link"></span></a>Membership</h1>
+<a id="address" class="anchor" href="#address" aria-hidden="true"><span class="octicon octicon-link"></span></a>Address</h1>
 
-<p>Represents your club membership.</p>
+<p>Represents an address and is used accress all PerfectGym API.</p>
 
 <h2>
-<a id="membership-properties" class="anchor" href="#membership-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Membership properties</h2>
+<a id="address-properties" class="anchor" href="#address-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Address properties</h2>
 
-<p>Membership is described by the following properties</p>
+<p>Address is described by the following properties</p>
 
 <table>
 <thead>
@@ -72,29 +72,24 @@
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of membership.</td>
-</tr>
-<tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp of membership. Indicates when membership was last modified.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
+<td><code>street</code></td>
 <td><code>string</code></td>
-<td>Membership's name.</td>
+<td>Street name.</td>
 </tr>
 <tr>
-<td><code>isActive</code></td>
-<td><code>bool</code></td>
-<td>Indicates if membership is marked as active.</td>
+<td><code>postalCode</code></td>
+<td><code>string</code></td>
+<td>Zip code or equivalent.</td>
 </tr>
 <tr>
-<td><code>isDeleted</code></td>
-<td><code>bool</code></td>
-<td>Indicates if membership was deleted from your club memberships list.</td>
+<td><code>city</code></td>
+<td><code>string</code></td>
+<td>City name.</td>
+</tr>
+<tr>
+<td><code>country</code></td>
+<td><code>string</code></td>
+<td>Country name.</td>
 </tr>
 </tbody>
 </table>
