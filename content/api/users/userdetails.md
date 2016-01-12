@@ -15,17 +15,14 @@ Name            	| Type      | Description
 -----|--------------|----------------------
 `id`            	|`long`     			| Unique identifier of user.
 `timestamp`     	|`long`     			| Timestamp of user. Indicates when user was last modified.
-`number`          	|`string`   			| User's number.
-`firstName`     	|`string`   			| User's first name.
-`lastName`        	|`string`   			| User's last name.
-`email`          	|`string`   			| User's email address.
-`birthDate`         |`string`   			| User's birth date.
-`sex`          		|`string`   			| User's sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
-`phoneNumber`      	|`string`   			| user's phone number.
-`country`          	|`string`   			| User's country name.
-`city`          	|`string`   			| User's city name.
-`postalCode`        |`string`   			| User's zip code or equivalent..
-`street`          	|`string`   			| User's street name.
+`number`          	|`string`   			| User number.
+`firstName`     	|`string`   			| User first name.
+`lastName`        	|`string`   			| User last name.
+`email`          	|`string`   			| User email address.
+`birthDate`         |`string`   			| User birth date.
+`sex`          		|`string`   			| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
+`phoneNumber`      	|`string`   			| user phone number.
+`address`           |[Address][Address]     | User address.
 `isActive`     		|`bool`     			| Indicates if cuser is marked as active.
 `isDeleted`     	|`bool`     			| Indicates if user was deleted from your user's list.
 `currentContract`   |[Contract][Contract]   | User's current contract.
@@ -103,3 +100,4 @@ curl -i
 
 
 [Contract]: /appendix/contract
+[Address]: /appendix/address
