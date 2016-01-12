@@ -60,28 +60,49 @@
 <h2>
 <a id="request-parameters" class="anchor" href="#request-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request parameters</h2>
 
-<p>GET requests parameters are specified as path segments.    </p>
+<p>You provide parameters to PerfectGym API with path, query string and body parameters.</p>
 
-<p>POST requests parameters are specified as path segment (or JSON body with Content-Type of 'application-json'
-when explicitly required).</p>
+<p>The format for query string parameters is the full resource URL followed by a question mark, and the parameters. </p>
+
+<ul>
+<li>Path parameters are used to traverse resources hierarhy and uniquly select resource you want to interact with.</li>
+<li>For <code>GET</code> requests you provide parameters in a query string you append to your request's URL</li>
+<li>For <code>POST</code> requests you provide parameters query string parameters or as JSON in request's body (with Content-Type of 'application-json' header) 
+when explicitly required.</li>
+</ul>
+
+<p>Available path, query string and body parameters are described for each API endpoint.</p>
 
 <h3>
 <a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
 
-<p>In this example, the <code>1</code> values are provided for the <code>clubId</code> parameter in the path.</p>
+<p>In this example, we fetch club (with id = <code>16</code>) details. We request that returned data be in <code>EN</code> language.
+For detailed request description have a look <a href="/api/clubs/clubDetails#clubdetails">here</a>.</p>
 
-<pre><code>GET Classes/Classes/{clubId}
+<pre><code>GET Clubs/Club/{clubId}
 </code></pre>
 
 <pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1</span>
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Clubs/Club/16?languageCode=EN</span>
 </pre>
+
+<p>Let's break down this request:</p>
+
+<ul>
+<li>
+<code>https://yourcompany.perfectgym.com/api/</code> is a base url for PerfectGym API</li>
+<li>
+<code>Clubs/Club/16</code> - request path with <code>{clubId}</code> path parameter that uniquly identifies resource you want to work with.
+You can read it like so: from all clubs, select club with identifier of value <code>16</code>
+</li>
+<li>
+<code>?languageCode=EN</code> - query string parameter specific to a given request. Indicates that we want API to return club details in english if possible.</li>
+</ul>
 
 <h2>
 <a id="filter-and-pagination-parameters" class="anchor" href="#filter-and-pagination-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filter and pagination parameters</h2>
 
 <p>We use query string parameters for filtering and pagination in the PerfectGym API. 
-The format for query string parameters is the full resource URL followed by a question mark, and the parameters.
 Available query string parameters are described for each API endpoint.</p>
 
 <h3>

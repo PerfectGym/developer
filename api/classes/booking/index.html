@@ -60,7 +60,7 @@
 <h2>
 <a id="execute-class-booking" class="anchor" href="#execute-class-booking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class booking</h2>
 
-<pre><code>POST Classes/BookClass/{classId}/{userId} 
+<pre><code>POST Classes/BookClass/{classId}
 </code></pre>
 
 <p>Request signs up user for fitness class.</p>
@@ -82,6 +82,21 @@
 <td><code>long</code></td>
 <td>Class identifier. Request signs up user for fitness class identified by <code>classId</code>.</td>
 </tr>
+</tbody>
+</table>
+
+<h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code>userId</code></td>
 <td><code>long</code></td>
@@ -203,7 +218,7 @@
 curl -i 
      -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/BookClass/1677/40
+     http://yoursubdomain.perfectgym.com/api/Classes/BookClass/1677?userId=40
 </pre>
 
 <h3>
@@ -241,7 +256,7 @@ curl -i
 <h2>
 <a id="execute-class-cancel" class="anchor" href="#execute-class-cancel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class cancel</h2>
 
-<pre><code>POST Classes/CancelBooking/{classId}/{userId}
+<pre><code>POST Classes/CancelBooking/{classId}
 </code></pre>
 
 <p>Request cancels user booking.</p>
@@ -263,6 +278,21 @@ curl -i
 <td><code>long</code></td>
 <td>Class identifier. Request cancels user booking for fitness class identified by <code>classId</code>.</td>
 </tr>
+</tbody>
+</table>
+
+<h3>
+<a id="query-string-parameters-1" class="anchor" href="#query-string-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code>userId</code></td>
 <td><code>long</code></td>
@@ -307,7 +337,7 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/CancelBooking/1677/40
+     http://yoursubdomain.perfectgym.com/api/Classes/CancelBooking/1677?userId=40
 </pre>
 
 <h3>

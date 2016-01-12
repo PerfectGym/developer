@@ -239,17 +239,15 @@ curl -i
 <h2>
 <a id="retrive-detailed-information-about-user-identified-by-phone-number-or-e-mail-address" class="anchor" href="#retrive-detailed-information-about-user-identified-by-phone-number-or-e-mail-address" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed information about user identified by phone number or e-mail address.</h2>
 
-<pre><code>GET Userss/User/{userAttribute}
+<pre><code>GET Userss/User
 </code></pre>
 
 <p>Returns detailed informations of user identified by phone number or e-mail address. User must be
-uniquly identified by <code>userAttribute</code> parameter. If more then one user with given <code>userAttribute</code> exists,
+uniquly identified by one of a parameters. If more then one user with given e-mail or phone number exists,
 empty result is returned.</p>
 
-<p><code>userAttribute</code> must be URL encoded.</p>
-
 <h3>
-<a id="path-parameters-1" class="anchor" href="#path-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
 
 <table>
 <thead>
@@ -261,9 +259,14 @@ empty result is returned.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>userAtribute</code></td>
+<td><code>emailAddress</code></td>
 <td><code>string</code></td>
-<td>User's phone number or e-mail address.</td>
+<td>Optional. User's e-mail address.</td>
+</tr>
+<tr>
+<td><code>phoneNumber</code></td>
+<td><code>string</code></td>
+<td>Optional. User's phone number.</td>
 </tr>
 </tbody>
 </table>
@@ -277,7 +280,7 @@ empty result is returned.</p>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Users/User/'0048123456789'/
+     http://yoursubdomain.perfectgym.com/api/Users/User?phoneNumber=0048123456789
 </pre>
 
 <h3>

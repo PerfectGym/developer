@@ -123,7 +123,7 @@ elements by <code>rankingFactor</code> ascending sets elements in the proper ran
 <h2>
 <a id="execute-class-rating" class="anchor" href="#execute-class-rating" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class rating</h2>
 
-<pre><code>POST Classes/RateClass/{classId}/{userId}/{rating}
+<pre><code>POST Classes/RateClass/{classId}
 </code></pre>
 
 <p>Request rates class on behalf of user.</p>
@@ -145,6 +145,21 @@ elements by <code>rankingFactor</code> ascending sets elements in the proper ran
 <td><code>long</code></td>
 <td>Class identifier. Request rates fitness class identified by <code>classId</code>.</td>
 </tr>
+</tbody>
+</table>
+
+<h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code>userId</code></td>
 <td><code>long</code></td>
@@ -194,7 +209,9 @@ elements by <code>rankingFactor</code> ascending sets elements in the proper ran
 curl -i 
      -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/RateClass/1677/40/5
+     http://yoursubdomain.perfectgym.com/api/Classes/RateClass/1677?
+        userId=40&amp;
+        classRating=5
 </pre>
 
 <h3>
@@ -219,7 +236,7 @@ curl -i
 <h2>
 <a id="execute-instructor-rating" class="anchor" href="#execute-instructor-rating" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute instructor rating</h2>
 
-<pre><code>POST Classes/RateInstructor/{classId}/{userId}/{rating}
+<pre><code>POST Classes/RateInstructor/{classId}
 </code></pre>
 
 <p>Request rates instructor conducting class on behalf of user.</p>
@@ -241,6 +258,21 @@ curl -i
 <td><code>long</code></td>
 <td>Class identifier. Request rates instructor conducting class identified by <code>classId</code>.</td>
 </tr>
+</tbody>
+</table>
+
+<h3>
+<a id="query-string-parameters-1" class="anchor" href="#query-string-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code>userId</code></td>
 <td><code>long</code></td>
@@ -296,7 +328,9 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/RateInstructor/1677/40/4
+     http://yoursubdomain.perfectgym.com/api/Classes/RateInstructor/1677?
+        userId=40&amp;
+        isntructorRating=4
 </pre>
 
 <h3>

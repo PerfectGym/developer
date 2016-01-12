@@ -128,30 +128,10 @@
 <h2>
 <a id="list-classes-in-a-given-timeframe" class="anchor" href="#list-classes-in-a-given-timeframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes in a given timeframe</h2>
 
-<pre><code>GET Classes/Classes/{clubId} 
+<pre><code>GET Classes/Classes
 </code></pre>
 
 <p>Returns paginated classes list.</p>
-
-<h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>clubId</code></td>
-<td><code>long</code></td>
-<td>Club identifier. Request returns classes that take place in club identified by <code>clubId</code>.</td>
-</tr>
-</tbody>
-</table>
 
 <h3>
 <a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
@@ -165,6 +145,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Club identifier. Request returns classes that take place in club identified by <code>clubId</code>.</td>
+</tr>
 <tr>
 <td><code>startDate</code></td>
 <td><code>datetime</code></td>
@@ -194,7 +180,8 @@
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
+        clubId=2&amp;
         startDate=2015-12-01T00:00:00&amp;
         endDate=2015-12-31T23:59:59
 </pre>
@@ -262,30 +249,10 @@ curl -i
 <h2>
 <a id="list-classes-with-timestamp" class="anchor" href="#list-classes-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes with timestamp</h2>
 
-<pre><code>GET Classes/Classes/{clubId}
+<pre><code>GET Classes/Classes
 </code></pre>
 
 <p>Returns paginated classes list.</p>
-
-<h3>
-<a id="path-parameters-1" class="anchor" href="#path-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>clubId</code></td>
-<td><code>long</code></td>
-<td>Club identifier. Request returns classes that take place in club identified by <code>clubId</code>.</td>
-</tr>
-</tbody>
-</table>
 
 <h3>
 <a id="query-string-parameters-1" class="anchor" href="#query-string-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
@@ -300,9 +267,15 @@ curl -i
 </thead>
 <tbody>
 <tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Club identifier. Request returns classes that take place in club identified by <code>clubId</code>.</td>
+</tr>
+<tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
-<td>Timestamp. Request returns classes with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
+<td>Optional. Timestamp. Request returns classes with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -316,7 +289,9 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?timestamp=254000
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
+        clubId=2&amp;
+        timestamp=254000
 </pre>
 
 <h3>

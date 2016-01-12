@@ -147,9 +147,10 @@ Only club details specyfic properties are described here.</p>
 </table>
 
 <h2>
-<a id="retrive-detailed-information-about-specyfic-club" class="anchor" href="#retrive-detailed-information-about-specyfic-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed information about specyfic club.</h2>
+<a id="retrive-detailed-information-about-specyfic-club" class="anchor" href="#retrive-detailed-information-about-specyfic-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="clubdetails"></a>Retrive detailed information about specyfic club.</h2>
 
-<pre><code>GET Clubs/Club/{clubId}/{languageCode}  
+<pre><code>GET Clubs/Club/{clubId}
 </code></pre>
 
 <p>Returns detailed club informations.</p>
@@ -171,6 +172,21 @@ Only club details specyfic properties are described here.</p>
 <td><code>long</code></td>
 <td>Club identifier.</td>
 </tr>
+</tbody>
+</table>
+
+<h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code>languageCode</code></td>
 <td><code>string</code></td>
@@ -188,7 +204,7 @@ Only club details specyfic properties are described here.</p>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/Club/16      
+     http://yoursubdomain.perfectgym.com/api/Clubs/Club?clubId=16       
 </pre>
 
 <h3>
