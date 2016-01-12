@@ -33,9 +33,9 @@ Name            		| Type    | Description
 
 
 
-## Retrive detailed information about specyfic club.
+## <a name="clubdetails"></a>Retrive detailed information about specyfic club.
 
-    GET Clubs/Club/{clubId}/{languageCode}  
+    GET Clubs/Club/{clubId}
 
 Returns detailed club informations.
 
@@ -45,6 +45,11 @@ Returns detailed club informations.
 Name            | Type       | Description
 -----|----------|------------|------------
 `clubId`        |`long`      | Club identifier.
+
+### Query string parameters
+
+Name            | Type       | Description
+-----|----------|------------|------------
 `languageCode`  |`string`    | Optional. Language identifier club information should be translated to (for example `EN`, `DE` etc.).
 
 
@@ -57,7 +62,7 @@ In this example we fetch club with id = `16` detailed information. Information w
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/Club/16     	
+     http://yoursubdomain.perfectgym.com/api/Clubs/Club?clubId=16     	
 ```
 
 

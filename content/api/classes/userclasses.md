@@ -25,23 +25,17 @@ Name            		| Type    | Description
 
 ## List user classes in a given timeframe
 
-    GET Classes/UserClasses/{userId}/{clubId}  
+    GET Classes/UserClasses
 
 Returns paginated user classes list.
-
-
-### Path parameters
-
-Name         | Type       | Description
------|-------|------------|------------
-`userId`     |`long`      | UserId identifier. Request returns classes data for user identified by `userId`.
-`clubId`     |`long`      | Club identifier. Request returns classes that take place in club identified by `clubId`.
 
 
 ### Query string parameters
 
 Name         | Type       | Description
 -----|-------|------------|------------
+`userId`     |`long`      | UserId identifier. Request returns classes data for user identified by `userId`.
+`clubId`     |`long`      | Club identifier. Request returns classes that take place in club identified by `clubId`.
 `startDate`  |`datetime`  | **Required**. Start date. Request returns classes that starts leter then `startDate`.
 `endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
 `page`       |`int`       | Optional. Page number, defaults to `1`.
@@ -55,7 +49,9 @@ In this example we fetch first 100 of all user (with id = `40`) classes in club 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses/40/2?
+     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses?
+        userId=40&
+        clubId=2&
      	startDate=2015-12-01T00:00:00&
      	endDate=2015-12-31T23:59:59
 ```
@@ -70,23 +66,17 @@ curl -i
 
 ## List classes with timestamp 
 
-    GET Classes/UserClasses/{userId}/{clubId}
+    GET Classes/UserClasses
 
 Returns paginated user classes list.
-
-
-### Path parameters
-
-Name         | Type   | Description
------|-------|--------|------------
-`userId`     |`long`  | UserId identifier. Request returns classes data for user identified by `userId`.
-`clubId`     |`long`  | Club identifier. Request returns classes that take place in club identified by `clubId`.
 
 
 ### Query string parameters
 
 Name         | Type   | Description
 -----|-------|--------|------------
+`userId`     |`long`  | UserId identifier. Request returns classes data for user identified by `userId`.
+`clubId`     |`long`  | Club identifier. Request returns classes that take place in club identified by `clubId`.
 `timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
 
 
@@ -98,7 +88,10 @@ In this example we fetch list of all user (with id = `40`) classes in club with 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses/40/2?timestamp=254000
+     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses?
+        userId=40&
+        clubId=2&
+        timestamp=254000
 ```
 
 

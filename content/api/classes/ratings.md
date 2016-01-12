@@ -48,7 +48,7 @@ Name         		| Type       | Description
 
 ## Execute class rating
 
-    POST Classes/RateClass/{classId}/{userId}/{rating}
+    POST Classes/RateClass/{classId}
 
 Request rates class on behalf of user.
 
@@ -58,6 +58,11 @@ Request rates class on behalf of user.
 Name         | Type       | Description
 -----|-------|------------|------------
 `classId`    |`long`      | Class identifier. Request rates fitness class identified by `classId`.
+
+### Query string parameters
+
+Name         | Type       | Description
+-----|-------|------------|------------
 `userId`     |`long`      | User identifier.  Request rates fitness class on behalf of user identified by `userId`.
 `rating`     |`int`       | Rating. Value of `1` to `5`. Rating user assigns to selected classes.
 
@@ -78,7 +83,9 @@ In this example we assign rating `5` to classes with id = `1677` by user with id
 curl -i 
      -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/RateClass/1677/40/5
+     http://yoursubdomain.perfectgym.com/api/Classes/RateClass/1677?
+     	userId=40&
+     	classRating=5
 ```
 
 
@@ -92,7 +99,7 @@ In this example class rating is unsuccessful because it has been already rated.
 
 ## Execute instructor rating
 
-    POST Classes/RateInstructor/{classId}/{userId}/{rating}
+    POST Classes/RateInstructor/{classId}
 
 Request rates instructor conducting class on behalf of user.
 
@@ -102,9 +109,13 @@ Request rates instructor conducting class on behalf of user.
 Name         | Type       | Description
 -----|-------|------------|------------
 `classId`    |`long`      | Class identifier. Request rates instructor conducting class identified by `classId`.
+
+### Query string parameters
+
+Name         | Type       | Description
+-----|-------|------------|------------
 `userId`     |`long`      | User identifier.  Request rates instructor on behalf of user identified by `userId`.
 `rating`     |`int`       | Rating. Value of `1` to `5`. Rating user assigns to selected instructor.
-
 
 ### Response details properties
 
@@ -124,7 +135,9 @@ In this example we assign rating `4` to instructor conducting classes with id = 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/RateInstructor/1677/40/4
+     http://yoursubdomain.perfectgym.com/api/Classes/RateInstructor/1677?
+     	userId=40&
+     	isntructorRating=4
 ```
 
 

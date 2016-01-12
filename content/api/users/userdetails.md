@@ -64,20 +64,19 @@ curl -i
 
 ## Retrive detailed information about user identified by phone number or e-mail address.
 
-    GET Userss/User/{userAttribute}
+    GET Userss/User
 
 Returns detailed informations of user identified by phone number or e-mail address. User must be
-uniquly identified by `userAttribute` parameter. If more then one user with given `userAttribute` exists,
+uniquly identified by one of a parameters. If more then one user with given e-mail or phone number exists,
 empty result is returned.
 
-`userAttribute` must be URL encoded.
 
-
-### Path parameters
+### Query string parameters
 
 Name            | Type       | Description
 -----|----------|------------|------------
-`userAtribute`  |`string`    | User's phone number or e-mail address.
+`emailAddress`  |`string`    | Optional. User's e-mail address.
+`phoneNumber`   |`string`    | Optional. User's phone number.
 
 
 ### Example request
@@ -88,7 +87,7 @@ In this example we fetch user (with phone number = `0048123456789`) detailed inf
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Users/User/'0048123456789'/
+     http://yoursubdomain.perfectgym.com/api/Users/User?phoneNumber=0048123456789
 ```
 
 

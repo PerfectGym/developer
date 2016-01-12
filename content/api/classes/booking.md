@@ -9,7 +9,7 @@ This API allow users to sign up (book) and sign out (cancel) for fitness classes
 
 ## Execute class booking
 
-    POST Classes/BookClass/{classId}/{userId} 
+    POST Classes/BookClass/{classId}
 
 Request signs up user for fitness class.
 
@@ -19,6 +19,11 @@ Request signs up user for fitness class.
 Name         | Type       | Description
 -----|-------|------------|------------
 `classId`    |`long`      | Class identifier. Request signs up user for fitness class identified by `classId`.
+
+### Query string parameters
+
+Name         | Type       | Description
+-----|-------|------------|------------
 `userId`     |`long`      | User identifier.  Request signs up user identified by `userId` for fitness class.
 
 
@@ -51,7 +56,7 @@ In this example we sign up user with id = `40` for classes with id = `1677`
 curl -i 
      -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/BookClass/1677/40
+     http://yoursubdomain.perfectgym.com/api/Classes/BookClass/1677?userId=40
 ```
 
 
@@ -65,7 +70,7 @@ In this example booking is unsuccessful because it is to late to book selected c
 
 ## Execute class cancel
 
-    POST Classes/CancelBooking/{classId}/{userId}
+    POST Classes/CancelBooking/{classId}
 
 Request cancels user booking.
 
@@ -75,8 +80,12 @@ Request cancels user booking.
 Name         | Type       | Description
 -----|-------|------------|------------
 `classId`    |`long`      | Class identifier. Request cancels user booking for fitness class identified by `classId`.
-`userId`     |`long`      | User identifier.  Request cancels user identified by `userId` booking for fitness class.
 
+### query string parameters
+
+Name         | Type       | Description
+-----|-------|------------|------------
+`userId`     |`long`      | User identifier.  Request cancels user identified by `userId` booking for fitness class.
 
 ### Response details properties
 
@@ -94,7 +103,7 @@ In this example we cancel booking of user with id = `40` for classes with id = `
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/CancelBooking/1677/40
+     http://yoursubdomain.perfectgym.com/api/Classes/CancelBooking/1677?userId=40
 ```
 
 

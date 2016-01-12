@@ -29,22 +29,16 @@ Name            | Type                        | Description
 
 ## List classes in a given timeframe
 
-    GET Classes/Classes/{clubId} 
+    GET Classes/Classes
 
 Returns paginated classes list.
-
-
-### Path parameters
-
-Name         | Type       | Description
------|-------|------------|------------
-`clubId`     |`long`      | Club identifier. Request returns classes that take place in club identified by `clubId`.
 
 
 ### Query string parameters
 
 Name         | Type       | Description
 -----|-------|------------|------------
+`clubId`     |`long`      | **Required**. Club identifier. Request returns classes that take place in club identified by `clubId`.
 `startDate`  |`datetime`  | **Required**. Start date. Request returns classes that starts leter then `startDate`.
 `endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
 `page`       |`int`       | Optional. Page number, defaults to `1`.
@@ -58,7 +52,8 @@ In this example we fetch first 100 classes in club with id = `2`, that starts in
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
+        clubId=2&
      	startDate=2015-12-01T00:00:00&
      	endDate=2015-12-31T23:59:59
 ```
@@ -73,23 +68,17 @@ curl -i
 
 ## List classes with timestamp 
 
-    GET Classes/Classes/{clubId}
+    GET Classes/Classes
 
 Returns paginated classes list.
-
-
-### Path parameters
-
-Name         | Type   | Description
------|-------|--------|------------
-`clubId`     |`long`  | Club identifier. Request returns classes that take place in club identified by `clubId`.
 
 
 ### Query string parameters
 
 Name         | Type   | Description
 -----|-------|--------|------------
-`timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
+`clubId`     |`long`  | **Required**. Club identifier. Request returns classes that take place in club identified by `clubId`.
+`timestamp`  |`long`  | Optional. Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
 
 
 ### Example request
@@ -100,7 +89,9 @@ In this example we fetch list of all classes in club with id = `2` and with time
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?timestamp=254000
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
+        clubId=2&
+        timestamp=254000
 ```
 
 

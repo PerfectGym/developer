@@ -10,25 +10,38 @@ This describes PerfectGym API requests basics.
 
 ## Request parameters
 
-GET requests parameters are specified as path segments.    
+You provide parameters to PerfectGym API with path, query string and body parameters.
 
-POST requests parameters are specified as path segment (or JSON body with Content-Type of 'application-json'
-when explicitly required).
+The format for query string parameters is the full resource URL followed by a question mark, and the parameters. 
+
+- Path parameters are used to traverse resources hierarhy and uniquly select resource you want to interact with.
+- For `GET` requests you provide parameters in a query string you append to your request's URL
+- For `POST` requests you provide parameters query string parameters or as JSON in request's body (with Content-Type of 'application-json' header) 
+when explicitly required.
+
+Available path, query string and body parameters are described for each API endpoint.
 
 
 ### Example
-In this example, the `1` values are provided for the `clubId` parameter in the path.
-
-    GET Classes/Classes/{clubId}
+In this example, we fetch club (with id = `16`) details. We request that returned data be in `EN` language.
+For detailed request description have a look [here][ClubDetails].
+	
+    GET Clubs/Club/{clubId}
 ``` command-line
-$ curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1
+$ curl -i https://yourcompany.perfectgym.com/api/Clubs/Club/16?languageCode=EN
 ```
+
+Let's break down this request:
+- `https://yourcompany.perfectgym.com/api/` is a base url for PerfectGym API
+- `Clubs/Club/16` - request path with `{clubId}` path parameter that uniquly identifies resource you want to work with.
+You can read it like so: from all clubs, select club with identifier of value `16`
+- `?languageCode=EN` - query string parameter specific to a given request. Indicates that we want API to return club details in english if possible.
+	
 
 
 ## Filter and pagination parameters
 
 We use query string parameters for filtering and pagination in the PerfectGym API. 
-The format for query string parameters is the full resource URL followed by a question mark, and the parameters.
 Available query string parameters are described for each API endpoint.
 
 
@@ -67,3 +80,4 @@ For details about pagination with `timestamp` parameter go to [Pagination using 
 
 [Pagination]:  /api/overview/pagination#page
 [PaginationWithTimestamp]:  /api/overview/pagination#timestamp
+[ClubDetails]: /api/clubs/clubDetails#clubdetails
