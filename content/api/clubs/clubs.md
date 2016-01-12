@@ -14,7 +14,7 @@ Class is described by the following properties
 Name            | Type                        | Description
 -----|----------|------------------------------------------
 `id`            |`long`                       | Unique identifier of class.
-`timestamp`     |`long`                       | Timestamp of class. Indicates when class was last modified.
+`timestamp`     |`long`                       | Timestamp of club. Indicates when club was last modified.
 `name`          |`string`                     | Club name.
 `shortName`     |`long`                       | Club short name.
 `symbol`        |`long`                       | Club symbol.

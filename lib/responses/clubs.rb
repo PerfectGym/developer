@@ -1,6 +1,3 @@
-require_relative 'user'
-
-
 module GitHub
   module Resources
     module Responses      
