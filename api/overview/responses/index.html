@@ -55,16 +55,20 @@
 <h1>
 <a id="responses" class="anchor" href="#responses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Responses</h1>
 
+<p>Responses contains resources list or individual resources for GET requests.
+For POST requests, individual resource that request operates on is returned. </p>
+
 <p>Each API response is wrapped in a standard structure called the envelope, 
-which holds the results of the API call, plus the metadata related to the request.</p>
+which holds the results of the API call, plus the metadata related to the request.
+In case of logical errors, error detailes are enclosed in error envelope.</p>
 
 <h2>
-<a id="get-response-envelope" class="anchor" href="#get-response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>GET Response Envelope</h2>
+<a id="response-envelope" class="anchor" href="#response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response Envelope</h2>
 
-<p>GET responses contains resources list or individual resources. </p>
+<p>Response envelope encloses resources list or individual resources returned by PerfectGym API.</p>
 
 <h3>
-<a id="envelope" class="anchor" href="#envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Envelope</h3>
+<a id="response-envelope-properties" class="anchor" href="#response-envelope-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response envelope properties</h3>
 
 <table>
 <thead>
@@ -118,12 +122,12 @@ which holds the results of the API call, plus the metadata related to the reques
 
 
 <h2>
-<a id="post-response-envelope" class="anchor" href="#post-response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>POST Response Envelope</h2>
+<a id="error-response-envelope" class="anchor" href="#error-response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Response Envelope</h2>
 
-<p>POST request are used to create / update elements or invoke actions.</p>
+<p>Error resoinse envelope encloses information about logical errors that occured during API calls.</p>
 
 <h3>
-<a id="envelope-1" class="anchor" href="#envelope-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Envelope</h3>
+<a id="error-envelope-properties" class="anchor" href="#error-envelope-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error envelope properties</h3>
 
 <table>
 <thead>
@@ -134,13 +138,8 @@ which holds the results of the API call, plus the metadata related to the reques
 </thead>
 <tbody>
 <tr>
-<td><code>success</code></td>
-<td>
-<code>true</code> if action completed successfuly, <code>false</code> otherwise.</td>
-</tr>
-<tr>
-<td><code>details</code></td>
-<td>Information containing request result details.</td>
+<td><code>errors</code></td>
+<td>An array of <a href="/appendix/error">Error</a> objects, each representing logical error that occured during API call.</td>
 </tr>
 </tbody>
 </table>
@@ -153,24 +152,13 @@ which holds the results of the API call, plus the metadata related to the reques
 
 
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"standbyList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"classAlreadyBooked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingRejected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingBlockedForUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingInZoneNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingWithDebitNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingWithoutActiveContractNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingToLate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingToSoon"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dailyBookingLimitReached"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dailyZoneBookingLimitReached"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"userNotAllowedToAccessClub"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"standbyListLimitReached"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"rejectionReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ClassAlreadyBooked"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 

@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Appendix | Perfectgym Developer Guide</title>
+  <title>Error | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -51,8 +51,44 @@
   <div id="wrapper">
     <div class="content">
       
+
 <h1>
-<a id="appendix" class="anchor" href="#appendix" aria-hidden="true"><span class="octicon octicon-link"></span></a>Appendix</h1>
+<a id="error" class="anchor" href="#error" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error</h1>
+
+<p>Represents a logical error that occured during API call.</p>
+
+<h2>
+<a id="error-properties" class="anchor" href="#error-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error properties</h2>
+
+<p>Address is described by the following properties</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>string</code></td>
+<td>Error code.</td>
+</tr>
+<tr>
+<td><code>property</code></td>
+<td><code>string</code></td>
+<td>Resource property that caused an error (if available).</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>string</code></td>
+<td>Error message (if available).</td>
+</tr>
+</tbody>
+</table>
+
 
     </div>
 

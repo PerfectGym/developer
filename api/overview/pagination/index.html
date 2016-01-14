@@ -95,7 +95,7 @@ regardless of time they were last modified.</p>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?timestamp=0      
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes?clubId=2&amp;timestamp=0       
 </pre>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
@@ -129,7 +129,7 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?timestamp=254718         
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes?clubId=2&amp;timestamp=254718      
 </pre>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
@@ -173,7 +173,8 @@ The default page is the first one, so if you ommit <code>page</code> parameter, 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
+          clubId=2&amp;
         startDate=2015-12-01T00:00:00&amp;
         endDate=2015-12-31T23:59:59
 </pre>
@@ -184,7 +185,8 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/2?
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes/?
+          clubId=2&amp;
         startDate=2015-12-01T00:00:00&amp;
         endDate=2015-12-31T23:59:59&amp;
         page=2

@@ -135,11 +135,11 @@ changed since your last api call.</p>
 <p>In this example we fetch list of classes from the club with <code>id</code> of <code>1</code> and with <code>timestamp</code> 
 value greater then <code>654321</code>.</p>
 
-<pre><code>GET Classes/Classes/{clubId}
+<pre><code>GET Classes/Classes
 </code></pre>
 
 <pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1?timestamp=654321</span>
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes?clubId=1&amp;timestamp=654321</span>
 </pre>
 
 <p>For details about pagination with <code>timestamp</code> parameter go to <a href="/api/overview/pagination#timestamp">Pagination using timestamp</a></p>
