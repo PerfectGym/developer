@@ -139,6 +139,17 @@ module GitHub
         },
         "success": false,
       }
+      
+      BOOKCLASS_ERROR_RESPONSE ||= {      
+         
+        "errors" => [
+          {
+            "code": "ClassAlreadyBooked",
+            "property": "",
+            "message": ""
+          }
+        ]                        
+      }
 
       CANCELCLASS_RESPONSE ||= {      
                          

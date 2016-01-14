@@ -4,16 +4,20 @@ title: Responses
 
 # Responses
 
+Responses contains resources list or individual resources for GET requests.
+For POST requests, individual resource that request operates on is returned. 
+
 Each API response is wrapped in a standard structure called the envelope, 
 which holds the results of the API call, plus the metadata related to the request.
+In case of logical errors, error detailes are enclosed in error envelope.
 
 
-## GET Response Envelope
+## 	Response Envelope
 
-GET responses contains resources list or individual resources. 
+Response envelope encloses resources list or individual resources returned by PerfectGym API.
 
 
-### Envelope
+### Response envelope properties
 
 Attribute Name | Description
 ---------------|-----------|
@@ -26,23 +30,22 @@ Attribute Name | Description
 <%= json(:classtype_response) %>
 
 
-## POST Response Envelope
+## Error Response Envelope
 
-POST request are used to create / update elements or invoke actions.
+Error resoinse envelope encloses information about logical errors that occured during API calls.
 
 
-### Envelope
+### Error envelope properties
 
 Attribute Name | Description
------------|-----------|
-`success` | `true` if action completed successfuly, `false` otherwise.
-`details` | Information containing request result details.
+---------------|-----------|
+`errors` 	   | An array of [Error][Error] objects, each representing logical error that occured during API call.
 
 
 ### Example
 
 <%= headers 200 %>
-<%= json(:bookclass_response) %>
+<%= json(:bookclass_error_response) %>
 
 
 ## Summary Representations
@@ -76,3 +79,7 @@ representation of the class:
 
 The documentation provides an example response for each API method. The example
 response illustrates all attributes that are returned by that method.
+
+
+
+[Error]:  /appendix/error

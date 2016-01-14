@@ -70,9 +70,9 @@ changed since your last api call.
 In this example we fetch list of classes from the club with `id` of `1` and with `timestamp` 
 value greater then `654321`.
 
-	GET Classes/Classes/{clubId}
+	GET Classes/Classes
 ``` command-line
-$ curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1?timestamp=654321
+$ curl -i https://yourcompany.perfectgym.com/api/Classes/Classes?clubId=1&timestamp=654321
 ```
 
 For details about pagination with `timestamp` parameter go to [Pagination using timestamp][PaginationWithTimestamp]
