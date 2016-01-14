@@ -8,7 +8,7 @@ User class represents fitness class conducted in your club. User classes share m
 of its data with [Classes][Classes], and holds additional properties specific to club user.
 
 
-## Class properties
+## <a name="properties"></a>Class properties
 
 User class holds the same data as [Classes][ClassesProperties] plus user specyfic properties.
 Only user specyfic properties are described here.

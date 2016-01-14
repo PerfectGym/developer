@@ -119,26 +119,50 @@ module GitHub
       }
 
       BOOKCLASS_RESPONSE ||= {      
-                         
-        "details": {
-          "standbyList": false,
-          "classAlreadyBooked": false,
-          "bookingRejected": false,
-          "bookingBlockedForUser": false,
-          "bookingInZoneNotAllowed": false,
-          "bookingWithDebitNotAllowed": false,
-          "bookingWithoutActiveContractNotAllowed": false,
-          "bookingNotAllowed": false,
-          "bookingToLate": true,
-          "bookingToSoon": false,
-          "dailyBookingLimitReached": false,
-          "dailyZoneBookingLimitReached": false,
-          "userNotAllowedToAccessClub": false,
-          "standbyListLimitReached": false,
-          "rejectionReason": ""
-        },
-        "success": false,
-      }
+        
+        "elements" => [
+          {
+            "booked": true,
+            "attended": false,
+            "userClassRating": "",
+            "userInstructorRating": "",  
+            "classType" => CLASSTYPE_BOX,
+            "instructor" => INSTRUCTOR_AGATHA_STRICKLAND,
+            "club" => CLUB_CYBERBOTIX,
+            "id": 1677,
+            "timestamp": 254718,
+            "isDeleted": false,
+            "startDate": "2015-12-03T06:15:00",
+            "endDate": "2015-12-03T07:15:00",
+            "attendeesCount": 7,
+            "attendeesLimit": 20,
+            "clubZone": "Fitness"
+          }
+        ] 
+      }    
+
+      CANCELCLASS_RESPONSE ||= {      
+        
+        "elements" => [
+          {
+            "booked": false,
+            "attended": false,
+            "userClassRating": "",
+            "userInstructorRating": "",  
+            "classType" => CLASSTYPE_BOX,
+            "instructor" => INSTRUCTOR_AGATHA_STRICKLAND,
+            "club" => CLUB_CYBERBOTIX,
+            "id": 1677,
+            "timestamp": 254718,
+            "isDeleted": false,
+            "startDate": "2015-12-03T06:15:00",
+            "endDate": "2015-12-03T07:15:00",
+            "attendeesCount": 6,
+            "attendeesLimit": 20,
+            "clubZone": "Fitness"
+          }
+        ] 
+      }    
       
       BOOKCLASS_ERROR_RESPONSE ||= {      
          
@@ -149,35 +173,53 @@ module GitHub
             "message": ""
           }
         ]                        
-      }
-
-      CANCELCLASS_RESPONSE ||= {      
-                         
-        "details": {
-          "classNotBooked": true,
-          "toLateToCancel": false
-        },
-        "success": false,
-      }
+      }      
 
       RATECLASS_RESPONSE ||= {      
-                         
-        "details": {
-          "classAlreadyRated": true,
-          "userDidNotAttendClass": false
-        },
-        "success": false,
-      }
+        
+        "elements" => [
+          {
+            "booked": true,
+            "attended": true,
+            "userClassRating": 5,
+            "userInstructorRating": "",  
+            "classType" => CLASSTYPE_BOX,
+            "instructor" => INSTRUCTOR_AGATHA_STRICKLAND,
+            "club" => CLUB_CYBERBOTIX,
+            "id": 1677,
+            "timestamp": 254718,
+            "isDeleted": false,
+            "startDate": "2015-12-03T06:15:00",
+            "endDate": "2015-12-03T07:15:00",
+            "attendeesCount": 7,
+            "attendeesLimit": 20,
+            "clubZone": "Fitness"
+          }
+        ] 
+      }    
 
       RATEINSTRUCTOR_RESPONSE ||= {      
-                         
-        "details": {
-          "instructorAlreadyRated": true,
-          "classWithoutAssignedInstructor": false,
-          "userDidNotAttendClass": false
-        },
-        "success": false,
-      }
+        
+        "elements" => [
+          {
+            "booked": true,
+            "attended": true,
+            "userClassRating": 5,
+            "userInstructorRating": 4,  
+            "classType" => CLASSTYPE_BOX,
+            "instructor" => INSTRUCTOR_AGATHA_STRICKLAND,
+            "club" => CLUB_CYBERBOTIX,
+            "id": 1677,
+            "timestamp": 254718,
+            "isDeleted": false,
+            "startDate": "2015-12-03T06:15:00",
+            "endDate": "2015-12-03T07:15:00",
+            "attendeesCount": 7,
+            "attendeesLimit": 20,
+            "clubZone": "Fitness"
+          }
+        ] 
+      }          
     end
   end
 end

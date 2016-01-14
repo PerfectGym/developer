@@ -32,8 +32,8 @@ Attribute Name | Description
 
 ## Error Response Envelope
 
-Error resoinse envelope encloses information about logical errors that occured during API calls.
-
+Error response envelope encloses information about logical errors that occured during API calls.
+Error responses come with `HTTP 400` status code.
 
 ### Error envelope properties
 
@@ -44,7 +44,7 @@ Attribute Name | Description
 
 ### Example
 
-<%= headers 200 %>
+<%= headers 400 %>
 <%= json(:bookclass_error_response) %>
 
 
@@ -82,4 +82,4 @@ response illustrates all attributes that are returned by that method.
 
 
 
-[Error]:  /appendix/error
+[Error]:  /appendix/datatypes/error

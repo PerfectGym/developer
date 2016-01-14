@@ -67,12 +67,10 @@ Name         | Type       | Description
 `rating`     |`int`       | Rating. Value of `1` to `5`. Rating user assigns to selected classes.
 
 
-### Response details properties
+### Response
 
-Name            		| Type      | Description
------|------------------|------------------------
-`classAlreadyRated`     |`bool`   	| `true` if user has already rated selected class.
-`userDidNotAttendClass`	|`bool`   	| `true` if user didn't attend selected class.
+[Class details][UserClassProperties] if class rating is successful, or collection of [errors][Error] 
+with [class rating error codes][ClassRatingErrorCode] otherwise.
 
 
 ### Example request
@@ -117,14 +115,11 @@ Name         | Type       | Description
 `userId`     |`long`      | User identifier.  Request rates instructor on behalf of user identified by `userId`.
 `rating`     |`int`       | Rating. Value of `1` to `5`. Rating user assigns to selected instructor.
 
-### Response details properties
 
-Name            					| Type      | Description
------|------------------------------|------------------------
-`instructorAlreadyRated`     		|`bool`   	| `true` if user has already rated instructor.
-`classWithoutAssignedInstructor`    |`bool`   	| `true` if class has no assigned instructor.
-`userDidNotAttendClass`				|`bool`   	| `true` if user didn't attend selected class.
+### Response
 
+[Class details][UserClassProperties] if instructor rating is successful, or collection of [errors][Error] 
+with [instructor rating error codes][InstructorRatingErrorCode] otherwise.
 
 
 ### Example request
@@ -146,5 +141,11 @@ curl -i
 In this example instructor rating is unsuccessful because instructor has been already rated.
 <%= headers 200 %>
 <%= json(:rateinstructor_response) %>
+
+
+[Error]: /appendix/datatypes/error
+[UserClassProperties]: /api/classes/userclasses#properties
+[ClassRatingErrorCode]: /appendix/enums/classratingerrorcode
+[InstructorRatingErrorCode]: /appendix/enums/instructorratingerrorcode
 
 

@@ -98,5 +98,5 @@ curl -i
 
 
 
-[Contract]: /appendix/contract
-[Address]: /appendix/address
+[Contract]: /appendix/datatypes/contract
+[Address]: /appendix/datatypes/address

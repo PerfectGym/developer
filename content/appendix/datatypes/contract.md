@@ -28,5 +28,5 @@ Name            | Type      | Description
 
 
 
-[Membership]: /appendix/membership
-[PaymentPlan]: /appendix/paymentplan
+[Membership]: /appendix/datatypes/membership
+[PaymentPlan]: /appendix/datatypes/paymentplan

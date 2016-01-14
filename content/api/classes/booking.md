@@ -27,25 +27,10 @@ Name         | Type       | Description
 `userId`     |`long`      | User identifier.  Request signs up user identified by `userId` for fitness class.
 
 
-### Response details properties
+### Response
 
-Name            							| Type      | Description
------|----------|----------------------------------------------------
-`standbyList`     							|`bool`   	| `true` if user has beed added to standby list.
-`classAlreadyBooked`     					|`bool`   	| `true` if class is already booked by the user.
-`bookingRejected`    						|`bool`     | `true` if booking is rejected. Rejection reason message can be accessed via `rejectionReason` parameter.
-`bookingBlockedForUser`            			|`bool`     | `true` if booking is blocked for user. Booking can be blocked if user signed up for class and didn't show up.
-`bookingInZoneNotAllowed`     				|`bool`     | `true` if user membership does not allow to book classes in a specific club zone.
-`bookingWithDebitNotAllowed`     			|`bool`     | `true` if user has debit.
-`bookingWithoutActiveContractNotAllowed`	|`bool`     | `true` if user does not have an active membership.
-`bookingNotAllowed`       					|`bool`     | `true` if booking for selected classes is not allowed.
-`bookingToLate`								|`bool`     | `true` if it is too late to book selected class.
-`bookingToSoon`								|`bool`     | `true` if it is to early to book selected class.
-`dailyBookingLimitReached`					|`bool`     | `true` if daily club booking limit has beed exceeded.
-`dailyZoneBookingLimitReached`				|`bool`     | `true` if daily club zone booking limit has been exceeded.
-`userNotAllowedToAccessClub`				|`bool`     | `true` if user membership does not allow to access club during selected class.
-`standbyListLimitReached`					|`bool`     | `true` if standby list limit has beed exceeded.
-`rejectionReason`							|`string`	| Rejection reason message.
+[Class details][UserClassProperties] if booking is successful, or collection of [errors][Error] 
+with [class booking error codes][ClassBookingErrorCode] otherwise.
 
 
 ### Example request
@@ -87,12 +72,11 @@ Name         | Type       | Description
 -----|-------|------------|------------
 `userId`     |`long`      | User identifier.  Request cancels user identified by `userId` booking for fitness class.
 
-### Response details properties
 
-Name            	| Type      | Description
------|--------------|------------------------
-`classNotBooked`    |`bool`   	| `true` if user has not been signed up for class.
-`toLateToCancel`	|`bool`   	| `true` if it is to late to cancel selected class.
+### Response
+
+[Class details][UserClassProperties] if class cancel is successful, or collection of [errors][Error] 
+with [class cancel error codes][ClassCancelErrorCode] otherwise.
 
 
 ### Example request
@@ -117,3 +101,7 @@ In this example class cancelation is unsuccessful because class was not booked.
 
 
 [ClassesTypes]:  /api/classes/classestypes#properties
+[UserClassProperties]: /api/classes/userclasses#properties
+[Error]: /appendix/datatypes/error
+[ClassBookingErrorCode]: /appendix/enums/classbookingerrorcode
+[ClassCancelErrorCode]: /appendix/enums/classcancelerrorcode

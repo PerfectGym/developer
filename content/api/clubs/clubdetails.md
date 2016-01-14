@@ -75,10 +75,10 @@ curl -i
 
 [Club]: /api/clubs/clubs
 [ClubProperties]: /api/clubs/clubs#properties 
-[Contact]: /appendix/contact
-[Equipment]: /appendix/equipment
-[Facility]: /appendix/facility
-[OpeningHours]: /appendix/openinghours
-[Url]: /appendix/url
-[Zone]: /appendix/zone
-[Address]: /appendix/address
+[Contact]: /appendix/datatypes/contact
+[Equipment]: /appendix/datatypes/equipment
+[Facility]: /appendix/datatypes/facility
+[OpeningHours]: /appendix/datatypes/openinghours
+[Url]: /appendix/datatypes/url
+[Zone]: /appendix/datatypes/zone
+[Address]: /appendix/datatypes/address
