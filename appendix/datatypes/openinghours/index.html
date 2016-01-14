@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Contract | Perfectgym Developer Guide</title>
+  <title>Opening hours | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -44,7 +44,7 @@
 
     <ul>
       <li><a href="/api/">Reference</a></li>      
-      <li><a href="/appendix/contact" class="active">Appendix</a></li>      
+      <li><a href="/appendix/datatypes/address" class="active">Appendix</a></li>      
     </ul>
   </div>
 
@@ -53,14 +53,14 @@
       
 
 <h1>
-<a id="contract" class="anchor" href="#contract" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contract</h1>
+<a id="opening-hours" class="anchor" href="#opening-hours" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opening hours</h1>
 
-<p>Represents an individual user's contract.</p>
+<p>Represents a timeframe your club is opened on a given day.</p>
 
 <h2>
-<a id="contract-properties" class="anchor" href="#contract-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contract properties</h2>
+<a id="opening-hours-properties" class="anchor" href="#opening-hours-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opening hours properties</h2>
 
-<p>Contract is described by the following properties</p>
+<p>Opening hours are described by the following properties</p>
 
 <table>
 <thead>
@@ -74,52 +74,42 @@
 <tr>
 <td><code>id</code></td>
 <td><code>long</code></td>
-<td>Unique identifier of contract.</td>
+<td>Unique identifier of opening hours.</td>
 </tr>
 <tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp of contract. Indicates when contract was last modified.</td>
-</tr>
-<tr>
-<td><code>signDate</code></td>
-<td><code>string</code></td>
-<td>Contract's sign date.</td>
-</tr>
-<tr>
-<td><code>startDate</code></td>
-<td><code>string</code></td>
-<td>Contract's start date.</td>
-</tr>
-<tr>
-<td><code>cancelDate</code></td>
-<td><code>string</code></td>
-<td>Contract's cancel date.</td>
-</tr>
-<tr>
-<td><code>endDate</code></td>
-<td><code>string</code></td>
-<td>Contract's end date.</td>
-</tr>
-<tr>
-<td><code>membership</code></td>
-<td><a href="/appendix/membership">Membership</a></td>
-<td>Contract's membership.</td>
-</tr>
-<tr>
-<td><code>paymentPlan</code></td>
-<td><a href="/appendix/paymentplan">Payment paln</a></td>
-<td>Contract's payment plan.</td>
-</tr>
-<tr>
-<td><code>isActive</code></td>
+<td><code>isClosed</code></td>
 <td><code>bool</code></td>
-<td>Indicates if contract is marked as active.</td>
+<td>Indicates if club is closed on a given week day.</td>
+</tr>
+<tr>
+<td><code>dayOfWeekOrHoliday</code></td>
+<td><code>string</code></td>
+<td>Day of week given object refers to. <br><strong>Possible values</strong>: <br><ul>
+<li>Monday</li>
+<li>Tuesday</li>
+<li>Wednesday</li>
+<li>Thursday</li>
+<li>Friday</li>
+<li>Saturday</li>
+<li>Sunday</li>
+<li>Holidays</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>openFrom</code></td>
+<td><code>string</code></td>
+<td>Opening hour.</td>
+</tr>
+<tr>
+<td><code>openUntil</code></td>
+<td><code>string</code></td>
+<td>Closing hour.</td>
 </tr>
 <tr>
 <td><code>isDeleted</code></td>
 <td><code>bool</code></td>
-<td>Indicates if contract was deleted from your user's contracts list.</td>
+<td>Indicates if opening hours was deleted.</td>
 </tr>
 </tbody>
 </table>
@@ -128,24 +118,33 @@
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
-      <div class="sidebar-module expandable">
+      <div class="js-toggle-list sidebar-module expandable">
         <ul>
           <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/appendix/contact">Additional data types</a></h3>
+            <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/appendix/datatypes/address">Additional data types</a></h3>
             <ul class="js-guides">                        
-              <li><a href="/appendix/address/">Address</a></li>
-              <li><a href="/appendix/contact/">Club contact</a></li>
-              <li><a href="/appendix/equipment/">Club equipment</a></li>
-              <li><a href="/appendix/facility/">Club facility</a></li>
-              <li><a href="/appendix/openinghours/">Club opening hours</a></li>
-              <li><a href="/appendix/url/">Club url</a></li>
-              <li><a href="/appendix/zone/">Club zone</a></li>   
-              <li><a href="/appendix/contract/">Contract</a></li>  
-              <li><a href="/appendix/error/">Error</a></li>  
-              <li><a href="/appendix/membership/">Membership</a></li>   
-              <li><a href="/appendix/paymentplan/">Payment plan</a></li>   
+              <li><a href="/appendix/datatypes/address/">Address</a></li>
+              <li><a href="/appendix/datatypes/contact/">Club contact</a></li>
+              <li><a href="/appendix/datatypes/equipment/">Club equipment</a></li>
+              <li><a href="/appendix/datatypes/facility/">Club facility</a></li>
+              <li><a href="/appendix/datatypes/openinghours/">Club opening hours</a></li>
+              <li><a href="/appendix/datatypes/url/">Club url</a></li>
+              <li><a href="/appendix/datatypes/zone/">Club zone</a></li>   
+              <li><a href="/appendix/datatypes/contract/">Contract</a></li>  
+              <li><a href="/appendix/datatypes/error/">Error</a></li>  
+              <li><a href="/appendix/datatypes/membership/">Membership</a></li>   
+              <li><a href="/appendix/datatypes/paymentplan/">Payment plan</a></li>   
             </ul>
-          </li>
+          </li>          
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/appendix/enums/classbookingerrorcode">Enums</a></h3>
+            <ul class="js-guides">
+              <li><a href="/appendix/enums/classbookingerrorcode/">Class booking error codes</a></li>                
+              <li><a href="/appendix/enums/classcancelerrorcode/">Class cancel error codes</a></li>                
+              <li><a href="/appendix/enums/classratingerrorcode/">Class rating error codes</a></li>                
+              <li><a href="/appendix/enums/instructorratingerrorcode/">Instructor rating error codes</a></li>                
+            </ul>     
+          </li>   
         </ul>
       </div>      
     </div><!-- sidebar-shell -->

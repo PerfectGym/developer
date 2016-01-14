@@ -44,7 +44,7 @@
 
     <ul>
       <li><a href="/api/" class="active">Reference</a></li>      
-      <li><a href="/appendix/contact">Appendix</a></li>
+      <li><a href="/appendix/datatypes/address">Appendix</a></li>
     </ul>
   </div>
 
@@ -124,7 +124,8 @@ In case of logical errors, error detailes are enclosed in error envelope.</p>
 <h2>
 <a id="error-response-envelope" class="anchor" href="#error-response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Response Envelope</h2>
 
-<p>Error resoinse envelope encloses information about logical errors that occured during API calls.</p>
+<p>Error response envelope encloses information about logical errors that occured during API calls.
+Error responses come with <code>HTTP 400</code> status code.</p>
 
 <h3>
 <a id="error-envelope-properties" class="anchor" href="#error-envelope-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error envelope properties</h3>
@@ -139,7 +140,7 @@ In case of logical errors, error detailes are enclosed in error envelope.</p>
 <tbody>
 <tr>
 <td><code>errors</code></td>
-<td>An array of <a href="/appendix/error">Error</a> objects, each representing logical error that occured during API call.</td>
+<td>An array of <a href="/appendix/datatypes/error">Error</a> objects, each representing logical error that occured during API call.</td>
 </tr>
 </tbody>
 </table>
@@ -147,7 +148,7 @@ In case of logical errors, error detailes are enclosed in error envelope.</p>
 <h3>
 <a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
 
-<pre class="highlight highlight-headers"><code>Status: 200 OK
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
 </code></pre>
 
 

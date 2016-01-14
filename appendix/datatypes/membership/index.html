@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Appendix | Perfectgym Developer Guide</title>
+  <title>Membership | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -51,8 +51,54 @@
   <div id="wrapper">
     <div class="content">
       
+
 <h1>
-<a id="appendix" class="anchor" href="#appendix" aria-hidden="true"><span class="octicon octicon-link"></span></a>Appendix</h1>
+<a id="membership" class="anchor" href="#membership" aria-hidden="true"><span class="octicon octicon-link"></span></a>Membership</h1>
+
+<p>Represents your club membership.</p>
+
+<h2>
+<a id="membership-properties" class="anchor" href="#membership-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Membership properties</h2>
+
+<p>Membership is described by the following properties</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>long</code></td>
+<td>Unique identifier of membership.</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp of membership. Indicates when membership was last modified.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Membership's name.</td>
+</tr>
+<tr>
+<td><code>isActive</code></td>
+<td><code>bool</code></td>
+<td>Indicates if membership is marked as active.</td>
+</tr>
+<tr>
+<td><code>isDeleted</code></td>
+<td><code>bool</code></td>
+<td>Indicates if membership was deleted from your club memberships list.</td>
+</tr>
+</tbody>
+</table>
+
 
     </div>
 

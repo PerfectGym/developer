@@ -44,7 +44,7 @@
 
     <ul>
       <li><a href="/api/" class="active">Reference</a></li>      
-      <li><a href="/appendix/contact">Appendix</a></li>
+      <li><a href="/appendix/datatypes/address">Appendix</a></li>
     </ul>
   </div>
 
@@ -106,108 +106,10 @@
 </table>
 
 <h3>
-<a id="response-details-properties" class="anchor" href="#response-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response details properties</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
 
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>standbyList</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if user has beed added to standby list.</td>
-</tr>
-<tr>
-<td><code>classAlreadyBooked</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if class is already booked by the user.</td>
-</tr>
-<tr>
-<td><code>bookingRejected</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if booking is rejected. Rejection reason message can be accessed via <code>rejectionReason</code> parameter.</td>
-</tr>
-<tr>
-<td><code>bookingBlockedForUser</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if booking is blocked for user. Booking can be blocked if user signed up for class and didn't show up.</td>
-</tr>
-<tr>
-<td><code>bookingInZoneNotAllowed</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if user membership does not allow to book classes in a specific club zone.</td>
-</tr>
-<tr>
-<td><code>bookingWithDebitNotAllowed</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if user has debit.</td>
-</tr>
-<tr>
-<td><code>bookingWithoutActiveContractNotAllowed</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if user does not have an active membership.</td>
-</tr>
-<tr>
-<td><code>bookingNotAllowed</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if booking for selected classes is not allowed.</td>
-</tr>
-<tr>
-<td><code>bookingToLate</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if it is too late to book selected class.</td>
-</tr>
-<tr>
-<td><code>bookingToSoon</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if it is to early to book selected class.</td>
-</tr>
-<tr>
-<td><code>dailyBookingLimitReached</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if daily club booking limit has beed exceeded.</td>
-</tr>
-<tr>
-<td><code>dailyZoneBookingLimitReached</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if daily club zone booking limit has been exceeded.</td>
-</tr>
-<tr>
-<td><code>userNotAllowedToAccessClub</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if user membership does not allow to access club during selected class.</td>
-</tr>
-<tr>
-<td><code>standbyListLimitReached</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if standby list limit has beed exceeded.</td>
-</tr>
-<tr>
-<td><code>rejectionReason</code></td>
-<td><code>string</code></td>
-<td>Rejection reason message.</td>
-</tr>
-</tbody>
-</table>
+<p><a href="/api/classes/userclasses#properties">Class details</a> if booking is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
+with <a href="/appendix/enums/classbookingerrorcode">class booking error codes</a> otherwise.</p>
 
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
@@ -231,24 +133,58 @@ curl -i
 
 
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"standbyList"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"classAlreadyBooked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingRejected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingBlockedForUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingInZoneNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingWithDebitNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingWithoutActiveContractNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingNotAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingToLate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"bookingToSoon"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dailyBookingLimitReached"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dailyZoneBookingLimitReached"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"userNotAllowedToAccessClub"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"standbyListLimitReached"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"rejectionReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"booked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userClassRating"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userInstructorRating"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"classType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">263952</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box perfectly combines cardio and strength training under the guise of groove!"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"instructor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">376826</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agatha"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strickland"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agatha Strickland"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a.strickland@cyberbotics.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Female"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.3</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"club"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">271990</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo Cyberbotics"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FCBR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1677</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">254718</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T06:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T07:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -302,31 +238,10 @@ curl -i
 </table>
 
 <h3>
-<a id="response-details-properties-1" class="anchor" href="#response-details-properties-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response details properties</h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
 
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>classNotBooked</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if user has not been signed up for class.</td>
-</tr>
-<tr>
-<td><code>toLateToCancel</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if it is to late to cancel selected class.</td>
-</tr>
-</tbody>
-</table>
+<p><a href="/api/classes/userclasses#properties">Class details</a> if class cancel is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
+with <a href="/appendix/enums/classcancelerrorcode">class cancel error codes</a> otherwise.</p>
 
 <h3>
 <a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
@@ -350,11 +265,58 @@ curl -i
 
 
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"classNotBooked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"toLateToCancel"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"booked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userClassRating"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userInstructorRating"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"classType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">263952</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box perfectly combines cardio and strength training under the guise of groove!"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"instructor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">376826</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agatha"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strickland"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agatha Strickland"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a.strickland@cyberbotics.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Female"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.3</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"club"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">271990</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo Cyberbotics"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FCBR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1677</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">254718</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T06:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T07:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
