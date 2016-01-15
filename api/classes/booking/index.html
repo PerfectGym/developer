@@ -126,8 +126,6 @@ curl -i
 <h3>
 <a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
-<p>In this example booking is unsuccessful because it is to late to book selected classes.</p>
-
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
 
@@ -183,6 +181,27 @@ curl -i
       </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
       </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+
+<p>Subsequent booking for class with id =<code>1677</code> and for user with id = <code>40</code> generates following error:</p>
+
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ClassAlreadyBooked"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -258,8 +277,6 @@ curl -i
 <h3>
 <a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
-<p>In this example class cancelation is unsuccessful because class was not booked.</p>
-
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
 
@@ -315,6 +332,27 @@ curl -i
       </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
       </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h3>
+<a id="example-error-response-1" class="anchor" href="#example-error-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+
+<p>Subsequent cancel for class with id =<code>1677</code> and for user with id = <code>40</code> generates following error:</p>
+
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ClassNotBooked"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
