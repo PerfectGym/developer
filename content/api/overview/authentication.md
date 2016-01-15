@@ -8,6 +8,8 @@ PerfectGym API uses token-based authentification as an authentification protocol
 Requests that require authentication will return `401 Unauthorized` if no valid token
 is provided. 
 
+{:toc}
+
 
 ## <a name="prerequisites"></a>Prerequisites
 

@@ -6,6 +6,8 @@ title: User details
 
 User details is detaild representation of single user of your gym. 
 
+{:toc}
+
 
 ## <a name="properties"></a>User details properties
 

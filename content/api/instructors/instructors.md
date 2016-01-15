@@ -6,6 +6,8 @@ title: Instructors
 
 Instructor is a summary representation of a fitness class instructor.
 
+{:toc}
+
 
 ## <a name="properties"></a>Instructor properties
 

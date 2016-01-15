@@ -6,6 +6,8 @@ title: Classes
 
 Class represents fitness class conducted in your club.
 
+{:toc}
+
 
 ## <a name="properties"></a>Class properties
 

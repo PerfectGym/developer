@@ -4,12 +4,20 @@ title: Responses
 
 # Responses
 
+This describes PerfectGym API responses basics.
+
+{:toc}
+
+
+## Overview
+
 Responses contains resources list or individual resources for GET requests.
 For POST requests, individual resource that request operates on is returned. 
 
 Each API response is wrapped in a standard structure called the envelope, 
 which holds the results of the API call, plus the metadata related to the request.
 In case of logical errors, error detailes are enclosed in error envelope.
+
 
 
 ## 	Response Envelope

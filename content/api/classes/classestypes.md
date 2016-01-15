@@ -8,6 +8,8 @@ Each fitness class has a class type assigned . Class type is for example 'Zumba'
 and a class is an instance of a class type (for example Zumba at 'Fibo' club, starting on 2015-12-21 18:00).
 Class types are global accross all clubs of a company (in case company has more then 1 club).
 
+{:toc}
+
 
 ## <a name="properties"></a>Class type properties
 

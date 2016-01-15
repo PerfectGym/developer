@@ -4,8 +4,9 @@ title: Club details
 
 # Club details
 
-Club details is detaild representation of single club in your company. Club details share 
-its data with [Club][Club], and holds additional detailed properties.
+Club details is detaild representation of single club in your company. 
+
+{:toc}
 
 
 ## Club details properties

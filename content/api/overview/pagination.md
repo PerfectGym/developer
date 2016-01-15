@@ -6,6 +6,11 @@ title: Pagination
 
 PerfectGym API endpoint that returns list of resources usualy use pagination. 
 
+{:toc}
+
+
+## Overview
+
 For pagination API uses to distinct techniques:
 - `timestamp` query string parameter 
 - `page` query string parameter

@@ -6,6 +6,8 @@ title: Requests
 
 This describes PerfectGym API requests basics.
 
+{:toc}
+
 
 
 ## Request parameters

@@ -6,6 +6,8 @@ title: Clubs
 
 Club is a summary representation of single club in your company.
 
+{:toc}
+
 
 ## <a name="properties"></a>Club properties
 

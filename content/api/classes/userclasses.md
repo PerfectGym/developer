@@ -4,8 +4,9 @@ title: User classes
 
 # User classes
 
-User class represents fitness class conducted in your club. User classes share most 
-of its data with [Classes][Classes], and holds additional properties specific to club user.
+User class represents fitness class conducted in your club.
+
+{:toc}
 
 
 ## <a name="properties"></a>Class properties
@@ -34,7 +35,7 @@ Returns paginated user classes list.
 
 Name         | Type       | Description
 -----|-------|------------|------------
-`userId`     |`long`      | UserId identifier. Request returns classes data for user identified by `userId`.
+`userId`     |`long`      | User identifier. Request returns classes data for user identified by `userId`.
 `clubId`     |`long`      | Club identifier. Request returns classes that take place in club identified by `clubId`.
 `startDate`  |`datetime`  | **Required**. Start date. Request returns classes that starts leter then `startDate`.
 `endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
@@ -64,7 +65,7 @@ curl -i
 
 
 
-## List classes with timestamp 
+## List user classes with timestamp 
 
     GET Classes/UserClasses
 
@@ -75,7 +76,7 @@ Returns paginated user classes list.
 
 Name         | Type   | Description
 -----|-------|--------|------------
-`userId`     |`long`  | UserId identifier. Request returns classes data for user identified by `userId`.
+`userId`     |`long`  | User identifier. Request returns classes data for user identified by `userId`.
 `clubId`     |`long`  | Club identifier. Request returns classes that take place in club identified by `clubId`.
 `timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
 
@@ -92,6 +93,47 @@ curl -i
         userId=40&
         clubId=2&
         timestamp=254000
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:userclasses_response) %>
+
+
+
+## Retrive user class with class identifier
+
+    GET Classes/UserClass/{classId}
+
+Returns individual user class.
+
+
+### Path parameters
+
+Name         | Type   | Description
+-------------|--------|------------
+`classId`    |`long`  | Class identifier. Request returns class identified by `classId`.
+
+
+### Query string parameters
+
+Name         | Type   | Description
+-----|-------|--------|------------
+`userId`     |`long`  | **Required**. User identifier. Request returns class data for user identified by `userId`.
+
+
+### Example request
+
+In this example we fetch data for class identified with classId = `1677` for user identified with id = `40`
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Classes/UserClass/1677?
+        userId=40&        
 ```
 
 
