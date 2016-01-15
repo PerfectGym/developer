@@ -261,7 +261,7 @@
     "title": "Class cancel error codes",
     
     "url": "/appendix/enums/classcancelerrorcode/",
-    "body": " Class cancel error codes    Code Type Description     ClassNotBooked bool User has not been signed up for class.   ToLateToCancel bool It is to late to cancel selected class.   "
+    "body": " Class cancel error codes    Code Type Description     ClassNotBooked string User has not been signed up for class.   ToLateToCancel string It is to late to cancel selected class.   "
   },
   
   
@@ -269,7 +269,7 @@
     "title": "Class rating error codes",
     
     "url": "/appendix/enums/classratingerrorcode/",
-    "body": " Class rating error codes    Code Type Description     ClassAlreadyRated string User has already rated selected class.   CserDidNotAttendClass string User didn't attend selected class.   "
+    "body": " Class rating error codes    Code Type Description     ClassAlreadyRated string User has already rated selected class.   UserDidNotAttendClass string User didn't attend selected class.   "
   },
   
   
@@ -277,7 +277,7 @@
     "title": "Instructor rating error codes",
     
     "url": "/appendix/enums/instructorratingerrorcode/",
-    "body": " Instructor ratingerror codes    Code Type Description     InstructorAlreadyRated string User has already rated instructor.   ClassWithoutAssignedInstructor string Class has no assigned instructor.   UserDidNotAttendClass string User didn't attend selected class.   "
+    "body": " Instructor ratingerror codes    Code Type Description     InstructorAlreadyRated string User has already rated instructor.   UserDidNotAttendClass string User didn't attend selected class.   ClassWithoutAssignedInstructor string Class has no assigned instructor.   "
   },
   
   
