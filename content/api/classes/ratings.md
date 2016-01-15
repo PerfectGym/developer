@@ -159,7 +159,7 @@ Subsequent instructor rating for class with id =`1677` and for user with id = `4
 
 [Error]: /appendix/datatypes/error
 [UserClassProperties]: /api/classes/userclasses#properties
-[ClassRatingErrorCode]: /appendix/enums/classratingerrorcode
-[InstructorRatingErrorCode]: /appendix/enums/instructorratingerrorcode
+[ClassRatingErrorCode]: /appendix/errorcodes/classratingerrorcode
+[InstructorRatingErrorCode]: /appendix/errorcodes/instructorratingerrorcode
 
 

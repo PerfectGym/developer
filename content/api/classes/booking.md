@@ -116,5 +116,5 @@ Subsequent cancel for class with id =`1677` and for user with id = `40` generate
 [ClassesTypes]:  /api/classes/classestypes#properties
 [UserClassProperties]: /api/classes/userclasses#properties
 [Error]: /appendix/datatypes/error
-[ClassBookingErrorCode]: /appendix/enums/classbookingerrorcode
-[ClassCancelErrorCode]: /appendix/enums/classcancelerrorcode
+[ClassBookingErrorCode]: /appendix/errorcodes/classbookingerrorcode
+[ClassCancelErrorCode]: /appendix/errorcodes/classcancelerrorcode
