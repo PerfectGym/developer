@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Class booking error codes | Perfectgym Developer Guide</title>
+  <title>Instructor rating error codes | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="class-booking-error-codes" class="anchor" href="#class-booking-error-codes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class booking error codes</h1>
+<a id="instructor-ratingerror-codes" class="anchor" href="#instructor-ratingerror-codes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructor ratingerror codes</h1>
 
 <table>
 <thead>
@@ -65,69 +65,19 @@
 </thead>
 <tbody>
 <tr>
-<td><code>ClassAlreadyBooked</code></td>
+<td><code>InstructorAlreadyRated</code></td>
 <td><code>string</code></td>
-<td>Class is already booked by the user.</td>
+<td>User has already rated instructor.</td>
 </tr>
 <tr>
-<td><code>BookingRejected</code></td>
+<td><code>UserDidNotAttendClass</code></td>
 <td><code>string</code></td>
-<td>Booking is rejected.</td>
+<td>User didn't attend selected class.</td>
 </tr>
 <tr>
-<td><code>BookingBlockedForUser</code></td>
+<td><code>ClassWithoutAssignedInstructor</code></td>
 <td><code>string</code></td>
-<td>Booking is blocked for user. Booking can be blocked if user signed up for class and didn't show up.</td>
-</tr>
-<tr>
-<td><code>BookingInZoneNotAllowed</code></td>
-<td><code>string</code></td>
-<td>User membership does not allow to book classes in a specific club zone.</td>
-</tr>
-<tr>
-<td><code>BookingWithDebitNotAllowed</code></td>
-<td><code>string</code></td>
-<td>User has debit.</td>
-</tr>
-<tr>
-<td><code>BookingWithoutActiveContractNotAllowed</code></td>
-<td><code>string</code></td>
-<td>User does not have an active membership.</td>
-</tr>
-<tr>
-<td><code>BookingNotAllowed</code></td>
-<td><code>string</code></td>
-<td>Booking for selected classes is not allowed.</td>
-</tr>
-<tr>
-<td><code>BookingToLate</code></td>
-<td><code>string</code></td>
-<td>It is too late to book selected class.</td>
-</tr>
-<tr>
-<td><code>BookingToSoon</code></td>
-<td><code>string</code></td>
-<td>It is to early to book selected class.</td>
-</tr>
-<tr>
-<td><code>DailyBookingLimitReached</code></td>
-<td><code>string</code></td>
-<td>Daily club booking limit has beed exceeded.</td>
-</tr>
-<tr>
-<td><code>DailyZoneBookingLimitReached</code></td>
-<td><code>string</code></td>
-<td>Daily club zone booking limit has been exceeded.</td>
-</tr>
-<tr>
-<td><code>UserNotAllowedToAccessClub</code></td>
-<td><code>string</code></td>
-<td>User membership does not allow to access club during selected class.</td>
-</tr>
-<tr>
-<td><code>StandbyListLimitReached</code></td>
-<td><code>string</code></td>
-<td>Standby list limit has beed exceeded.</td>
+<td>Class has no assigned instructor.</td>
 </tr>
 </tbody>
 </table>
@@ -155,12 +105,12 @@
             </ul>
           </li>          
           <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/appendix/enums/classbookingerrorcode">Enums</a></h3>
+            <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/appendix/errorcodes/classbookingerrorcode">Error codes</a></h3>
             <ul class="js-guides">
-              <li><a href="/appendix/enums/classbookingerrorcode/">Class booking error codes</a></li>                
-              <li><a href="/appendix/enums/classcancelerrorcode/">Class cancel error codes</a></li>                
-              <li><a href="/appendix/enums/classratingerrorcode/">Class rating error codes</a></li>                
-              <li><a href="/appendix/enums/instructorratingerrorcode/">Instructor rating error codes</a></li>                
+              <li><a href="/appendix/errorcodes/classbookingerrorcode/">Class booking error codes</a></li>                
+              <li><a href="/appendix/errorcodes/classcancelerrorcode/">Class cancel error codes</a></li>                
+              <li><a href="/appendix/errorcodes/classratingerrorcode/">Class rating error codes</a></li>                
+              <li><a href="/appendix/errorcodes/instructorratingerrorcode/">Instructor rating error codes</a></li>                
             </ul>     
           </li>   
         </ul>
