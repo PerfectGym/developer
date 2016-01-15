@@ -5,6 +5,7 @@ module GitHub
       USER_RESPONSE ||= {
         "id": 1,
         "timestamp": 447183,
+        "personalId": "80010101234",
         "number": "102000001",
         "firstName": "Jan",
         "lastName": "Nowak",

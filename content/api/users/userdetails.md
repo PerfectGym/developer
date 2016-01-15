@@ -15,6 +15,7 @@ Name            	| Type      | Description
 -----|--------------|----------------------
 `id`            	|`long`     			| Unique identifier of user.
 `timestamp`     	|`long`     			| Timestamp of user. Indicates when user was last modified.
+`personalId`		|`string`				| User personal identifier.
 `number`          	|`string`   			| User number.
 `firstName`     	|`string`   			| User first name.
 `lastName`        	|`string`   			| User last name.
@@ -31,7 +32,7 @@ Name            	| Type      | Description
 
 ## Retrive detailed information about user identified by user unique identifier.
 
-    GET Userss/User/{userId}
+    GET Users/User/{userId}
 
 Returns detailed user informations.
 
@@ -62,32 +63,31 @@ curl -i
 
 
 
-## Retrive detailed information about user identified by phone number or e-mail address.
+## Retrive detailed information about user identified by personal id.
 
-    GET Userss/User
+    GET Users/User
 
-Returns detailed informations of user identified by phone number or e-mail address. User must be
-uniquly identified by one of a parameters. If more then one user with given e-mail or phone number exists,
+Returns detailed informations of user identified by personal id. User must be
+uniquly identified, if more then one user with given personal id exists,
 empty result is returned.
 
 
 ### Query string parameters
 
 Name            | Type       | Description
------|----------|------------|------------
-`emailAddress`  |`string`    | Optional. User's e-mail address.
-`phoneNumber`   |`string`    | Optional. User's phone number.
+----------------|------------|------------
+`personalId`    |`string`    | User personal id.
 
 
 ### Example request
 
-In this example we fetch user (with phone number = `0048123456789`) detailed information.
+In this example we fetch user (with personal id = `80010101234`) detailed information.
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Users/User?phoneNumber=0048123456789
+     http://yoursubdomain.perfectgym.com/api/Users/User?personalId=80010101234
 ```
 
 
