@@ -139,7 +139,7 @@ module GitHub
             "clubZone": "Fitness"
           }
         ] 
-      }    
+      }        
 
       CANCELCLASS_RESPONSE ||= {      
         
@@ -173,7 +173,18 @@ module GitHub
             "message": ""
           }
         ]                        
-      }      
+      }  
+
+      CANCELCLASS_ERROR_RESPONSE ||= {
+
+        "errors" => [
+          {
+            "code": "ClassNotBooked",
+            "property": "",
+            "message": ""
+          }
+        ]
+      }    
 
       RATECLASS_RESPONSE ||= {      
         
@@ -219,7 +230,30 @@ module GitHub
             "clubZone": "Fitness"
           }
         ] 
-      }          
+      }   
+
+
+      RATECLASS_ERROR_RESPONSE ||= {      
+         
+        "errors" => [
+          {
+            "code": "ClassAlreadyRated",
+            "property": "",
+            "message": ""
+          }
+        ]                        
+      }  
+
+      RATEINSTRUCTOR_ERROR_RESPONSE ||= {
+
+        "errors" => [
+          {
+            "code": "InstructorAlreadyRated",
+            "property": "",
+            "message": ""
+          }
+        ]
+      }           
     end
   end
 end

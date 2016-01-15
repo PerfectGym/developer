@@ -47,9 +47,16 @@ curl -i
 
 ### Example response
 
-In this example booking is unsuccessful because it is to late to book selected classes.
 <%= headers 200 %>
 <%= json(:bookclass_response) %>
+
+
+### Example error response
+
+Subsequent booking for class with id =`1677` and for user with id = `40` generates following error:
+
+<%= headers 400 %>
+<%= json(:bookclass_error_response) %>
 
 
 
@@ -93,10 +100,16 @@ curl -i
 
 ### Example response
 
-In this example class cancelation is unsuccessful because class was not booked.
 <%= headers 200 %>
 <%= json(:cancelclass_response) %>
 
+
+### Example error response
+
+Subsequent cancel for class with id =`1677` and for user with id = `40` generates following error:
+
+<%= headers 400 %>
+<%= json(:cancelclass_error_response) %>
 
 
 

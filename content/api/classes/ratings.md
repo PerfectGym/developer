@@ -89,9 +89,16 @@ curl -i
 
 ### Example response
 
-In this example class rating is unsuccessful because it has been already rated.
 <%= headers 200 %>
 <%= json(:rateclass_response) %>
+
+
+### Example error response
+
+Subsequent rating for class with id =`1677` and for user with id = `40` generates following error:
+
+<%= headers 400 %>
+<%= json(:rateclass_error_response) %>
 
 
 
@@ -138,9 +145,16 @@ curl -i
 
 ### Example response
 
-In this example instructor rating is unsuccessful because instructor has been already rated.
 <%= headers 200 %>
 <%= json(:rateinstructor_response) %>
+
+
+### Example error response
+
+Subsequent instructor rating for class with id =`1677` and for user with id = `40` generates following error:
+
+<%= headers 400 %>
+<%= json(:rateinstructor_error_response) %>
 
 
 [Error]: /appendix/datatypes/error
