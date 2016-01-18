@@ -1,0 +1,88 @@
+---
+title: Adding and updateing user
+---
+
+# Adding and updating users
+
+This API allow to add new users and update existing user's data.
+
+{:toc}
+
+
+## Add new user
+
+    POST Users/User
+
+Request creates new user and adds it to your company user's list.
+
+
+
+### Body parameters
+
+Name     	    | Type       		| Description
+----------------|-------------------|------------
+`personalId`    |`string`    		| **Must be unique**. User personal identifier.
+`firstName`     |`string`    		| User first name.
+`lastName`     	|`string`    		| User last name.
+`email`     	|`string`    		| **Must be unique**. User email address.
+`phone`     	|`string`    		| **Must be unique**. User phone number.
+`birthDate`     |`string`    		| User birth date.
+`sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
+`address`     	|[Address][Address] | User address.
+`homeClubId`	|`long`    			| User home club identifier.
+
+
+
+### Response
+
+[User details][UserDetailsProperties] if booking is successful, or collection of [errors][Error] 
+with [add user error codes][AddUserErrorCode] otherwise.
+
+
+### Example request
+
+In this example we add new user with some sample data to the company user's list.
+
+``` command-line
+
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 -d '{
+	    "firstName": "John",
+	    "lastName": "Fibo",
+	    "email": "john.fibo@perfectgym.pl",
+	    "phone": "0048123456789",
+	    "birthDate": "1978-06-01T00:00:00",
+	    "sex": "Male",
+	    "homeClubId": 12,
+	    "address": {
+	        "street": "al. Jerozolimskie 114",
+	        "city": "Warszawa",
+	        "postalCode": "20-259",
+	        "country": "Poland"
+	    }
+	}' 
+	http://yoursubdomain.perfectgym.com/api/Users/User
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:useradd_response) %>
+
+
+### Example error response
+
+Subsequent user add with same samlpe data generates following error:
+
+<%= headers 400 %>
+<%= json(:useradd_error_response) %>
+
+
+
+[UserDetailsProperties]: /api/users/userdetails#properties
+[Error]: /appendix/datatypes/error
+[Address]: /appendix/datatypes/address
+[AddUserErrorCode]: /appendix/errorcodes/addusererrorcode

@@ -60,5 +60,7 @@ Action   | HTTP Method  | Description
 ---------|--------------|-----------
 List     |`GET`  		| Returns _summary_ information for all entities that match query parameters you provide. To get _detailed_ information for a particular entity, first get the entity's id with the appropriate List endpoint, then provide the id to the corresponding Retrieve endpoint.
 Retrive  |`GET`  		| Provides _detailed_ information for the single entity that matches the identifier you provide.
-Execute	 |`POST`   		| Used for creating / updating resources or invoking actions.
+Execute	 |`POST`   		| Used for invoking actions.
+Add	 	 |`POST`   		| Used for creating resources.
+Update 	 |`POST`   		| Used for updating resources.
 

@@ -24,7 +24,7 @@ Name            	| Type      | Description
 `email`          	|`string`   			| User email address.
 `birthDate`         |`string`   			| User birth date.
 `sex`          		|`string`   			| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
-`phoneNumber`      	|`string`   			| user phone number.
+`phoneNumber`      	|`string`   			| User phone number.
 `address`           |[Address][Address]     | User address.
 `isActive`     		|`bool`     			| Indicates if cuser is marked as active.
 `isDeleted`     	|`bool`     			| Indicates if user was deleted from your user's list.
