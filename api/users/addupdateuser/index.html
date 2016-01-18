@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Clubs | Perfectgym Developer Guide</title>
+  <title>Adding and updateing user | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,79 +53,24 @@
       
 
 <h1>
-<a id="clubs" class="anchor" href="#clubs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clubs</h1>
+<a id="adding-and-updating-users" class="anchor" href="#adding-and-updating-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding and updating users</h1>
 
-<p>Club is a summary representation of single club in your company.</p>
+<p>This API allow to add new users and update existing user's data.</p>
 
 <ul id="markdown-toc">
-<li><a href="#club-properties" id="markdown-toc-club-properties">
-Club properties</a></li>
-<li><a href="#list-clubs-with-timestamp" id="markdown-toc-list-clubs-with-timestamp">List clubs with timestamp</a></li>
+<li><a href="#add-new-user" id="markdown-toc-add-new-user">Add new user</a></li>
 </ul>
 
 <h2>
-<a id="club-properties" class="anchor" href="#club-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="properties"></a>Club properties</h2>
+<a id="add-new-user" class="anchor" href="#add-new-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add new user</h2>
 
-<p>Class is described by the following properties</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of class.</td>
-</tr>
-<tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp of club. Indicates when club was last modified.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>Club name.</td>
-</tr>
-<tr>
-<td><code>shortName</code></td>
-<td><code>long</code></td>
-<td>Club short name.</td>
-</tr>
-<tr>
-<td><code>symbol</code></td>
-<td><code>long</code></td>
-<td>Club symbol.</td>
-</tr>
-<tr>
-<td><code>type</code></td>
-<td><code>long</code></td>
-<td>Club type.</td>
-</tr>
-<tr>
-<td><code>isDeleted</code></td>
-<td><code>bool</code></td>
-<td>Indicates if club was deleted from your company club list.</td>
-</tr>
-</tbody>
-</table>
-
-<h2>
-<a id="list-clubs-with-timestamp" class="anchor" href="#list-clubs-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List clubs with timestamp</h2>
-
-<pre><code>GET Clubs/Clubs
+<pre><code>POST Users/User
 </code></pre>
 
-<p>Returns paginated list of clubs available in your company.</p>
+<p>Request creates new user and adds it to your company user's list.</p>
 
 <h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
@@ -137,24 +82,92 @@ Club properties</a></li>
 </thead>
 <tbody>
 <tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp. Request returns clubs with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>
+<td><code>personalId</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Must be unique</strong>. User personal identifier.</td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>User first name.</td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>User last name.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Must be unique</strong>. User email address.</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Must be unique</strong>. User phone number.</td>
+</tr>
+<tr>
+<td><code>birthDate</code></td>
+<td><code>string</code></td>
+<td>User birth date.</td>
+</tr>
+<tr>
+<td><code>sex</code></td>
+<td><code>string</code></td>
+<td>User sex. <br><strong>Possible values</strong>: <br><ul>
+<li>Male</li>
+<li>Female</li>
+</ul>
 </td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td><a href="/appendix/datatypes/address">Address</a></td>
+<td>User address.</td>
+</tr>
+<tr>
+<td><code>homeClubId</code></td>
+<td><code>long</code></td>
+<td>User home club identifier.</td>
 </tr>
 </tbody>
 </table>
+
+<h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/api/users/userdetails#properties">User details</a> if booking is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
+with <a href="/appendix/errorcodes/addusererrorcode">add user error codes</a> otherwise.</p>
 
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all clubs with timestamp greater then <code>254000</code></p>
+<p>In this example we add new user with some sample data to the company user's list.</p>
 
 <pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/Clubs?timestamp=254000
+
+curl -X POST 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json" 
+     -d '{
+        "firstName": "John",
+        "lastName": "Fibo",
+        "email": "john.fibo@perfectgym.pl",
+        "phone": "0048123456789",
+        "birthDate": "1978-06-01T00:00:00",
+        "sex": "Male",
+        "homeClubId": 12,
+        "address": {
+            "street": "al. Jerozolimskie 114",
+            "city": "Warszawa",
+            "postalCode": "20-259",
+            "country": "Poland"
+        }
+    }' 
+    http://yoursubdomain.perfectgym.com/api/Users/User
 </pre>
 
 <h3>
@@ -167,40 +180,47 @@ curl -i
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">271990</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo Cyberbotics"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FCBR"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">236</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447937</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80010101234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b7b02df-08ae-4720-a3ce-a594bfc46d47"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1978-06-01T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20-259"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"al. Jerozolimskie 114"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"homeClubId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"currentContract"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+
+<p>Subsequent user add with same samlpe data generates following error:</p>
+
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">255968</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Monaco"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monaco"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Platinum"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">255980</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Cracow"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cracow"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CRA"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">256064</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Moscow"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moscow"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserAlreadyExist"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
