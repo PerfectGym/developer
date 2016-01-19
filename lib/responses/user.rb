@@ -77,6 +77,32 @@ module GitHub
         ]        
       }   
 
+      USERUPDATE_RESPONSE ||= {
+
+        "elements" => [
+          "id": 236,
+          "timestamp": 447937,
+          "personalId": "80010101234",
+          "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
+          "firstName": "John",
+          "lastName": "Fibo",
+          "email": "john.fibo@perfectgym.pl",
+          "phone": "0048123456789",
+          "birthDate": "1978-06-01T00:00:00",
+          "sex": "Male",
+          "address": {
+            "country": "Poland",
+            "city": "Warszawa",
+            "postalCode": "02-962",
+            "street": "ul. Przyczolkowa 334",  
+          },                
+          "homeClubId": 12,
+          "isActive": true,
+          "isDeleted": false,
+          "currentContract": ""
+        ]        
+      }   
+
       USERADD_ERROR_RESPONSE ||= {      
          
         "errors" => [
@@ -87,6 +113,18 @@ module GitHub
           }
         ]                        
       }     
+
+      USERUPDATE_ERROR_RESPONSE ||= {      
+         
+        "errors" => [
+          {
+            "code": "UserDoesNotExists",
+            "property": "",
+            "message": ""
+          }
+        ]                        
+      }     
+
     end
   end
 end

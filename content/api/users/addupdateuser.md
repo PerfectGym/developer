@@ -35,7 +35,7 @@ Name     	    | Type       		| Description
 
 ### Response
 
-[User details][UserDetailsProperties] if booking is successful, or collection of [errors][Error] 
+[User details][UserDetailsProperties] if operation is successful, or collection of [errors][Error] 
 with [add user error codes][AddUserErrorCode] otherwise.
 
 
@@ -75,10 +75,87 @@ curl -X POST
 
 ### Example error response
 
-Subsequent user add with same samlpe data generates following error:
+Subsequent user add request with same samlpe data generates following error:
 
 <%= headers 400 %>
 <%= json(:useradd_error_response) %>
+
+
+
+## Update existing user
+
+    PUT Users/User/{userId}
+
+Request updates existing user's data.
+
+
+### Path parameters
+
+Name            | Type       | Description
+----------------|------------|------------
+`userId`        |`long`      | User's identifier.
+
+
+### Body parameters
+
+Name     	    | Type       		| Description
+----------------|-------------------|------------
+`personalId`    |`string`    		| **Must be unique**. User personal identifier.
+`firstName`     |`string`    		| User first name.
+`lastName`     	|`string`    		| User last name.
+`email`     	|`string`    		| **Must be unique**. User email address.
+`phone`     	|`string`    		| **Must be unique**. User phone number.
+`birthDate`     |`string`    		| User birth date.
+`sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
+`address`     	|[Address][Address] | User address.
+
+
+### Response
+
+[User details][UserDetailsProperties] if operation is successful, or collection of [errors][Error] 
+with [update user error codes][UpdateUserErrorCode] otherwise.
+
+
+### Example request
+
+In this example we update user's address.
+
+``` command-line
+
+curl -X PUT 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 -d '{
+	    "firstName": "John",
+	    "lastName": "Fibo",
+	    "email": "john.fibo@perfectgym.pl",
+	    "phone": "0048123456789",
+	    "birthDate": "1978-06-01T00:00:00",
+	    "sex": "Male",
+	    "homeClubId": 12,
+	    "address": {
+	        "street": "ul. Przyczolkowa 334",
+	        "city": "Warszawa",
+	        "postalCode": "02-962",
+	        "country": "Poland"
+	    }
+	}' 
+	http://yoursubdomain.perfectgym.com/api/Users/User/236
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:userupdate_response) %>
+
+
+### Example error response
+
+User update request with non existant user identifier
+
+<%= headers 400 %>
+<%= json(:userupdate_error_response) %>
 
 
 
@@ -86,3 +163,4 @@ Subsequent user add with same samlpe data generates following error:
 [Error]: /appendix/datatypes/error
 [Address]: /appendix/datatypes/address
 [AddUserErrorCode]: /appendix/errorcodes/addusererrorcode
+[UpdateUserErrorCode]: /appendix/errorcodes/updateusererrorcode

@@ -62,5 +62,5 @@ List     |`GET`  		| Returns _summary_ information for all entities that match q
 Retrive  |`GET`  		| Provides _detailed_ information for the single entity that matches the identifier you provide.
 Execute	 |`POST`   		| Used for invoking actions.
 Add	 	 |`POST`   		| Used for creating resources.
-Update 	 |`POST`   		| Used for updating resources.
+Update 	 |`PUT`   		| Used for updating resources.
 
