@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>PerfectGym API Overview | Perfectgym Developer Guide</title>
+  <title>Memberships | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,97 +53,16 @@
       
 
 <h1>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h1>
+<a id="memberships" class="anchor" href="#memberships" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memberships</h1>
 
-<p>The PerfectGym API lets you tap into PerfectGym and build your own PerfectGym-powered web, desktop and mobile applications.</p>
-
-<p>The API provides a simple, resource-oriented, RESTful interface with JSON-formatted responses to use PerfectGym’s features.</p>
+<p>The Membership APIs provides access to membership types and payment plans.</p>
 
 <h2>
-<a id="general-api-conventions" class="anchor" href="#general-api-conventions" aria-hidden="true"><span class="octicon octicon-link"></span></a>General API conventions</h2>
+<a id="memberships-1" class="anchor" href="#memberships-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="/api/memberships/memberships/">Memberships</a>
+</h2>
 
-<p>All API access is over HTTPS, and accessed from the <code>yourcompany.perfectgym.com/api/</code>.  All data is
-sent and received as JSON.</p>
-
-<pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1/0</span>
-
-<span class="output">HTTP/1.1 200 OK</span>
-<span class="output">Cache-Control: no-cache</span>
-<span class="output">Pragma: no-cache</span>
-<span class="output">Content-Length: 61</span>
-<span class="output">Content-Type: application/json; charset=utf-8</span>
-<span class="output">Expires: -1</span>
-<span class="output">Server: Microsoft-IIS/8.5</span>
-<span class="output">WWW-Authenticate: Bearer</span>
-<span class="output">X-AspNet-Version: 4.0.30319</span>
-<span class="output">X-Powered-By: ASP.NET</span>
-<span class="output">pg-app: externalapi</span>
-<span class="output">X-Powered-By: ARR/3.0</span>
-<span class="output">pg-app: Routing</span>
-<span class="output">Date: Fri, 18 Dec 2015 16:47:49 GMT</span>
-</pre>
-
-<h3>
-<a id="blank-fields" class="anchor" href="#blank-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Blank fields</h3>
-
-<p>Blank fields are included as <code>null</code> instead of being omitted.</p>
-
-<h3>
-<a id="identifiers--timestamps" class="anchor" href="#identifiers--timestamps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Identifiers &amp; timestamps</h3>
-
-<p>All resources are identified with  long <code>id</code> and <code>timestamp</code> attributes.</p>
-
-<h3>
-<a id="date-format" class="anchor" href="#date-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Date format</h3>
-
-<p>All dates and times follow the ISO 8601 format and are provided in local time zone:</p>
-
-<pre><code>YYYY-MM-DDTHH:MM:SS
-</code></pre>
-
-<h2>
-<a id="endpoint-names-and-return-values" class="anchor" href="#endpoint-names-and-return-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Endpoint names and return values</h2>
-
-<p>An endpoint's name indicates the type of data it handles and the action it performs on that data. 
-The most common actions are:</p>
-
-<table>
-<thead>
-<tr>
-<th>Action</th>
-<th>HTTP Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>List</td>
-<td><code>GET</code></td>
-<td>Returns <em>summary</em> information for all entities that match query parameters you provide. To get <em>detailed</em> information for a particular entity, first get the entity's id with the appropriate List endpoint, then provide the id to the corresponding Retrieve endpoint.</td>
-</tr>
-<tr>
-<td>Retrive</td>
-<td><code>GET</code></td>
-<td>Provides <em>detailed</em> information for the single entity that matches the identifier you provide.</td>
-</tr>
-<tr>
-<td>Execute</td>
-<td><code>POST</code></td>
-<td>Used for invoking actions.</td>
-</tr>
-<tr>
-<td>Add</td>
-<td><code>POST</code></td>
-<td>Used for creating resources.</td>
-</tr>
-<tr>
-<td>Update</td>
-<td><code>PUT</code></td>
-<td>Used for updating resources.</td>
-</tr>
-</tbody>
-</table>
+<p><a href="/api/memberships/memberships/">Membership API</a> gives you read only access to list of membership types 
+available in your gym.</p>
 
 
     </div>
