@@ -1,3 +1,5 @@
+require_relative 'memberships'
+
 module GitHub
   module Resources
     module Responses
@@ -31,13 +33,7 @@ module GitHub
             "startDate": "2014-04-01T00:00:00",
             "cancelDate": "2015-03-31T23:59:59",
             "endDate": "2015-03-31T23:59:59",
-            "membership": {
-              "id": 1,
-              "timestamp": 349423,
-              "name": "Open",
-              "isActive": true,
-              "isDeleted": false
-            },
+            "membership" => MEMBERSHIP_OPEN,
             "paymentPlan": {
               "id": 2,
               "timestamp": 252688,
@@ -81,7 +77,7 @@ module GitHub
 
         "elements" => [
           "id": 236,
-          "timestamp": 447937,
+          "timestamp": 448035,
           "personalId": "80010101234",
           "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
           "firstName": "John",

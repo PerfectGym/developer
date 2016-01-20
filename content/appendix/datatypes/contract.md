@@ -28,5 +28,5 @@ Name            | Type      | Description
 
 
 
-[Membership]: /appendix/datatypes/membership
+[Membership]: /api/memberships/memberships#properties
 [PaymentPlan]: /appendix/datatypes/paymentplan
