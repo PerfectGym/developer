@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Facility | Perfectgym Developer Guide</title>
+  <title>Fee | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,14 +53,14 @@
       
 
 <h1>
-<a id="facility" class="anchor" href="#facility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Facility</h1>
+<a id="fee" class="anchor" href="#fee" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fee</h1>
 
-<p>Represents a facility available to your club users.</p>
+<p>Represents a fee and is used accress all PerfectGym API.</p>
 
 <h2>
-<a id="facility-properties" class="anchor" href="#facility-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Facility properties</h2>
+<a id="fee-properties" class="anchor" href="#fee-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fee properties</h2>
 
-<p>Facility is described by the following properties</p>
+<p>Fee is described by the following properties</p>
 
 <table>
 <thead>
@@ -72,24 +72,24 @@
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of facility.</td>
+<td><code>net</code></td>
+<td><code>decimal</code></td>
+<td>Net fee.</td>
 </tr>
 <tr>
-<td><code>type</code></td>
-<td><code>string</code></td>
-<td>Facility type.</td>
+<td><code>tax</code></td>
+<td><code>decimal</code></td>
+<td>Tax value.</td>
 </tr>
 <tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>Facility name.</td>
+<td><code>taxRate</code></td>
+<td><code>decimal</code></td>
+<td>Tax rate.</td>
 </tr>
 <tr>
-<td><code>isDeleted</code></td>
-<td><code>bool</code></td>
-<td>Indicates if facility was deleted from your club facilities list.</td>
+<td><code>gross</code></td>
+<td><code>decimal</code></td>
+<td>Gross fee.</td>
 </tr>
 </tbody>
 </table>
