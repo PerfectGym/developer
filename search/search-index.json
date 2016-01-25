@@ -106,10 +106,18 @@
   
   
   {
+    "title": "Payment plans",
+    
+    "url": "/api/memberships/paymentplans/",
+    "body": " Payment plans Payment plan represents information about membership fees and payment schedule. Each user to complete club joining process must select membarship type and accompanying payment plan. Payment plan is a summary representation of single payment plan in your company.   Payment plan properties List payment plan with timestamp List payment plans available in a given club    Payment plan properties Payment plan is described by the following properties    Name Type Description     id long Unique identifier of payment plan.   timestamp long Timestamp of payment plan. Indicates when payment plan was last modified.   name string payment plan name.   isActive bool Indicates if payment plan is marked as active.   isDeleted bool Indicates if payment plan was deleted from your club payment plans list.     List payment plan with timestamp GET PaymentPlans/PaymentPlans  Returns paginated payment plans list.  Query string parameters    Name Type Description     timestamp long Timestamp. Request returns payment plans with timestamp grater then timestamp, defaults to 0.     Example request In this example we fetch list of all payment plans (timestamp parameter defaults to 0) available in a company.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/PaymentPlans/PaymentPlans?timestamp=0   Example response Status: 200 OK  { \"elements\": [ { \"id\": 41, \"timestamp\": 447620, \"name\": \"High 5 Full 3m\", \"isActive\": true, \"isDeleted\": false }, { \"id\": 42, \"timestamp\": 447621, \"name\": \"High 5 Full 6m\", \"isActive\": true, \"isDeleted\": false }, { \"id\": 43, \"timestamp\": 447622, \"name\": \"High 5 Full 12m\", \"isActive\": true, \"isDeleted\": false }, { \"id\": 44, \"timestamp\": 447623, \"name\": \"High 5 Full 24m\", \"isActive\": true, \"isDeleted\": false } ] }   List payment plans available in a given club GET PaymentPlans/PaymentPlans/{clubId}  Returns paginated payment plans list available in given club.  Path parameters    Name Type Description     clubId long Club identifier.     Example request In this example we fetch list of all payment plans available in club identified with clubId = 16.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Memberships/Memberships/16   Example response Status: 200 OK  { \"elements\": [ { \"id\": 41, \"timestamp\": 447620, \"name\": \"High 5 Full 3m\", \"isActive\": true, \"isDeleted\": false }, { \"id\": 42, \"timestamp\": 447621, \"name\": \"High 5 Full 6m\", \"isActive\": true, \"isDeleted\": false }, { \"id\": 43, \"timestamp\": 447622, \"name\": \"High 5 Full 12m\", \"isActive\": true, \"isDeleted\": false }, { \"id\": 44, \"timestamp\": 447623, \"name\": \"High 5 Full 24m\", \"isActive\": true, \"isDeleted\": false } ] } "
+  },
+  
+  
+  {
     "title": "Memberships",
     
     "url": "/api/memberships/",
-    "body": " Memberships The Membership APIs provides access to membership types and payment plans.  Memberships  Membership API gives you read only access to list of membership types available in your gym.  Membership details  Membership details API gives you read only access to detailed information about mambership types available in your gym."
+    "body": " Memberships The Membership APIs provides access to membership types and payment plans.  Memberships  Membership API gives you read only access to list of membership types available in your gym.  Membership details  Membership details API gives you read only access to detailed information about mambership types available in your gym.  Payment plans  Payment plans API gives you read only access to list of payment plans available in your gym."
   },
   
   

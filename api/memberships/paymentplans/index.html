@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Memberships | Perfectgym Developer Guide</title>
+  <title>Payment plans | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,24 +53,24 @@
       
 
 <h1>
-<a id="memberships" class="anchor" href="#memberships" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memberships</h1>
+<a id="payment-plans" class="anchor" href="#payment-plans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Payment plans</h1>
 
-<p>Each user to complete club joining process must select membership type. Membership type states 
-which clubs user can access in which hours and club zones that can be used by the user.
-Membership is a summary representation of single membership type in your company.</p>
+<p>Payment plan represents information about membership fees and payment schedule. 
+Each user to complete club joining process must select membarship type and accompanying payment plan.
+Payment plan is a summary representation of single payment plan in your company.</p>
 
 <ul id="markdown-toc">
-<li><a href="#membership-properties" id="markdown-toc-membership-properties">
-Membership properties</a></li>
-<li><a href="#list-memberships-with-timestamp" id="markdown-toc-list-memberships-with-timestamp">List memberships with timestamp</a></li>
-<li><a href="#list-memberships-available-in-a-given-club" id="markdown-toc-list-memberships-available-in-a-given-club">List memberships available in a given club</a></li>
+<li><a href="#payment-plan-properties" id="markdown-toc-payment-plan-properties">
+Payment plan properties</a></li>
+<li><a href="#list-payment-plan-with-timestamp" id="markdown-toc-list-payment-plan-with-timestamp">List payment plan with timestamp</a></li>
+<li><a href="#list-payment-plans-available-in-a-given-club" id="markdown-toc-list-payment-plans-available-in-a-given-club">List payment plans available in a given club</a></li>
 </ul>
 
 <h2>
-<a id="membership-properties" class="anchor" href="#membership-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="properties"></a>Membership properties</h2>
+<a id="payment-plan-properties" class="anchor" href="#payment-plan-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>Payment plan properties</h2>
 
-<p>Membership is described by the following properties</p>
+<p>Payment plan is described by the following properties</p>
 
 <table>
 <thead>
@@ -84,38 +84,38 @@ Membership properties</a></li>
 <tr>
 <td><code>id</code></td>
 <td><code>long</code></td>
-<td>Unique identifier of membership.</td>
+<td>Unique identifier of payment plan.</td>
 </tr>
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
-<td>Timestamp of membership. Indicates when membership was last modified.</td>
+<td>Timestamp of payment plan. Indicates when payment plan was last modified.</td>
 </tr>
 <tr>
 <td><code>name</code></td>
 <td><code>string</code></td>
-<td>Membership's name.</td>
+<td>payment plan name.</td>
 </tr>
 <tr>
 <td><code>isActive</code></td>
 <td><code>bool</code></td>
-<td>Indicates if membership is marked as active.</td>
+<td>Indicates if payment plan is marked as active.</td>
 </tr>
 <tr>
 <td><code>isDeleted</code></td>
 <td><code>bool</code></td>
-<td>Indicates if membership was deleted from your club memberships list.</td>
+<td>Indicates if payment plan was deleted from your club payment plans list.</td>
 </tr>
 </tbody>
 </table>
 
 <h2>
-<a id="list-memberships-with-timestamp" class="anchor" href="#list-memberships-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List memberships with timestamp</h2>
+<a id="list-payment-plan-with-timestamp" class="anchor" href="#list-payment-plan-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List payment plan with timestamp</h2>
 
-<pre><code>GET Memberships/Memberships
+<pre><code>GET PaymentPlans/PaymentPlans
 </code></pre>
 
-<p>Returns paginated membership list.</p>
+<p>Returns paginated payment plans list.</p>
 
 <h3>
 <a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
@@ -132,7 +132,7 @@ Membership properties</a></li>
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
-<td>Timestamp. Request returns memberships with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
+<td>Timestamp. Request returns payment plans with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -140,14 +140,14 @@ Membership properties</a></li>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all memberships (<code>timestamp</code> parameter defaults to <code>0</code>) 
+<p>In this example we fetch list of all payment plans (<code>timestamp</code> parameter defaults to <code>0</code>) 
 available in a company.</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships?timestamp=0
+     http://yoursubdomain.perfectgym.com/api/PaymentPlans/PaymentPlans?timestamp=0
 </pre>
 
 <h3>
@@ -158,32 +158,32 @@ curl -i
 
 
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elemenst"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">167179</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weekend"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447620</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High 5 Full 3m"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">167181</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lunch"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447621</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High 5 Full 6m"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">188113</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Early Bird "</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447622</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High 5 Full 12m"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">349423</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447623</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High 5 Full 24m"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -193,12 +193,12 @@ curl -i
 
 
 <h2>
-<a id="list-memberships-available-in-a-given-club" class="anchor" href="#list-memberships-available-in-a-given-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>List memberships available in a given club</h2>
+<a id="list-payment-plans-available-in-a-given-club" class="anchor" href="#list-payment-plans-available-in-a-given-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>List payment plans available in a given club</h2>
 
-<pre><code>GET Memberships/Memberships/{clubId}
+<pre><code>GET PaymentPlans/PaymentPlans/{clubId}
 </code></pre>
 
-<p>Returns paginated memberships list available in given club.</p>
+<p>Returns paginated payment plans list available in given club.</p>
 
 <h3>
 <a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
@@ -223,7 +223,7 @@ curl -i
 <h3>
 <a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all memberships available in club identified with clubId = <code>16</code>.</p>
+<p>In this example we fetch list of all payment plans available in club identified with clubId = <code>16</code>.</p>
 
 <pre class="command-line">
 curl -i 
@@ -240,18 +240,32 @@ curl -i
 
 
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elemenst"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">188113</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Early Bird "</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447620</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High 5 Full 3m"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">349423</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447621</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High 5 Full 6m"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447622</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High 5 Full 12m"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447623</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High 5 Full 24m"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
