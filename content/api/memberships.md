@@ -19,6 +19,12 @@ available in your gym.
 available in your gym.
 
 
+## [Payment plans][PaymentPlans]
+
+[Payment plans API][PaymentPlans] gives you read only access to list of payment plans available in your gym.
+[PaymentPlans]: /api/memberships/paymentplans/
+
+
 
 [Memberships]: /api/memberships/memberships/
 [MembershipDetails]: /api/memberships/membershipdetails/

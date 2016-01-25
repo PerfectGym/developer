@@ -32,7 +32,20 @@ module GitHub
         "name": "High 5 Full 24m",
         "isActive": true,
         "isDeleted": false
-      }     
+      }  
+
+
+
+      PAYMENTPLANS_RESPONSE ||= {
+
+        "elements" => [
+
+          PAYMENTPLAN_HIGH5FULL3M,
+          PAYMENTPLAN_HIGH5FULL6M,
+          PAYMENTPLAN_HIGH5FULL12M,
+          PAYMENTPLAN_HIGH5FULL24M
+        ]
+      }   
     end
   end
 end
