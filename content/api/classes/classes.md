@@ -19,8 +19,8 @@ Name            | Type                        | Description
 `instructor`    |[Instructor][Instructor]     | Instructor conducting class.
 `club`			|[Club][Club]				  | Club class take place in.
 `id`            |`long`                       | Unique identifier of class.
-`timestamp`     |`long`                       | Timestamp of class. Indicates when class was last modified.
-`isDeleted`     |`bool`                       | Indicates if class was deleted from the club schedule.
+`timestamp`     |`long`                       | Timestamp. Indicates when resource was last modified.
+`isDeleted`     |`bool`                       | Indicates if resource is deleted.
 `startDate`     |`datetime`                   | Class start date and time.
 `endDate`       |`datetime`                   | Class end date and time.
 `attendeesCount`|`int`                        | Number of users signed up for class.

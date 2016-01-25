@@ -16,7 +16,8 @@ Zone type is described by the following properties
 Name            | Type      | Description
 -----|----------|----------------------
 `id`            |`long`     | Unique identifier of zone type.
-`timestamp`    	|`string`   | Timestamp of club zone type. Indicates when club zone type was last modified.
+`timestamp`    	|`long`     | Timestamp. Indicates when resource was last modified.
+`isDeleted`     |`bool`     | Indicates if resource is deleted.
 `name`    		|`string`   | Zone type name.
 `description`   |`string`   | Zone type description.
 `dailyLimiy`    |`string`   | Zone users daily limit.

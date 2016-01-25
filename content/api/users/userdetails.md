@@ -13,10 +13,10 @@ User details is detaild representation of single user of your gym.
 
 User is described by the following properties
 
-Name            	| Type      | Description
------|--------------|----------------------
+Name            	| Type      			| Description
+--------------------|-----------------------|----------------------
 `id`            	|`long`     			| Unique identifier of user.
-`timestamp`     	|`long`     			| Timestamp of user. Indicates when user was last modified.
+`timestamp`    		|`long`     			| Timestamp. Indicates when resource was last modified.
 `personalId`		|`string`				| User personal identifier.
 `number`          	|`string`   			| User number.
 `firstName`     	|`string`   			| User first name.
@@ -27,7 +27,7 @@ Name            	| Type      | Description
 `phoneNumber`      	|`string`   			| User phone number.
 `address`           |[Address][Address]     | User address.
 `isActive`     		|`bool`     			| Indicates if cuser is marked as active.
-`isDeleted`     	|`bool`     			| Indicates if user was deleted from your user's list.
+`isDeleted`     	|`bool`                 | Indicates if resource is deleted.
 `currentContract`   |[Contract][Contract]   | User's current contract.
 
 

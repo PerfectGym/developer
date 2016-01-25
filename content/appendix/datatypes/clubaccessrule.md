@@ -16,7 +16,8 @@ Club access rule is described by the following properties
 Name            	| Type      | Description
 --------------------|-----------|-----------
 `id`     			|`long`     | Unique access rule identifier.
-`timestamp`    		|`long`     | Timestamp of access rule. Indicates when access rule was last modified..
+`timestamp`	    	|`long`     | Timestamp. Indicates when resource was last modified.
+`isDeleted`     	|`bool`     | Indicates if resource is deleted.
 `name`    			|`string`   | Access rule name.
 `description`   	|`string`   | Access rule description.
 `allowedClubs`   	|`array`    | An array of [Club][Club] objects, each representing club membership holder has access to.

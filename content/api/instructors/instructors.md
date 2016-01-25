@@ -16,7 +16,7 @@ Instructor is described by the following properties
 Name            | Type                        | Description
 -----|----------|------------------------------------------
 `id`            |`long`                       | Unique identifier of instructor.
-`timestamp`     |`long`                       | Timestamp of instructor. Indicates when instructor was last modified.
+`timestamp`    	|`long`     				  | Timestamp. Indicates when resource was last modified.
 `firstName`     |`string`                     | Instructor's name.
 `lastName`      |`string`                     | Instructor's last name.
 `displayName`   |`string`                     | Instructor's display name.
@@ -24,7 +24,7 @@ Name            | Type                        | Description
 `sex`           |`string`                     | Instructor's sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `rating`        |[Rating][]					  | Instructor's rating.
 `isActive`      |`bool`                       | Indicates if instructor is active.
-`isDeleted`     |`bool`                       | Indicates if instructor was deleted from your company instructors list.
+`isDeleted`     |`bool`                       | Indicates if resource is deleted.
 
 
 

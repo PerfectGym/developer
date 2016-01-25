@@ -16,7 +16,13 @@ Zone is described by the following properties
 Name            | Type      | Description
 -----|----------|----------------------
 `id`            |`long`     | Unique identifier of zone.
+`timestamp`    	|`long`     | Timestamp. Indicates when resource was last modified.
+`clubZoneTypeId`|`long`		| [Club zone type][ClubZoneType] identifier.
 `parentId`     	|`string`   | Unique identifier of zone's parrent zone.
 `name`    		|`string`   | Zone's name.
 `description`   |`string`   | Zone's description.
-`isDeleted`     |`string`   | Indicates if zone was deleted from your club zones list.
+`isDeleted`     |`bool`     | Indicates if resource is deleted.
+
+
+
+[ClubZoneType]: /appendix/datatypes/zonetype

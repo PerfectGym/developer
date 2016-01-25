@@ -16,6 +16,7 @@ Facility is described by the following properties
 Name            | Type      | Description
 -----|----------|----------------------
 `id`            |`long`     | Unique identifier of facility.
+`timestamp`    	|`long`     | Timestamp. Indicates when resource was last modified.
 `type`     		|`string`   | Facility type.
 `name`    		|`string`   | Facility name.
-`isDeleted`     |`bool`     | Indicates if facility was deleted from your club facilities list.
+`isDeleted`     |`bool`     | Indicates if resource is deleted.

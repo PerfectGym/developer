@@ -18,7 +18,8 @@ Class type is described by the following properties
 Name         | Type     | Description
 -----|-------|-----------------------
 `id`         |`long`    | Unique identifier of class type.
-`timestamp`  |`long`    | Timestamp of class type. Indicates when class type was last modified.
+`timestamp`  |`long`    | Timestamp. Indicates when resource was last modified.
+`isDeleted`  |`bool`    | Indicates if resource is deleted.
 `name`       |`string`  | Class type name.
 `description`|`string`  | Class type description.
 `rating`     |[Rating][]| Class type rating.

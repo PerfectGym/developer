@@ -21,7 +21,7 @@ Name            	 | Type      | Description
 `endDate`     		 |`string`   | Club detailed description.
 `accessRules`        |`array`    | An array of [Access rules][AccessRule] objects, each representing club access rules for membership holder.
 `allowedZoneTypes`   |`array`    | An array of [Club Zone Types][ClubZoneType] objects, each representing club zone type membership holder has access to.
-`paymentPlans`       |`array`    | An array of [Payment Plans][PaymentPlan] objects, each representing payment plan available with given membership type.
+`paymentPlans`       |`array`    | An array of [Payment Plans][PaymentPlanProperties] objects, each representing payment plan available with given membership type.
           
 
 
@@ -62,5 +62,5 @@ curl -i
 [MembershipProperties]: /api/memberships/memberships#properties 
 [AccessRule]: /appendix/datatypes/clubaccessrule
 [ClubZoneType]: /appendix/datatypes/clubzonetype
-[PaymentPlan]: /appendix/datatypes/paymentplan
+[PaymentPlanProperties]: /api/memberships/paymentplans#properties
 

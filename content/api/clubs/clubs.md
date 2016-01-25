@@ -13,15 +13,15 @@ Club is a summary representation of single club in your company.
 
 Class is described by the following properties
 
-Name            | Type                        | Description
------|----------|------------------------------------------
-`id`            |`long`                       | Unique identifier of class.
-`timestamp`     |`long`                       | Timestamp of club. Indicates when club was last modified.
-`name`          |`string`                     | Club name.
-`shortName`     |`long`                       | Club short name.
-`symbol`        |`long`                       | Club symbol.
-`type`          |`long`                       | Club type.
-`isDeleted`     |`bool`                       | Indicates if club was deleted from your company club list.
+Name            | Type          | Description
+-----|----------|-------------------------------------
+`id`            |`long`         | Unique identifier of class.
+`timestamp`    	|`long`     	| Timestamp. Indicates when resource was last modified.
+`name`          |`string`       | Club name.
+`shortName`     |`long`         | Club short name.
+`symbol`        |`long`         | Club symbol.
+`type`          |`long`         | Club type.
+`isDeleted`     |`bool`         | Indicates if resource is deleted.
 
 
 
