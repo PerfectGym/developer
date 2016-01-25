@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Opening hours | Perfectgym Developer Guide</title>
+  <title>Club access rule | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,14 +53,14 @@
       
 
 <h1>
-<a id="opening-hours" class="anchor" href="#opening-hours" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opening hours</h1>
+<a id="club-access-rule" class="anchor" href="#club-access-rule" aria-hidden="true"><span class="octicon octicon-link"></span></a>Club access rule</h1>
 
-<p>Represents a timeframe your club is opened on a given day.</p>
+<p>Represents a club access rule.</p>
 
 <h2>
-<a id="opening-hours-properties" class="anchor" href="#opening-hours-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opening hours properties</h2>
+<a id="club-access-rule-properties" class="anchor" href="#club-access-rule-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Club access rule properties</h2>
 
-<p>Opening hours are described by the following properties</p>
+<p>Club access rule is described by the following properties</p>
 
 <table>
 <thead>
@@ -74,42 +74,32 @@
 <tr>
 <td><code>id</code></td>
 <td><code>long</code></td>
-<td>Unique identifier of opening hours.</td>
+<td>Unique access rule identifier.</td>
 </tr>
 <tr>
-<td><code>isClosed</code></td>
-<td><code>bool</code></td>
-<td>Indicates if club is closed on a given week day.</td>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp of access rule. Indicates when access rule was last modified..</td>
 </tr>
 <tr>
-<td><code>dayOfWeekOrHoliday</code></td>
+<td><code>name</code></td>
 <td><code>string</code></td>
-<td>Day of week given object refers to. <br><strong>Possible values</strong>: <br><ul>
-<li>Monday</li>
-<li>Tuesday</li>
-<li>Wednesday</li>
-<li>Thursday</li>
-<li>Friday</li>
-<li>Saturday</li>
-<li>Sunday</li>
-<li>Holidays</li>
-</ul>
-</td>
+<td>Access rule name.</td>
 </tr>
 <tr>
-<td><code>openFrom</code></td>
+<td><code>description</code></td>
 <td><code>string</code></td>
-<td>Opening hour.</td>
+<td>Access rule description.</td>
 </tr>
 <tr>
-<td><code>openUntil</code></td>
-<td><code>string</code></td>
-<td>Closing hour.</td>
+<td><code>allowedClubs</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/api/clubs/clubs#properties">Club</a> objects, each representing club membership holder has access to.</td>
 </tr>
 <tr>
-<td><code>isDeleted</code></td>
-<td><code>bool</code></td>
-<td>Indicates if opening hours was deleted.</td>
+<td><code>allowedZoneTypes</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/appendix/datatypes/zonetype">Club Zone Types</a> objects, each representing club zone type membership holder has access to.</td>
 </tr>
 </tbody>
 </table>
