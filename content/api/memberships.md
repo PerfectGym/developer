@@ -13,7 +13,13 @@ The Membership APIs provides access to membership types and payment plans.
 available in your gym.
 
 
+## [Membership details][MembershipDetails]
+
+[Membership details API][MembershipDetails] gives you read only access to detailed information about mambership types
+available in your gym.
+
 
 
 [Memberships]: /api/memberships/memberships/
+[MembershipDetails]: /api/memberships/membershipdetails/
 

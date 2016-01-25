@@ -1,4 +1,5 @@
-
+require_relative 'clubs'
+require_relative 'paymentplans'
 
 
 module GitHub
@@ -52,7 +53,46 @@ module GitHub
           MEMBERSHIP_EARLYBIRD,
           MEMBERSHIP_OPEN
         ]        
-      }       
+      }  
+
+
+      MEMBERSHIPDETAILS_RESPONSE ||= {
+
+        "elemenst" => [
+
+          "startDate": '2015-01-01T00:00:00',
+          "endDate": '2016-12-31T23:59:59',
+          "accessRules": [
+            {
+              "id": 18,
+              "timestamp": 280591,
+              "name": "Access rule",
+              "description": "",
+              "allowedClubs": [
+                CLUB_CYBERBOTIX, 
+                CLUB_MONACO            
+              ],
+              "allowedZoneTypes": [               
+                CLUBZONE_SPA,
+                CLUBZONE_GYM,
+                CLUBZONE_CAFETERIA
+              ]
+            }
+          ],      
+          "paymentPlans": [
+            PAYMENTPLAN_HIGH5FULL3M,
+            PAYMENTPLAN_HIGH5FULL6M,
+            PAYMENTPLAN_HIGH5FULL12M,
+            PAYMENTPLAN_HIGH5FULL24M            
+          ],
+          "id": 20,
+          "timestamp": 280599,
+          "name": "High5 Full",
+          "isActive": true,
+          "isDeleted": false
+        ]
+      }
+       
 
       MEMBERSHIPSINCLUB_RESPONSE ||= {        
         

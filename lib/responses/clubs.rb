@@ -25,6 +25,31 @@ module GitHub
       }
 
 
+      CLUBZONE_SPA ||= {
+        "id": 1,
+        "timestamp": 50009,
+        "name": "SPA",
+        "description": "SPA",
+        "dailyLimit": ""
+      }
+
+      CLUBZONE_GYM ||= {
+        "id": 2,
+        "timestamp": 2009,
+        "name": "Gym",
+        "description": "Gym",
+        "dailyLimit": ""
+      }
+
+      CLUBZONE_CAFETERIA ||= {
+        "id": 4,
+        "timestamp": 2011,
+        "name": "Cafeteria",
+        "description": "Cafeteria",
+        "dailyLimit": ""
+      }
+
+
       CLUBS_RESPONSE ||= {  
 
         "elements" => [          
