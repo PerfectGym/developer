@@ -2,34 +2,34 @@ module GitHub
   module Resources
     module Responses
 
-      PAYMENTPLAN_HIGH5FULL3M ||= {
+      PAYMENTPLAN_OPEN3M ||= {
         "id": 41,
         "timestamp": 447620,
-        "name": "High 5 Full 3m",
+        "name": "Open 3m",
         "isActive": true,
         "isDeleted": false
       }
 
-      PAYMENTPLAN_HIGH5FULL6M ||= {
+      PAYMENTPLAN_OPEN6M ||= {
         "id": 42,
         "timestamp": 447621,
-        "name": "High 5 Full 6m",
+        "name": "Open 6m",
         "isActive": true,
         "isDeleted": false
       }
 
-      PAYMENTPLAN_HIGH5FULL12M ||= {
+      PAYMENTPLAN_OPEN12M ||= {
         "id": 43,
         "timestamp": 447622,
-        "name": "High 5 Full 12m",
+        "name": "Open 12m",
         "isActive": true,
         "isDeleted": false
       }
 
-      PAYMENTPLAN_HIGH5FULL24M ||= {
+      PAYMENTPLAN_OPEN24M ||= {
         "id": 44,
         "timestamp": 447623,
-        "name": "High 5 Full 24m",
+        "name": "Open 24m",
         "isActive": true,
         "isDeleted": false
       }  
@@ -40,12 +40,56 @@ module GitHub
 
         "elements" => [
 
-          PAYMENTPLAN_HIGH5FULL3M,
-          PAYMENTPLAN_HIGH5FULL6M,
-          PAYMENTPLAN_HIGH5FULL12M,
-          PAYMENTPLAN_HIGH5FULL24M
+          PAYMENTPLAN_OPEN3M,
+          PAYMENTPLAN_OPEN6M,
+          PAYMENTPLAN_OPEN12M,
+          PAYMENTPLAN_OPEN24M
         ]
-      }   
+      }  
+
+
+      PAYMENTPLANDETAILS_RESPONSE ||= {
+
+        "elements" => [
+          {
+            "startDate": "2015-01-01T00:00:00",
+            "endDate": "2016-12-31T00:00:00",
+            "freezeAllowed": true,
+            "shortDescription": "",
+            "description": "",
+            "joiningFee": {
+              "net": 0,
+              "tax": 0,
+              "taxRate": 23,
+              "gross": 0
+            },
+            "administartionFee": {
+              "net": 15.45,
+              "tax": 3.55,
+              "taxRate": 23,
+              "gross": 19
+            },
+            "freezFee": {
+              "net": 0,
+              "tax": 0,
+              "taxRate": 23,
+              "gross": 0
+            },
+            "membership": {
+              "id": 20,
+              "timestamp": 280599,
+              "name": "High5 Full",
+              "isActive": true,
+              "isDeleted": false
+            },
+            "id": 44,
+            "timestamp": 447623,
+            "name": "Open 24m",
+            "isActive": true,
+            "isDeleted": false
+          }
+        ]      
+      }
     end
   end
 end

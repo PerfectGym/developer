@@ -6,6 +6,7 @@ title: Payment plans
 
 Payment plan represents information about membership fees and payment schedule. 
 Each user to complete club joining process must select membarship type and accompanying payment plan.
+Each payment plan is asigned to exactly one membership type.
 Payment plan is a summary representation of single payment plan in your company.
 
 {:toc}

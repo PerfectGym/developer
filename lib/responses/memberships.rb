@@ -80,10 +80,10 @@ module GitHub
             }
           ],      
           "paymentPlans": [
-            PAYMENTPLAN_HIGH5FULL3M,
-            PAYMENTPLAN_HIGH5FULL6M,
-            PAYMENTPLAN_HIGH5FULL12M,
-            PAYMENTPLAN_HIGH5FULL24M            
+            PAYMENTPLAN_OPEN3M,
+            PAYMENTPLAN_OPEN6M,
+            PAYMENTPLAN_OPEN12M,
+            PAYMENTPLAN_OPEN24M            
           ],
           "id": 20,
           "timestamp": 280599,
