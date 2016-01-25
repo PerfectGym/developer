@@ -77,6 +77,17 @@
 <td>Unique identifier of zone.</td>
 </tr>
 <tr>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp. Indicates when resource was last modified.</td>
+</tr>
+<tr>
+<td><code>clubZoneTypeId</code></td>
+<td><code>long</code></td>
+<td>
+<a href="/appendix/datatypes/zonetype">Club zone type</a> identifier.</td>
+</tr>
+<tr>
 <td><code>parentId</code></td>
 <td><code>string</code></td>
 <td>Unique identifier of zone's parrent zone.</td>
@@ -93,8 +104,8 @@
 </tr>
 <tr>
 <td><code>isDeleted</code></td>
-<td><code>string</code></td>
-<td>Indicates if zone was deleted from your club zones list.</td>
+<td><code>bool</code></td>
+<td>Indicates if resource is deleted.</td>
 </tr>
 </tbody>
 </table>
@@ -119,8 +130,7 @@
               <li><a href="/appendix/datatypes/zonetype/">Club zone type</a></li>   
               <li><a href="/appendix/datatypes/contract/">Contract</a></li>  
               <li><a href="/appendix/datatypes/error/">Error</a></li>  
-              <li><a href="/appendix/datatypes/fee/">Fee</a></li>                              
-              <li><a href="/appendix/datatypes/paymentplan/">Payment plan</a></li>   
+              <li><a href="/appendix/datatypes/fee/">Fee</a></li>                                            
             </ul>
           </li>          
           <li class="js-topic">
