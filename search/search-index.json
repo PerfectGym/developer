@@ -178,6 +178,14 @@
   
   
   {
+    "title": "User contract",
+    
+    "url": "/api/users/usercontract/",
+    "body": " User contract This API lest you assign contract to a club user.  Assign contract to a club user   Assign contract to a club user POST Users/User/{userId}/Contract  Request assigns new contract to existing club user.  Path parameters    Name Type Description     userId string User identifier. Request assigns new contract to user identified by userId.     Body parameters    Name Type Description     paymentPlanId string Payment plan identifier. Request creates new contract based on payment plan identified by paymentPlanId    startDate string Contract start date.   signDate string Contract sign date.     Response User details with contract detailed description.  Example request In this example we create new contract based on payment plan with id = 44 and we assigne it to user with id of value 236.  curl -X POST -H \"Authorization: Bearer $ACCESS_TOKEN\" -H \"Content-Type: application/json\" -d '{ \"paymentPlanId\": 44, \"startDate\": \"2016-01-26T00:00:00\", \"signDate\": \"2016-01-26T00:00:00\", }' http://yoursubdomain.perfectgym.com/api/Users/User/236/Contract   Example response Status: 200 OK  { \"elements\": [ { \"id\": 236, \"timestamp\": 448035, \"personalId\": \"80010101234\", \"number\": \"2b7b02df-08ae-4720-a3ce-a594bfc46d47\", \"firstName\": \"John\", \"lastName\": \"Fibo\", \"email\": \"john.fibo@perfectgym.pl\", \"phone\": \"0048123456789\", \"birthDate\": \"1978-06-01T00:00:00\", \"sex\": \"Male\", \"address\": { \"country\": \"Poland\", \"city\": \"Warszawa\", \"postalCode\": \"02-962\", \"street\": \"ul. Przyczolkowa 334\" }, \"homeClubId\": 12, \"isActive\": true, \"isDeleted\": false, \"currentContract\": { \"id\": 1, \"timestamp\": 350287, \"signUpDate\": \"2016-01-26T00:00:00\", \"startDate\": \"2016-01-26T00:00:00\", \"cancelDate\": \"\", \"endDate\": \"\", \"membership\": { \"id\": 1, \"timestamp\": 349423, \"name\": \"Open\", \"isActive\": true, \"isDeleted\": false }, \"paymentPlan\": { \"id\": 44, \"timestamp\": 447623, \"name\": \"Open 24m\", \"isActive\": true, \"isDeleted\": false }, \"isActive\": true, \"isDeleted\": false } } ] } "
+  },
+  
+  
+  {
     "title": "User details",
     
     "url": "/api/users/userdetails/",
@@ -189,7 +197,7 @@
     "title": "Users",
     
     "url": "/api/users/",
-    "body": " Users The Users APIs provides access to users list available in your company.  User details  User details API gives you read only access to detailed information about your clubs users."
+    "body": " Users The Users APIs provides access to users list available in your company.  User details  User details API gives you read only access to detailed information about your clubs users.  Adding and updating user  Adding and updating user API lest you add new users to your company users list or update basic data of existing users.  User contract  User contract API lest you assign contract to a club user."
   },
   
   
