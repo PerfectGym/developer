@@ -1,4 +1,5 @@
 require_relative 'memberships'
+require_relative 'paymentplans'
 
 module GitHub
   module Resources
@@ -96,6 +97,43 @@ module GitHub
           "isActive": true,
           "isDeleted": false,
           "currentContract": ""
+        ]        
+      }   
+
+      USERCONTRACT_RESPONSE ||= {
+
+        "elements" => [
+          "id": 236,
+          "timestamp": 448035,
+          "personalId": "80010101234",
+          "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
+          "firstName": "John",
+          "lastName": "Fibo",
+          "email": "john.fibo@perfectgym.pl",
+          "phone": "0048123456789",
+          "birthDate": "1978-06-01T00:00:00",
+          "sex": "Male",
+          "address": {
+            "country": "Poland",
+            "city": "Warszawa",
+            "postalCode": "02-962",
+            "street": "ul. Przyczolkowa 334",  
+          },                
+          "homeClubId": 12,
+          "isActive": true,
+          "isDeleted": false,
+          "currentContract": {
+            "id": 1,
+            "timestamp": 350287,
+            "signUpDate": "2016-01-26T00:00:00",
+            "startDate": "2016-01-26T00:00:00",
+            "cancelDate": "",
+            "endDate": "",
+            "membership" => MEMBERSHIP_OPEN,
+            "paymentPlan" => PAYMENTPLAN_OPEN24M,            
+            "isActive": true,
+            "isDeleted": false
+          }
         ]        
       }   
 
