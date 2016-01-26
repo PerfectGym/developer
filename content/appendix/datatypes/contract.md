@@ -29,4 +29,4 @@ Name            | Type      					| Description
 
 
 [Membership]: /api/memberships/memberships#properties
-[PaymentPlan]: /appendix/datatypes/paymentplan
+[PaymentPlan]: /api/memberships/paymentplans#properties
