@@ -19,12 +19,15 @@ Name            	 | Type      | Description
 ---------------------|-----------|---------------
 `startDate`          |`string`   | Payment plan start date.
 `endDate`     		 |`string`   | Payment plan end date.
+`minimumAge`		 |`int`		 | Minimum age for club member to be able to purchase selected payment plan.
 `freezeAllowed`      |`bool`     | `true` if membership with a given payment plan can be freezed, `false` otherwise.
 `shortDescription`   |`string`   | Payment plan short description.
 `description`        |`string`   | Payment plan description.
+`commitmentPeriod`   |`string`   | Minimum commitment period represented as _{value}{unit}_. **Possible unit values** : <br><ul><li>`M` - month</li><li>`D` - day</li></ul><br>**Example**: <br><ul><li>`12M` - twelve months</li><li>`60D` - sixty days</li></ul>
 `joiningFee`         |[Fee][Fee] | Joining fee.
 `administrationFee`  |[Fee][Fee] | Administration fee.
 `freezeFee`          |[Fee][Fee] | Freeze fee.
+`paymentInterval`    |`string` 	 | Payment interval represented as _{value}{unit}_. **Possible unit values** : <br><ul><li>`M` - month</li><li>`D` - day</li></ul><br>**Example**: <br><ul><li>`1M` - monthly payment</li><li>`7D` - weekly payment</li></ul>.
           
 
 

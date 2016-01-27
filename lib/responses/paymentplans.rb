@@ -57,6 +57,7 @@ module GitHub
             "freezeAllowed": true,
             "shortDescription": "",
             "description": "",
+            "commitmentPeriod": "24M",            
             "joiningFee": {
               "net": 0,
               "tax": 0,
@@ -75,6 +76,7 @@ module GitHub
               "taxRate": 23,
               "gross": 0
             },
+            "paymentInterval": "1M",
             "membership": {
               "id": 20,
               "timestamp": 280599,
