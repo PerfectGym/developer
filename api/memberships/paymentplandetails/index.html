@@ -88,6 +88,11 @@ Only payment plan details specyfic properties are described here.</p>
 <td>Payment plan end date.</td>
 </tr>
 <tr>
+<td><code>minimumAge</code></td>
+<td><code>int</code></td>
+<td>Minimum age for club member to be able to purchase selected payment plan.</td>
+</tr>
+<tr>
 <td><code>freezeAllowed</code></td>
 <td><code>bool</code></td>
 <td>
@@ -104,6 +109,23 @@ Only payment plan details specyfic properties are described here.</p>
 <td>Payment plan description.</td>
 </tr>
 <tr>
+<td><code>commitmentPeriod</code></td>
+<td><code>string</code></td>
+<td>Minimum commitment period represented as <em>{value}{unit}</em>. <strong>Possible unit values</strong> : <br><ul>
+<li>
+<code>M</code> - month</li>
+<li>
+<code>D</code> - day</li>
+</ul>
+<br><strong>Example</strong>: <br><ul>
+<li>
+<code>12M</code> - twelve months</li>
+<li>
+<code>60D</code> - sixty days</li>
+</ul>
+</td>
+</tr>
+<tr>
 <td><code>joiningFee</code></td>
 <td><a href="/appendix/datatypes/fee">Fee</a></td>
 <td>Joining fee.</td>
@@ -117,6 +139,22 @@ Only payment plan details specyfic properties are described here.</p>
 <td><code>freezeFee</code></td>
 <td><a href="/appendix/datatypes/fee">Fee</a></td>
 <td>Freeze fee.</td>
+</tr>
+<tr>
+<td><code>paymentInterval</code></td>
+<td><code>string</code></td>
+<td>Payment interval represented as <em>{value}{unit}</em>. <strong>Possible unit values</strong> : <br><ul>
+<li>
+<code>M</code> - month</li>
+<li>
+<code>D</code> - day</li>
+</ul>
+<br><strong>Example</strong>: <br><ul>
+<li>
+<code>1M</code> - monthly payment</li>
+<li>
+<code>7D</code> - weekly payment</li>
+</ul>.</td>
 </tr>
 </tbody>
 </table>
@@ -176,6 +214,7 @@ curl -i
       </span><span class="nt">"freezeAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"shortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"commitmentPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24M"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"joiningFee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"net"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -194,6 +233,7 @@ curl -i
         </span><span class="nt">"taxRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
         </span><span class="nt">"gross"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"paymentInterval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1M"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"membership"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
         </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">280599</span><span class="p">,</span><span class="w">
