@@ -57,25 +57,34 @@ module GitHub
             "freezeAllowed": true,
             "shortDescription": "",
             "description": "",
-            "commitmentPeriod": "24M",            
-            "joiningFee": {
-              "net": 0,
-              "tax": 0,
-              "taxRate": 23,
-              "gross": 0
-            },
-            "administartionFee": {
-              "net": 15.45,
-              "tax": 3.55,
-              "taxRate": 23,
-              "gross": 19
-            },
-            "freezFee": {
-              "net": 0,
-              "tax": 0,
-              "taxRate": 23,
-              "gross": 0
-            },
+            "commitmentPeriod": "24M", 
+            "fees" => {
+
+              "joiningFee": {
+                "net": 0,
+                "tax": 0,
+                "taxRate": 23,
+                "gross": 0
+              },
+              "administartionFee": {
+                "net": 15.45,
+                "tax": 3.55,
+                "taxRate": 23,
+                "gross": 19
+              },
+              "membershipFee": {
+                "net": 16.18,
+                "tax": 3.72,
+                "taxRate": 23,
+                "gross": 19.9
+              },
+              "freezFee": {
+                "net": 0,
+                "tax": 0,
+                "taxRate": 23,
+                "gross": 0
+              },
+            },                       
             "paymentInterval": "1M",
             "membership": {
               "id": 20,
