@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>Discounts | Perfectgym Developer Guide</title>
+  <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
+  <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/assets/javascripts/application.js" type="text/javascript"></script>
+  
+  <script src="/assets/javascripts/dev_mode.js" type="text/javascript"></script>
+  
+</head>
+
+
+<body class="api dev-mode">
+  
+
+<div id="header-wrapper">
+  <div id="header">
+    <div>
+      <a class="logo" href="/">PerfectGym:Developer</a>
+      <ul class="nav">
+        <li><a href="/api/" class="nav-api">API</a></li>        
+        <!-- <li><a href="/changes/" class="nav-blog">Blog</a></li>         -->
+        <li id="search-container">
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <div class="cancel-search"></div>
+          <ul id="search-results">
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div><!-- #header -->
+</div><!-- #header-wrapper -->
+
+
+  <div class="sub-nav">
+    <h2><a href="/api/">API</a></h2>
+
+    <ul>
+      <li><a href="/api/" class="active">Reference</a></li>      
+      <li><a href="/appendix/datatypes/address">Appendix</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+
+<h1>
+<a id="discounts" class="anchor" href="#discounts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discounts</h1>
+
+<p>Each user to complete club joining process must select membarship type and accompanying payment plan.
+User may also be eligible for discount. Discounts are applied to payment plan fees and may be limited to:</p>
+
+<ul>
+<li>Employee role</li>
+<li>Payment method</li>
+</ul>
+
+<p>Discount is a summary representation of single discount in your company.</p>
+
+<ul id="markdown-toc">
+<li><a href="#discount-properties" id="markdown-toc-discount-properties">
+Discount properties</a></li>
+<li><a href="#list-available-discounts-for-a-given-payment-plan" id="markdown-toc-list-available-discounts-for-a-given-payment-plan">List available discounts for a given payment plan</a></li>
+<li><a href="#retrive-discounted-fees-for-given-payment-plan" id="markdown-toc-retrive-discounted-fees-for-given-payment-plan">Retrive discounted fees for given payment plan</a></li>
+<li><a href="#path-parameters-1" id="markdown-toc-path-parameters-1">Path parameters</a></li>
+</ul>
+
+<h2>
+<a id="discount-properties" class="anchor" href="#discount-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>Discount properties</h2>
+
+<p>Payment plan is described by the following properties</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>long</code></td>
+<td>Unique identifier of payment plan.</td>
+</tr>
+<tr>
+<td><code>isActive</code></td>
+<td><code>bool</code></td>
+<td>Indicates if discount is marked as active.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Discount name.</td>
+</tr>
+<tr>
+<td><code>administartionFeeDiscountType</code></td>
+<td><code>string</code></td>
+<td>Administration fee discount type. <strong>Possible unit values</strong> : <br><ul>
+<li>
+<code>PercentDiscount</code> - discount by percentage</li>
+<li>
+<code>ValueDiscount</code> - discount by value</li>
+<li>
+<code>FixedValueDiscount</code> - fixed value</li>
+<li>
+<code>None</code> - no discount</li>
+<li>
+<code>Unknown</code> - unknown discount type</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>joiningFeeDiscountType</code></td>
+<td><code>string</code></td>
+<td>Joining fee discount type. <strong>Possible unit values</strong> : <br><ul>
+<li>
+<code>PercentDiscount</code> - discount by percentage</li>
+<li>
+<code>ValueDiscount</code> - discount by value</li>
+<li>
+<code>FixedValueDiscount</code> - fixed value</li>
+<li>
+<code>None</code> - no discount</li>
+<li>
+<code>Unknown</code> - unknown discount type</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>membershipFeeDiscountType</code></td>
+<td><code>string</code></td>
+<td>Membership fee discount type. <strong>Possible unit values</strong> : <br><ul>
+<li>
+<code>PercentDiscount</code> - discount by percentage</li>
+<li>
+<code>ValueDiscount</code> - discount by value</li>
+<li>
+<code>FixedValueDiscount</code> - fixed value</li>
+<li>
+<code>None</code> - no discount</li>
+<li>
+<code>Unknown</code> - unknown discount type</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>administartionFeeDiscountValue</code></td>
+<td><code>string</code></td>
+<td>Administration fee discount value.</td>
+</tr>
+<tr>
+<td><code>joiningFeeDiscountValue</code></td>
+<td><code>string</code></td>
+<td>Joining fee discount value.</td>
+</tr>
+<tr>
+<td><code>membershipFeeDiscountValue</code></td>
+<td><code>string</code></td>
+<td>Membership fee discount value.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="list-available-discounts-for-a-given-payment-plan" class="anchor" href="#list-available-discounts-for-a-given-payment-plan" aria-hidden="true"><span class="octicon octicon-link"></span></a>List available discounts for a given payment plan</h2>
+
+<pre><code>GET Discounts/Discounts
+</code></pre>
+
+<p>Returns paginated discounts list available for a given payment plan.</p>
+
+<h3>
+<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paymentPlanId</code></td>
+<td><code>long</code></td>
+<td>Payment plan identifier.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Club id. Request returns discounts available in club identified by <code>clubId</code>.</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td><code>datetime</code></td>
+<td>Optional. Request returns discounts available in a given day. Defaults to <code>now</code>.</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td><code>int</code></td>
+<td>Optional. Page number, defaults to <code>1</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch list of discounts available for payment plan with <code>paymentPlanId</code> = <code>39</code> and for club with <code>clubId</code> = <code>16</code>.
+All discounts are available for today (no <code>date</code> parameter provided)</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Discounts/Discounts/39?clubId=16
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"administartionFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValueDiscount"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"joiningFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"membershipFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PercentDiscount"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"administartionFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"joiningFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"membershipFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="retrive-discounted-fees-for-given-payment-plan" class="anchor" href="#retrive-discounted-fees-for-given-payment-plan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive discounted fees for given payment plan</h2>
+
+<pre><code>GET Discounts/DiscountedFees/{paymentPlanId}
+</code></pre>
+
+<p>Returns discounted fees for given payment plan.</p>
+
+<h2>
+<a id="path-parameters-1" class="anchor" href="#path-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paymentPlanId</code></td>
+<td><code>long</code></td>
+<td>Payment plan identifier.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="query-string-parameters-1" class="anchor" href="#query-string-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>discountIds</code></td>
+<td><code>array</code></td>
+<td>
+<strong>Required</strong>. An array of discounts idenifiers to applay.</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td><code>datetime</code></td>
+<td>Optional. Request returns discounts available in a given day. Defaults to <code>now</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch payment plan fees with discount with <code>id</code> = <code>10</code> applied.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Discounts/DiscountedFees/39?discountIds=10
+</pre>
+
+<h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"joiningFee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"net"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"taxRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gross"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"administarationFee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"net"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.45</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.55</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"taxRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gross"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"membershipFee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"net"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.09</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.86</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"taxRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gross"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.95</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"freezFee"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"net"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"taxRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gross"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/">Overview</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/overview/requests/">Requests</a></li> 
+          <li><a href="/api/overview/pagination/">Pagination</a></li>          
+          <li><a href="/api/overview/responses/">Responses</a></li>          
+          <li><a href="/api/overview/authentication/">Authentication</a></li>          
+          <li><a href="/api/overview/versions/">Versions</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/classes/">Classes</a></h3>
+        <ul class="js-guides">
+          <li><a href="/api/classes/classestypes/">Classes types</a></li>
+          <li><a href="/api/classes/classes/">Classes</a></li>
+          <li><a href="/api/classes/userclasses/">User classes</a></li>
+          <li><a href="/api/classes/booking/">Booking</a></li>
+          <li><a href="/api/classes/ratings/">Ratings</a></li>          
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/clubs/">Clubs</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/clubs/clubs/">Clubs</a></li> 
+          <li><a href="/api/clubs/clubdetails/">Club details</a></li> 
+        </ul>
+      </li> 
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/instructors/">Instructors</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/instructors/instructors/">Instructors</a></li>           
+        </ul>
+      </li>  
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/memberships/">Memberships</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/memberships/memberships/">Memberships</a></li>   
+          <li><a href="/api/memberships/membershipdetails/">Membership details</a></li>                     
+          <li><a href="/api/memberships/paymentplans/">Payment plans</a></li>   
+          <li><a href="/api/memberships/paymentplandetails/">Payment plan details</a></li>  
+          <li><a href="/api/memberships/discounts/">Discounts</a></li>   
+        </ul>
+      </li>     
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/users/">Users</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/users/userdetails/">User details</a></li>    
+          <li><a href="/api/users/addupdateuser/">Adding and updating user</a></li>   
+          <li><a href="/api/users/usercontract/">User contract</a></li>           
+        </ul>
+      </li>     
+             
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <!-- <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/github/developer.github.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div> -->
+	<!-- <div class="sidebar-module api-status"><a href="https://status.github.com" class="unknown">API Status</a></div> -->
+</div><!-- /sidebar-shell -->
+
+  </div><!-- #wrapper -->
+
+    <!-- <div id="footer" >
+    <div class="lower_footer">
+      <ul class="footer-cell">
+        <li><a href="https://github.com/github/developer.github.com#licenses">&copy; 2016 GitHub, Inc.</a></li>
+        <li><a href="https://help.github.com/terms-of-service/">Terms</a></li>
+        <li><a href="https://help.github.com/privacy-policy/">Privacy</a></li>
+        <li><a href="https://help.github.com/security/">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+      </ul>
+
+      <span class="footer-cell">
+        <a href="https://github.com" class="mega-octicon octicon-mark-github"></a>
+      </span>
+
+      <ul class="footer-cell">
+        <li><a href="https://status.github.com/">Status</a></li>
+        <li><a href="http://training.github.com/">Training</a></li>
+        <li><a href="http://shop.github.com/">Shop</a></li>
+        <li><a href="https://github.com/blog">Blog</a></li>
+        <li><a href="https://github.com/about">About</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /#footer --> 
+  <script>
+  //   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  //   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  //   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  //   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  //   ga('create', 'UA-3769691-37', 'github.com');
+  //   ga('send', 'pageview');
+  </script>
+
+</body>
+</html>
