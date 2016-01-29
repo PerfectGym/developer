@@ -25,6 +25,8 @@ Name            	| Type      			| Description
 `birthDate`         |`string`   			| User birth date.
 `sex`          		|`string`   			| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `phoneNumber`      	|`string`   			| User phone number.
+`idCardName`		|`string`				| User identity card name.
+`idCardNumber`  	|`string`				| User identity card number.
 `address`           |[Address][Address]     | User address.
 `isActive`     		|`bool`     			| Indicates if cuser is marked as active.
 `isDeleted`     	|`bool`                 | Indicates if resource is deleted.

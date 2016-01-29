@@ -33,6 +33,8 @@ module GitHub
           "birthDate": "1944-09-17T00:00:00",
           "sex": "Male",
           "phone": "0048123456789",
+          "idCardName": "Passport",
+          "idCardNumber": "ABC 123456",
           "address": {
             "country": "Poland",
             "city": "Warszawa",
@@ -77,6 +79,8 @@ module GitHub
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
           "phone": "0048123456789",
+          "idCardName": "Passport",
+          "idCardNumber": "ABC 123456",
           "birthDate": "1978-06-01T00:00:00",
           "sex": "Male",
           "address": {
@@ -103,6 +107,8 @@ module GitHub
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
           "phone": "0048123456789",
+          "idCardName": "Passport",
+          "idCardNumber": "ABC 123456",
           "birthDate": "1978-06-01T00:00:00",
           "sex": "Male",
           "address": {
@@ -129,6 +135,8 @@ module GitHub
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
           "phone": "0048123456789",
+          "idCardName": "Passport",
+          "idCardNumber": "ABC 123456",
           "birthDate": "1978-06-01T00:00:00",
           "sex": "Male",
           "address": {

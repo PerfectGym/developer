@@ -26,6 +26,8 @@ Name     	    | Type       		| Description
 `lastName`     	|`string`    		| User last name.
 `email`     	|`string`    		| **Must be unique**. User email address.
 `phone`     	|`string`    		| **Must be unique**. User phone number.
+`idCardName`	|`string`			| User identity card name.
+`idCardNumber`  |`string`			| User identity card number.
 `birthDate`     |`string`    		| User birth date.
 `sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     	|[Address][Address] | User address.
@@ -53,6 +55,8 @@ curl -X POST
 	    "lastName": "Fibo",
 	    "email": "john.fibo@perfectgym.pl",
 	    "phone": "0048123456789",
+	    "idCardName": "Passport",
+        "idCardNumber": "ABC 123456",
 	    "birthDate": "1978-06-01T00:00:00",
 	    "sex": "Male",
 	    "homeClubId": 12,
@@ -105,6 +109,8 @@ Name     	    | Type       		| Description
 `lastName`     	|`string`    		| User last name.
 `email`     	|`string`    		| **Must be unique**. User email address.
 `phone`     	|`string`    		| **Must be unique**. User phone number.
+`idCardName`	|`string`			| User identity card name.
+`idCardNumber`  |`string`			| User identity card number.
 `birthDate`     |`string`    		| User birth date.
 `sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     	|[Address][Address] | User address.
@@ -130,6 +136,8 @@ curl -X PUT
 	    "lastName": "Fibo",
 	    "email": "john.fibo@perfectgym.pl",
 	    "phone": "0048123456789",
+	    "idCardName": "Passport",
+        "idCardNumber": "ABC 123456",
 	    "birthDate": "1978-06-01T00:00:00",
 	    "sex": "Male",
 	    "homeClubId": 12,
