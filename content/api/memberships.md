@@ -30,8 +30,15 @@ available in your gym.
 
 
 
+## [Discounts][Discounts]
+
+[Discounts API][Discounts] gives you read only access to detailed information about discounts available in your gym.
+
+
+
 [Memberships]: /api/memberships/memberships/
 [MembershipDetails]: /api/memberships/membershipdetails/
 [PaymentPlans]: /api/memberships/paymentplans/
 [PaymentPlanDetails]: /api/memberships/paymentplandetails/
+[Discounts]: /api/memberships/discounts
 

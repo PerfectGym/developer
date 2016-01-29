@@ -23,6 +23,7 @@ Name            | Type      					| Description
 `endDate`   	|`string`   					| Contract's end date.
 `membership`   	|[Membership][Membership]   	| Contract's membership.
 `paymentPlan`   |[Payment paln][PaymentPlan]   	| Contract's payment plan.
+`discounts`		|`array`						| An array of [discount][Discount] objects representing discounts applied to contract.
 `isActive`     	|`bool`     					| Indicates if contract is marked as active.
 `isDeleted`     |`bool`                         | Indicates if resource is deleted.
 
@@ -30,3 +31,4 @@ Name            | Type      					| Description
 
 [Membership]: /api/memberships/memberships#properties
 [PaymentPlan]: /api/memberships/paymentplans#properties
+[Discount]: /api/memberships/discounts#properties

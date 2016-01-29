@@ -1,10 +1,25 @@
 require_relative 'memberships'
 require_relative 'paymentplans'
 
+
 module GitHub
   module Resources
     module Responses
-      
+
+      DISCOUNT ||= {
+        
+        "id": 10,
+        "isActive": true,
+        "name": "50%",
+        "administartionFeeDiscountType": "ValueDiscount",
+        "joiningFeeDiscountType": "None",
+        "membershipFeeDiscountType": "PercentDiscount",
+        "administartionFeeDiscountValue": 0,
+        "joiningFeeDiscountValue": "",
+        "membershipFeeDiscountValue": 50        
+      }
+
+
       USER_RESPONSE ||= {
 
         "elements" => [
@@ -42,6 +57,9 @@ module GitHub
               "isActive": true,
               "isDeleted": false
             },
+            "discounts" => [
+              DISCOUNT
+            ],
             "isActive": true,
             "isDeleted": false
           }
@@ -130,7 +148,10 @@ module GitHub
             "cancelDate": "",
             "endDate": "",
             "membership" => MEMBERSHIP_OPEN,
-            "paymentPlan" => PAYMENTPLAN_OPEN24M,            
+            "paymentPlan" => PAYMENTPLAN_OPEN24M,  
+            "discounts" => [
+              DISCOUNT
+            ],          
             "isActive": true,
             "isDeleted": false
           }

@@ -41,6 +41,7 @@ Name     	    | Type       		| Description
 ### Example request
 
 In this example we create new contract based on payment plan with id = `44` and we assigne it to user with id of value `236`.
+Also discount with `id` = `10` is applied.
 
 ``` command-line
 
@@ -50,7 +51,8 @@ curl -X POST
 	 -d '{
 	    "paymentPlanId": 44,
 	    "startDate": "2016-01-26T00:00:00",
-	    "signDate": "2016-01-26T00:00:00",	    
+	    "signDate": "2016-01-26T00:00:00",
+	    "discountIds": [10]	    
 	}' 
 	http://yoursubdomain.perfectgym.com/api/Users/User/236/Contract
 ```

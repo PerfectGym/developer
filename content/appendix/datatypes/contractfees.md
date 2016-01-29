@@ -15,10 +15,10 @@ Contract fees are described by the following properties
 
 Name       				| Type       | Description
 ------------------------|------------|-----------
-`JoiningFee`      		|[Fee][Fee]  | Joining fee.
-`AdministarationFee`  	|[Fee][Fee]  | Administration fee.
-`MembershipFee`  		|[Fee][Fee]  | Membership fee.
-`FreezFee`    			|[Fee][Fee]  | Freeze fee.
+`joiningFee`      		|[Fee][Fee]  | Joining fee.
+`administarationFee`  	|[Fee][Fee]  | Administration fee.
+`membershipFee`  		|[Fee][Fee]  | Membership fee.
+`freezFee`    			|[Fee][Fee]  | Freeze fee.
 
 
 [Fee]: /appendix/datatypes/fee
