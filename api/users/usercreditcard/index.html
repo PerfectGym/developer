@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>User contract | Perfectgym Developer Guide</title>
+  <title>User credit card | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,21 +53,21 @@
       
 
 <h1>
-<a id="user-contract" class="anchor" href="#user-contract" aria-hidden="true"><span class="octicon octicon-link"></span></a>User contract</h1>
+<a id="user-credit-card" class="anchor" href="#user-credit-card" aria-hidden="true"><span class="octicon octicon-link"></span></a>User credit card</h1>
 
-<p>This API lest you assign contract to a club user.</p>
+<p>This API lest you assign credit card to a club user.</p>
 
 <ul id="markdown-toc">
-<li><a href="#assign-contract-to-a-club-user" id="markdown-toc-assign-contract-to-a-club-user">Assign contract to a club user</a></li>
+<li><a href="#assign-credit-card-to-a-club-user" id="markdown-toc-assign-credit-card-to-a-club-user">Assign credit card to a club user</a></li>
 </ul>
 
 <h2>
-<a id="assign-contract-to-a-club-user" class="anchor" href="#assign-contract-to-a-club-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assign contract to a club user</h2>
+<a id="assign-credit-card-to-a-club-user" class="anchor" href="#assign-credit-card-to-a-club-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assign credit card to a club user</h2>
 
-<pre><code>POST Users/User/{userId}/Contract
+<pre><code>POST Users/User/{userId}/CreditCard
 </code></pre>
 
-<p>Request assigns new contract to existing club user.</p>
+<p>Request assigns a credit card to existing club user.</p>
 
 <h3>
 <a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
@@ -84,7 +84,7 @@
 <tr>
 <td><code>userId</code></td>
 <td><code>string</code></td>
-<td>User identifier. Request assigns new contract to user identified by <code>userId</code>.</td>
+<td>User identifier. Request assigns new credit card to user identified by <code>userId</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -102,25 +102,49 @@
 </thead>
 <tbody>
 <tr>
-<td><code>paymentPlanId</code></td>
+<td><code>bankName</code></td>
 <td><code>string</code></td>
-<td>Payment plan identifier. Request creates new contract based on payment plan identified by <code>paymentPlanId</code>
-</td>
+<td>Name of credit card issuer</td>
 </tr>
 <tr>
-<td><code>startDate</code></td>
+<td><code>cardNumber</code></td>
 <td><code>string</code></td>
-<td>Contract start date.</td>
+<td>Credit card number.</td>
 </tr>
 <tr>
-<td><code>signDate</code></td>
-<td><code>string</code></td>
-<td>Contract sign date.</td>
+<td><code>expirationYear</code></td>
+<td><code>int</code></td>
+<td>Credit card expiration year.</td>
 </tr>
 <tr>
-<td><code>discountsIds</code></td>
-<td><code>array</code></td>
-<td>Array of discount identifiers to be applied to contract.</td>
+<td><code>expirationMonth</code></td>
+<td><code>int</code></td>
+<td>Credit card expiration month.</td>
+</tr>
+<tr>
+<td><code>addressCity</code></td>
+<td><code>string</code></td>
+<td>Card holder city name.</td>
+</tr>
+<tr>
+<td><code>addressLine</code></td>
+<td><code>string</code></td>
+<td>Card holder address.</td>
+</tr>
+<tr>
+<td><code>addressZipCode</code></td>
+<td><code>string</code></td>
+<td>Card holder zip code.</td>
+</tr>
+<tr>
+<td><code>cardHolderName</code></td>
+<td><code>string</code></td>
+<td>Card holder name.</td>
+</tr>
+<tr>
+<td><code>cvcCvv</code></td>
+<td><code>string</code></td>
+<td>Card CVC / CVV.</td>
 </tr>
 </tbody>
 </table>
@@ -128,13 +152,12 @@
 <h3>
 <a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
 
-<p><a href="/api/users/userdetails#properties">User details</a> with <a href="/appendix/datatypes/contract">contract</a> detailed description.</p>
+<p><a href="/api/users/userdetails#properties">User details</a> representing user credit card was assigned to.</p>
 
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we create new contract based on payment plan with id = <code>44</code> and we assigne it to user with id of value <code>236</code>.
-Also discount with <code>id</code> = <code>10</code> is applied.</p>
+<p>In this example we assign credit card to a user with <code>id</code> = <code>236</code>.</p>
 
 <pre class="command-line">
 
@@ -142,12 +165,17 @@ curl -X POST
      -H "Authorization: Bearer $ACCESS_TOKEN" 
      -H "Content-Type: application/json" 
      -d '{
-        "paymentPlanId": 44,
-        "startDate": "2016-01-26T00:00:00",
-        "signDate": "2016-01-26T00:00:00",
-        "discountIds": [10]     
+        "bankName": "Bank",
+        "cardNumber": "5555555555554444",
+        "expirationYear": 2016,
+        "expirationMonth": 12,
+        "addressCity": "Warsaw",
+        "addressLine": "ul. Przyczolkowa 334",
+        "addressZipCode": "02-962",
+        "cardHolderName": "John Fibo",
+        "cvcCvv": "000"    
     }' 
-    http://yoursubdomain.perfectgym.com/api/Users/User/236/Contract
+    http://yoursubdomain.perfectgym.com/api/Users/User/236/CreditCard
 </pre>
 
 <h3>
