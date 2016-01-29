@@ -128,7 +128,8 @@
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we create new contract based on payment plan with id = <code>44</code> and we assigne it to user with id of value <code>236</code>.</p>
+<p>In this example we create new contract based on payment plan with id = <code>44</code> and we assigne it to user with id of value <code>236</code>.
+Also discount with <code>id</code> = <code>10</code> is applied.</p>
 
 <pre class="command-line">
 
@@ -138,7 +139,8 @@ curl -X POST
      -d '{
         "paymentPlanId": 44,
         "startDate": "2016-01-26T00:00:00",
-        "signDate": "2016-01-26T00:00:00",      
+        "signDate": "2016-01-26T00:00:00",
+        "discountIds": [10]     
     }' 
     http://yoursubdomain.perfectgym.com/api/Users/User/236/Contract
 </pre>
@@ -193,6 +195,19 @@ curl -X POST
           </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
           </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"discounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"administartionFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValueDiscount"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"joiningFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"membershipFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PercentDiscount"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"administartionFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"joiningFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"membershipFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
