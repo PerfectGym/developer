@@ -21,7 +21,7 @@ Payment plan is described by the following properties
 
 Name            					| Type      | Description
 ------------------------------------|-----------|-----------
-`id`            					|`long`   	| Unique identifier of payment plan.
+`id`            					|`long`   	| Unique identifier of discount.
 `isActive`     						|`bool`   	| Indicates if discount is marked as active.
 `name`    							|`string` 	| Discount name.
 `administartionFeeDiscountType`  	|`string`   | Administration fee discount type. **Possible unit values** : <br><ul><li>`PercentDiscount` - discount by percentage</li><li>`ValueDiscount` - discount by value</li><li>`FixedValueDiscount` - fixed value</li><li>`None` - no discount</li><li>`Unknown` - unknown discount type</li></ul>
@@ -84,7 +84,7 @@ curl -i
 Returns discounted fees for given payment plan.
 
 
-## Path parameters
+### Path parameters
 
 Name      		 | Type   | Description
 -----------------|--------|------------
