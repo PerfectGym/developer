@@ -174,7 +174,7 @@ Discount properties</a></li>
 <h2>
 <a id="list-available-discounts-for-a-given-payment-plan" class="anchor" href="#list-available-discounts-for-a-given-payment-plan" aria-hidden="true"><span class="octicon octicon-link"></span></a>List available discounts for a given payment plan</h2>
 
-<pre><code>GET Discounts/Discounts
+<pre><code>GET Discounts/Discounts/{paymentPlanId}
 </code></pre>
 
 <p>Returns paginated discounts list available for a given payment plan.</p>
@@ -312,7 +312,7 @@ curl -i
 <td><code>discountIds</code></td>
 <td><code>array</code></td>
 <td>
-<strong>Required</strong>. An array of discounts idenifiers to applay.</td>
+<strong>Required</strong>. An array of discounts idenifiers to applay. Request returns payment plan fees with cumulative discounts identified with <code>discountIds</code> applied.</td>
 </tr>
 <tr>
 <td><code>date</code></td>
