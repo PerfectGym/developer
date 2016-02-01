@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Pagination | Perfectgym Developer Guide</title>
+  <title>Cities | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,61 +53,89 @@
       
 
 <h1>
-<a id="pagination" class="anchor" href="#pagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pagination</h1>
-
-<p>PerfectGym API endpoint that returns list of resources usualy use pagination. </p>
+<a id="cities" class="anchor" href="#cities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cities</h1>
 
 <ul id="markdown-toc">
-<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#pagination-using-timestamp-query-string-parameter" id="markdown-toc-pagination-using-timestamp-query-string-parameter">
-Pagination using timestamp query string parameter</a></li>
-<li><a href="#pagination-using-page-query-string-parameter" id="markdown-toc-pagination-using-page-query-string-parameter">
-Pagination using page query string parameter</a></li>
+<li><a href="#city-properties" id="markdown-toc-city-properties">
+City properties</a></li>
+<li><a href="#list-cities-with-given-name" id="markdown-toc-list-cities-with-given-name">List cities with given name</a></li>
 </ul>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="city-properties" class="anchor" href="#city-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>City properties</h2>
 
-<p>For pagination API uses to distinct techniques:</p>
+<p>Country is described by the following properties</p>
 
-<ul>
-<li>
-<code>timestamp</code> query string parameter </li>
-<li>
-<code>page</code> query string parameter</li>
-</ul>
-
-<p>Page numbering is <strong>1-based</strong>, page size is 100.</p>
-
-<p>Each API endpoint that returns paginated result is marked as paginated in endpoint description. 
-Selected pagination method is described alongside endpoint parameters description.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>long</code></td>
+<td>Unique identifier of city.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>City name.</td>
+</tr>
+<tr>
+<td><code>country</code></td>
+<td><a href="/api/miscellaneous/countries#properties">Country</a></td>
+<td>Contry city is located in.</td>
+</tr>
+</tbody>
+</table>
 
 <h2>
-<a id="pagination-using-timestamp-query-string-parameter" class="anchor" href="#pagination-using-timestamp-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="timestamp"></a>Pagination using <code>timestamp</code> query string parameter</h2>
+<a id="list-cities-with-given-name" class="anchor" href="#list-cities-with-given-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>List cities with given name</h2>
 
-<p>Requests with timestamp query string parameter return list of resources added or changed after point in time represented
-by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> ascending and is paged with page size of 100.</p>
+<pre><code>GET Geo/Cities/{countryId}
+</code></pre>
 
-<p>To get next page, use last element's <code>timestamp</code> in subsequent request. </p>
-
-<p>To get all elements iterate with <code>timestamp</code> parameter untill you get result with less then 100 elements.</p>
+<p>Returns paginated cities list, in country identified by <code>countryId</code>.</p>
 
 <h3>
-<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
 
-<p>In this example we fetch list of available in club with id = <code>2</code> classes. 
-<em>(Several element properties in JSON response were ommited for clarity)</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>City name. Request returns cities with name containing <code>name</code> parameter value.</td>
+</tr>
+</tbody>
+</table>
 
-<p>First page, <code>timestamp</code> parameter is equal <code>0</code>. It means that we fetch all elements, 
-regardless of time they were last modified.</p>
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch list of all polish cities that name contains <code>Warszawa</code> string.</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes?clubId=2&amp;timestamp=0       
+     http://yoursubdomain.perfectgym.com/api/Geo/Cities?name=Warszawa
 </pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -116,92 +144,29 @@ curl -i
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"Elements omitted for clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1695965</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bukowno Warszawa"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nativeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Polska"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1677</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">254718</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T06:15:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T07:15:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1722157</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nativeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Polska"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-
-<p>Second page, <code>timestamp</code> parameter of value <code>254718</code> is provided. It means that we fetch all elements with 
-<code>timestamp</code> greater then <code>254718</code> (value of last element's timestamp` in previous request).</p>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes?clubId=2&amp;timestamp=254718      
-</pre>
-
-<pre class="highlight highlight-headers"><code>Status: 200 OK
-</code></pre>
-
-
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2345</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">366718</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-28T08:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-28T09:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-
-<h2>
-<a id="pagination-using-page-query-string-parameter" class="anchor" href="#pagination-using-page-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="page"></a>Pagination using <code>page</code> query string parameter</h2>
-
-<p>We use <code>page</code> query string parameter to choose a page. <code>page</code> parameter is always optional. 
-The default page is the first one, so if you ommit <code>page</code> parameter, API will return first page.</p>
-
-<p>To get all elements iterate with <code>page</code> parameter untill you get result with less then 100 elements.</p>
-
-<h3>
-<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
-
-<p>In this example we fetch list of available in club with id = <code>2</code> classes, that starts in december 2015.</p>
-
-<p>First page (<code>page</code> parameter is ommited, so it defaults to <code>1</code>)</p>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
-          clubId=2&amp;
-        startDate=2015-12-01T00:00:00&amp;
-        endDate=2015-12-31T23:59:59
-</pre>
-
-<p>Second page (<code>page</code> parameter of value <code>2</code> is provided)</p>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/?
-          clubId=2&amp;
-        startDate=2015-12-01T00:00:00&amp;
-        endDate=2015-12-31T23:59:59&amp;
-        page=2
-</pre>
 
 
     </div>

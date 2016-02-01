@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Instructors | Perfectgym Developer Guide</title>
+  <title>Countries | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,16 +53,111 @@
       
 
 <h1>
-<a id="instructors" class="anchor" href="#instructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructors</h1>
+<a id="countries" class="anchor" href="#countries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Countries</h1>
 
-<p>The Instructors APIs provides access to instructors list available in your company.</p>
+<ul id="markdown-toc">
+<li><a href="#country-properties" id="markdown-toc-country-properties">
+Country properties</a></li>
+<li><a href="#list-countries-with-given-name" id="markdown-toc-list-countries-with-given-name">List countries with given name</a></li>
+</ul>
 
 <h2>
-<a id="instructors-1" class="anchor" href="#instructors-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="/api/instructors/instructors/">Instructors</a>
-</h2>
+<a id="country-properties" class="anchor" href="#country-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>Country properties</h2>
 
-<p><a href="/api/instructors/instructors/">Instructors API</a> gives you read only access to list of instructors 
-available in your company.</p>
+<p>Country is described by the following properties</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>long</code></td>
+<td>Unique identifier of country.</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>string</code></td>
+<td>Country symbol.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Country name.</td>
+</tr>
+<tr>
+<td><code>nativeName</code></td>
+<td><code>string</code></td>
+<td>Country name in native language.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="list-countries-with-given-name" class="anchor" href="#list-countries-with-given-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>List countries with given name</h2>
+
+<pre><code>GET Geo/Countries
+</code></pre>
+
+<p>Returns paginated countries list.</p>
+
+<h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Country name. Request returns countries with with name containing <code>name</code> parameter value.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch list of all countries that name contains <code>pol</code> string.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Geo/Countries?name=pol
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"nativeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Polska"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 
 
     </div>
