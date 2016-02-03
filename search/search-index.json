@@ -213,7 +213,15 @@
     "title": "Payments",
     
     "url": "/api/payments/payments/",
-    "body": " Payments This API allows user to pay contract fees using online payment systems.  Execute online payment   Execute online payment GET Payments/Pay/{userId}  Returns online payment URL and transaction identifier.  Path parameters    Name Type Description     userId long User identifier.     Query string parameters    Name Type Description     amount decimal Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.     Response Payment details including payment URL user should be redirected to, to proceed with a payment.  Example request In this example we request payment URL, user can execute payment with.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Payments/Pay/236?amount=100   Example response Status: 200 OK  { \"elements\": [ { \"paymentUrl\": \"http://yourcompany.perfectgym.com/example_payment_url\", \"paymentId\": \"PGAPI_a12b55c5-d526-4e4e-ae9c\" } ] } "
+    "body": " Payments This API allows user to pay contract fees using online payment systems.  Execute online payment   Execute online payment GET Payments/Pay/{userId}  Returns online payment URL and transaction identifier.  Path parameters    Name Type Description     userId long User identifier.     Query string parameters    Name Type Description     amount decimal Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.   redirectUrl string URL with query paymentId parameter attached. Online payment system will redirect to a given url after transaction is completed.     Response Payment details including payment URL user should be redirected to, to proceed with a payment.  Example request In this example we request payment URL, user can execute payment with.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Payments/Pay/236?amount=100   Example response Status: 200 OK  { \"elements\": [ { \"paymentUrl\": \"http://yourcompany.perfectgym.com/example_payment_url\", \"paymentId\": \"PGAPI_a12b55c5-d526-4e4e-ae9c\" } ] } "
+  },
+  
+  
+  {
+    "title": "Payment status",
+    
+    "url": "/api/payments/paymentstatus/",
+    "body": " Payment status Payment status represents status of payment executed via online payment system.   Payment status properties Retrive payment status    Payment status properties Payment status is described by the following properties    Name Type Description     status string Payment status. Possible values:  Success InProgress Error     errorMessage string Error message in case status = Error.     Retrive payment status GET Payments/PaymentStatus/{paymentId}  Returns status for online payment identified with paymentId.  Path parameters    Name Type Description     paymentId string Payment identifier returned by payment method in payment details      Example request In this example we fetch payment status for payment identified with paymentId = PGAPI_a12b55c5-d526-4e4e-ae9c  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Payments/PaymentStatus/PGAPI_a12b55c5-d526-4e4e-ae9c   Example response Status: 200 OK  { \"elements\": [ { \"status\": \"Success\", \"errorMessage\": \"\" } ] } "
   },
   
   
@@ -365,7 +373,7 @@
     "title": "Payment details",
     
     "url": "/appendix/datatypes/paymentdetails/",
-    "body": " Payment details Represents an URL and transaction identifier, which allows to execute pyment using online payment systems.  Payment details properties Payment details is described by the following properties    Name Type Description     paymentUrl string Payment URL. User should be redirected to payment url to initiate online payment   transactionId long Transaction identifier.   "
+    "body": " Payment details Represents an URL and transaction identifier, which allows to execute pyment using online payment systems.  Payment details properties Payment details is described by the following properties    Name Type Description     paymentUrl string Payment URL. User should be redirected to payment url to initiate online payment   paymentId string Payment identifier. Can be used to check payment status using payment status endpoint.   "
   },
   
   
