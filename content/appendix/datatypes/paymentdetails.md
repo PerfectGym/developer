@@ -16,4 +16,7 @@ Payment details is described by the following properties
 Name            | Type      | Description
 -----|----------|----------------------
 `paymentUrl`    |`string`   | Payment URL. User should be redirected to payment url to initiate online payment
-`transactionId`	|`long`     | Transaction identifier.
+`paymentId`		|`string`   | Payment identifier. Can be used to check payment status using [payment status][PaymentStatus] endpoint.
+
+
+[PaymentStatus]: /api/payments/paymentstatus

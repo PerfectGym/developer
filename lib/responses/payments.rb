@@ -64,6 +64,17 @@ module GitHub
           },          
         ]      
       }
+
+
+      PAYMENTSTATUS_RESPONSE ||= {
+
+        "elements" => [
+          {
+            "status": "Success",
+            "errorMessage": ""
+          }
+        ]
+      }
     end
   end
 end

@@ -26,9 +26,10 @@ Name      | Type   | Description
 
 ### Query string parameters
 
-Name      | Type   	  | Description
-----------|-----------|--------------------
-`amount`  |`decimal`  | Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.
+Name      	   | Type  	   | Description
+---------------|-----------|--------------------
+`amount`  	   |`decimal`  | Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.
+`redirectUrl`  |`string`   | URL with query `paymentId` parameter attached. Online payment system will redirect to a given url after transaction is completed. 
 
 
 ### Response
