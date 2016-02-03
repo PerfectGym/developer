@@ -32,7 +32,8 @@ Returns paginated countries list.
 
 Name    | Type     | Description
 --------|----------|---------------------
-`name`  |`string`  | Country name. Request returns countries with with name containing `name` parameter value.
+`name`  |`string`  | Optional. Country name. Request returns countries with with name containing `name` parameter value.
+`page`  |`int`     | Optional. Page number, defaults to `1`.
 
 
 ### Example request

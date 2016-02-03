@@ -31,7 +31,8 @@ Returns paginated cities list, in country identified by `countryId`.
 
 Name    | Type     | Description
 --------|----------|---------------------
-`name`  |`string`  | City name. Request returns cities with name containing `name` parameter value.
+`name`  |`string`  | Optional. City name. Request returns cities with name containing `name` parameter value.
+`page`  |`int`     | Optional. Page number, defaults to `1`.
 
 
 ### Example request

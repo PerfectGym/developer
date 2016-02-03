@@ -30,7 +30,7 @@ Name     	    | Type       		| Description
 `paymentPlanId` |`string`    		| Payment plan identifier. Request creates new contract based on payment plan identified by `paymentPlanId`
 `startDate`     |`string`    		| Contract start date.
 `signDate`     	|`string`    		| Contract sign date.
-`discountsIds`  |`array`			| Array of discount identifiers to be applied to contract.
+`discountIds`   |`array`			| Array of discount identifiers to be applied to contract.
 
 
 

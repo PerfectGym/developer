@@ -73,6 +73,13 @@ Name      | Type   | Description
 `clubId`  |`long`  | Club identifier.
 
 
+### Query string parameters
+
+Name      | Type   | Description
+----------|--------|------------
+`page`    |`int`   | Optional. Page number, defaults to `1`.
+
+
 ### Example request
 
 In this example we fetch list of all memberships available in club identified with clubId = `16`.

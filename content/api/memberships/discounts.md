@@ -36,7 +36,7 @@ Name            					| Type      | Description
 
 ## List available discounts for a given payment plan
 
-    GET Discounts/Discounts
+    GET Discounts/Discounts/{paymentPlanId}
 
 Returns paginated discounts list available for a given payment plan.
 
@@ -95,7 +95,7 @@ Name      		 | Type   | Description
 
 Name      	   | Type  		| Description
 ---------------|------------|--------------------
-`discountIds`  |`array`  	| **Required**. An array of discounts idenifiers to applay.
+`discountIds`  |`array`  	| **Required**. An array of discounts idenifiers to applay. Request returns payment plan fees with cumulative discounts identified with `discountIds` applied.
 `date`    	   |`datetime`  | Optional. Request returns discounts available in a given day. Defaults to `now`.
 
 
