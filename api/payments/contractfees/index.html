@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Clubs | Perfectgym Developer Guide</title>
+  <title>Pending contract fees | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,21 +53,21 @@
       
 
 <h1>
-<a id="clubs" class="anchor" href="#clubs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clubs</h1>
+<a id="pending-contract-fees" class="anchor" href="#pending-contract-fees" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pending contract fees</h1>
 
-<p>Club is a summary representation of single club in your company.</p>
+<p>Pending contract fee is a summary representation of a fee to be paid by a user.</p>
 
 <ul id="markdown-toc">
-<li><a href="#club-properties" id="markdown-toc-club-properties">
-Club properties</a></li>
-<li><a href="#list-clubs-with-timestamp" id="markdown-toc-list-clubs-with-timestamp">List clubs with timestamp</a></li>
+<li><a href="#pending-contract-fee-properties" id="markdown-toc-pending-contract-fee-properties">
+Pending contract fee properties</a></li>
+<li><a href="#list-user-pending-contract-fees" id="markdown-toc-list-user-pending-contract-fees">List user pending contract fees</a></li>
 </ul>
 
 <h2>
-<a id="club-properties" class="anchor" href="#club-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="properties"></a>Club properties</h2>
+<a id="pending-contract-fee-properties" class="anchor" href="#pending-contract-fee-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>Pending contract fee properties</h2>
 
-<p>Class is described by the following properties</p>
+<p>Pending contract fee is described by the following properties</p>
 
 <table>
 <thead>
@@ -81,7 +81,7 @@ Club properties</a></li>
 <tr>
 <td><code>id</code></td>
 <td><code>long</code></td>
-<td>Unique identifier of class.</td>
+<td>Unique identifier of pending fee.</td>
 </tr>
 <tr>
 <td><code>timestamp</code></td>
@@ -91,22 +91,37 @@ Club properties</a></li>
 <tr>
 <td><code>name</code></td>
 <td><code>string</code></td>
-<td>Club name.</td>
+<td>Pending fee name.</td>
 </tr>
 <tr>
-<td><code>shortName</code></td>
-<td><code>long</code></td>
-<td>Club short name.</td>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>Pending fee description.</td>
 </tr>
 <tr>
-<td><code>symbol</code></td>
-<td><code>long</code></td>
-<td>Club symbol.</td>
+<td><code>paymentType</code></td>
+<td><code>string</code></td>
+<td>Pending fee type. <br><strong>Possible values</strong>: <br><ul>
+<li>Prorata</li>
+<li>AdminFee</li>
+<li>JoiningFee</li>
+<li>Prepaid</li>
+<li>Membership</li>
+<li>Freeze</li>
+<li>Manual</li>
+<li>Other</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>type</code></td>
-<td><code>long</code></td>
-<td>Club type.</td>
+<td><code>fee</code></td>
+<td><a href="/appendix/datatypes/fee">Fee</a></td>
+<td>Fee to be paid.</td>
+</tr>
+<tr>
+<td><code>dueDate</code></td>
+<td><code>string</code></td>
+<td>Fee due date</td>
 </tr>
 <tr>
 <td><code>isDeleted</code></td>
@@ -117,15 +132,15 @@ Club properties</a></li>
 </table>
 
 <h2>
-<a id="list-clubs-with-timestamp" class="anchor" href="#list-clubs-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List clubs with timestamp</h2>
+<a id="list-user-pending-contract-fees" class="anchor" href="#list-user-pending-contract-fees" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user pending contract fees</h2>
 
-<pre><code>GET Clubs/Clubs
+<pre><code>GET Payments/ContractFees/{userId}
 </code></pre>
 
-<p>Returns paginated list of clubs available in your company.</p>
+<p>Returns paginated list of conract fees to be paid by a given user.</p>
 
 <h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
 
 <table>
 <thead>
@@ -137,10 +152,9 @@ Club properties</a></li>
 </thead>
 <tbody>
 <tr>
-<td><code>timestamp</code></td>
+<td><code>userId</code></td>
 <td><code>long</code></td>
-<td>Timestamp. Request returns clubs with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>
-</td>
+<td>User identifier.</td>
 </tr>
 </tbody>
 </table>
@@ -148,13 +162,13 @@ Club properties</a></li>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all clubs with timestamp greater then <code>254000</code></p>
+<p>In this example we fetch list of pending contract fees of user identified with <code>id</code> = <code>236</code></p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/Clubs?timestamp=254000
+     http://yoursubdomain.perfectgym.com/api/Payments/ContractFees/236
 </pre>
 
 <h3>
@@ -167,40 +181,49 @@ curl -i
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">271990</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo Cyberbotics"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FCBR"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic 6m 50% Admin fee"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"paymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AdminFee"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"net"</span><span class="p">:</span><span class="w"> </span><span class="mf">-15.45</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">-3.55</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"taxRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gross"</span><span class="p">:</span><span class="w"> </span><span class="mi">-19</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"dueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3890</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">448449</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">255968</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Monaco"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monaco"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Platinum"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic 6m Prorata, 6 days"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"paymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prorata"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"net"</span><span class="p">:</span><span class="w"> </span><span class="mf">-3.13</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.72</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"taxRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gross"</span><span class="p">:</span><span class="w"> </span><span class="mf">-3.85</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"dueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3889</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">448447</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">255980</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Cracow"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cracow"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CRA"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basic w 2016-02 (discount 9,95 - 50%)"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"paymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"net"</span><span class="p">:</span><span class="w"> </span><span class="mf">-8.09</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.86</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"taxRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gross"</span><span class="p">:</span><span class="w"> </span><span class="mf">-9.95</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"dueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-02T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3891</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">448451</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">256064</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Moscow"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moscow"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">

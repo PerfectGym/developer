@@ -202,6 +202,30 @@
   
   
   {
+    "title": "Pending contract fees",
+    
+    "url": "/api/payments/contractfees/",
+    "body": " Pending contract fees Pending contract fee is a summary representation of a fee to be paid by a user.   Pending contract fee properties List user pending contract fees    Pending contract fee properties Pending contract fee is described by the following properties    Name Type Description     id long Unique identifier of pending fee.   timestamp long Timestamp. Indicates when resource was last modified.   name string Pending fee name.   description string Pending fee description.   paymentType string Pending fee type. Possible values:  Prorata AdminFee JoiningFee Prepaid Membership Freeze Manual Other     fee Fee Fee to be paid.   dueDate string Fee due date   isDeleted bool Indicates if resource is deleted.     List user pending contract fees GET Payments/ContractFees/{userId}  Returns paginated list of conract fees to be paid by a given user.  Path parameters    Name Type Description     userId long User identifier.     Example request In this example we fetch list of pending contract fees of user identified with id = 236  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Payments/ContractFees/236   Example response Status: 200 OK  { \"elements\": [ { \"name\": \"\", \"description\": \"Basic 6m 50% Admin fee\", \"paymentType\": \"AdminFee\", \"amount\": { \"net\": -15.45, \"tax\": -3.55, \"taxRate\": 23, \"gross\": -19 }, \"dueDate\": \"2016-01-26T00:00:00\", \"id\": 3890, \"timestamp\": 448449, \"isDeleted\": false }, { \"name\": \"\", \"description\": \"Basic 6m Prorata, 6 days\", \"paymentType\": \"Prorata\", \"amount\": { \"net\": -3.13, \"tax\": -0.72, \"taxRate\": 23, \"gross\": -3.85 }, \"dueDate\": \"2016-01-26T00:00:00\", \"id\": 3889, \"timestamp\": 448447, \"isDeleted\": false }, { \"name\": \"\", \"description\": \"Basic w 2016-02 (discount 9,95 - 50%)\", \"paymentType\": \"Membership\", \"amount\": { \"net\": -8.09, \"tax\": -1.86, \"taxRate\": 23, \"gross\": -9.95 }, \"dueDate\": \"2016-02-02T00:00:00\", \"id\": 3891, \"timestamp\": 448451, \"isDeleted\": false } ] } "
+  },
+  
+  
+  {
+    "title": "Payments",
+    
+    "url": "/api/payments/payments/",
+    "body": " Payments This API allows user to pay contract fees using online payment systems.  Execute online payment   Execute online payment GET Payments/Pay/{userId}  Returns online payment URL and transaction identifier.  Path parameters    Name Type Description     userId long User identifier.     Query string parameters    Name Type Description     amount decimal Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.     Response Payment details including payment URL user should be redirected to, to proceed with a payment.  Example request In this example we request payment URL, user can execute payment with.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Payments/Pay/236?amount=100   Example response Status: 200 OK  { \"elements\": [ { \"paymentUrl\": \"http://yourcompany.perfectgym.com/example_payment_url\", \"paymentId\": \"PGAPI_a12b55c5-d526-4e4e-ae9c\" } ] } "
+  },
+  
+  
+  {
+    "title": "Payments",
+    
+    "url": "/api/payments/",
+    "body": " Payments The Payments APIs provides access to contract payments list and allows user to execute payments using online payments.  Pending contract fees  Pending contract fees API gives you read only access to list of due and future contract fees to be paid by the user.  Payments  Payments API allows you to pay contract fees using online payment systems."
+  },
+  
+  
+  {
     "title": "Adding and updateing user",
     
     "url": "/api/users/addupdateuser/",
@@ -213,7 +237,7 @@
     "title": "User contract",
     
     "url": "/api/users/usercontract/",
-    "body": " User contract This API lest you assign contract to a club user.  Assign contract to a club user   Assign contract to a club user POST Users/User/{userId}/Contract  Request assigns new contract to existing club user.  Path parameters    Name Type Description     userId string User identifier. Request assigns new contract to user identified by userId.     Body parameters    Name Type Description     paymentPlanId string Payment plan identifier. Request creates new contract based on payment plan identified by paymentPlanId    startDate string Contract start date.   signDate string Contract sign date.   discountsIds array Array of discount identifiers to be applied to contract.     Response User details with contract detailed description.  Example request In this example we create new contract based on payment plan with id = 44 and we assigne it to user with id of value 236. Also discount with id = 10 is applied.  curl -X POST -H \"Authorization: Bearer $ACCESS_TOKEN\" -H \"Content-Type: application/json\" -d '{ \"paymentPlanId\": 44, \"startDate\": \"2016-01-26T00:00:00\", \"signDate\": \"2016-01-26T00:00:00\", \"discountIds\": [10] }' http://yoursubdomain.perfectgym.com/api/Users/User/236/Contract   Example response Status: 200 OK  { \"elements\": [ { \"id\": 236, \"timestamp\": 448035, \"personalId\": \"80010101234\", \"number\": \"2b7b02df-08ae-4720-a3ce-a594bfc46d47\", \"firstName\": \"John\", \"lastName\": \"Fibo\", \"email\": \"john.fibo@perfectgym.pl\", \"phone\": \"0048123456789\", \"idCardName\": \"Passport\", \"idCardNumber\": \"ABC 123456\", \"birthDate\": \"1978-06-01T00:00:00\", \"sex\": \"Male\", \"address\": { \"country\": \"Poland\", \"city\": \"Warszawa\", \"postalCode\": \"02-962\", \"street\": \"ul. Przyczolkowa 334\" }, \"homeClubId\": 12, \"isActive\": true, \"isDeleted\": false, \"currentContract\": { \"id\": 1, \"timestamp\": 350287, \"signUpDate\": \"2016-01-26T00:00:00\", \"startDate\": \"2016-01-26T00:00:00\", \"cancelDate\": \"\", \"endDate\": \"\", \"membership\": { \"id\": 1, \"timestamp\": 349423, \"name\": \"Open\", \"isActive\": true, \"isDeleted\": false }, \"paymentPlan\": { \"id\": 44, \"timestamp\": 447623, \"name\": \"Open 24m\", \"isActive\": true, \"isDeleted\": false }, \"discounts\": [ { \"id\": 10, \"isActive\": true, \"name\": \"50%\", \"administartionFeeDiscountType\": \"ValueDiscount\", \"joiningFeeDiscountType\": \"None\", \"membershipFeeDiscountType\": \"PercentDiscount\", \"administartionFeeDiscountValue\": 0, \"joiningFeeDiscountValue\": \"\", \"membershipFeeDiscountValue\": 50 } ], \"isActive\": true, \"isDeleted\": false } } ] } "
+    "body": " User contract This API lest you assign contract to a club user.  Assign contract to a club user   Assign contract to a club user POST Users/User/{userId}/Contract  Request assigns new contract to existing club user.  Path parameters    Name Type Description     userId string User identifier. Request assigns new contract to user identified by userId.     Body parameters    Name Type Description     paymentPlanId string Payment plan identifier. Request creates new contract based on payment plan identified by paymentPlanId    startDate string Contract start date.   signDate string Contract sign date.   discountIds array Array of discount identifiers to be applied to contract.     Response User details with contract detailed description.  Example request In this example we create new contract based on payment plan with id = 44 and we assigne it to user with id of value 236. Also discount with id = 10 is applied.  curl -X POST -H \"Authorization: Bearer $ACCESS_TOKEN\" -H \"Content-Type: application/json\" -d '{ \"paymentPlanId\": 44, \"startDate\": \"2016-01-26T00:00:00\", \"signDate\": \"2016-01-26T00:00:00\", \"discountIds\": [10] }' http://yoursubdomain.perfectgym.com/api/Users/User/236/Contract   Example response Status: 200 OK  { \"elements\": [ { \"id\": 236, \"timestamp\": 448035, \"personalId\": \"80010101234\", \"number\": \"2b7b02df-08ae-4720-a3ce-a594bfc46d47\", \"firstName\": \"John\", \"lastName\": \"Fibo\", \"email\": \"john.fibo@perfectgym.pl\", \"phone\": \"0048123456789\", \"idCardName\": \"Passport\", \"idCardNumber\": \"ABC 123456\", \"birthDate\": \"1978-06-01T00:00:00\", \"sex\": \"Male\", \"address\": { \"country\": \"Poland\", \"city\": \"Warszawa\", \"postalCode\": \"02-962\", \"street\": \"ul. Przyczolkowa 334\" }, \"homeClubId\": 12, \"isActive\": true, \"isDeleted\": false, \"currentContract\": { \"id\": 1, \"timestamp\": 350287, \"signUpDate\": \"2016-01-26T00:00:00\", \"startDate\": \"2016-01-26T00:00:00\", \"cancelDate\": \"\", \"endDate\": \"\", \"membership\": { \"id\": 1, \"timestamp\": 349423, \"name\": \"Open\", \"isActive\": true, \"isDeleted\": false }, \"paymentPlan\": { \"id\": 44, \"timestamp\": 447623, \"name\": \"Open 24m\", \"isActive\": true, \"isDeleted\": false }, \"discounts\": [ { \"id\": 10, \"isActive\": true, \"name\": \"50%\", \"administartionFeeDiscountType\": \"ValueDiscount\", \"joiningFeeDiscountType\": \"None\", \"membershipFeeDiscountType\": \"PercentDiscount\", \"administartionFeeDiscountValue\": 0, \"joiningFeeDiscountValue\": \"\", \"membershipFeeDiscountValue\": 50 } ], \"isActive\": true, \"isDeleted\": false } } ] } "
   },
   
   
@@ -334,6 +358,14 @@
     
     "url": "/appendix/datatypes/openinghours/",
     "body": " Opening hours Represents a timeframe your club is opened on a given day.  Opening hours properties Opening hours are described by the following properties    Name Type Description     id long Unique identifier of opening hours.   timestamp long Timestamp. Indicates when resource was last modified.   isClosed bool Indicates if club is closed on a given week day.   dayOfWeekOrHoliday string Day of week given object refers to. Possible values:  Monday Tuesday Wednesday Thursday Friday Saturday Sunday Holidays     openFrom string Opening hour.   openUntil string Closing hour.   isDeleted bool Indicates if resource is deleted.   "
+  },
+  
+  
+  {
+    "title": "Payment details",
+    
+    "url": "/appendix/datatypes/paymentdetails/",
+    "body": " Payment details Represents an URL and transaction identifier, which allows to execute pyment using online payment systems.  Payment details properties Payment details is described by the following properties    Name Type Description     paymentUrl string Payment URL. User should be redirected to payment url to initiate online payment   transactionId long Transaction identifier.   "
   },
   
   

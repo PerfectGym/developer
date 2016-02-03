@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Instructors | Perfectgym Developer Guide</title>
+  <title>Payments | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,16 +53,96 @@
       
 
 <h1>
-<a id="instructors" class="anchor" href="#instructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructors</h1>
+<a id="payments" class="anchor" href="#payments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Payments</h1>
 
-<p>The Instructors APIs provides access to instructors list available in your company.</p>
+<p>This API allows user to pay contract fees using online payment systems.</p>
+
+<ul id="markdown-toc">
+<li><a href="#execute-online-payment" id="markdown-toc-execute-online-payment">Execute online payment</a></li>
+</ul>
 
 <h2>
-<a id="instructors-1" class="anchor" href="#instructors-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="/api/instructors/instructors/">Instructors</a>
-</h2>
+<a id="execute-online-payment" class="anchor" href="#execute-online-payment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute online payment</h2>
 
-<p><a href="/api/instructors/instructors/">Instructors API</a> gives you read only access to list of instructors 
-available in your company.</p>
+<pre><code>GET Payments/Pay/{userId}
+</code></pre>
+
+<p>Returns online payment URL and transaction identifier.</p>
+
+<h3>
+<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>User identifier.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>amount</code></td>
+<td><code>decimal</code></td>
+<td>Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/appendix/datatypes/paymentdetails">Payment details</a> including payment URL user should be redirected to, to proceed with a payment.</p>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we request payment URL, user can execute payment with.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Payments/Pay/236?amount=100
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"paymentUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://yourcompany.perfectgym.com/example_payment_url"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PGAPI_a12b55c5-d526-4e4e-ae9c"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 
 
     </div>

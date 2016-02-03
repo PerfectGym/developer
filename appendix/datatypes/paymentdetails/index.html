@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Address | Perfectgym Developer Guide</title>
+  <title>Payment details | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,14 +53,14 @@
       
 
 <h1>
-<a id="address" class="anchor" href="#address" aria-hidden="true"><span class="octicon octicon-link"></span></a>Address</h1>
+<a id="payment-details" class="anchor" href="#payment-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Payment details</h1>
 
-<p>Represents an address and is used accress all PerfectGym API.</p>
+<p>Represents an URL and transaction identifier, which allows to execute pyment using online payment systems.</p>
 
 <h2>
-<a id="address-properties" class="anchor" href="#address-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Address properties</h2>
+<a id="payment-details-properties" class="anchor" href="#payment-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Payment details properties</h2>
 
-<p>Address is described by the following properties</p>
+<p>Payment details is described by the following properties</p>
 
 <table>
 <thead>
@@ -72,24 +72,14 @@
 </thead>
 <tbody>
 <tr>
-<td><code>street</code></td>
+<td><code>paymentUrl</code></td>
 <td><code>string</code></td>
-<td>Street name.</td>
+<td>Payment URL. User should be redirected to payment url to initiate online payment</td>
 </tr>
 <tr>
-<td><code>postalCode</code></td>
-<td><code>string</code></td>
-<td>Zip code or equivalent.</td>
-</tr>
-<tr>
-<td><code>city</code></td>
-<td><code>string</code></td>
-<td>City name.</td>
-</tr>
-<tr>
-<td><code>country</code></td>
-<td><code>string</code></td>
-<td>Country name.</td>
+<td><code>transactionId</code></td>
+<td><code>long</code></td>
+<td>Transaction identifier.</td>
 </tr>
 </tbody>
 </table>
