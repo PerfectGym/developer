@@ -19,7 +19,7 @@ Name            | Type                        | Description
 `timestamp`    	|`long`     				  | Timestamp. Indicates when resource was last modified.
 `name`     		|`string`                     | Pending fee name.
 `description`   |`string`                     | Pending fee description.
-`paymentType`   |`string`                     | Pending fee type. <br><strong>Possible values</strong>: <br><ul><li>Prorata</li><li>AdminFee</li><li>JoiningFee</li><li>Prepaid</li><li>Membership</li><li>Freeze</li><li>Manual</li><li>Other</li></ul>
+`feeType`   	|`string`                     | Pending fee type. <br><strong>Possible values</strong>: <br><ul><li>Prorata</li><li>AdminFee</li><li>JoiningFee</li><li>Prepaid</li><li>Membership</li><li>Freeze</li><li>Manual</li><li>Other</li></ul>
 `fee`           |[Fee][Fee]                   | Fee to be paid.
 `dueDate`       |`string`                     | Fee due date
 `isDeleted`     |`bool`                       | Indicates if resource is deleted.
@@ -29,16 +29,16 @@ Name            | Type                        | Description
 
 ## List user pending contract fees
 
-    GET Payments/ContractFees/{userId}
+    GET Payments/ContractFees
 
 Returns paginated list of conract fees to be paid by a given user.
 
 
-### Path parameters
+### Parameters
 
 Name      | Type   | Description
 ----------|--------|--------------------
-`userId`  |`long`  | User identifier.
+`userId`  |`long`  | **Required**. User identifier.
 
 
 ### Example request
@@ -49,7 +49,7 @@ In this example we fetch list of pending contract fees of user identified with `
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Payments/ContractFees/236
+     http://yoursubdomain.perfectgym.com/api/Payments/ContractFees?userId=236
 ```
 
 

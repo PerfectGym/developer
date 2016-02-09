@@ -27,12 +27,12 @@ Name            	 | Type      | Description
 
 ## Retrive detailed information about specyfic membership type.
 
-    GET Memberships/Membership/{membershipId}
+    GET Memberships/Membership
 
 Returns detailed membership type informations.
 
 
-### Path parameters
+### Parameters
 
 Name            | Type       | Description
 ----------------|------------|------------
@@ -42,13 +42,14 @@ Name            | Type       | Description
 
 ### Example request
 
-In this example we fetch membership type with id = `20` detailed information.
+In this example we fetch membership type with `id` = `20` detailed information.
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Membership/20     	
+     http://yoursubdomain.perfectgym.com/api/Memberships/Membership
+     	?membershipId=20     	
 ```
 
 

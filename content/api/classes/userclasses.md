@@ -31,12 +31,12 @@ Name            		| Type    | Description
 Returns paginated user classes list.
 
 
-### Query string parameters
+### Parameters
 
 Name         | Type       | Description
 -----|-------|------------|------------
-`userId`     |`long`      | User identifier. Request returns classes data for user identified by `userId`.
-`clubId`     |`long`      | Club identifier. Request returns classes that take place in club identified by `clubId`.
+`userId`     |`long`      | **Required**. User identifier. Request returns classes data for user identified by `userId`.
+`clubId`     |`long`      | **Required**. Club identifier. Request returns classes that take place in club identified by `clubId`.
 `startDate`  |`datetime`  | **Required**. Start date. Request returns classes that starts leter then `startDate`.
 `endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
 `page`       |`int`       | Optional. Page number, defaults to `1`.
@@ -44,17 +44,17 @@ Name         | Type       | Description
 
 ### Example request
 
-In this example we fetch first 100 of all user (with id = `40`) classes in club with id = `2`, that starts in december 2015
+In this example we fetch first 100 of all user (with id = `40`) classes in club with `id` = `2`, that starts in december 2015
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses?
-        userId=40&
-        clubId=2&
-     	startDate=2015-12-01T00:00:00&
-     	endDate=2015-12-31T23:59:59
+     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses
+        ?userId=40
+        &clubId=2
+        &startDate=2015-12-01T00:00:00
+        &endDate=2015-12-31T23:59:59
 ```
 
 
@@ -76,23 +76,23 @@ Returns paginated user classes list.
 
 Name         | Type   | Description
 -----|-------|--------|------------
-`userId`     |`long`  | User identifier. Request returns classes data for user identified by `userId`.
-`clubId`     |`long`  | Club identifier. Request returns classes that take place in club identified by `clubId`.
+`userId`     |`long`  | **Required**. User identifier. Request returns classes data for user identified by `userId`.
+`clubId`     |`long`  | **Required**. Club identifier. Request returns classes that take place in club identified by `clubId`.
 `timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
 
 
 ### Example request
 
-In this example we fetch list of all user (with id = `40`) classes in club with id = `2`, with timestamp greater then `254000`
+In this example we fetch list of all user (with id = `40`) classes in club with `id` = `2`, with timestamp greater then `254000`
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses?
-        userId=40&
-        clubId=2&
-        timestamp=254000
+     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses
+        ?userId=40
+        &clubId=2
+        &timestamp=254000
 ```
 
 
@@ -105,35 +105,30 @@ curl -i
 
 ## Retrive user class with class identifier
 
-    GET Classes/UserClass/{classId}
+    GET Classes/UserClass
 
 Returns individual user class.
 
 
-### Path parameters
+### Parameters
 
 Name         | Type   | Description
--------------|--------|------------
-`classId`    |`long`  | Class identifier. Request returns class identified by `classId`.
-
-
-### Query string parameters
-
-Name         | Type   | Description
------|-------|--------|------------
+-------------|--------|--------------------
+`classId`    |`long`  | **Required**. Class identifier. Request returns class identified by `classId`.
 `userId`     |`long`  | **Required**. User identifier. Request returns class data for user identified by `userId`.
 
 
 ### Example request
 
-In this example we fetch data for class identified with classId = `1677` for user identified with id = `40`
+In this example we fetch data for class identified with `id` = `1677` for user identified with `id` = `40`
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClass/1677?
-        userId=40&        
+     http://yoursubdomain.perfectgym.com/api/Classes/UserClass
+        ?classId=1677
+        &userId=40        
 ```
 
 

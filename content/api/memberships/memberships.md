@@ -32,7 +32,7 @@ Name            | Type      | Description
 Returns paginated membership list.
 
 
-### Query string parameters
+### Parameters
 
 Name         | Type   | Description
 -----|-------|--------|------------
@@ -61,34 +61,28 @@ curl -i
 
 ## List memberships available in a given club
 
-    GET Memberships/Memberships/{clubId}
+    GET Memberships/Memberships
 
 Returns paginated memberships list available in given club.
 
 
-### Path parameters
+### Parameters
 
 Name      | Type   | Description
 ----------|--------|------------
-`clubId`  |`long`  | Club identifier.
-
-
-### Query string parameters
-
-Name      | Type   | Description
-----------|--------|------------
-`page`    |`int`   | Optional. Page number, defaults to `1`.
+`clubId`  |`long`  | **Required**. Club identifier.
+`page`    |`int`   | Page number, defaults to `1`.
 
 
 ### Example request
 
-In this example we fetch list of all memberships available in club identified with clubId = `16`.
+In this example we fetch list of all memberships available in club identified with `clubId` = `16`.
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships/16
+     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships?clubId=16
 ```
 
 

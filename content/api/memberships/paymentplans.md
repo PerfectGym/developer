@@ -38,7 +38,7 @@ Name            | Type      | Description
 Returns paginated payment plans list.
 
 
-### Query string parameters
+### Parameters
 
 Name         | Type   | Description
 -----|-------|--------|------------
@@ -67,34 +67,29 @@ curl -i
 
 ## List payment plans available in a given club
 
-    GET PaymentPlans/PaymentPlans/{clubId}
+    GET PaymentPlans/PaymentPlans
 
 Returns paginated payment plans list available in given club.
 
 
-### Path parameters
+### Parameters
 
 Name      | Type   | Description
 ----------|--------|------------
-`clubId`  |`long`  | Club identifier.
-
-
-### Query string parameters
-
-Name      | Type   | Description
-----------|--------|------------
-`page`    |`int`   | Optional. Page number, defaults to `1`.
+`clubId`  |`long`  | **Required**. Club identifier.
+`page`    |`int`   | Page number, defaults to `1`.
 
 
 ### Example request
 
-In this example we fetch list of all payment plans available in club identified with clubId = `16`.
+In this example we fetch list of all payment plans available in club identified with `clubId` = `16`.
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships/16
+     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships
+     	?clubId=16
 ```
 
 

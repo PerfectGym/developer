@@ -88,12 +88,12 @@ Subsequent user add request with same samlpe data generates following error:
 
 ## Update existing user
 
-    PUT Users/User/{userId}
+    PUT Users/User
 
 Request updates existing user's data.
 
 
-### Path parameters
+### Parameters
 
 Name            | Type       | Description
 ----------------|------------|------------
@@ -148,7 +148,7 @@ curl -X PUT
 	        "country": "Poland"
 	    }
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/User/236
+	http://yoursubdomain.perfectgym.com/api/Users/User?userId=236
 ```
 
 

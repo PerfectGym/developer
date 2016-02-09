@@ -17,18 +17,12 @@ This API allows user to pay contract fees using online payment systems.
 Returns online payment URL and transaction identifier.
 
 
-### Path parameters
-
-Name      | Type   | Description
-----------|--------|--------------------
-`userId`  |`long`  | User identifier.
-
-
-### Query string parameters
+### Parameters
 
 Name      	   | Type  	   | Description
 ---------------|-----------|--------------------
-`amount`  	   |`decimal`  | Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.
+`userId`  	   |`long`     | **Required**. User identifier.
+`amount`  	   |`decimal`  | **Required**. Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.
 `redirectUrl`  |`string`   | URL with query `paymentId` parameter attached. Online payment system will redirect to a given url after transaction is completed. 
 
 
@@ -46,7 +40,9 @@ In this example we request payment URL, user can execute payment with.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Payments/Pay/236?amount=100
+     http://yoursubdomain.perfectgym.com/api/Payments/Pay
+     	?userId=236
+     	&amount=100
 ```
 
 

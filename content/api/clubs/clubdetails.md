@@ -36,34 +36,29 @@ Name            		| Type    | Description
 
 ## <a name="clubdetails"></a>Retrive detailed information about specyfic club.
 
-    GET Clubs/Club/{clubId}
+    GET Clubs/Club
 
 Returns detailed club informations.
 
 
-### Path parameters
+### Parameters
 
 Name            | Type       | Description
------|----------|------------|------------
-`clubId`        |`long`      | Club identifier.
-
-### Query string parameters
-
-Name            | Type       | Description
------|----------|------------|------------
-`languageCode`  |`string`    | Optional. Language identifier club information should be translated to (for example `EN`, `DE` etc.).
+----------------|------------|------------------------
+`clubId`        |`long`      | **Required**. Club identifier.
+`languageCode`  |`string`    | Language identifier club information should be translated to (for example `EN`, `DE` etc.).
 
 
 
 ### Example request
 
-In this example we fetch club with id = `16` detailed information. Information will be returned in club's language (`languageCode` parameter is ommited).
+In this example we fetch club with `id` = `16` detailed information. Information will be returned in club's language (`languageCode` parameter is ommited).
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/Club/16     	
+     http://yoursubdomain.perfectgym.com/api/Clubs/Club?clubId=16     	
 ```
 
 

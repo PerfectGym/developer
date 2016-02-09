@@ -50,23 +50,18 @@ Name         		| Type       | Description
 
 ## Execute class rating
 
-    POST Classes/RateClass/{classId}
+    POST Classes/RateClass
 
 Request rates class on behalf of user.
 
 
-### Path parameters
+### Parameters
 
 Name         | Type       | Description
------|-------|------------|------------
-`classId`    |`long`      | Class identifier. Request rates fitness class identified by `classId`.
-
-### Query string parameters
-
-Name         | Type       | Description
------|-------|------------|------------
-`userId`     |`long`      | User identifier.  Request rates fitness class on behalf of user identified by `userId`.
-`rating`     |`int`       | Rating. Value of `1` to `5`. Rating user assigns to selected classes.
+-------------|------------|-----------------------
+`classId`    |`long`      | **Required**. Class identifier. Request rates fitness class identified by `classId`.
+`userId`     |`long`      | **Required**. User identifier.  Request rates fitness class on behalf of user identified by `userId`.
+`rating`     |`int`       | **Required**. Rating. Value of `1` to `5`. Rating user assigns to selected classes.
 
 
 ### Response
@@ -77,15 +72,16 @@ with [class rating error codes][ClassRatingErrorCode] otherwise.
 
 ### Example request
 
-In this example we assign rating `5` to classes with id = `1677` by user with id = `40`.
+In this example we assign rating `5` to classes with `id` = `1677` by user with `id` = `40`.
 
 ``` command-line
 curl -i 
      -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/RateClass/1677?
-     	userId=40&
-     	classRating=5
+     http://yoursubdomain.perfectgym.com/api/Classes/RateClass
+        ?classId=1677
+     	&userId=40
+        &classRating=5
 ```
 
 
@@ -97,7 +93,7 @@ curl -i
 
 ### Example error response
 
-Subsequent rating for class with id =`1677` and for user with id = `40` generates following error:
+Subsequent rating for class with `id` = `1677` and for user with `id` = `40` generates following error:
 
 <%= headers 400 %>
 <%= json(:rateclass_error_response) %>
@@ -106,23 +102,18 @@ Subsequent rating for class with id =`1677` and for user with id = `40` generate
 
 ## Execute instructor rating
 
-    POST Classes/RateInstructor/{classId}
+    POST Classes/RateInstructor
 
 Request rates instructor conducting class on behalf of user.
 
 
-### Path parameters
+### Parameters
 
 Name         | Type       | Description
------|-------|------------|------------
-`classId`    |`long`      | Class identifier. Request rates instructor conducting class identified by `classId`.
-
-### Query string parameters
-
-Name         | Type       | Description
------|-------|------------|------------
-`userId`     |`long`      | User identifier.  Request rates instructor on behalf of user identified by `userId`.
-`rating`     |`int`       | Rating. Value of `1` to `5`. Rating user assigns to selected instructor.
+-------------|------------|------------------------
+`classId`    |`long`      | **Required**. Class identifier. Request rates instructor conducting class identified by `classId`.
+`userId`     |`long`      | **Required**. User identifier.  Request rates instructor on behalf of user identified by `userId`.
+`rating`     |`int`       | **Required**. Rating. Value of `1` to `5`. Rating user assigns to selected instructor.
 
 
 ### Response
@@ -133,15 +124,16 @@ with [instructor rating error codes][InstructorRatingErrorCode] otherwise.
 
 ### Example request
 
-In this example we assign rating `4` to instructor conducting classes with id = `1677` by user with id = `40`.
+In this example we assign rating `4` to instructor conducting classes with `id` = `1677` by user with `id` = `40`.
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/RateInstructor/1677?
-     	userId=40&
-     	isntructorRating=4
+     http://yoursubdomain.perfectgym.com/api/Classes/RateInstructor
+        ?classId=1677
+        &userId=40
+        &isntructorRating=4
 ```
 
 
@@ -153,7 +145,7 @@ curl -i
 
 ### Example error response
 
-Subsequent instructor rating for class with id =`1677` and for user with id = `40` generates following error:
+Subsequent instructor rating for class with `id` = `1677` and for user with `id` = `40` generates following error:
 
 <%= headers 400 %>
 <%= json(:rateinstructor_error_response) %>

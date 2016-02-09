@@ -22,17 +22,18 @@ Name         | Type     		  | Description
 
 ## List cities with given name
 
-    GET Geo/Cities/{countryId}
+    GET Geo/Cities
 
 Returns paginated cities list, in country identified by `countryId`.
 
 
-### Query string parameters
+### Parameters
 
-Name    | Type     | Description
---------|----------|---------------------
-`name`  |`string`  | Optional. City name. Request returns cities with name containing `name` parameter value.
-`page`  |`int`     | Optional. Page number, defaults to `1`.
+Name    	| Type     | Description
+------------|----------|---------------------
+`countryId`	|`long`	   | **Required**. Country identifier.
+`name`  	|`string`  | City name. Request returns cities with name containing `name` parameter value.
+`page`  	|`int`     | Page number, defaults to `1`.
 
 
 ### Example request
@@ -43,7 +44,9 @@ In this example we fetch list of all polish cities that name contains `Warszawa`
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Geo/Cities?name=Warszawa
+     http://yoursubdomain.perfectgym.com/api/Geo/Cities
+     	?countryId=187
+     	&name=Warszawa
 ```
 
 

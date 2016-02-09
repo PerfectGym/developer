@@ -36,27 +36,27 @@ Name            	| Type      			| Description
 
 ## Retrive detailed information about user identified by user unique identifier.
 
-    GET Users/User/{userId}
+    GET Users/User
 
 Returns detailed user informations.
 
 
-### Path parameters
+### Parameters
 
 Name            | Type       | Description
------|----------|------------|------------
+----------------|------------|------------------------
 `userId`        |`long`      | User's identifier.
 
 
 ### Example request
 
-In this example we fetch user (with id = `1`) detailed information.
+In this example we fetch user (with `id` = `1`) detailed information.
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Users/User/1
+     http://yoursubdomain.perfectgym.com/api/Users/User?userId=1
 ```
 
 
@@ -76,7 +76,7 @@ uniquly identified, if more then one user with given personal id exists,
 empty result is returned.
 
 
-### Query string parameters
+### Parameters
 
 Name            | Type       | Description
 ----------------|------------|------------
@@ -85,7 +85,7 @@ Name            | Type       | Description
 
 ### Example request
 
-In this example we fetch user (with personal id = `80010101234`) detailed information.
+In this example we fetch user (with personal `id` = `80010101234`) detailed information.
 
 ``` command-line
 curl -i 

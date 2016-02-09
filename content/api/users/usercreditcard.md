@@ -11,16 +11,16 @@ This API lest you assign credit card to a club user.
 
 ## Assign credit card to a club user
 
-    POST Users/User/{userId}/CreditCard
+    POST Users/CreditCard
 
 Request assigns a credit card to existing club user.
 
 
-### Path parameters
+### Parameters
 
 Name  	    | Type       		| Description
 ------------|-------------------|------------
-`userId`    |`string`    		| User identifier. Request assigns new credit card to user identified by `userId`.
+`userId`    |`string`    		| **Required**. User identifier. Request assigns new credit card to user identified by `userId`.
 
 
 ### Body parameters
@@ -63,7 +63,7 @@ curl -X POST
 		"cardHolderName": "John Fibo",
 		"cvcCvv": "000"    
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/User/236/CreditCard
+	http://yoursubdomain.perfectgym.com/api/Users/CreditCard?userId=236
 ```
 
 

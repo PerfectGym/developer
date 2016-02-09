@@ -35,7 +35,7 @@ Name            | Type                        | Description
 Returns paginated list of instructors available in your company.
 
 
-### Query string parameters
+### Parameters
 
 Name         | Type   | Description
 -----|-------|--------|------------
@@ -44,7 +44,7 @@ Name         | Type   | Description
 
 ### Example request
 
-In this example we fetch list of all instructors with timestamp greater then `254000`
+In this example we fetch list of all instructors with `timestamp` greater then `254000`
 
 ``` command-line
 curl -i 

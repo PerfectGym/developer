@@ -33,12 +33,12 @@ Name            	 | Type        | Description
 
 ## Retrive detailed information about specyfic payment plan.
 
-    GET Memberships/PaymentPlan/{paymentPlanId}
+    GET Memberships/PaymentPlan
 
 Returns detailed payment plan information.
 
 
-### Path parameters
+### Parameters
 
 Name             | Type       | Description
 -----------------|------------|------------
@@ -48,13 +48,14 @@ Name             | Type       | Description
 
 ### Example request
 
-In this example we fetch payment plan with id = `44` detailed information.
+In this example we fetch payment plan with `id` = `44` detailed information.
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/PaymentPlan/40     	
+     http://yoursubdomain.perfectgym.com/api/Memberships/PaymentPlan
+     	?paymentPlanId=40     	
 ```
 
 

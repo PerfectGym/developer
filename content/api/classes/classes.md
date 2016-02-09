@@ -36,28 +36,28 @@ Name            | Type                        | Description
 Returns paginated classes list.
 
 
-### Query string parameters
+### Parameters
 
 Name         | Type       | Description
 -----|-------|------------|------------
 `clubId`     |`long`      | **Required**. Club identifier. Request returns classes that take place in club identified by `clubId`.
 `startDate`  |`datetime`  | **Required**. Start date. Request returns classes that starts leter then `startDate`.
 `endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
-`page`       |`int`       | Optional. Page number, defaults to `1`.
+`page`       |`int`       | Page number, defaults to `1`.
 
 
 ### Example request
 
-In this example we fetch first 100 classes in club with id = `2`, that starts in december 2015
+In this example we fetch first 100 classes in club with `id` = `2`, that starts in december 2015
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
-        clubId=2&
-     	startDate=2015-12-01T00:00:00&
-     	endDate=2015-12-31T23:59:59
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+        ?clubId=2
+        &startDate=2015-12-01T00:00:00
+        &endDate=2015-12-31T23:59:59
 ```
 
 
@@ -75,25 +75,25 @@ curl -i
 Returns paginated classes list.
 
 
-### Query string parameters
+### Parameters
 
 Name         | Type   | Description
 -----|-------|--------|------------
 `clubId`     |`long`  | **Required**. Club identifier. Request returns classes that take place in club identified by `clubId`.
-`timestamp`  |`long`  | Optional. Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
+`timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
 
 
 ### Example request
 
-In this example we fetch list of all classes in club with id = `2` and with timestamp greater then `254000`
+In this example we fetch list of all classes in club with `id` = `2` and with timestamp greater then `254000`
 
 ``` command-line
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
-        clubId=2&
-        timestamp=254000
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+        ?clubId=2
+        &timestamp=254000
 ```
 
 

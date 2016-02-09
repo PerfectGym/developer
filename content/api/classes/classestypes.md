@@ -33,7 +33,7 @@ Name         | Type     | Description
 Returns paginated classes type list.
 
 
-### Query string parameters
+### Parameters
 
 Name         | Type   | Description
 -----|-------|--------|------------

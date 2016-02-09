@@ -36,25 +36,19 @@ Name            					| Type      | Description
 
 ## List available discounts for a given payment plan
 
-    GET Discounts/Discounts/{paymentPlanId}
+    GET Discounts/Discounts
 
 Returns paginated discounts list available for a given payment plan.
 
 
-### Path parameters
+### Parameters
 
-Name      		 | Type   | Description
------------------|--------|------------
-`paymentPlanId`  |`long`  | Payment plan identifier.
-
-
-### Query string parameters
-
-Name      | Type   	   | Description
-----------|------------|--------------------
-`clubId`  |`long`  	   | **Required**. Club id. Request returns discounts available in club identified by `clubId`.
-`date`    |`datetime`  | Optional. Request returns discounts available in a given day. Defaults to `now`.
-`page`    |`int`       | Optional. Page number, defaults to `1`.
+Name      		 | Type   	   | Description
+-----------------|-------------|--------------------
+`paymentPlanId`  |`long`  	   | **Required**. Payment plan identifier.
+`clubId`  		 |`long`  	   | **Required**. Club id. Request returns discounts available in club identified by `clubId`.
+`date`    		 |`datetime`   | Request returns discounts available in a given day. Defaults to `now`.
+`page`    		 |`int`        | Page number, defaults to `1`.
 
 
 ### Example request
@@ -66,7 +60,9 @@ All discounts are available for today (no `date` parameter provided)
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Discounts/Discounts/39?clubId=16
+     http://yoursubdomain.perfectgym.com/api/Discounts/Discounts
+     	?paymentPlanId=39
+     	&clubId=16
 ```
 
 
@@ -79,24 +75,18 @@ curl -i
 
 ## Retrive discounted fees for given payment plan
 
-    GET Discounts/DiscountedFees/{paymentPlanId}
+    GET Discounts/DiscountedFees
 
 Returns discounted fees for given payment plan.
 
 
-### Path parameters
+### Parameters
 
-Name      		 | Type   | Description
------------------|--------|------------
-`paymentPlanId`  |`long`  | Payment plan identifier.
-
-
-### Query string parameters
-
-Name      	   | Type  		| Description
----------------|------------|--------------------
-`discountIds`  |`array`  	| **Required**. An array of discounts idenifiers to applay. Request returns payment plan fees with cumulative discounts identified with `discountIds` applied.
-`date`    	   |`datetime`  | Optional. Request returns discounts available in a given day. Defaults to `now`.
+Name   	   	   	 | Type  		| Description
+-----------------|--------------|--------------------
+`paymentPlanId`  |`long`  		| **Required**. Payment plan identifier.
+`discountIds`  	 |`array`  		| **Required**. An array of discounts idenifiers to applay. Request returns payment plan fees with cumulative discounts identified with `discountIds` applied.
+`date`    	   	 |`datetime`  	| Request returns discounts available in a given day. Defaults to `now`.
 
 
 ### Example request
@@ -107,7 +97,9 @@ In this example we fetch payment plan fees with discount with `id` = `10` applie
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Discounts/DiscountedFees/39?discountIds=10
+     http://yoursubdomain.perfectgym.com/api/Discounts/DiscountedFees
+     	?paymentPlanId=39
+     	&discountIds=10
 ```
 
 
