@@ -12,7 +12,7 @@ This API allows user to pay contract fees using online payment systems.
 
 ## Execute online payment
 
-    GET Payments/Pay/{userId}
+    GET Payments/Pay
 
 Returns online payment URL and transaction identifier.
 
@@ -53,5 +53,64 @@ curl -i
 
 
 
+## Execute payment with credit card
+
+    POST Payments/PayWithCreditCard
+
+Request executes payment with user credit card. Credit card details must be assigned using [CreditCard][CreditCard] request.
+
+### Body parameters
+
+Name 	     	    | Type  	| Description
+--------------------|-----------|--------------------
+`userId`  	   		|`long`     | **Required**. User identifier.
+`feeIds`  			|`array`  	| **Required**. An array of `long` values, each representing fee identifier to be paid.
+`totalAmmount`  	|`decimal`  | **Required**. Total amount to be paid (must be equal to sum of all fees).
+
+
+### Response
+
+[Payment status][PaymentStatus] if operation is successful, or collection of [errors][Error] with [credit card payment error codes][CreditCardPaymentErrorCode] otherwise.
+
+
+
+### Example request
+
+In this example we request payment of pending contract fees for user identified with `id` = `236`.
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     -H "Content-Type: application/json" 
+     -d '{
+        	"userId": 236,
+        	"feeIds": [3889, 3890, 3891],
+    		"totalAmount": 32.8
+    }' 
+    http://yoursubdomain.perfectgym.com/api/Payments/PayWithCreditCard     	
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:paymentstatus_response) %>
+
+
+
+### Example error response
+
+Total amount is not equal to sum of all fees to be paid.
+
+<%= headers 400 %>
+<%= json(:payment_error_response) %>
+
+
+
 [Fee]: /appendix/datatypes/fee
+[PaymentStatus]: /api/payments/paymentstatus#properties
 [PaymentDetails]: /appendix/datatypes/paymentdetails
+[CreditCard]: /api/users/usercreditcard
+[Error]: /appendix/datatypes/error
+[CreditCardPaymentErrorCode]: /appendix/errorcodes/creditcardpaymenterrorcode

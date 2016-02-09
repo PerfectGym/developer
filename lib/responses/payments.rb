@@ -75,6 +75,17 @@ module GitHub
           }
         ]
       }
+
+      PAYMENT_ERROR_RESPONSE ||= {      
+         
+        "errors" => [
+          {
+            "code": "InvalidTotalAmount",
+            "property": "",
+            "message": ""
+          }
+        ]                        
+      }     
     end
   end
 end
