@@ -59,12 +59,13 @@
 
 <ul id="markdown-toc">
 <li><a href="#execute-online-payment" id="markdown-toc-execute-online-payment">Execute online payment</a></li>
+<li><a href="#execute-payment-with-credit-card" id="markdown-toc-execute-payment-with-credit-card">Execute payment with credit card</a></li>
 </ul>
 
 <h2>
 <a id="execute-online-payment" class="anchor" href="#execute-online-payment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute online payment</h2>
 
-<pre><code>GET Payments/Pay/{userId}
+<pre><code>GET Payments/Pay
 </code></pre>
 
 <p>Returns online payment URL and transaction identifier.</p>
@@ -132,6 +133,109 @@ curl -i
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"paymentUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://yourcompany.perfectgym.com/example_payment_url"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PGAPI_a12b55c5-d526-4e4e-ae9c"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="execute-payment-with-credit-card" class="anchor" href="#execute-payment-with-credit-card" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute payment with credit card</h2>
+
+<pre><code>POST Payments/PayWithCreditCard
+</code></pre>
+
+<p>Request executes payment with user credit card. Credit card details must be assigned using <a href="/api/users/usercreditcard">CreditCard</a> request.</p>
+
+<h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. User identifier.</td>
+</tr>
+<tr>
+<td><code>feeIds</code></td>
+<td><code>array</code></td>
+<td>
+<strong>Required</strong>. An array of <code>long</code> values, each representing fee identifier to be paid.</td>
+</tr>
+<tr>
+<td><code>totalAmmount</code></td>
+<td><code>decimal</code></td>
+<td>
+<strong>Required</strong>. Total amount to be paid (must be equal to sum of all fees).</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/api/payments/paymentstatus#properties">Payment status</a> if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/creditcardpaymenterrorcode">credit card payment error codes</a> otherwise.</p>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we request payment of pending contract fees for user identified with <code>id</code> = <code>236</code>.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     -H "Content-Type: application/json" 
+     -d '{
+            "userId": 236,
+            "feeIds": [3889, 3890, 3891],
+            "totalAmount": 32.8
+    }' 
+    http://yoursubdomain.perfectgym.com/api/Payments/PayWithCreditCard      
+</pre>
+
+<h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+
+<p>Total amount is not equal to sum of all fees to be paid.</p>
+
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidTotalAmount"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
