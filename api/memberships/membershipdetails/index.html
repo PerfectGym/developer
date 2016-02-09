@@ -108,13 +108,13 @@ Only membership details specyfic properties are described here.</p>
 <h2>
 <a id="retrive-detailed-information-about-specyfic-membership-type" class="anchor" href="#retrive-detailed-information-about-specyfic-membership-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed information about specyfic membership type.</h2>
 
-<pre><code>GET Memberships/Membership/{membershipId}
+<pre><code>GET Memberships/Membership
 </code></pre>
 
 <p>Returns detailed membership type informations.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -136,13 +136,14 @@ Only membership details specyfic properties are described here.</p>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch membership type with id = <code>20</code> detailed information.</p>
+<p>In this example we fetch membership type with <code>id</code> = <code>20</code> detailed information.</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Membership/20      
+     http://yoursubdomain.perfectgym.com/api/Memberships/Membership
+        ?membershipId=20        
 </pre>
 
 <h3>

@@ -152,13 +152,13 @@ Only payment plan details specyfic properties are described here.</p>
 <h2>
 <a id="retrive-detailed-information-about-specyfic-payment-plan" class="anchor" href="#retrive-detailed-information-about-specyfic-payment-plan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed information about specyfic payment plan.</h2>
 
-<pre><code>GET Memberships/PaymentPlan/{paymentPlanId}
+<pre><code>GET Memberships/PaymentPlan
 </code></pre>
 
 <p>Returns detailed payment plan information.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -180,13 +180,14 @@ Only payment plan details specyfic properties are described here.</p>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch payment plan with id = <code>44</code> detailed information.</p>
+<p>In this example we fetch payment plan with <code>id</code> = <code>44</code> detailed information.</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/PaymentPlan/40         
+     http://yoursubdomain.perfectgym.com/api/Memberships/PaymentPlan
+        ?paymentPlanId=40       
 </pre>
 
 <h3>

@@ -68,7 +68,7 @@ Pagination using page query string parameter</a></li>
 <h2>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
-<p>For pagination API uses to distinct techniques:</p>
+<p>For pagination API uses two distinct techniques:</p>
 
 <ul>
 <li>
@@ -86,7 +86,7 @@ Selected pagination method is described alongside endpoint parameters descriptio
 <a id="pagination-using-timestamp-query-string-parameter" class="anchor" href="#pagination-using-timestamp-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>
 <a name="timestamp"></a>Pagination using <code>timestamp</code> query string parameter</h2>
 
-<p>Requests with timestamp query string parameter return list of resources added or changed after point in time represented
+<p>Requests with <code>timestamp</code> query string parameter return list of resources added or changed after point in time represented
 by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> ascending and is paged with page size of 100.</p>
 
 <p>To get next page, use last element's <code>timestamp</code> in subsequent request. </p>
@@ -96,7 +96,7 @@ by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> asc
 <h3>
 <a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
 
-<p>In this example we fetch list of available in club with id = <code>2</code> classes. 
+<p>In this example we fetch list of available in club with <code>id</code> = <code>2</code> classes. 
 <em>(Several element properties in JSON response were ommited for clarity)</em></p>
 
 <p>First page, <code>timestamp</code> parameter is equal <code>0</code>. It means that we fetch all elements, 
@@ -106,7 +106,9 @@ regardless of time they were last modified.</p>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes?clubId=2&amp;timestamp=0       
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+          ?clubId=2
+          &amp;timestamp=0      
 </pre>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
@@ -140,7 +142,9 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes?clubId=2&amp;timestamp=254718      
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+          ?clubId=2
+          &amp;timestamp=254718         
 </pre>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
@@ -176,7 +180,7 @@ The default page is the first one, so if you ommit <code>page</code> parameter, 
 <h3>
 <a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
 
-<p>In this example we fetch list of available in club with id = <code>2</code> classes, that starts in december 2015.</p>
+<p>In this example we fetch list of available in club with <code>id</code> = <code>2</code> classes, that starts in december 2015.</p>
 
 <p>First page (<code>page</code> parameter is ommited, so it defaults to <code>1</code>)</p>
 
@@ -184,10 +188,10 @@ The default page is the first one, so if you ommit <code>page</code> parameter, 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
-          clubId=2&amp;
-        startDate=2015-12-01T00:00:00&amp;
-        endDate=2015-12-31T23:59:59
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+          ?clubId=2
+          &amp;startDate=2015-12-01T00:00:00
+          &amp;endDate=2015-12-31T23:59:59
 </pre>
 
 <p>Second page (<code>page</code> parameter of value <code>2</code> is provided)</p>
@@ -196,11 +200,11 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/?
-          clubId=2&amp;
-        startDate=2015-12-01T00:00:00&amp;
-        endDate=2015-12-31T23:59:59&amp;
-        page=2
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes/
+          ?clubId=2
+          &amp;startDate=2015-12-01T00:00:00
+          &amp;endDate=2015-12-31T23:59:59
+          &amp;page=2
 </pre>
 
 

@@ -155,13 +155,13 @@ Only club details specyfic properties are described here.</p>
 <a id="retrive-detailed-information-about-specyfic-club" class="anchor" href="#retrive-detailed-information-about-specyfic-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>
 <a name="clubdetails"></a>Retrive detailed information about specyfic club.</h2>
 
-<pre><code>GET Clubs/Club/{clubId}
+<pre><code>GET Clubs/Club
 </code></pre>
 
 <p>Returns detailed club informations.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -175,27 +175,13 @@ Only club details specyfic properties are described here.</p>
 <tr>
 <td><code>clubId</code></td>
 <td><code>long</code></td>
-<td>Club identifier.</td>
+<td>
+<strong>Required</strong>. Club identifier.</td>
 </tr>
-</tbody>
-</table>
-
-<h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><code>languageCode</code></td>
 <td><code>string</code></td>
-<td>Optional. Language identifier club information should be translated to (for example <code>EN</code>, <code>DE</code> etc.).</td>
+<td>Language identifier club information should be translated to (for example <code>EN</code>, <code>DE</code> etc.).</td>
 </tr>
 </tbody>
 </table>
@@ -203,13 +189,13 @@ Only club details specyfic properties are described here.</p>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch club with id = <code>16</code> detailed information. Information will be returned in club's language (<code>languageCode</code> parameter is ommited).</p>
+<p>In this example we fetch club with <code>id</code> = <code>16</code> detailed information. Information will be returned in club's language (<code>languageCode</code> parameter is ommited).</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/Club/16      
+     http://yoursubdomain.perfectgym.com/api/Clubs/Club?clubId=16       
 </pre>
 
 <h3>

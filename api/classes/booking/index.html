@@ -65,13 +65,13 @@
 <h2>
 <a id="execute-class-booking" class="anchor" href="#execute-class-booking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class booking</h2>
 
-<pre><code>POST Classes/BookClass/{classId}
+<pre><code>POST Classes/BookClass
 </code></pre>
 
 <p>Request signs up user for fitness class.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -85,27 +85,14 @@
 <tr>
 <td><code>classId</code></td>
 <td><code>long</code></td>
-<td>Class identifier. Request signs up user for fitness class identified by <code>classId</code>.</td>
+<td>
+<strong>Required</strong>. Class identifier. Request signs up user for fitness class identified by <code>classId</code>.</td>
 </tr>
-</tbody>
-</table>
-
-<h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><code>userId</code></td>
 <td><code>long</code></td>
-<td>User identifier.  Request signs up user identified by <code>userId</code> for fitness class.</td>
+<td>
+<strong>Required</strong>. User identifier.  Request signs up user identified by <code>userId</code> for fitness class.</td>
 </tr>
 </tbody>
 </table>
@@ -119,13 +106,15 @@ with <a href="/appendix/errorcodes/classbookingerrorcode">class booking error co
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we sign up user with id = <code>40</code> for classes with id = <code>1677</code></p>
+<p>In this example we sign up user with <code>id</code> = <code>40</code> for classes with <code>id</code> = <code>1677</code></p>
 
 <pre class="command-line">
 curl -i 
      -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/BookClass/1677?userId=40
+     http://yoursubdomain.perfectgym.com/api/Classes/BookClass/
+        ?classId=1677
+        &amp;userId=40
 </pre>
 
 <h3>
@@ -195,7 +184,7 @@ curl -i
 <h3>
 <a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
 
-<p>Subsequent booking for class with id =<code>1677</code> and for user with id = <code>40</code> generates following error:</p>
+<p>Subsequent booking for class with <code>id</code> =<code>1677</code> and for user with <code>id</code> = <code>40</code> generates following error:</p>
 
 <pre class="highlight highlight-headers"><code>Status: 400 Bad Request
 </code></pre>
@@ -216,13 +205,13 @@ curl -i
 <h2>
 <a id="execute-class-cancel" class="anchor" href="#execute-class-cancel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class cancel</h2>
 
-<pre><code>POST Classes/CancelBooking/{classId}
+<pre><code>POST Classes/CancelBooking
 </code></pre>
 
 <p>Request cancels user booking.</p>
 
 <h3>
-<a id="path-parameters-1" class="anchor" href="#path-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -236,27 +225,14 @@ curl -i
 <tr>
 <td><code>classId</code></td>
 <td><code>long</code></td>
-<td>Class identifier. Request cancels user booking for fitness class identified by <code>classId</code>.</td>
+<td>
+<strong>Required</strong>. Class identifier. Request cancels user booking for fitness class identified by <code>classId</code>.</td>
 </tr>
-</tbody>
-</table>
-
-<h3>
-<a id="query-string-parameters-1" class="anchor" href="#query-string-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>query string parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><code>userId</code></td>
 <td><code>long</code></td>
-<td>User identifier.  Request cancels user identified by <code>userId</code> booking for fitness class.</td>
+<td>
+<strong>Required</strong>. User identifier.  Request cancels user identified by <code>userId</code> booking for fitness class.</td>
 </tr>
 </tbody>
 </table>
@@ -270,13 +246,15 @@ with <a href="/appendix/errorcodes/classcancelerrorcode">class cancel error code
 <h3>
 <a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we cancel booking of user with id = <code>40</code> for classes with id = <code>1677</code></p>
+<p>In this example we cancel booking of user with <code>id</code> = <code>40</code> for classes with <code>id</code> = <code>1677</code></p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/CancelBooking/1677?userId=40
+     http://yoursubdomain.perfectgym.com/api/Classes/CancelBooking
+        ?classId=1677
+        &amp;userId=40
 </pre>
 
 <h3>
@@ -346,7 +324,7 @@ curl -i
 <h3>
 <a id="example-error-response-1" class="anchor" href="#example-error-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
 
-<p>Subsequent cancel for class with id =<code>1677</code> and for user with id = <code>40</code> generates following error:</p>
+<p>Subsequent cancel for class with <code>id</code> =<code>1677</code> and for user with <code>id</code> = <code>40</code> generates following error:</p>
 
 <pre class="highlight highlight-headers"><code>Status: 400 Bad Request
 </code></pre>

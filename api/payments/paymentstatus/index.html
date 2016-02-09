@@ -99,13 +99,13 @@ Payment status properties</a></li>
 <h2>
 <a id="retrive-payment-status" class="anchor" href="#retrive-payment-status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive payment status</h2>
 
-<pre><code>GET Payments/PaymentStatus/{paymentId}
+<pre><code>GET Payments/PaymentStatus
 </code></pre>
 
 <p>Returns status for online payment identified with <code>paymentId</code>.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -134,7 +134,8 @@ Payment status properties</a></li>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Payments/PaymentStatus/PGAPI_a12b55c5-d526-4e4e-ae9c
+     http://yoursubdomain.perfectgym.com/api/Payments/PaymentStatus
+        ?paymentId=PGAPI_a12b55c5-d526-4e4e-ae9c
 </pre>
 
 <h3>

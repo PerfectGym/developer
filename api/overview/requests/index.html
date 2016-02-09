@@ -60,24 +60,23 @@
 <ul id="markdown-toc">
 <li><a href="#request-parameters" id="markdown-toc-request-parameters">Request parameters</a></li>
 <li><a href="#filter-and-pagination-parameters" id="markdown-toc-filter-and-pagination-parameters">Filter and pagination parameters</a></li>
-<li><a href="#timestamp-query-string-parameter" id="markdown-toc-timestamp-query-string-parameter">Timestamp query string parameter</a></li>
+<li><a href="#timestamp-parameter" id="markdown-toc-timestamp-parameter">Timestamp parameter</a></li>
 </ul>
 
 <h2>
 <a id="request-parameters" class="anchor" href="#request-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request parameters</h2>
 
-<p>You provide parameters to PerfectGym API with path, query string and body parameters.</p>
+<p>You provide parameters to PerfectGym API with query string and body parameters.</p>
 
 <p>The format for query string parameters is the full resource URL followed by a question mark, and the parameters. </p>
 
 <ul>
-<li>Path parameters are used to traverse resources hierarhy and uniquly select resource you want to interact with.</li>
 <li>For <code>GET</code> requests you provide parameters in a query string you append to your request's URL</li>
-<li>For <code>POST</code> requests you provide parameters query string parameters or as JSON in request's body (with Content-Type of 'application-json' header) 
+<li>For <code>POST</code> requests you provide parameters in query string or as JSON in request's body (with Content-Type of 'application-json' header) 
 when explicitly required.</li>
 </ul>
 
-<p>Available path, query string and body parameters are described for each API endpoint.</p>
+<p>Available query string and body parameters are described for each API endpoint.</p>
 
 <h3>
 <a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
@@ -85,11 +84,11 @@ when explicitly required.</li>
 <p>In this example, we fetch club (with id = <code>16</code>) details. We request that returned data be in <code>EN</code> language.
 For detailed request description have a look <a href="/api/clubs/clubDetails#clubdetails">here</a>.</p>
 
-<pre><code>GET Clubs/Club/{clubId}
+<pre><code>GET Clubs/Club
 </code></pre>
 
 <pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Clubs/Club/16?languageCode=EN</span>
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Clubs/Club?clubId=16</span>
 </pre>
 
 <p>Let's break down this request:</p>
@@ -98,12 +97,12 @@ For detailed request description have a look <a href="/api/clubs/clubDetails#clu
 <li>
 <code>https://yourcompany.perfectgym.com/api/</code> is a base url for PerfectGym API</li>
 <li>
-<code>Clubs/Club/16</code> - request path with <code>{clubId}</code> path parameter that uniquly identifies resource you want to work with.
-You can read it like so: from all clubs, select club with identifier of value <code>16</code>
-</li>
+<code>Clubs/Club</code> - resource path</li>
 <li>
-<code>?languageCode=EN</code> - query string parameter specific to a given request. Indicates that we want API to return club details in english if possible.</li>
+<code>?clubId</code>-  <code>clubId</code> parameter that uniquly identifies resource you want to work with.</li>
 </ul>
+
+<p>You can read it like so: from all clubs, select club with identifier of value <code>16</code></p>
 
 <h2>
 <a id="filter-and-pagination-parameters" class="anchor" href="#filter-and-pagination-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filter and pagination parameters</h2>
@@ -117,19 +116,20 @@ Available query string parameters are described for each API endpoint.</p>
 <p>In this example, we retrive classes availeble in club identified by <code>id</code> of value <code>1</code>, that take place
 between <code>2016-01-01</code> and <code>2016-01-31</code></p>
 
-<pre><code>GET Classes/Classes/{clubId}
+<pre><code>GET Classes/Classes
 </code></pre>
 
 <pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1?</span>
-    startDate=2016-01-01T00:00:00&amp;
-    endDate=2016-01-31T23:59:59
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes</span>
+    ?clubId=1
+    &amp;startDate=2016-01-01T00:00:00
+    &amp;endDate=2016-01-31T23:59:59
 </pre>
 
 <p>For details about pagination with <code>page</code> parameter go to <a href="/api/overview/pagination#page">Pagination with query string parameters</a></p>
 
 <h2>
-<a id="timestamp-query-string-parameter" class="anchor" href="#timestamp-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timestamp query string parameter</h2>
+<a id="timestamp-parameter" class="anchor" href="#timestamp-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Timestamp parameter</h2>
 
 <p>Requests with timestamp parameter returns list of resources added or changed after point in time represented
 by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> ascending. This let's you fetch only resources that 
@@ -145,7 +145,9 @@ value greater then <code>654321</code>.</p>
 </code></pre>
 
 <pre class="command-line">
-<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes?clubId=1&amp;timestamp=654321</span>
+<span class="command">curl -i https://yourcompany.perfectgym.com/api/Classes/Classes</span>
+    ?clubId=1
+    &amp;timestamp=654321
 </pre>
 
 <p>For details about pagination with <code>timestamp</code> parameter go to <a href="/api/overview/pagination#timestamp">Pagination using timestamp</a></p>

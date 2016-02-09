@@ -64,13 +64,13 @@
 <h2>
 <a id="assign-contract-to-a-club-user" class="anchor" href="#assign-contract-to-a-club-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assign contract to a club user</h2>
 
-<pre><code>POST Users/User/{userId}/Contract
+<pre><code>POST Users/Contract
 </code></pre>
 
 <p>Request assigns new contract to existing club user.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -84,7 +84,8 @@
 <tr>
 <td><code>userId</code></td>
 <td><code>string</code></td>
-<td>User identifier. Request assigns new contract to user identified by <code>userId</code>.</td>
+<td>
+<strong>Required</strong>. User identifier. Request assigns new contract to user identified by <code>userId</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -133,7 +134,7 @@
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we create new contract based on payment plan with id = <code>44</code> and we assigne it to user with id of value <code>236</code>.
+<p>In this example we create new contract based on payment plan with <code>id</code> = <code>44</code> and we assigne it to user with <code>id</code> of value <code>236</code>.
 Also discount with <code>id</code> = <code>10</code> is applied.</p>
 
 <pre class="command-line">
@@ -147,7 +148,7 @@ curl -X POST
         "signDate": "2016-01-26T00:00:00",
         "discountIds": [10]     
     }' 
-    http://yoursubdomain.perfectgym.com/api/Users/User/236/Contract
+    http://yoursubdomain.perfectgym.com/api/Users/Contract?userId=236
 </pre>
 
 <h3>

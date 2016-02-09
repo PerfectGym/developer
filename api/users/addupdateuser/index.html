@@ -245,13 +245,13 @@ curl -X POST
 <h2>
 <a id="update-existing-user" class="anchor" href="#update-existing-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update existing user</h2>
 
-<pre><code>PUT Users/User/{userId}
+<pre><code>PUT Users/User
 </code></pre>
 
 <p>Request updates existing user's data.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -375,7 +375,7 @@ curl -X PUT
             "country": "Poland"
         }
     }' 
-    http://yoursubdomain.perfectgym.com/api/Users/User/236
+    http://yoursubdomain.perfectgym.com/api/Users/User?userId=236
 </pre>
 
 <h3>

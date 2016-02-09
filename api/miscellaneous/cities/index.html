@@ -97,13 +97,13 @@ City properties</a></li>
 <h2>
 <a id="list-cities-with-given-name" class="anchor" href="#list-cities-with-given-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>List cities with given name</h2>
 
-<pre><code>GET Geo/Cities/{countryId}
+<pre><code>GET Geo/Cities
 </code></pre>
 
 <p>Returns paginated cities list, in country identified by <code>countryId</code>.</p>
 
 <h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -115,14 +115,20 @@ City properties</a></li>
 </thead>
 <tbody>
 <tr>
+<td><code>countryId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Country identifier.</td>
+</tr>
+<tr>
 <td><code>name</code></td>
 <td><code>string</code></td>
-<td>Optional. City name. Request returns cities with name containing <code>name</code> parameter value.</td>
+<td>City name. Request returns cities with name containing <code>name</code> parameter value.</td>
 </tr>
 <tr>
 <td><code>page</code></td>
 <td><code>int</code></td>
-<td>Optional. Page number, defaults to <code>1</code>.</td>
+<td>Page number, defaults to <code>1</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -136,7 +142,9 @@ City properties</a></li>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Geo/Cities?name=Warszawa
+     http://yoursubdomain.perfectgym.com/api/Geo/Cities
+        ?countryId=187
+        &amp;name=Warszawa
 </pre>
 
 <h3>

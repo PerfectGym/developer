@@ -174,13 +174,13 @@ Discount properties</a></li>
 <h2>
 <a id="list-available-discounts-for-a-given-payment-plan" class="anchor" href="#list-available-discounts-for-a-given-payment-plan" aria-hidden="true"><span class="octicon octicon-link"></span></a>List available discounts for a given payment plan</h2>
 
-<pre><code>GET Discounts/Discounts/{paymentPlanId}
+<pre><code>GET Discounts/Discounts
 </code></pre>
 
 <p>Returns paginated discounts list available for a given payment plan.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -194,23 +194,9 @@ Discount properties</a></li>
 <tr>
 <td><code>paymentPlanId</code></td>
 <td><code>long</code></td>
-<td>Payment plan identifier.</td>
+<td>
+<strong>Required</strong>. Payment plan identifier.</td>
 </tr>
-</tbody>
-</table>
-
-<h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><code>clubId</code></td>
 <td><code>long</code></td>
@@ -220,12 +206,12 @@ Discount properties</a></li>
 <tr>
 <td><code>date</code></td>
 <td><code>datetime</code></td>
-<td>Optional. Request returns discounts available in a given day. Defaults to <code>now</code>.</td>
+<td>Request returns discounts available in a given day. Defaults to <code>now</code>.</td>
 </tr>
 <tr>
 <td><code>page</code></td>
 <td><code>int</code></td>
-<td>Optional. Page number, defaults to <code>1</code>.</td>
+<td>Page number, defaults to <code>1</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -240,7 +226,9 @@ All discounts are available for today (no <code>date</code> parameter provided)<
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Discounts/Discounts/39?clubId=16
+     http://yoursubdomain.perfectgym.com/api/Discounts/Discounts
+        ?paymentPlanId=39
+        &amp;clubId=16
 </pre>
 
 <h3>
@@ -271,13 +259,13 @@ curl -i
 <h2>
 <a id="retrive-discounted-fees-for-given-payment-plan" class="anchor" href="#retrive-discounted-fees-for-given-payment-plan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive discounted fees for given payment plan</h2>
 
-<pre><code>GET Discounts/DiscountedFees/{paymentPlanId}
+<pre><code>GET Discounts/DiscountedFees
 </code></pre>
 
 <p>Returns discounted fees for given payment plan.</p>
 
 <h3>
-<a id="path-parameters-1" class="anchor" href="#path-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -291,23 +279,9 @@ curl -i
 <tr>
 <td><code>paymentPlanId</code></td>
 <td><code>long</code></td>
-<td>Payment plan identifier.</td>
+<td>
+<strong>Required</strong>. Payment plan identifier.</td>
 </tr>
-</tbody>
-</table>
-
-<h3>
-<a id="query-string-parameters-1" class="anchor" href="#query-string-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><code>discountIds</code></td>
 <td><code>array</code></td>
@@ -317,7 +291,7 @@ curl -i
 <tr>
 <td><code>date</code></td>
 <td><code>datetime</code></td>
-<td>Optional. Request returns discounts available in a given day. Defaults to <code>now</code>.</td>
+<td>Request returns discounts available in a given day. Defaults to <code>now</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -331,7 +305,9 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Discounts/DiscountedFees/39?discountIds=10
+     http://yoursubdomain.perfectgym.com/api/Discounts/DiscountedFees
+        ?paymentPlanId=39
+        &amp;discountIds=10
 </pre>
 
 <h3>

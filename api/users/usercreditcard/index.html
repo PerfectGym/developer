@@ -64,13 +64,13 @@
 <h2>
 <a id="assign-credit-card-to-a-club-user" class="anchor" href="#assign-credit-card-to-a-club-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assign credit card to a club user</h2>
 
-<pre><code>POST Users/User/{userId}/CreditCard
+<pre><code>POST Users/CreditCard
 </code></pre>
 
 <p>Request assigns a credit card to existing club user.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -84,7 +84,8 @@
 <tr>
 <td><code>userId</code></td>
 <td><code>string</code></td>
-<td>User identifier. Request assigns new credit card to user identified by <code>userId</code>.</td>
+<td>
+<strong>Required</strong>. User identifier. Request assigns new credit card to user identified by <code>userId</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -175,7 +176,7 @@ curl -X POST
         "cardHolderName": "John Fibo",
         "cvcCvv": "000"    
     }' 
-    http://yoursubdomain.perfectgym.com/api/Users/User/236/CreditCard
+    http://yoursubdomain.perfectgym.com/api/Users/CreditCard?userId=236
 </pre>
 
 <h3>

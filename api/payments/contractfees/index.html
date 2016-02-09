@@ -99,7 +99,7 @@ Pending contract fee properties</a></li>
 <td>Pending fee description.</td>
 </tr>
 <tr>
-<td><code>paymentType</code></td>
+<td><code>feeType</code></td>
 <td><code>string</code></td>
 <td>Pending fee type. <br><strong>Possible values</strong>: <br><ul>
 <li>Prorata</li>
@@ -134,13 +134,13 @@ Pending contract fee properties</a></li>
 <h2>
 <a id="list-user-pending-contract-fees" class="anchor" href="#list-user-pending-contract-fees" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user pending contract fees</h2>
 
-<pre><code>GET Payments/ContractFees/{userId}
+<pre><code>GET Payments/ContractFees
 </code></pre>
 
 <p>Returns paginated list of conract fees to be paid by a given user.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -154,7 +154,8 @@ Pending contract fee properties</a></li>
 <tr>
 <td><code>userId</code></td>
 <td><code>long</code></td>
-<td>User identifier.</td>
+<td>
+<strong>Required</strong>. User identifier.</td>
 </tr>
 </tbody>
 </table>
@@ -168,7 +169,7 @@ Pending contract fee properties</a></li>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Payments/ContractFees/236
+     http://yoursubdomain.perfectgym.com/api/Payments/ContractFees?userId=236
 </pre>
 
 <h3>

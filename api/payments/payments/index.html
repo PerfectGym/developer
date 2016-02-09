@@ -70,7 +70,7 @@
 <p>Returns online payment URL and transaction identifier.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -84,27 +84,14 @@
 <tr>
 <td><code>userId</code></td>
 <td><code>long</code></td>
-<td>User identifier.</td>
+<td>
+<strong>Required</strong>. User identifier.</td>
 </tr>
-</tbody>
-</table>
-
-<h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><code>amount</code></td>
 <td><code>decimal</code></td>
-<td>Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.</td>
+<td>
+<strong>Required</strong>. Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.</td>
 </tr>
 <tr>
 <td><code>redirectUrl</code></td>
@@ -128,7 +115,9 @@
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Payments/Pay/236?amount=100
+     http://yoursubdomain.perfectgym.com/api/Payments/Pay
+        ?userId=236
+        &amp;amount=100
 </pre>
 
 <h3>

@@ -118,7 +118,7 @@ Membership properties</a></li>
 <p>Returns paginated membership list.</p>
 
 <h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -195,13 +195,13 @@ curl -i
 <h2>
 <a id="list-memberships-available-in-a-given-club" class="anchor" href="#list-memberships-available-in-a-given-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>List memberships available in a given club</h2>
 
-<pre><code>GET Memberships/Memberships/{clubId}
+<pre><code>GET Memberships/Memberships
 </code></pre>
 
 <p>Returns paginated memberships list available in given club.</p>
 
 <h3>
-<a id="path-parameters" class="anchor" href="#path-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path parameters</h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -215,27 +215,13 @@ curl -i
 <tr>
 <td><code>clubId</code></td>
 <td><code>long</code></td>
-<td>Club identifier.</td>
+<td>
+<strong>Required</strong>. Club identifier.</td>
 </tr>
-</tbody>
-</table>
-
-<h3>
-<a id="query-string-parameters-1" class="anchor" href="#query-string-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><code>page</code></td>
 <td><code>int</code></td>
-<td>Optional. Page number, defaults to <code>1</code>.</td>
+<td>Page number, defaults to <code>1</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -243,13 +229,13 @@ curl -i
 <h3>
 <a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all memberships available in club identified with clubId = <code>16</code>.</p>
+<p>In this example we fetch list of all memberships available in club identified with <code>clubId</code> = <code>16</code>.</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships/16
+     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships?clubId=16
 </pre>
 
 <h3>

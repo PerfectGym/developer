@@ -141,7 +141,7 @@ Class properties</a></li>
 <p>Returns paginated classes list.</p>
 
 <h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -173,7 +173,7 @@ Class properties</a></li>
 <tr>
 <td><code>page</code></td>
 <td><code>int</code></td>
-<td>Optional. Page number, defaults to <code>1</code>.</td>
+<td>Page number, defaults to <code>1</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -181,16 +181,16 @@ Class properties</a></li>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch first 100 classes in club with id = <code>2</code>, that starts in december 2015</p>
+<p>In this example we fetch first 100 classes in club with <code>id</code> = <code>2</code>, that starts in december 2015</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
-        clubId=2&amp;
-        startDate=2015-12-01T00:00:00&amp;
-        endDate=2015-12-31T23:59:59
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+        ?clubId=2
+        &amp;startDate=2015-12-01T00:00:00
+        &amp;endDate=2015-12-31T23:59:59
 </pre>
 
 <h3>
@@ -262,7 +262,7 @@ curl -i
 <p>Returns paginated classes list.</p>
 
 <h3>
-<a id="query-string-parameters-1" class="anchor" href="#query-string-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -282,7 +282,7 @@ curl -i
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
-<td>Optional. Timestamp. Request returns classes with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
+<td>Timestamp. Request returns classes with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -290,15 +290,15 @@ curl -i
 <h3>
 <a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all classes in club with id = <code>2</code> and with timestamp greater then <code>254000</code></p>
+<p>In this example we fetch list of all classes in club with <code>id</code> = <code>2</code> and with timestamp greater then <code>254000</code></p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes?
-        clubId=2&amp;
-        timestamp=254000
+     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+        ?clubId=2
+        &amp;timestamp=254000
 </pre>
 
 <h3>
