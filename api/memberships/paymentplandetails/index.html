@@ -146,6 +146,24 @@ Only payment plan details specyfic properties are described here.</p>
 <code>7D</code> - weekly payment</li>
 </ul>.</td>
 </tr>
+<tr>
+<td><code>membership</code></td>
+<td><a href="/api/memberships/memberships#properties">Membership</a></td>
+<td>Payment plan membership.</td>
+</tr>
+<tr>
+<td><code>channels</code></td>
+<td><code>array</code></td>
+<td>An array of <code>string</code> objects, each representing a channel given payment plan is available in. <strong>Possible values</strong> : <br><ul>
+<li><code>Web</code></li>
+<li><code>Internet</code></li>
+<li><code>Intranet</code></li>
+<li><code>MembershipPortal</code></li>
+<li><code>CorporatePortal</code></li>
+<li><code>KIOSK</code></li>
+</ul>
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -172,7 +190,13 @@ Only payment plan details specyfic properties are described here.</p>
 <tr>
 <td><code>paymentPlanId</code></td>
 <td><code>long</code></td>
-<td>Payment plan identifier.</td>
+<td>
+<strong>Required</strong>. Payment plan identifier.</td>
+</tr>
+<tr>
+<td><code>languageCode</code></td>
+<td><code>string</code></td>
+<td>Language identifier payment plan description should be translated to (for example EN, DE etc.)..</td>
 </tr>
 </tbody>
 </table>

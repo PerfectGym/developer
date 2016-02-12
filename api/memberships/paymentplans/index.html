@@ -226,6 +226,11 @@ curl -i
 <strong>Required</strong>. Club identifier.</td>
 </tr>
 <tr>
+<td><code>channel</code></td>
+<td><code>string</code></td>
+<td>Payment plan channel. Request will return only payment plans that are available via given channel.</td>
+</tr>
+<tr>
 <td><code>page</code></td>
 <td><code>int</code></td>
 <td>Page number, defaults to <code>1</code>.</td>
@@ -242,7 +247,7 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships
+     http://yoursubdomain.perfectgym.com/api/PaymentPlans/PaymentPlans
         ?clubId=16
 </pre>
 
