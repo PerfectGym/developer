@@ -29,6 +29,7 @@ Name     	    | Type       		| Description
 `idCardName`	|`string`			| User identity card name.
 `idCardNumber`  |`string`			| User identity card number.
 `birthDate`     |`string`    		| User birth date.
+`isForigner`	|`bool`				| Indicates if user is a forigner.
 `sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     	|[Address][Address] | User address.
 `homeClubId`	|`long`    			| User home club identifier.
@@ -112,6 +113,7 @@ Name     	    | Type       		| Description
 `idCardName`	|`string`			| User identity card name.
 `idCardNumber`  |`string`			| User identity card number.
 `birthDate`     |`string`    		| User birth date.
+`isForigner`	|`bool`				| Indicates if user is a forigner.
 `sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     	|[Address][Address] | User address.
 

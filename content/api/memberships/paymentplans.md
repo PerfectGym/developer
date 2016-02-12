@@ -77,6 +77,7 @@ Returns paginated payment plans list available in given club.
 Name      | Type   | Description
 ----------|--------|------------
 `clubId`  |`long`  | **Required**. Club identifier.
+`channel` |`string`| Payment plan channel. Request will return only payment plans that are available via given channel.
 `page`    |`int`   | Page number, defaults to `1`.
 
 
@@ -88,7 +89,7 @@ In this example we fetch list of all payment plans available in club identified 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships
+     http://yoursubdomain.perfectgym.com/api/PaymentPlans/PaymentPlans
      	?clubId=16
 ```
 
