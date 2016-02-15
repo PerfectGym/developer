@@ -1,10 +1,10 @@
 ---
-title: User contract
+title: User contracts
 ---
 
-# User contract
+# User contracts
 
-This API lest you assign contract to a club user.
+This API lest you list, assign and delete user contracts.
 
 {:toc}
 
@@ -20,7 +20,7 @@ Request assigns new contract to existing club user.
 
 Name  	    | Type       		| Description
 ------------|-------------------|------------
-`userId`    |`string`    		| **Required**. User identifier. Request assigns new contract to user identified by `userId`.
+`userId`    |`long`	    		| **Required**. User identifier. Request assigns new contract to user identified by `userId`.
 
 
 ### Body parameters
@@ -63,6 +63,47 @@ curl -X POST
 
 <%= headers 200 %>
 <%= json(:usercontract_response) %>
+
+
+
+## Delete user contract
+
+    DELETE Users/Contract
+
+Request deletes user contract.
+
+
+### Parameters
+
+Name  	    	| Type     		| Description
+----------------|---------------|------------
+`userId`    	|`long`    		| **Required**. User identifier. 
+`contractId`    |`long`    		| **Required**. Contract identifier. Request deletes user contract identified by `contractId`.
+
+
+
+### Response
+
+[User details][UserDetailsProperties].
+
+
+### Example request
+
+In this example we delete user contract with `id` = `10358`
+
+``` command-line
+
+curl -X DELETE 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 	 
+	http://yoursubdomain.perfectgym.com/api/Users/Contract?userId=236&contractId=10358
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:usernocontract_response) %>
 
 
 

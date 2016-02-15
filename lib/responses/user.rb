@@ -51,7 +51,7 @@ module GitHub
           "isActive": true,
           "isDeleted": false,
           "currentContract": {
-            "id": 1,
+            "id": 10358,
             "timestamp": 350287,
             "signUpDate": "2014-03-28T00:00:00",
             "startDate": "2014-04-01T00:00:00",
@@ -140,7 +140,8 @@ module GitHub
           "isDeleted": false,
           "currentContract": ""
         ]        
-      }   
+      }         
+
 
       USERCONTRACT_RESPONSE ||= {
 
@@ -173,7 +174,7 @@ module GitHub
           "isActive": true,
           "isDeleted": false,
           "currentContract": {
-            "id": 1,
+            "id": 10358,
             "timestamp": 350287,
             "signUpDate": "2016-01-26T00:00:00",
             "startDate": "2016-01-26T00:00:00",
@@ -187,6 +188,40 @@ module GitHub
             "isActive": true,
             "isDeleted": false
           }
+        ]        
+      }   
+
+      USERNOCONTRACT_RESPONSE ||= {
+
+        "elements" => [
+          "id": 236,
+          "timestamp": 448035,
+          "personalId": "80010101234",
+          "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
+          "firstName": "John",
+          "lastName": "Fibo",
+          "email": "john.fibo@perfectgym.pl",
+          "phone": "0048123456789",
+          "idCardName": "Passport",
+          "idCardNumber": "ABC 123456",
+          "birthDate": "1978-06-01T00:00:00",
+          "sex": "Male",
+          "address": {
+            "country": "Poland",
+            "city": "Warszawa",
+            "postalCode": "02-962",
+            "street": "ul. Przyczolkowa 334",  
+          }, 
+          "directDebit": {
+            "accountNumber": "",
+            "ownerName": "",
+            "street": "",
+            "cityAndPostalCode": ""
+          },                  
+          "homeClubId": 12,
+          "isActive": true,
+          "isDeleted": false,
+          "currentContract": ""
         ]        
       }   
 
@@ -222,7 +257,7 @@ module GitHub
           "isActive": true,
           "isDeleted": false,
           "currentContract": {
-            "id": 1,
+            "id": 10358,
             "timestamp": 350287,
             "signUpDate": "2016-01-26T00:00:00",
             "startDate": "2016-01-26T00:00:00",
