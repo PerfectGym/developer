@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Responses | Perfectgym Developer Guide</title>
+  <title>Contract details | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,53 +53,97 @@
       
 
 <h1>
-<a id="responses" class="anchor" href="#responses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Responses</h1>
+<a id="contract-details" class="anchor" href="#contract-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contract details</h1>
 
-<p>This describes PerfectGym API responses basics.</p>
+<p>COntract details is detaild representation of single user contract. </p>
 
 <ul id="markdown-toc">
-<li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-<li><a href="#response-envelope" id="markdown-toc-response-envelope">Response Envelope</a></li>
-<li><a href="#error-response-envelope" id="markdown-toc-error-response-envelope">Error Response Envelope</a></li>
-<li><a href="#summary-representations" id="markdown-toc-summary-representations">Summary Representations</a></li>
-<li><a href="#detailed-representations" id="markdown-toc-detailed-representations">Detailed Representations</a></li>
+<li><a href="#contract-details-properties" id="markdown-toc-contract-details-properties">Contract details properties</a></li>
+<li><a href="#retrive-detailed-information-about-specyfic-user-contract" id="markdown-toc-retrive-detailed-information-about-specyfic-user-contract">Retrive detailed information about specyfic user contract.</a></li>
 </ul>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="contract-details-properties" class="anchor" href="#contract-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contract details properties</h2>
 
-<p>Responses contains resources list or individual resources for GET requests.
-For POST requests, individual resource that request operates on is returned. </p>
-
-<p>Each API response is wrapped in a standard structure called the envelope, 
-which holds the results of the API call, plus the metadata related to the request.
-In case of logical errors, error detailes are enclosed in error envelope.</p>
-
-<h2>
-<a id="response-envelope" class="anchor" href="#response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response Envelope</h2>
-
-<p>Response envelope encloses resources list or individual resources returned by PerfectGym API.</p>
-
-<h3>
-<a id="response-envelope-properties" class="anchor" href="#response-envelope-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response envelope properties</h3>
+<p>Contract details holds the same data as <a href="/api/contracts/contracts#properties">Contract</a> plus some detailed features of a contract.
+Only contract details specyfic properties are described here.</p>
 
 <table>
 <thead>
 <tr>
-<th>Attribute Name</th>
+<th>Name</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>elements</code></td>
-<td>A collection of objects the payload carries. In case of individual resource, <code>elements</code> contain only one object.</td>
+<td><code>membership</code></td>
+<td><a href="/api/memberships/memberships#properties">Membership</a></td>
+<td>Contract's membership.</td>
+</tr>
+<tr>
+<td><code>paymentPlan</code></td>
+<td><a href="/api/paymentplans/paymentplans#properties">Payment paln</a></td>
+<td>Contract's payment plan.</td>
+</tr>
+<tr>
+<td><code>discounts</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/api/paymentplans/discounts#properties">discount</a> objects representing discounts applied to contract.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="retrive-detailed-information-about-specyfic-user-contract" class="anchor" href="#retrive-detailed-information-about-specyfic-user-contract" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed information about specyfic user contract.</h2>
+
+<pre><code>GET Contracts/Contract
+</code></pre>
+
+<p>Returns detailed user contract informations.</p>
+
+<h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. User identifier.</td>
+</tr>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Contract identifier.</td>
 </tr>
 </tbody>
 </table>
 
 <h3>
-<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch user contract with <code>id</code> = <code>10358</code> detailed information.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/api/Contracts/Contract?userId=236&amp;contractId=10358     
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -108,112 +152,46 @@ In case of logical errors, error detailes are enclosed in error envelope.</p>
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">263952</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box perfectly combines cardio and strength training under the guise of groove!"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">382653</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POWER JOGA"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Power Yoga is definitely an intense workout that will make you sweat."</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4321</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.3</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10358</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">350287</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"signUpDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cancelDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"membership"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">349423</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"paymentPlan"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447623</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open 24m"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"discounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"administartionFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValueDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"joiningFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"membershipFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PercentDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"administartionFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"joiningFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"membershipFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-
-<h2>
-<a id="error-response-envelope" class="anchor" href="#error-response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Response Envelope</h2>
-
-<p>Error response envelope encloses information about logical errors that occured during API calls.
-Error responses come with <code>HTTP 400</code> status code.</p>
-
-<h3>
-<a id="error-envelope-properties" class="anchor" href="#error-envelope-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error envelope properties</h3>
-
-<table>
-<thead>
-<tr>
-<th>Attribute Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>errors</code></td>
-<td>An array of <a href="/appendix/datatypes/error">Error</a> objects, each representing logical error that occured during API call.</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
-
-<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
-</code></pre>
-
-
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ClassAlreadyBooked"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-
-<h2>
-<a id="summary-representations" class="anchor" href="#summary-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary Representations</h2>
-
-<p>When you fetch a list of resources, the response includes a <em>subset</em> of the
-attributes for that resource. This is the "summary" representation of the
-resource. (Some attributes are computationally expensive for the API to provide.
-For performance reasons, the summary representation excludes those attributes.
-To obtain those attributes, fetch the "detailed" representation.)</p>
-
-<h3>
-<a id="example-2" class="anchor" href="#example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
-
-<p>When you get a list of classes, you get the summary
-representation of each class type. Here, we fetch the list of classes
-in a given club:</p>
-
-<pre><code>GET Classes/Classes/{clubId}
-</code></pre>
-
-<h2>
-<a id="detailed-representations" class="anchor" href="#detailed-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Detailed Representations</h2>
-
-<p>When you fetch an individual resource, the response typically includes <em>all</em>
-attributes for that resource. This is the "detailed" representation of the
-resource.</p>
-
-<h3>
-<a id="example-3" class="anchor" href="#example-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
-
-<p>When you get an individual class, you get the detailed
-representation of the class:</p>
-
-<pre><code>GET Classes/Class/{classId}
-</code></pre>
-
-<p>The documentation provides an example response for each API method. The example
-response illustrates all attributes that are returned by that method.</p>
 
 
     </div>
