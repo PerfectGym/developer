@@ -62,7 +62,8 @@ curl -X POST
 	    "sex": "Male",
 	    "homeClubId": 12,
 	    "address": {
-	        "street": "al. Jerozolimskie 114",
+	        "line1": "al. Jerozolimskie 114",
+	        "line2": "",
 	        "city": "Warszawa",
 	        "postalCode": "20-259",
 	        "country": "Poland"
@@ -144,7 +145,8 @@ curl -X PUT
 	    "sex": "Male",
 	    "homeClubId": 12,
 	    "address": {
-	        "street": "ul. Przyczolkowa 334",
+	        "line1": "ul. Przyczolkowa 334",
+	        "line2": "",
 	        "city": "Warszawa",
 	        "postalCode": "02-962",
 	        "country": "Poland"

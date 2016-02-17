@@ -15,7 +15,8 @@ Address is described by the following properties
 
 Name            | Type      | Description
 -----|----------|----------------------
-`street`     	|`string`   | Street name.
+`line1`     	|`string`   | Line 1 of the address e.g. street etc.
+`line2`     	|`string`   | Line 2 of the address e.g. suite, apartament number etc.
 `postalCode`    |`string`   | Zip code or equivalent.
 `city`    		|`string`   | City name.
 `country`   	|`string`   | Country name.

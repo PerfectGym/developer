@@ -84,15 +84,18 @@ module GitHub
           {
             "displayName": "Cyberbotics Berlin",
             "description": "Our club began in 1979 and has always been a favorite of different types of athletes and fitness enthusiasts. Refined and updated to offer a setting that is open and light where both staff and clientele are friendly and casual and the focus is on well-balanced health.",
-            "languageCode": "",
-            "street": "Leipziger Str. 46/47",
-            "city": "Berlin",
-            "postalCode": "10-117",
-            "country": "Germany",
+            "languageCode": "",            
             "latitude": 52.51038,
             "longitude": 13.39763,
             "email": "club@cyberbotics.com",
             "phoneNumber": "+49 12 123 456 789",
+            "address": {
+              "line1": "Leipziger Str. 46/47",
+              "line2": "",
+              "city": "Berlin",
+              "postalCode": "10-117",
+              "country": "Germany",
+            },
             "equipment": [
               {
                 "id": 10,

@@ -13,25 +13,28 @@ User details is detaild representation of single user of your gym.
 
 User is described by the following properties
 
-Name            	| Type      			| Description
---------------------|-----------------------|----------------------
-`id`            	|`long`     			| Unique identifier of user.
-`timestamp`    		|`long`     			| Timestamp. Indicates when resource was last modified.
-`personalId`		|`string`				| User personal identifier.
-`number`          	|`string`   			| User number.
-`firstName`     	|`string`   			| User first name.
-`lastName`        	|`string`   			| User last name.
-`email`          	|`string`   			| User email address.
-`birthDate`         |`string`   			| User birth date.
-`isForigner`		|`bool`					| Indicates if user is a forigner.
-`sex`          		|`string`   			| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
-`phoneNumber`      	|`string`   			| User phone number.
-`idCardName`		|`string`				| User identity card name.
-`idCardNumber`  	|`string`				| User identity card number.
-`address`           |[Address][Address]     | User address.
-`isActive`     		|`bool`     			| Indicates if cuser is marked as active.
-`isDeleted`     	|`bool`                 | Indicates if resource is deleted.
-`currentContract`   |[Contract][Contract]   | User's current contract.
+Name            				| Type      			| Description
+--------------------------------|-----------------------|----------------------
+`id`            				|`long`     			| Unique identifier of user.
+`timestamp`    					|`long`     			| Timestamp. Indicates when resource was last modified.
+`personalId`					|`string`				| User personal identifier.
+`number`          				|`string`   			| User number.
+`cardNumber`       				|`string`   			| User membership card number.
+`firstName`     				|`string`   			| User first name.
+`lastName`        				|`string`   			| User last name.
+`email`          				|`string`   			| User email address.
+`birthDate`         			|`string`   			| User birth date.
+`isForigner`					|`bool`					| Indicates if user is a forigner.
+`sex`          					|`string`   			| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
+`phoneNumber`      				|`string`   			| User phone number.
+`idCardName`					|`string`				| User identity card name.
+`idCardNumber`  				|`string`				| User identity card number.
+`newsletterAgreement`			|`bool`					| User identity card name.
+`termsAndConditionsAgreement`  	|`bool`					| User identity card number.
+`address`           			|[Address][Address]     | User address.
+`isActive`     					|`bool`     			| Indicates if cuser is marked as active.
+`isDeleted`     				|`bool`                 | Indicates if resource is deleted.
+`currentContract`   			|[Contract][Contract]   | User's current contract.
 
 
 
