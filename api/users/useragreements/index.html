@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>User contracts | Perfectgym Developer Guide</title>
+  <title>Agreements | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,22 +53,21 @@
       
 
 <h1>
-<a id="user-contracts" class="anchor" href="#user-contracts" aria-hidden="true"><span class="octicon octicon-link"></span></a>User contracts</h1>
+<a id="agreements" class="anchor" href="#agreements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agreements</h1>
 
-<p>This API lest you list, assign and delete user contracts.</p>
+<p>This API lest you store information that user has agreed to marketing and terms and conditions agreements.</p>
 
 <ul id="markdown-toc">
-<li><a href="#assign-contract-to-a-club-user" id="markdown-toc-assign-contract-to-a-club-user">Assign contract to a club user</a></li>
-<li><a href="#delete-user-contract" id="markdown-toc-delete-user-contract">Delete user contract</a></li>
+<li><a href="#save-user-agreements" id="markdown-toc-save-user-agreements">Save user agreements</a></li>
 </ul>
 
 <h2>
-<a id="assign-contract-to-a-club-user" class="anchor" href="#assign-contract-to-a-club-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assign contract to a club user</h2>
+<a id="save-user-agreements" class="anchor" href="#save-user-agreements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Save user agreements</h2>
 
-<pre><code>POST Users/Contract
+<pre><code>POST Users/Agreements
 </code></pre>
 
-<p>Request assigns new contract to existing club user.</p>
+<p>Request saves information that user has agreed to marketing and terms and conditions agreements.</p>
 
 <h3>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
@@ -84,9 +83,9 @@
 <tbody>
 <tr>
 <td><code>userId</code></td>
-<td><code>long</code></td>
+<td><code>string</code></td>
 <td>
-<strong>Required</strong>. User identifier. Request assigns new contract to user identified by <code>userId</code>.</td>
+<strong>Required</strong>. User identifier.</td>
 </tr>
 </tbody>
 </table>
@@ -104,25 +103,16 @@
 </thead>
 <tbody>
 <tr>
-<td><code>paymentPlanId</code></td>
-<td><code>string</code></td>
-<td>Payment plan identifier. Request creates new contract based on payment plan identified by <code>paymentPlanId</code>
-</td>
+<td><code>newsletterAgreement</code></td>
+<td><code>bool</code></td>
+<td>
+<code>true</code> if user has agreed to receive marketing newsletter, <code>false</code> otherwise.</td>
 </tr>
 <tr>
-<td><code>startDate</code></td>
-<td><code>string</code></td>
-<td>Contract start date.</td>
-</tr>
-<tr>
-<td><code>signDate</code></td>
-<td><code>string</code></td>
-<td>Contract sign date.</td>
-</tr>
-<tr>
-<td><code>discountIds</code></td>
-<td><code>array</code></td>
-<td>Array of discount identifiers to be applied to contract.</td>
+<td><code>termsAndConditionsAgreement</code></td>
+<td><code>bool</code></td>
+<td>
+<code>true</code> if user has agreed to general terms and conditions, <code>false</code> otherwise.</td>
 </tr>
 </tbody>
 </table>
@@ -130,13 +120,12 @@
 <h3>
 <a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
 
-<p><a href="/api/users/userdetails#properties">User details</a> with <a href="/appendix/datatypes/contract">contract</a> detailed description.</p>
+<p><a href="/api/users/userdetails#properties">User details</a>.</p>
 
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we create new contract based on payment plan with <code>id</code> = <code>44</code> and we assigne it to user with <code>id</code> of value <code>236</code>.
-Also discount with <code>id</code> = <code>10</code> is applied.</p>
+<p>In this example we store information that user has with <code>id</code> = <code>236</code> has agreed to service terms and conditions.</p>
 
 <pre class="command-line">
 
@@ -144,12 +133,10 @@ curl -X POST
      -H "Authorization: Bearer $ACCESS_TOKEN" 
      -H "Content-Type: application/json" 
      -d '{
-        "paymentPlanId": 44,
-        "startDate": "2016-01-26T00:00:00",
-        "signDate": "2016-01-26T00:00:00",
-        "discountIds": [10]     
+        "termsAndConditionsAgreement": true,
+        "newsletterAgreement": false,       
     }' 
-    http://yoursubdomain.perfectgym.com/api/Users/Contract?userId=236
+    http://yoursubdomain.perfectgym.com/api/Users/Agreements?userId=236
 </pre>
 
 <h3>
@@ -176,7 +163,7 @@ curl -X POST
       </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1978-06-01T00:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
@@ -185,10 +172,10 @@ curl -X POST
         </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"directDebit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ownerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cityAndPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="nt">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61 1090 1014 0000 0712 1981 2874"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ownerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Fibo"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Przyczółkowa 334"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cityAndPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02-962 Warszawa"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"homeClubId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -230,107 +217,6 @@ curl -X POST
         </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-
-<h2>
-<a id="delete-user-contract" class="anchor" href="#delete-user-contract" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delete user contract</h2>
-
-<pre><code>DELETE Users/Contract
-</code></pre>
-
-<p>Request deletes user contract.</p>
-
-<h3>
-<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>userId</code></td>
-<td><code>long</code></td>
-<td>
-<strong>Required</strong>. User identifier.</td>
-</tr>
-<tr>
-<td><code>contractId</code></td>
-<td><code>long</code></td>
-<td>
-<strong>Required</strong>. Contract identifier. Request deletes user contract identified by <code>contractId</code>.</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
-
-<p><a href="/api/users/userdetails#properties">User details</a>.</p>
-
-<h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
-
-<p>In this example we delete user contract with <code>id</code> = <code>10358</code></p>
-
-<pre class="command-line">
-
-curl -X DELETE 
-     -H "Authorization: Bearer $ACCESS_TOKEN" 
-     -H "Content-Type: application/json"     
-    http://yoursubdomain.perfectgym.com/api/Users/Contract?userId=236&amp;contractId=10358
-</pre>
-
-<h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
-
-<pre class="highlight highlight-headers"><code>Status: 200 OK
-</code></pre>
-
-
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">236</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">448035</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"personalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80010101234"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b7b02df-08ae-4720-a3ce-a594bfc46d47"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"cardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1078902793"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1978-06-01T00:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02-962"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ul. Przyczolkowa 334"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"directDebit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ownerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"cityAndPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"homeClubId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"currentContract"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">

@@ -179,7 +179,8 @@ curl -X POST
         "sex": "Male",
         "homeClubId": 12,
         "address": {
-            "street": "al. Jerozolimskie 114",
+            "line1": "al. Jerozolimskie 114",
+            "line2": "",
             "city": "Warszawa",
             "postalCode": "20-259",
             "country": "Poland"
@@ -202,6 +203,7 @@ curl -X POST
       </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447937</span><span class="p">,</span><span class="w">
       </span><span class="nt">"personalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80010101234"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b7b02df-08ae-4720-a3ce-a594bfc46d47"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1078902793"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
@@ -210,11 +212,14 @@ curl -X POST
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1978-06-01T00:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20-259"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"al. Jerozolimskie 114"</span><span class="w">
+        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"al. Jerozolimskie 114"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"directDebit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -385,7 +390,8 @@ curl -X PUT
         "sex": "Male",
         "homeClubId": 12,
         "address": {
-            "street": "ul. Przyczolkowa 334",
+            "line1": "ul. Przyczolkowa 334",
+            "line2": "",
             "city": "Warszawa",
             "postalCode": "02-962",
             "country": "Poland"
@@ -408,6 +414,7 @@ curl -X PUT
       </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">448035</span><span class="p">,</span><span class="w">
       </span><span class="nt">"personalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80010101234"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b7b02df-08ae-4720-a3ce-a594bfc46d47"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1078902793"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
@@ -416,11 +423,14 @@ curl -X PUT
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1978-06-01T00:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02-962"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ul. Przyczolkowa 334"</span><span class="w">
+        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ul. Przyczolkowa 334"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"directDebit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -535,7 +545,8 @@ curl -X PUT
           <li><a href="/api/users/addupdateuser/">Adding and updating user</a></li>   
           <li><a href="/api/users/usercontract/">User contract</a></li>           
           <li><a href="/api/users/usercreditcard/">User credit card</a></li>           
-          <li><a href="/api/users/userdirectdebit/">Direct debit</a></li>           
+          <li><a href="/api/users/userdirectdebit/">Direct debit</a></li>  
+          <li><a href="/api/users/useragreements/">Agreements</a></li>           
         </ul>
       </li>     
       <li class="js-topic">
