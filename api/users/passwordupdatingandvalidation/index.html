@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Agreements | Perfectgym Developer Guide</title>
+  <title>Password updating and validation | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,21 +53,28 @@
       
 
 <h1>
-<a id="agreements" class="anchor" href="#agreements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agreements</h1>
+<a id="password-updating-and-validation" class="anchor" href="#password-updating-and-validation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Password updating and validation</h1>
 
-<p>This API lest you store information that user has agreed to marketing and terms and conditions agreements.</p>
+<p>This API lest you update user password and validate credentials. User can use it's username and password to login to varions client web and mobile apps, including:</p>
+
+<ul>
+<li>KIOSK web app</li>
+<li>Client Portal web app</li>
+<li>Perfect Gym Go mobile app</li>
+</ul>
 
 <ul id="markdown-toc">
-<li><a href="#save-user-agreements" id="markdown-toc-save-user-agreements">Save user agreements</a></li>
+<li><a href="#update-user-password" id="markdown-toc-update-user-password">Update user password</a></li>
+<li><a href="#validate-user-credentials" id="markdown-toc-validate-user-credentials">Validate user credentials</a></li>
 </ul>
 
 <h2>
-<a id="save-user-agreements" class="anchor" href="#save-user-agreements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Save user agreements</h2>
+<a id="update-user-password" class="anchor" href="#update-user-password" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update user password</h2>
 
-<pre><code>POST Users/Agreements
+<pre><code>POST Users/Password
 </code></pre>
 
-<p>Request saves information that user has agreed to marketing and terms and conditions agreements.</p>
+<p>Request updates user password.</p>
 
 <h3>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
@@ -103,16 +110,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>newsletterAgreement</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if user has agreed to receive marketing newsletter, <code>false</code> otherwise.</td>
-</tr>
-<tr>
-<td><code>termsAndConditionsAgreement</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if user has agreed to general terms and conditions, <code>false</code> otherwise.</td>
+<td><code>password</code></td>
+<td><code>string</code></td>
+<td>User password.</td>
 </tr>
 </tbody>
 </table>
@@ -125,7 +125,7 @@
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we store information that user has with <code>id</code> = <code>236</code> has agreed to service terms and conditions.</p>
+<p>In this example we update user's password.</p>
 
 <pre class="command-line">
 
@@ -133,10 +133,9 @@ curl -X POST
      -H "Authorization: Bearer $ACCESS_TOKEN" 
      -H "Content-Type: application/json" 
      -d '{
-        "termsAndConditionsAgreement": true,
-        "newsletterAgreement": false,       
+        "password": "new_password",     
     }' 
-    http://yoursubdomain.perfectgym.com/api/Users/Agreements?userId=236
+    http://yoursubdomain.perfectgym.com/api/Users/Password?userId=236
 </pre>
 
 <h3>
@@ -217,6 +216,166 @@ curl -X POST
         </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="validate-user-credentials" class="anchor" href="#validate-user-credentials" aria-hidden="true"><span class="octicon octicon-link"></span></a>Validate user credentials</h2>
+
+<pre><code>POST Users/ValidateCredentials
+</code></pre>
+
+<p>Request checks if user's name and password are valid.</p>
+
+<h3>
+<a id="body-parameters-1" class="anchor" href="#body-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>userName</code></td>
+<td><code>string</code></td>
+<td>User name.</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td><code>string</code></td>
+<td>User password.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/api/users/userdetails#properties">User details</a> if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/validatecredentialserrorcode">validate credentials error codes</a> otherwise.</p>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we update user's password.</p>
+
+<pre class="command-line">
+
+curl -X POST 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json" 
+     -d '{
+        "userName": "john.fibo@perfectgym.pl",
+        "password": "new_password",     
+    }' 
+    http://yoursubdomain.perfectgym.com/api/Users/ValidateCredentials
+</pre>
+
+<h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">236</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">448035</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80010101234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b7b02df-08ae-4720-a3ce-a594bfc46d47"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1078902793"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1978-06-01T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02-962"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ul. Przyczolkowa 334"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"directDebit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61 1090 1014 0000 0712 1981 2874"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ownerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Fibo"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Przyczółkowa 334"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cityAndPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02-962 Warszawa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"homeClubId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"currentContract"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10358</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">350287</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"signUpDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cancelDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"membership"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">349423</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"paymentPlan"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447623</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open 24m"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"discounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"administartionFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValueDiscount"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"joiningFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"membershipFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PercentDiscount"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"administartionFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"joiningFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"membershipFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+
+<p>Invalid user credentials generates following response:</p>
+
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidUserNameOrPassword"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
