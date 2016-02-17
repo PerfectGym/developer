@@ -13,7 +13,7 @@ This API lest you assign bank account details to a club user.
 
     POST Users/DirectDebit
 
-Request assigns bank account details to existing club user.
+Request assigns bank account details to existing club user and selects it as current payment method.
 
 
 ### Parameters

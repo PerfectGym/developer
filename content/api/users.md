@@ -35,10 +35,24 @@ The Users APIs provides access to users list available in your company.
 
 
 
+## [Agreements][Agreements]
+
+[Agreements API][Agreements] lest you store information if user has agreed to marketing and terms and conditions agreements.
+
+
+
+## [Password updating and credential validation][PasswordUpdateValidation]
+
+[Password updating and credential validation API][PasswordUpdateValidation] lest you update user password and validate user credentials.
+
+
+
 
 [UserDetails]: /api/users/userdetails/
 [AddingUpdatingUser]: /api/users/addupdateuser
 [UserContract]: /api/users/usercontract
 [UserCreditCard]: /api/users/usercreditcard
 [DirectDebit]: /api/users/userdirectdebit
+[Agreements]: /api/users/useragreements
+[PasswordUpdateValidation]: /api/users/passwordupdatingandvalidation
 

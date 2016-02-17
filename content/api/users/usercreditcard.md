@@ -13,7 +13,7 @@ This API lest you assign credit card to a club user.
 
     POST Users/CreditCard
 
-Request assigns a credit card to existing club user.
+Request assigns a credit card to existing club user and selects it as current payment method.
 
 
 ### Parameters

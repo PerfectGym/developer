@@ -63,4 +63,5 @@ Retrive  |`GET`  		| Provides _detailed_ information for the single entity that 
 Execute	 |`POST`   		| Used for invoking actions.
 Add	 	 |`POST`   		| Used for creating resources.
 Update 	 |`PUT`   		| Used for updating resources.
+Delete	 |`DELETE`		| Used for deleting resources.
 
