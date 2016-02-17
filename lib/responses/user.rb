@@ -373,6 +373,17 @@ module GitHub
         ]                        
       }     
 
+      USERCREDENTIALS_ERROR_RESPONSE ||= {      
+         
+        "errors" => [
+          {
+            "code": "InvalidUserNameOrPassword",
+            "property": "",
+            "message": ""
+          }
+        ]                        
+      }     
+
     end
   end
 end
