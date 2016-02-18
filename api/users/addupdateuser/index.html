@@ -126,7 +126,7 @@
 <td>User birth date.</td>
 </tr>
 <tr>
-<td><code>isForigner</code></td>
+<td><code>isForeigner</code></td>
 <td><code>bool</code></td>
 <td>Indicates if user is a forigner.</td>
 </tr>
@@ -176,6 +176,7 @@ curl -X POST
         "idCardName": "Passport",
         "idCardNumber": "ABC 123456",
         "birthDate": "1978-06-01T00:00:00",
+        "isForeigner": false,
         "sex": "Male",
         "homeClubId": 12,
         "address": {
@@ -211,6 +212,7 @@ curl -X POST
       </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1978-06-01T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isForeigner"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -387,6 +389,7 @@ curl -X PUT
         "idCardName": "Passport",
         "idCardNumber": "ABC 123456",
         "birthDate": "1978-06-01T00:00:00",
+        "isForeigner": false,
         "sex": "Male",
         "homeClubId": 12,
         "address": {
@@ -422,6 +425,7 @@ curl -X PUT
       </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1978-06-01T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isForeigner"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
