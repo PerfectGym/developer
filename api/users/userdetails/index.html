@@ -154,6 +154,11 @@ User details properties</a></li>
 <td>User identity card number.</td>
 </tr>
 <tr>
+<td><code>legalGuardian</code></td>
+<td><code>string</code></td>
+<td>User legal guardian full name.</td>
+</tr>
+<tr>
 <td><code>newsletterAgreement</code></td>
 <td><code>bool</code></td>
 <td>User identity card name.</td>
@@ -250,6 +255,7 @@ curl -i
       </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"legalGuardian"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -377,6 +383,7 @@ curl -i
       </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"legalGuardian"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
