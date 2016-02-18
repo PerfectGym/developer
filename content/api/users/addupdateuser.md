@@ -28,6 +28,7 @@ Name     	    | Type       		| Description
 `phone`     	|`string`    		| **Must be unique**. User phone number.
 `idCardName`	|`string`			| User identity card name.
 `idCardNumber`  |`string`			| User identity card number.
+`legalGuardian`	|`string`			| User legal guardian full name.
 `birthDate`     |`string`    		| User birth date.
 `isForeigner`	|`bool`				| Indicates if user is a forigner.
 `sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
@@ -58,6 +59,7 @@ curl -X POST
 	    "phone": "0048123456789",
 	    "idCardName": "Passport",
         "idCardNumber": "ABC 123456",
+        "legalGuardian": "",
 	    "birthDate": "1978-06-01T00:00:00",
 	    "isForeigner": false,
 	    "sex": "Male",
@@ -114,6 +116,7 @@ Name     	    | Type       		| Description
 `phone`     	|`string`    		| **Must be unique**. User phone number.
 `idCardName`	|`string`			| User identity card name.
 `idCardNumber`  |`string`			| User identity card number.
+`legalGuardian`	|`string`			| User legal guardian full name.
 `birthDate`     |`string`    		| User birth date.
 `isForigner`	|`bool`				| Indicates if user is a forigner.
 `sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
@@ -142,6 +145,7 @@ curl -X PUT
 	    "phone": "0048123456789",
 	    "idCardName": "Passport",
         "idCardNumber": "ABC 123456",
+        "legalGuardian": "",
 	    "birthDate": "1978-06-01T00:00:00",
 	    "isForeigner": false,
 	    "sex": "Male",

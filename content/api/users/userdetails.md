@@ -29,6 +29,7 @@ Name            				| Type      			| Description
 `phoneNumber`      				|`string`   			| User phone number.
 `idCardName`					|`string`				| User identity card name.
 `idCardNumber`  				|`string`				| User identity card number.
+`legalGuardian`  				|`string`				| User legal guardian full name.
 `newsletterAgreement`			|`bool`					| User identity card name.
 `termsAndConditionsAgreement`  	|`bool`					| User identity card number.
 `address`           			|[Address][Address]     | User address.
