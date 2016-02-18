@@ -24,7 +24,7 @@ Name            				| Type      			| Description
 `lastName`        				|`string`   			| User last name.
 `email`          				|`string`   			| User email address.
 `birthDate`         			|`string`   			| User birth date.
-`isForigner`					|`bool`					| Indicates if user is a forigner.
+`isForeigner`					|`bool`					| Indicates if user is a forigner.
 `sex`          					|`string`   			| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `phoneNumber`      				|`string`   			| User phone number.
 `idCardName`					|`string`				| User identity card name.

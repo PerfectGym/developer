@@ -29,7 +29,7 @@ Name     	    | Type       		| Description
 `idCardName`	|`string`			| User identity card name.
 `idCardNumber`  |`string`			| User identity card number.
 `birthDate`     |`string`    		| User birth date.
-`isForigner`	|`bool`				| Indicates if user is a forigner.
+`isForeigner`	|`bool`				| Indicates if user is a forigner.
 `sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     	|[Address][Address] | User address.
 `homeClubId`	|`long`    			| User home club identifier.
@@ -59,6 +59,7 @@ curl -X POST
 	    "idCardName": "Passport",
         "idCardNumber": "ABC 123456",
 	    "birthDate": "1978-06-01T00:00:00",
+	    "isForeigner": false,
 	    "sex": "Male",
 	    "homeClubId": 12,
 	    "address": {
@@ -142,6 +143,7 @@ curl -X PUT
 	    "idCardName": "Passport",
         "idCardNumber": "ABC 123456",
 	    "birthDate": "1978-06-01T00:00:00",
+	    "isForeigner": false,
 	    "sex": "Male",
 	    "homeClubId": 12,
 	    "address": {
