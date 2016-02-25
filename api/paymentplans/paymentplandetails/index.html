@@ -99,6 +99,17 @@ Only payment plan details specyfic properties are described here.</p>
 <code>true</code> if membership with a given payment plan can be freezed, <code>false</code> otherwise.</td>
 </tr>
 <tr>
+<td><code>paymentOnStartDate</code></td>
+<td><code>bool</code></td>
+<td>
+<code>true</code> if first payment must be executed on paymentplan <code>startDate</code>, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>displayName</code></td>
+<td><code>string</code></td>
+<td>Payment plan display name.</td>
+</tr>
+<tr>
 <td><code>shortDescription</code></td>
 <td><code>string</code></td>
 <td>Payment plan short description.</td>
@@ -196,7 +207,7 @@ Only payment plan details specyfic properties are described here.</p>
 <tr>
 <td><code>languageCode</code></td>
 <td><code>string</code></td>
-<td>Language identifier payment plan description should be translated to (for example EN, DE etc.)..</td>
+<td>Language identifier payment plan display name, short description and description should be translated to (for example EN, DE etc.)..</td>
 </tr>
 </tbody>
 </table>
@@ -227,6 +238,8 @@ curl -i
       </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T00:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-31T00:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"freezeAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"paymentOnStartDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open 24 months"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"shortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commitmentPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24M"</span><span class="p">,</span><span class="w">
