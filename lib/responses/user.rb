@@ -19,6 +19,23 @@ module GitHub
         "membershipFeeDiscountValue": 50        
       }
 
+      CONTRACT ||= {
+        "id": 10358,
+        "timestamp": 350287,
+        "signUpDate": "2016-01-26T00:00:00",
+        "startDate": "2016-01-26T00:00:00",
+        "cancelDate": "",
+        "endDate": "",
+        "isCurrent": true,
+        "membership" => MEMBERSHIP_OPEN,
+        "paymentPlan" => PAYMENTPLAN_OPEN24M,  
+        "discounts" => [
+          DISCOUNT
+        ],          
+        "isActive": true,
+        "isDeleted": false
+      }
+
 
       USER_RESPONSE ||= {
 
@@ -57,13 +74,14 @@ module GitHub
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
-          "currentContract": {
+          "contracts" => [
             "id": 10358,
             "timestamp": 350287,
             "signUpDate": "2014-03-28T00:00:00",
             "startDate": "2014-04-01T00:00:00",
             "cancelDate": "2015-03-31T23:59:59",
             "endDate": "2015-03-31T23:59:59",
+            "isCurrent": false,
             "membership" => MEMBERSHIP_OPEN,
             "paymentPlan": {
               "id": 2,
@@ -77,7 +95,7 @@ module GitHub
             ],
             "isActive": true,
             "isDeleted": false
-          }
+          ]
         ]        
       }
 
@@ -118,7 +136,8 @@ module GitHub
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
-          "currentContract": ""
+          "contracts" => [
+          ] 
         ]        
       }   
 
@@ -159,9 +178,52 @@ module GitHub
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
-          "currentContract": ""
+          "contracts" => [
+          ] 
         ]        
       }         
+
+
+      USERPHOTO_RESPONSE ||= {
+        "elements" => [
+          "id": 236,
+          "timestamp": 448035,
+          "personalId": "80010101234",
+          "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
+          "cardNumber": "",
+          "firstName": "John",
+          "lastName": "Fibo",
+          "email": "john.fibo@perfectgym.pl",
+          "phone": "0048123456789",
+          "idCardName": "Passport",
+          "idCardNumber": "ABC 123456",
+          "legalGuardian": "",
+          "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/File?fileId=78",
+          "birthDate": "1978-06-01T00:00:00",
+          "isForeigner": false,
+          "sex": "Male",
+          "newsletterAgreement": false,
+          "termsAndConditionsAgreement": false,
+          "address": {
+            "country": "Poland",
+            "city": "Warszawa",
+            "postalCode": "02-962",
+            "line1": "ul. Przyczolkowa 334",  
+            "line2": ""
+          },  
+          "directDebit": {
+            "accountNumber": "",
+            "ownerName": "",
+            "street": "",
+            "cityAndPostalCode": ""
+          },                 
+          "homeClubId": 12,
+          "isActive": true,
+          "isDeleted": false,
+          "contracts" => [
+          ] 
+        ]        
+      }
 
 
       USERCONTRACT_RESPONSE ||= {
@@ -201,64 +263,13 @@ module GitHub
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
-          "currentContract": {
-            "id": 10358,
-            "timestamp": 350287,
-            "signUpDate": "2016-01-26T00:00:00",
-            "startDate": "2016-01-26T00:00:00",
-            "cancelDate": "",
-            "endDate": "",
-            "membership" => MEMBERSHIP_OPEN,
-            "paymentPlan" => PAYMENTPLAN_OPEN24M,  
-            "discounts" => [
-              DISCOUNT
-            ],          
-            "isActive": true,
-            "isDeleted": false
-          }
+          "contracts": [
+            CONTRACT
+          ]
         ]        
       }   
 
-      USERPHOTO_RESPONSE ||= {
-
-              "elements" => [
-                "id": 236,
-                "timestamp": 448035,
-                "personalId": "80010101234",
-                "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
-                "cardNumber": "",
-                "firstName": "John",
-                "lastName": "Fibo",
-                "email": "john.fibo@perfectgym.pl",
-                "phone": "0048123456789",
-                "idCardName": "Passport",
-                "idCardNumber": "ABC 123456",
-                "legalGuardian": "",
-                "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/File?fileId=78",
-                "birthDate": "1978-06-01T00:00:00",
-                "isForeigner": false,
-                "sex": "Male",
-                "newsletterAgreement": false,
-                "termsAndConditionsAgreement": false,
-                "address": {
-                  "country": "Poland",
-                  "city": "Warszawa",
-                  "postalCode": "02-962",
-                  "line1": "ul. Przyczolkowa 334",  
-                  "line2": ""
-                },  
-                "directDebit": {
-                  "accountNumber": "",
-                  "ownerName": "",
-                  "street": "",
-                  "cityAndPostalCode": ""
-                },                 
-                "homeClubId": 12,
-                "isActive": true,
-                "isDeleted": false,
-                "currentContract": ""
-              ]        
-            }
+      
       USERNOCONTRACT_RESPONSE ||= {
 
         "elements" => [
@@ -296,7 +307,8 @@ module GitHub
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
-          "currentContract": ""
+          "contracts": [            
+          ]
         ]        
       }   
 
@@ -338,21 +350,9 @@ module GitHub
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
-          "currentContract": {
-            "id": 10358,
-            "timestamp": 350287,
-            "signUpDate": "2016-01-26T00:00:00",
-            "startDate": "2016-01-26T00:00:00",
-            "cancelDate": "",
-            "endDate": "",
-            "membership" => MEMBERSHIP_OPEN,
-            "paymentPlan" => PAYMENTPLAN_OPEN24M,  
-            "discounts" => [
-              DISCOUNT
-            ],          
-            "isActive": true,
-            "isDeleted": false
-          }
+          "contracts": [
+            CONTRACT
+          ]
         ]        
       }            
 
@@ -394,21 +394,9 @@ module GitHub
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
-          "currentContract": {
-            "id": 10358,
-            "timestamp": 350287,
-            "signUpDate": "2016-01-26T00:00:00",
-            "startDate": "2016-01-26T00:00:00",
-            "cancelDate": "",
-            "endDate": "",
-            "membership" => MEMBERSHIP_OPEN,
-            "paymentPlan" => PAYMENTPLAN_OPEN24M,  
-            "discounts" => [
-              DISCOUNT
-            ],          
-            "isActive": true,
-            "isDeleted": false
-          }
+          "contracts": [
+            CONTRACT
+          ]
         ]        
       }   
 
@@ -450,21 +438,9 @@ module GitHub
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
-          "currentContract": {
-            "id": 10358,
-            "timestamp": 350287,
-            "signUpDate": "2016-01-26T00:00:00",
-            "startDate": "2016-01-26T00:00:00",
-            "cancelDate": "",
-            "endDate": "",
-            "membership" => MEMBERSHIP_OPEN,
-            "paymentPlan" => PAYMENTPLAN_OPEN24M,  
-            "discounts" => [
-              DISCOUNT
-            ],          
-            "isActive": true,
-            "isDeleted": false
-          }
+          "contracts": [
+            CONTRACT
+          ]
         ]        
       }   
 

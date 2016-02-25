@@ -36,7 +36,7 @@ Name            				| Type      			| Description
 `address`           			|[Address][Address]     | User address.
 `isActive`     					|`bool`     			| Indicates if cuser is marked as active.
 `isDeleted`     				|`bool`                 | Indicates if resource is deleted.
-`currentContract`   			|[Contract][Contract]   | User's current contract.
+`contracts`   					|`array`   				| An array of [Contract][Contract] objects, each representing user's contract.
 
 
 
@@ -108,5 +108,5 @@ curl -i
 
 
 
-[Contract]: /appendix/datatypes/contract
+[Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address

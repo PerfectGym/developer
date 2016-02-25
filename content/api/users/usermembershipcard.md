@@ -60,4 +60,3 @@ curl -X POST
 
 
 [UserDetailsProperties]: /api/users/userdetails#properties
-[Contract]: /appendix/datatypes/contract

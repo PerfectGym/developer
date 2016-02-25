@@ -7,6 +7,7 @@ module GitHub
         "timestamp": 447620,
         "name": "Open 3m",
         "isActive": true,
+        "isAddOnPaymentPlan": false,
         "isDeleted": false
       }
 
@@ -15,6 +16,7 @@ module GitHub
         "timestamp": 447621,
         "name": "Open 6m",
         "isActive": true,
+        "isAddOnPaymentPlan": false,
         "isDeleted": false
       }
 
@@ -23,6 +25,7 @@ module GitHub
         "timestamp": 447622,
         "name": "Open 12m",
         "isActive": true,
+        "isAddOnPaymentPlan": false,
         "isDeleted": false
       }
 
@@ -31,6 +34,7 @@ module GitHub
         "timestamp": 447623,
         "name": "Open 24m",
         "isActive": true,
+        "isAddOnPaymentPlan": false,
         "isDeleted": false
       }  
 

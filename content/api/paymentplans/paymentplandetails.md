@@ -30,6 +30,7 @@ Name            	 | Type        				| Description
 `paymentInterval`    |`string` 	   				| Payment interval represented as _{value}{unit}_. **Possible unit values** : <br><ul><li>`M` - month</li><li>`D` - day</li></ul><br>**Example**: <br><ul><li>`1M` - monthly payment</li><li>`7D` - weekly payment</li></ul>.
 `membership`		 |[Membership][Membership]	| Payment plan membership.
 `channels`			 |`array`					| An array of `string` objects, each representing a channel given payment plan is available in. **Possible values** : <br><ul><li>`Web`</li><li>`Internet`</li><li>`Intranet`</li><li>`MembershipPortal`</li><li>`CorporatePortal`</li><li>`KIOSK`</li></ul>
+`addOns`			 |`array`					| An array of [Add on][AddOn] objects, each representing a payment plan add on. If `isAddOnPaymentPlan` == `false` an array is empty.
           
 
 
@@ -74,5 +75,6 @@ curl -i
 [PaymentPlanProperties]: /api/memberships/paymentplans#properties 
 [Fees]: /appendix/datatypes/contractfees
 [Membership]: /api/memberships/memberships#properties
+[AddOn]: /appendix/datatypes/paymentplanaddon
 
 

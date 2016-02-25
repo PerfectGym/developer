@@ -4,12 +4,12 @@ title: Contract details
 
 # Contract details
 
-COntract details is detaild representation of single user contract. 
+Contract details is detaild representation of single user contract. 
 
 {:toc}
 
 
-## Contract details properties
+## <a name="properties"></a>Contract details properties
 
 Contract details holds the same data as [Contract][ContractProperties] plus some detailed features of a contract.
 Only contract details specyfic properties are described here.
@@ -17,6 +17,7 @@ Only contract details specyfic properties are described here.
 
 Name        	| Type    						| Description
 ----------------|-------------------------------|----------------------
+`isCurrent`		|`bool`							| `true` if contract is user's current contract, `false` otherwise.
 `membership`   	|[Membership][Membership]   	| Contract's membership.
 `paymentPlan`   |[Payment paln][PaymentPlan]   	| Contract's payment plan.
 `discounts`		|`array`						| An array of [discount][Discount] objects representing discounts applied to contract.

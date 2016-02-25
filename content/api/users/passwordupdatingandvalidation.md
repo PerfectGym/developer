@@ -158,5 +158,4 @@ Invalid user credentials generates following response:
 
 [Error]: /appendix/datatypes/error
 [UserDetailsProperties]: /api/users/userdetails#properties
-[Contract]: /appendix/datatypes/contract
 [ValidateCredentialsErrorCode]: /appendix/errorcodes/validatecredentialserrorcode

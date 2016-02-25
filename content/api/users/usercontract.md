@@ -108,4 +108,4 @@ curl -X DELETE
 
 
 [UserDetailsProperties]: /api/users/userdetails#properties
-[Contract]: /appendix/datatypes/contract
+[Contract]: /api/contracts/contractdetails#properties

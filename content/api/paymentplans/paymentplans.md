@@ -21,13 +21,14 @@ Payment plan is a summary representation of single payment plan in your company.
 
 Payment plan is described by the following properties
 
-Name            | Type      | Description
------|----------|----------------------
-`id`            |`long`     | Unique identifier of payment plan.
-`timestamp`    	|`long`     | Timestamp. Indicates when resource was last modified.
-`name`    		|`string`   | payment plan name.
-`isActive`     	|`bool`     | Indicates if payment plan is marked as active.
-`isDeleted`     |`bool`     | Indicates if resource is deleted.
+Name            		| Type      | Description
+------------------------|-----------|-----------
+`id`            		|`long`     | Unique identifier of payment plan.
+`timestamp`    			|`long`     | Timestamp. Indicates when resource was last modified.
+`name`    				|`string`   | payment plan name.
+`isActive`     			|`bool`     | Indicates if payment plan is marked as active.
+`isAddOnPaymentPlan`    |`bool`     | Indicates if payment plan is marked as add on payment plan.
+`isDeleted`     		|`bool`     | Indicates if resource is deleted.
 
 
 
@@ -74,11 +75,12 @@ Returns paginated payment plans list available in given club.
 
 ### Parameters
 
-Name      | Type   | Description
-----------|--------|------------
-`clubId`  |`long`  | **Required**. Club identifier.
-`channel` |`string`| Payment plan availability channel. Request will return only payment plans that are available via given channel.
-`page`    |`int`   | Page number, defaults to `1`.
+Name      			| Type   | Description
+--------------------|--------|------------
+`clubId`  			|`long`  | **Required**. Club identifier.
+`addOnPaymentPlans` |`bool`	 | If `true` requests returns only add on payment plans, if `false` request returns only payment plans that are not marked as add on plans. Parameter defaults to `false`.
+`channel` 			|`string`| Payment plan availability channel. Request will return only payment plans that are available via given channel.
+`page`    			|`int`   | Page number, defaults to `1`.
 
 
 ### Example request

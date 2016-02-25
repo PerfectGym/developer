@@ -73,6 +73,5 @@ curl -X POST
 
 
 [UserDetailsProperties]: /api/users/userdetails#properties
-[Contract]: /appendix/datatypes/contract
 [Error]: /appendix/datatypes/error
 [DirectDebitErrorCode]: /appendix/errorcodes/directdebiterrorcode
