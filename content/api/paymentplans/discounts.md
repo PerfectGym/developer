@@ -48,6 +48,7 @@ Name      		 | Type   	   | Description
 `paymentPlanId`  |`long`  	   | **Required**. Payment plan identifier.
 `clubId`  		 |`long`  	   | **Required**. Club id. Request returns discounts available in club identified by `clubId`.
 `date`    		 |`datetime`   | Request returns discounts available in a given day. Defaults to `now`.
+`channel`        |`string`     | Discount availability channel. Request will return only discounts that are available via given channel.
 `page`    		 |`int`        | Page number, defaults to `1`.
 
 

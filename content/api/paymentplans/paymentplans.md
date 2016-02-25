@@ -77,7 +77,7 @@ Returns paginated payment plans list available in given club.
 Name      | Type   | Description
 ----------|--------|------------
 `clubId`  |`long`  | **Required**. Club identifier.
-`channel` |`string`| Payment plan channel. Request will return only payment plans that are available via given channel.
+`channel` |`string`| Payment plan availability channel. Request will return only payment plans that are available via given channel.
 `page`    |`int`   | Page number, defaults to `1`.
 
 
