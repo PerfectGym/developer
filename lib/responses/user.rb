@@ -219,6 +219,46 @@ module GitHub
         ]        
       }   
 
+      USERPHOTO_RESPONSE ||= {
+
+              "elements" => [
+                "id": 236,
+                "timestamp": 448035,
+                "personalId": "80010101234",
+                "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
+                "cardNumber": "1078902793",
+                "firstName": "John",
+                "lastName": "Fibo",
+                "email": "john.fibo@perfectgym.pl",
+                "phone": "0048123456789",
+                "idCardName": "Passport",
+                "idCardNumber": "ABC 123456",
+                "legalGuardian": "",
+                "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/File?fileId=78",
+                "birthDate": "1978-06-01T00:00:00",
+                "isForeigner": false,
+                "sex": "Male",
+                "newsletterAgreement": false,
+                "termsAndConditionsAgreement": false,
+                "address": {
+                  "country": "Poland",
+                  "city": "Warszawa",
+                  "postalCode": "02-962",
+                  "line1": "ul. Przyczolkowa 334",  
+                  "line2": ""
+                },  
+                "directDebit": {
+                  "accountNumber": "",
+                  "ownerName": "",
+                  "street": "",
+                  "cityAndPostalCode": ""
+                },                 
+                "homeClubId": 12,
+                "isActive": true,
+                "isDeleted": false,
+                "currentContract": ""
+              ]        
+            }
       USERNOCONTRACT_RESPONSE ||= {
 
         "elements" => [
@@ -234,7 +274,7 @@ module GitHub
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
           "legalGuardian": "",
-          "photoUrl": "",
+          "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/File?fileId=78",
           "birthDate": "1978-06-01T00:00:00",
           "isForeigner": false,
           "sex": "Male",
@@ -276,7 +316,7 @@ module GitHub
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
           "legalGuardian": "",
-          "photoUrl": "",
+          "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/File?fileId=78",
           "birthDate": "1978-06-01T00:00:00",
           "isForeigner": false,
           "sex": "Male",
@@ -314,7 +354,7 @@ module GitHub
             "isDeleted": false
           }
         ]        
-      }   
+      }            
 
 
       USERTERMSANDCONDITIONS_RESPONSE ||= {
@@ -332,7 +372,7 @@ module GitHub
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
           "legalGuardian": "",
-          "photoUrl": "",
+          "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/File?fileId=78",
           "birthDate": "1978-06-01T00:00:00",
           "isForeigner": false,
           "sex": "Male",

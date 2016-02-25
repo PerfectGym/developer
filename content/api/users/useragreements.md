@@ -18,9 +18,9 @@ Request saves information that user has agreed to marketing and terms and condit
 
 ### Parameters
 
-Name  	    | Type       		| Description
-------------|-------------------|------------
-`userId`    |`string`    		| **Required**. User identifier.
+Name  	    | Type     		| Description
+------------|---------------|------------
+`userId`    |`long`    		| **Required**. User identifier.
 
 
 ### Body parameters

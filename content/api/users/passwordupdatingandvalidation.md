@@ -22,9 +22,9 @@ Request updates user password.
 
 ### Parameters
 
-Name  	    | Type       		| Description
-------------|-------------------|------------
-`userId`    |`string`    		| **Required**. User identifier.
+Name  	    | Type     		| Description
+------------|---------------|------------
+`userId`    |`long`    		| **Required**. User identifier.
 
 
 ### Body parameters

@@ -18,9 +18,9 @@ Request assigns a credit card to existing club user and selects it as current pa
 
 ### Parameters
 
-Name  	    | Type       		| Description
-------------|-------------------|------------
-`userId`    |`string`    		| **Required**. User identifier. Request assigns new credit card to user identified by `userId`.
+Name  	    | Type    		| Description
+------------|---------------|------------
+`userId`    |`long`    		| **Required**. User identifier. Request assigns new credit card to user identified by `userId`.
 
 
 ### Body parameters

@@ -18,9 +18,9 @@ Request assigns bank account details to existing club user and selects it as cur
 
 ### Parameters
 
-Name  	    | Type       		| Description
-------------|-------------------|------------
-`userId`    |`string`    		| **Required**. User identifier. Request assigns new bank account details to user identified by `userId`.
+Name  	    | Type     		| Description
+------------|---------------|------------
+`userId`    |`long`    		| **Required**. User identifier. Request assigns new bank account details to user identified by `userId`.
 
 
 ### Body parameters
