@@ -63,6 +63,46 @@ curl -X POST
 
 
 
+## Password reset
+
+	POST Users/ResetPassword
+
+Request resets password and sends user an email with new password.
+
+
+### Parameters
+
+Name  	    | Type     		| Description
+------------|---------------|------------
+`email`     |`string`  		| **Required**. Email address of a user that password is to be reset.
+
+
+
+### Response
+
+Request resturns no content.
+
+
+### Example request
+
+In this example we reset password of a user identified with `john.fibo@perfectgym.pl` email address.
+
+``` command-line
+
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 	 
+	http://yoursubdomain.perfectgym.com/api/Users/ResetPassword?email=john.fibo@perfecthym.pl
+```
+
+
+### Example response
+
+<%= headers 204 %>
+
+
+
+
 ## Validate user credentials
 
     POST Users/ValidateCredentials
