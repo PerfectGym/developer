@@ -36,7 +36,7 @@ Name     	    	| Type       		| Description
 
 ### Response
 
-[User details][UserDetailsProperties] representing user bank account details was assigned to.
+[User details][UserDetailsProperties] including bank account details if operation is successful, or collection of [errors][Error] with [direct debit error codes][DirectDebitErrorCode].
 
 
 ### Example request
@@ -64,6 +64,15 @@ curl -X POST
 <%= json(:userdirectdebit_response) %>
 
 
+### Example error response
+
+<%= headers 400 %>
+<%= json(:directdebit_error_response) %>
+
+
+
 
 [UserDetailsProperties]: /api/users/userdetails#properties
 [Contract]: /appendix/datatypes/contract
+[Error]: /appendix/datatypes/error
+[DirectDebitErrorCode]: /appendix/errorcodes/directdebiterrorcode

@@ -434,6 +434,17 @@ module GitHub
         ]                        
       }     
 
+      DIRECTDEBIT_ERROR_RESPONSE ||= {      
+         
+        "errors" => [
+          {
+            "code": "InvalidIBAN",
+            "property": "",
+            "message": ""
+          }
+        ]                        
+      }     
+
       USERCREDENTIALS_ERROR_RESPONSE ||= {      
          
         "errors" => [
