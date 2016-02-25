@@ -23,6 +23,7 @@ Name            				| Type      			| Description
 `firstName`     				|`string`   			| User first name.
 `lastName`        				|`string`   			| User last name.
 `email`          				|`string`   			| User email address.
+`photoUrl`						|`string`				| User photo URL.
 `birthDate`         			|`string`   			| User birth date.
 `isForeigner`					|`bool`					| Indicates if user is a forigner.
 `sex`          					|`string`   			| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>

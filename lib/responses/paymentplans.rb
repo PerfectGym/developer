@@ -55,6 +55,8 @@ module GitHub
             "startDate": "2015-01-01T00:00:00",
             "endDate": "2016-12-31T00:00:00",
             "freezeAllowed": true,
+            "paymentOnStartDate": false,
+            "displayName": "Open 24 months",
             "shortDescription": "",
             "description": "",
             "commitmentPeriod": "24M", 

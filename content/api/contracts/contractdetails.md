@@ -34,8 +34,7 @@ Returns detailed user contract informations.
 
 Name            | Type       | Description
 ----------------|------------|------------------------
-`userId`        |`long`      | **Required**. User identifier.
-`userId`        |`long`      | **Required**. Contract identifier.
+`contractId`    |`long`      | **Required**. Contract identifier.
 
 
 
@@ -47,7 +46,7 @@ In this example we fetch user contract with `id` = `10358` detailed information.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Contracts/Contract?userId=236&contractId=10358    	
+     http://yoursubdomain.perfectgym.com/api/Contracts/Contract?contractId=10358    	
 ```
 
 

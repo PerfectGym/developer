@@ -21,6 +21,8 @@ Name            	 | Type        				| Description
 `endDate`     		 |`string`     				| Payment plan end date.
 `minimumAge`		 |`int`		   				| Minimum age for club member to be able to purchase selected payment plan.
 `freezeAllowed`      |`bool`       				| `true` if membership with a given payment plan can be freezed, `false` otherwise.
+`paymentOnStartDate` |`bool`       				| `true` if first payment must be executed on paymentplan `startDate`, `false` otherwise.
+`displayName`		 |`string`     				| Payment plan display name.
 `shortDescription`   |`string`     				| Payment plan short description.
 `description`        |`string`     				| Payment plan description.
 `commitmentPeriod`   |`string`     				| Minimum commitment period represented as _{value}{unit}_. **Possible unit values** : <br><ul><li>`M` - month</li><li>`D` - day</li></ul><br>**Example**: <br><ul><li>`12M` - twelve months</li><li>`60D` - sixty days</li></ul>
@@ -45,7 +47,7 @@ Returns detailed payment plan information.
 Name             | Type       | Description
 -----------------|------------|------------
 `paymentPlanId`  |`long`      | **Required**. Payment plan identifier.
-`languageCode`   |`string`    | Language identifier payment plan description should be translated to (for example EN, DE etc.)..
+`languageCode`   |`string`    | Language identifier payment plan display name, short description and description should be translated to (for example EN, DE etc.)..
 
 
 
