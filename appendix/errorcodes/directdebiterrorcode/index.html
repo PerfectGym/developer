@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Club access rule | Perfectgym Developer Guide</title>
+  <title>Direct debit error codes | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,58 +53,21 @@
       
 
 <h1>
-<a id="club-access-rule" class="anchor" href="#club-access-rule" aria-hidden="true"><span class="octicon octicon-link"></span></a>Club access rule</h1>
-
-<p>Represents a club access rule.</p>
-
-<h2>
-<a id="club-access-rule-properties" class="anchor" href="#club-access-rule-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Club access rule properties</h2>
-
-<p>Club access rule is described by the following properties</p>
+<a id="direct-debit-error-codes" class="anchor" href="#direct-debit-error-codes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Direct debit error codes</h1>
 
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>Code</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique access rule identifier.</td>
-</tr>
-<tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp. Indicates when resource was last modified.</td>
-</tr>
-<tr>
-<td><code>isDeleted</code></td>
-<td><code>bool</code></td>
-<td>Indicates if resource is deleted.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
+<td><code>InvalidIBAN</code></td>
 <td><code>string</code></td>
-<td>Access rule name.</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td><code>string</code></td>
-<td>Access rule description.</td>
-</tr>
-<tr>
-<td><code>allowedClubs</code></td>
-<td><code>array</code></td>
-<td>An array of <a href="/api/clubs/clubs#properties">Club</a> objects, each representing club membership holder has access to.</td>
-</tr>
-<tr>
-<td><code>allowedZoneTypes</code></td>
-<td><code>array</code></td>
-<td>An array of <a href="/appendix/datatypes/zonetype">Club Zone Types</a> objects, each representing club zone type membership holder has access to.</td>
+<td>IBAN account number is invalid.</td>
 </tr>
 </tbody>
 </table>
