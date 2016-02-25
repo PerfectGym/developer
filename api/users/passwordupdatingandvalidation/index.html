@@ -65,6 +65,7 @@
 
 <ul id="markdown-toc">
 <li><a href="#update-user-password" id="markdown-toc-update-user-password">Update user password</a></li>
+<li><a href="#password-reset" id="markdown-toc-password-reset">Password reset</a></li>
 <li><a href="#validate-user-credentials" id="markdown-toc-validate-user-credentials">Validate user credentials</a></li>
 </ul>
 
@@ -226,6 +227,60 @@ curl -X POST
 
 
 <h2>
+<a id="password-reset" class="anchor" href="#password-reset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Password reset</h2>
+
+<pre><code>POST Users/ResetPassword
+</code></pre>
+
+<p>Request resets password and sends user an email with new password.</p>
+
+<h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. Email address of a user that password is to be reset.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<p>Request resturns no content.</p>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we reset password of a user identified with <code>john.fibo@perfectgym.pl</code> email address.</p>
+
+<pre class="command-line">
+
+curl -X POST 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json"     
+    http://yoursubdomain.perfectgym.com/api/Users/ResetPassword?email=john.fibo@perfecthym.pl
+</pre>
+
+<h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 204 No Content
+</code></pre>
+
+
+<h2>
 <a id="validate-user-credentials" class="anchor" href="#validate-user-credentials" aria-hidden="true"><span class="octicon octicon-link"></span></a>Validate user credentials</h2>
 
 <pre><code>POST Users/ValidateCredentials
@@ -259,12 +314,12 @@ curl -X POST
 </table>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a> if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/validatecredentialserrorcode">validate credentials error codes</a> otherwise.</p>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we update user's password.</p>
 
@@ -281,7 +336,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -468,7 +523,7 @@ curl -X POST
           <li><a href="/api/users/userdirectdebit/">User direct debit</a></li>  
           <li><a href="/api/users/useragreements/">User agreements</a></li>   
           <li><a href="/api/users/usermembershipcard/">User membership card</a></li>           
-          <li><a href="/api/users/passwordupdatingandvalidation/">Password updating and credentials validation</a></li>           
+          <li><a href="/api/users/passwordupdatingandvalidation/">Password updating, reset & credentials validation</a></li>           
         </ul>
       </li>     
       <li class="js-topic">
