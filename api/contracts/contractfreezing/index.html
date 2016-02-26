@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Cities | Perfectgym Developer Guide</title>
+  <title>Contract freezing | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,54 +53,21 @@
       
 
 <h1>
-<a id="cities" class="anchor" href="#cities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cities</h1>
+<a id="contract-freezing" class="anchor" href="#contract-freezing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contract freezing</h1>
+
+<p>This API lest you freeze user contract.</p>
 
 <ul id="markdown-toc">
-<li><a href="#city-properties" id="markdown-toc-city-properties">
-City properties</a></li>
-<li><a href="#list-cities-with-given-name" id="markdown-toc-list-cities-with-given-name">List cities with given name</a></li>
+<li><a href="#execute-contract-freeze" id="markdown-toc-execute-contract-freeze">Execute contract freeze</a></li>
 </ul>
 
 <h2>
-<a id="city-properties" class="anchor" href="#city-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="properties"></a>City properties</h2>
+<a id="execute-contract-freeze" class="anchor" href="#execute-contract-freeze" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute contract freeze</h2>
 
-<p>Country is described by the following properties</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of city.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>City name.</td>
-</tr>
-<tr>
-<td><code>country</code></td>
-<td><a href="/api/miscellaneous/countries#properties">Country</a></td>
-<td>Contry city is located in.</td>
-</tr>
-</tbody>
-</table>
-
-<h2>
-<a id="list-cities-with-given-name" class="anchor" href="#list-cities-with-given-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>List cities with given name</h2>
-
-<pre><code>GET Geo/Cities
+<pre><code>POST Contracts/Freeze
 </code></pre>
 
-<p>Returns paginated cities list, in country identified by <code>countryId</code>.</p>
+<p>Request freezes user contract.</p>
 
 <h3>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
@@ -115,36 +82,71 @@ City properties</a></li>
 </thead>
 <tbody>
 <tr>
-<td><code>countryId</code></td>
+<td><code>contractId</code></td>
 <td><code>long</code></td>
 <td>
-<strong>Required</strong>. Country identifier.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>City name. Request returns cities with name containing <code>name</code> parameter value.</td>
-</tr>
-<tr>
-<td><code>page</code></td>
-<td><code>int</code></td>
-<td>Page number, defaults to <code>1</code>.</td>
+<strong>Required</strong>. Identifier of a contract to be frozen.</td>
 </tr>
 </tbody>
 </table>
 
 <h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>freezeTypeId</code></td>
+<td><code>long</code></td>
+<td>Freeze type to be applied identifier.</td>
+</tr>
+<tr>
+<td><code>reasonId</code></td>
+<td><code>long</code></td>
+<td>Freeze reason identifier.</td>
+</tr>
+<tr>
+<td><code>startDate</code></td>
+<td><code>string</code></td>
+<td>Requested freeze start date.</td>
+</tr>
+<tr>
+<td><code>endDate</code></td>
+<td><code>string</code></td>
+<td>Requested freeze end date.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/api/contracts/contractdetails#properties">Contract details</a> if freeze is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/freezecontracterrorcode">freeze error codes</a> otherwise.</p>
+
+<h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all polish cities that name contains <code>Warszawa</code> string.</p>
+<p>In this example we freeze contract with <code>id</code> = <code>10358</code> using freeze type with <code>id</code> = <code>7</code>. Contract will be suspended from 2016-04-01 till 2016-04-07</p>
 
 <pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Geo/Cities
-        ?countryId=187
-        &amp;name=Warszawa
+
+curl -X POST 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json" 
+     -d '{
+            "freezeTypeId":7,
+            "reasonId": 1,
+            "startDate": "2016-04-01T00:00:00",
+            "endDate": "2016-04-07T00:00:00"        
+    }' 
+    http://yoursubdomain.perfectgym.com/api/Contracts/Freeze?contractId=10358
 </pre>
 
 <h3>
@@ -157,24 +159,64 @@ curl -i
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1695965</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bukowno Warszawa"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PL"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"nativeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Polska"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10358</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">350287</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"signUpDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cancelDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"membership"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">349423</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"paymentPlan"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447623</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open 24m"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isAddOnPaymentPlan"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"discounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"administartionFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValueDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"joiningFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"membershipFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PercentDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"administartionFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"joiningFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"membershipFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"isCurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+
+<p>Freeze time range greater then freeze type <code>maximumInterval</code> generates following error:</p>
+
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors "</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1722157</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PL"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"nativeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Polska"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Freeze only for 2 - 8 days, not 13"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidFreezeParameters"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">

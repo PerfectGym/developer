@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Opening hours | Perfectgym Developer Guide</title>
+  <title>Freeze start date | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,14 +53,14 @@
       
 
 <h1>
-<a id="opening-hours" class="anchor" href="#opening-hours" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opening hours</h1>
+<a id="freeze-start-date" class="anchor" href="#freeze-start-date" aria-hidden="true"><span class="octicon octicon-link"></span></a>Freeze start date</h1>
 
-<p>Represents a timeframe your club is opened on a given day.</p>
+<p>Represents a contract freeze possible start date.</p>
 
 <h2>
-<a id="opening-hours-properties" class="anchor" href="#opening-hours-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opening hours properties</h2>
+<a id="freeze-start-date-properties" class="anchor" href="#freeze-start-date-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Freeze start date properties</h2>
 
-<p>Opening hours are described by the following properties</p>
+<p>Freeze start date is described by the following properties</p>
 
 <table>
 <thead>
@@ -72,49 +72,24 @@
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of opening hours.</td>
+<td><code>year</code></td>
+<td><code>int</code></td>
+<td>Year.</td>
 </tr>
 <tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp. Indicates when resource was last modified.</td>
+<td><code>month</code></td>
+<td><code>int</code></td>
+<td>Month.</td>
 </tr>
 <tr>
-<td><code>isClosed</code></td>
-<td><code>bool</code></td>
-<td>Indicates if club is closed on a given week day.</td>
-</tr>
-<tr>
-<td><code>dayOfWeekOrHoliday</code></td>
+<td><code>startMonthDate</code></td>
 <td><code>string</code></td>
-<td>Day of week given object refers to. <br><strong>Possible values</strong>: <br><ul>
-<li>Monday</li>
-<li>Tuesday</li>
-<li>Wednesday</li>
-<li>Thursday</li>
-<li>Friday</li>
-<li>Saturday</li>
-<li>Sunday</li>
-<li>Holidays</li>
-</ul>
-</td>
+<td>Start of month date.</td>
 </tr>
 <tr>
-<td><code>openFrom</code></td>
+<td><code>endMonthDate</code></td>
 <td><code>string</code></td>
-<td>Opening hour.</td>
-</tr>
-<tr>
-<td><code>openUntil</code></td>
-<td><code>string</code></td>
-<td>Closing hour.</td>
-</tr>
-<tr>
-<td><code>isDeleted</code></td>
-<td><code>bool</code></td>
-<td>Indicates if resource is deleted.</td>
+<td>End of month date.</td>
 </tr>
 </tbody>
 </table>

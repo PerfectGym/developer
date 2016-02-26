@@ -77,7 +77,15 @@
     "title": "Contract details",
     
     "url": "/api/contracts/contractdetails/",
-    "body": " Contract details Contract details is detaild representation of single user contract.    Contract details properties Retrive detailed information about specyfic user contract.    Contract details properties Contract details holds the same data as Contract plus some detailed features of a contract. Only contract details specyfic properties are described here.    Name Type Description     isCurrent bool  true if contract is user's current contract, false otherwise.   membership Membership Contract's membership.   paymentPlan Payment paln Contract's payment plan.   discounts array An array of discount objects representing discounts applied to contract.     Retrive detailed information about specyfic user contract. GET Contracts/Contract  Returns detailed user contract informations.  Parameters    Name Type Description     contractId long  Required. Contract identifier.     Example request In this example we fetch user contract with id = 10358 detailed information.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Contracts/Contract?contractId=10358   Example response Status: 200 OK  { \"elements\": [ { \"id\": 10358, \"timestamp\": 350287, \"signUpDate\": \"2016-01-26T00:00:00\", \"startDate\": \"2016-01-26T00:00:00\", \"cancelDate\": \"\", \"endDate\": \"\", \"membership\": { \"id\": 1, \"timestamp\": 349423, \"name\": \"Open\", \"isActive\": true, \"isDeleted\": false }, \"paymentPlan\": { \"id\": 44, \"timestamp\": 447623, \"name\": \"Open 24m\", \"isActive\": true, \"isAddOnPaymentPlan\": false, \"isDeleted\": false }, \"discounts\": [ { \"id\": 10, \"isActive\": true, \"name\": \"50%\", \"administartionFeeDiscountType\": \"ValueDiscount\", \"joiningFeeDiscountType\": \"None\", \"membershipFeeDiscountType\": \"PercentDiscount\", \"administartionFeeDiscountValue\": 0, \"joiningFeeDiscountValue\": \"\", \"membershipFeeDiscountValue\": 50 } ], \"isActive\": true, \"isDeleted\": false } ] } "
+    "body": " Contract details Contract details is detaild representation of single user contract.    Contract details properties Retrive detailed information about specyfic user contract.    Contract details properties Contract details holds the same data as Contract plus some detailed features of a contract. Only contract details specyfic properties are described here.    Name Type Description     isCurrent bool  true if contract is user's current contract, false otherwise.   membership Membership Contract's membership.   paymentPlan Payment paln Contract's payment plan.   discounts array An array of discount objects representing discounts applied to contract.     Retrive detailed information about specyfic user contract. GET Contracts/Contract  Returns detailed user contract informations.  Parameters    Name Type Description     contractId long  Required. Contract identifier.     Example request In this example we fetch user contract with id = 10358 detailed information.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Contracts/Contract?contractId=10358   Example response Status: 200 OK  { \"elements\": [ { \"id\": 10358, \"timestamp\": 350287, \"signUpDate\": \"2016-01-26T00:00:00\", \"startDate\": \"2016-01-26T00:00:00\", \"cancelDate\": \"\", \"endDate\": \"\", \"membership\": { \"id\": 1, \"timestamp\": 349423, \"name\": \"Open\", \"isActive\": true, \"isDeleted\": false }, \"paymentPlan\": { \"id\": 44, \"timestamp\": 447623, \"name\": \"Open 24m\", \"isActive\": true, \"isAddOnPaymentPlan\": false, \"isDeleted\": false }, \"discounts\": [ { \"id\": 10, \"isActive\": true, \"name\": \"50%\", \"administartionFeeDiscountType\": \"ValueDiscount\", \"joiningFeeDiscountType\": \"None\", \"membershipFeeDiscountType\": \"PercentDiscount\", \"administartionFeeDiscountValue\": 0, \"joiningFeeDiscountValue\": \"\", \"membershipFeeDiscountValue\": 50 } ], \"isCurrent\": true, \"isActive\": true, \"isDeleted\": false } ] } "
+  },
+  
+  
+  {
+    "title": "Contract freezing",
+    
+    "url": "/api/contracts/contractfreezing/",
+    "body": " Contract freezing This API lest you freeze user contract.  Execute contract freeze   Execute contract freeze POST Contracts/Freeze  Request freezes user contract.  Parameters    Name Type Description     contractId long  Required. Identifier of a contract to be frozen.     Body parameters    Name Type Description     freezeTypeId long Freeze type to be applied identifier.   reasonId long Freeze reason identifier.   startDate string Requested freeze start date.   endDate string Requested freeze end date.     Response Contract details if freeze is successful, or collection of errors with freeze error codes otherwise.  Example request In this example we freeze contract with id = 10358 using freeze type with id = 7. Contract will be suspended from 2016-04-01 till 2016-04-07  curl -X POST -H \"Authorization: Bearer $ACCESS_TOKEN\" -H \"Content-Type: application/json\" -d '{ \"freezeTypeId\":7, \"reasonId\": 1, \"startDate\": \"2016-04-01T00:00:00\", \"endDate\": \"2016-04-07T00:00:00\" }' http://yoursubdomain.perfectgym.com/api/Contracts/Freeze?contractId=10358   Example response Status: 200 OK  { \"elements\": [ { \"id\": 10358, \"timestamp\": 350287, \"signUpDate\": \"2016-01-26T00:00:00\", \"startDate\": \"2016-01-26T00:00:00\", \"cancelDate\": \"\", \"endDate\": \"\", \"membership\": { \"id\": 1, \"timestamp\": 349423, \"name\": \"Open\", \"isActive\": true, \"isDeleted\": false }, \"paymentPlan\": { \"id\": 44, \"timestamp\": 447623, \"name\": \"Open 24m\", \"isActive\": true, \"isAddOnPaymentPlan\": false, \"isDeleted\": false }, \"discounts\": [ { \"id\": 10, \"isActive\": true, \"name\": \"50%\", \"administartionFeeDiscountType\": \"ValueDiscount\", \"joiningFeeDiscountType\": \"None\", \"membershipFeeDiscountType\": \"PercentDiscount\", \"administartionFeeDiscountValue\": 0, \"joiningFeeDiscountValue\": \"\", \"membershipFeeDiscountValue\": 50 } ], \"isCurrent\": true, \"isActive\": true, \"isDeleted\": false } ] }   Example error response Freeze time range greater then freeze type maximumInterval generates following error: Status: 400 Bad Request  { \"errors \": [ { \"message\": \"Freeze only for 2 - 8 days, not 13\", \"property\": \"\", \"code\": \"InvalidFreezeParameters\" } ] } "
   },
   
   
@@ -86,6 +94,30 @@
     
     "url": "/api/contracts/contracts/",
     "body": " Contracts Contract is a summary representation of single user contract.   Contract properties List user contracts    Contract properties Contract is described by the following properties    Name Type Description     id long Unique identifier of contract.   timestamp long Timestamp. Indicates when resource was last modified.   signDate string Contract's sign date.   startDate string Contract's start date.   cancelDate string Contract's cancel date.   endDate string Contract's end date.   isActive bool Indicates if contract is marked as active.   isDeleted bool Indicates if resource is deleted.     List user contracts GET Contracts/Contracts  Returns paginated list of user contracts.  Parameters    Name Type Description     userId long  Required. User identifier. Request returns contracts assigned to user identified by userId.     Example request In this example we fetch list of contracts assigned to user identified with id = 236  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Contracts/Contracts?userId=236   Example response Status: 200 OK  { \"elements\": [ { \"id\": 10358, \"timestamp\": 350287, \"signUpDate\": \"2016-01-26T00:00:00\", \"startDate\": \"2016-01-26T00:00:00\", \"cancelDate\": \"\", \"endDate\": \"\", \"isActive\": true, \"isDeleted\": false } ] } "
+  },
+  
+  
+  {
+    "title": "Freeze reasons",
+    
+    "url": "/api/contracts/freezereasons/",
+    "body": " Freeze reasons Freeze reason represent a reason user wants to suspend membership contract.   Freeze reason properties List available freeze reasons.    Freeze reason properties Freeze reason is described by the following properties    Name Type Description     id long Freeze reason identifier.   name string Freeze reason name.     List available freeze reasons. GET Contracts/FreezeReasons  Returns list of available freeze reasons.  Example request In this example we fetch all available freeze reasons.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Contracts/FreezeReasons   Example response Status: 200 OK  { \"elements\": [ { \"id\": 1, \"name\": \"Holiday\" }, { \"id\": 2, \"name\": \"Injury\" }, { \"id\": 3, \"name\": \"Medical\" }, { \"id\": 4, \"name\": \"Other\" }, { \"id\": 5, \"name\": \"Pregnancy\" } ] } "
+  },
+  
+  
+  {
+    "title": "Freeze type details",
+    
+    "url": "/api/contracts/freezetypedetails/",
+    "body": " Freeze type details Freeze type details is detaild representation of single freeze type.    Freeze type details properties Retrive detailed information about specyfic freeze type.    Freeze type details properties Freeze type details holds the same data as Freeze type plus some detailed features of a freeze type. Only freeze type details specyfic properties are described here.    Name Type Description     freezeFee decimal Freeze fee.   availableStartDates array An array of start dates objects representing dates freeze can start.     Retrive detailed information about specyfic freeze type. GET Contracts/FreezeType  Returns detailed freeze type informations.  Parameters    Name Type Description     freezeTypeId long  Required. Freeze type identifier.   contractId long  Required. Contract to be frozen identifier.     Example request In this example we fetch detaild informations about freeze type with id = 7. Freeze is to be aplied to contract with id = 10358.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Contracts/FreezeType?freezeTypeId=7&amp;contractId=10358   Example response Status: 200 OK  { \"elements\": [ { \"freezeFee\": 1, \"availableStartDates\": [ { \"year\": 2016, \"month\": 4, \"startMonthDate\": \"2016-04-01T00:00:00\", \"endMonthDate\": \"2016-04-30T23:59:59\" }, { \"year\": 2016, \"month\": 5, \"startMonthDate\": \"2016-05-01T00:00:00\", \"endMonthDate\": \"2016-05-31T23:59:59\" }, { \"year\": 2016, \"month\": 6, \"startMonthDate\": \"2016-06-01T00:00:00\", \"endMonthDate\": \"2016-06-30T23:59:59\" } ], \"name\": \"Daily Freeze\", \"isActive\": true, \"isSystem\": false, \"fixedFee\": 1, \"administrationFee\": 25, \"freezePeriod\": \"Day\", \"id\": 7, \"timestamp\": 0 } ] } "
+  },
+  
+  
+  {
+    "title": "Freeze types",
+    
+    "url": "/api/contracts/freezetypes/",
+    "body": " Freeze types Freeze type is a summary representation of contract freeze parameters.   Freeze type properties List available freeze types for given contract.    Freeze type properties Freeze type is described by the following properties    Name Type Description     id long Unique identifier of freeze type.   name string Freeze type name.   isActive bool  true if freeze type is active, false otherwise.   freezePeriod string Freeze period. Possible values:  Day Month     minimumInterval int Minimum time interval freeze has to last (in units represented with freezePeriod).   maximumIntarval int Maximum time interval freeze can last (in units represented with freezePeriod).   fixedFee decimal Freeze fixed fee.   administrationFee decimal Freeze administration fee.   isDeleted bool Indicates if resource is deleted.   timestamp long Timestamp. Indicates when resource was last modified.     List available freeze types for given contract. GET Contracts/FreezeTypes  Returns list of available freeze types.  Parameters    Name Type Description     contractId long  Required. Contract identifier. Request returns freeze types available for contract identified with conractId parameter..     Example request In this example we fetch all available freeze types.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/api/Contracts/FreezeTypes?contractId=10358   Example response Status: 200 OK  { \"elements\": [ { \"name\": \"Daily Freeze\", \"isActive\": true, \"isSystem\": false, \"fixedFee\": 1, \"administrationFee\": 25, \"freezePeriod\": \"Day\", \"id\": 7, \"timestamp\": 0 }, { \"name\": \"Monthly Freeze\", \"isActive\": true, \"isSystem\": false, \"fixedFee\": 1, \"administrationFee\": 20, \"freezePeriod\": \"Month\", \"id\": 6, \"timestamp\": 0 } ] } "
   },
   
   
@@ -426,6 +458,14 @@
   
   
   {
+    "title": "Freeze start date",
+    
+    "url": "/appendix/datatypes/freezestartdate/",
+    "body": " Freeze start date Represents a contract freeze possible start date.  Freeze start date properties Freeze start date is described by the following properties    Name Type Description     year int Year.   month int Month.   startMonthDate string Start of month date.   endMonthDate string End of month date.   "
+  },
+  
+  
+  {
     "title": "Opening hours",
     
     "url": "/appendix/datatypes/openinghours/",
@@ -526,6 +566,14 @@
     
     "url": "/appendix/errorcodes/directdebiterrorcodes/",
     "body": " Direct debit error codes    Code Type Description     InvalidIBAN string IBAN account number is invalid.   "
+  },
+  
+  
+  {
+    "title": "Freeze contract error codes",
+    
+    "url": "/appendix/errorcodes/freezecontracterrorcode/",
+    "body": " Freeze contract error codes    Code Type Description     InvalidFreezeParameters string Freeze parameters are invalid.   "
   },
   
   

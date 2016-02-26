@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Cities | Perfectgym Developer Guide</title>
+  <title>Freeze type details | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,19 +53,22 @@
       
 
 <h1>
-<a id="cities" class="anchor" href="#cities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cities</h1>
+<a id="freeze-type-details" class="anchor" href="#freeze-type-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Freeze type details</h1>
+
+<p>Freeze type details is detaild representation of single freeze type. </p>
 
 <ul id="markdown-toc">
-<li><a href="#city-properties" id="markdown-toc-city-properties">
-City properties</a></li>
-<li><a href="#list-cities-with-given-name" id="markdown-toc-list-cities-with-given-name">List cities with given name</a></li>
+<li><a href="#freeze-type-details-properties" id="markdown-toc-freeze-type-details-properties">
+Freeze type details properties</a></li>
+<li><a href="#retrive-detailed-information-about-specyfic-freeze-type" id="markdown-toc-retrive-detailed-information-about-specyfic-freeze-type">Retrive detailed information about specyfic freeze type.</a></li>
 </ul>
 
 <h2>
-<a id="city-properties" class="anchor" href="#city-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="properties"></a>City properties</h2>
+<a id="freeze-type-details-properties" class="anchor" href="#freeze-type-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>Freeze type details properties</h2>
 
-<p>Country is described by the following properties</p>
+<p>Freeze type details holds the same data as <a href="/api/contracts/freezetypes#properties">Freeze type</a> plus some detailed features of a freeze type.
+Only freeze type details specyfic properties are described here.</p>
 
 <table>
 <thead>
@@ -77,30 +80,25 @@ City properties</a></li>
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of city.</td>
+<td><code>freezeFee</code></td>
+<td><code>decimal</code></td>
+<td>Freeze fee.</td>
 </tr>
 <tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>City name.</td>
-</tr>
-<tr>
-<td><code>country</code></td>
-<td><a href="/api/miscellaneous/countries#properties">Country</a></td>
-<td>Contry city is located in.</td>
+<td><code>availableStartDates</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/appendix/datatypes/freezestartdate">start dates</a> objects representing dates freeze can start.</td>
 </tr>
 </tbody>
 </table>
 
 <h2>
-<a id="list-cities-with-given-name" class="anchor" href="#list-cities-with-given-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>List cities with given name</h2>
+<a id="retrive-detailed-information-about-specyfic-freeze-type" class="anchor" href="#retrive-detailed-information-about-specyfic-freeze-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed information about specyfic freeze type.</h2>
 
-<pre><code>GET Geo/Cities
+<pre><code>GET Contracts/FreezeType
 </code></pre>
 
-<p>Returns paginated cities list, in country identified by <code>countryId</code>.</p>
+<p>Returns detailed freeze type informations.</p>
 
 <h3>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
@@ -115,20 +113,16 @@ City properties</a></li>
 </thead>
 <tbody>
 <tr>
-<td><code>countryId</code></td>
+<td><code>freezeTypeId</code></td>
 <td><code>long</code></td>
 <td>
-<strong>Required</strong>. Country identifier.</td>
+<strong>Required</strong>. Freeze type identifier.</td>
 </tr>
 <tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>City name. Request returns cities with name containing <code>name</code> parameter value.</td>
-</tr>
-<tr>
-<td><code>page</code></td>
-<td><code>int</code></td>
-<td>Page number, defaults to <code>1</code>.</td>
+<td><code>contractId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Contract to be frozen identifier.</td>
 </tr>
 </tbody>
 </table>
@@ -136,15 +130,13 @@ City properties</a></li>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all polish cities that name contains <code>Warszawa</code> string.</p>
+<p>In this example we fetch detaild informations about freeze type with <code>id</code> = <code>7</code>. Freeze is to be aplied to contract with <code>id</code> = <code>10358</code>.</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Geo/Cities
-        ?countryId=187
-        &amp;name=Warszawa
+     http://yoursubdomain.perfectgym.com/api/Contracts/FreezeType?freezeTypeId=7&amp;contractId=10358       
 </pre>
 
 <h3>
@@ -157,24 +149,35 @@ curl -i
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1695965</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bukowno Warszawa"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PL"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"nativeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Polska"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1722157</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PL"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"nativeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Polska"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"freezeFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"availableStartDates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"month"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"startMonthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"endMonthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-30T23:59:59"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"month"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"startMonthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"endMonthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-31T23:59:59"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"month"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"startMonthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"endMonthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-30T23:59:59"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily Freeze"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isSystem"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"fixedFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"administrationFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"freezePeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
