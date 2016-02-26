@@ -38,9 +38,114 @@ module GitHub
             "paymentPlan" => PAYMENTPLAN_OPEN24M,  
             "discounts" => [
               DISCOUNT
-            ],          
+            ],  
+            "isCurrent": true,        
             "isActive": true,
             "isDeleted": false
+          }
+        ]        
+      }   
+
+
+      FREEZEREASONS_RESPONSE ||= {
+
+        "elements" => [      
+          {
+            "id": 1,
+            "name": "Holiday"
+          },
+          {
+            "id": 2,
+            "name": "Injury"
+          },
+          {
+            "id": 3,
+            "name": "Medical"
+          },
+          {
+            "id": 4,
+            "name": "Other"
+          },
+          {
+            "id": 5,
+            "name": "Pregnancy"
+          }                                
+        ]        
+      }   
+
+
+      FREEZETYPES_RESPONSE ||= {
+
+        "elements" => [      
+          {
+            "name": "Daily Freeze",
+            "isActive": true,
+            "isSystem": false,
+            "fixedFee": 1,
+            "administrationFee": 25,
+            "freezePeriod": "Day",
+            "id": 7,
+            "timestamp": 0,
+          },          
+          {
+            "name": "Monthly Freeze",
+            "isActive": true,
+            "isSystem": false,
+            "fixedFee": 1,
+            "administrationFee": 20,
+            "freezePeriod": "Month",
+            "id": 6,
+            "timestamp": 0,            
+          },          
+        ]        
+      }   
+
+
+      FREEZETYPEDETAILS_RESPONSE ||= {
+
+        "elements" => [      
+          {
+            "freezeFee": 1,
+            "availableStartDates": [
+              {
+                "year": 2016,
+                "month": 4,
+                "startMonthDate": "2016-04-01T00:00:00",
+                "endMonthDate": "2016-04-30T23:59:59"
+              },
+              {
+                "year": 2016,
+                "month": 5,
+                "startMonthDate": "2016-05-01T00:00:00",
+                "endMonthDate": "2016-05-31T23:59:59"
+              },
+              {
+                "year": 2016,
+                "month": 6,
+                "startMonthDate": "2016-06-01T00:00:00",
+                "endMonthDate": "2016-06-30T23:59:59"
+              }
+            ],
+            "name": "Daily Freeze",
+            "isActive": true,
+            "isSystem": false,
+            "fixedFee": 1,
+            "administrationFee": 25,
+            "freezePeriod": "Day",
+            "id": 7,
+            "timestamp": 0,
+          },                    
+        ]        
+      }   
+
+
+      CONTRACT_ERROR_RESPONSE ||= {
+
+        "errors " => [
+           {
+              "message": "Freeze only for 2 - 8 days, not 13",
+              "property": "",
+              "code": "InvalidFreezeParameters"
           }
         ]        
       }   
