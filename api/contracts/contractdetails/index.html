@@ -100,6 +100,11 @@ Only contract details specyfic properties are described here.</p>
 <td><code>array</code></td>
 <td>An array of <a href="/api/paymentplans/discounts#properties">discount</a> objects representing discounts applied to contract.</td>
 </tr>
+<tr>
+<td><code>freezes</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/appendix/datatypes/contractfreeze">freeze</a> objects representing freezes applied to contract.</td>
+</tr>
 </tbody>
 </table>
 
@@ -187,6 +192,9 @@ curl -i
           </span><span class="nt">"joiningFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
           </span><span class="nt">"membershipFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"freezes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"isCurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">

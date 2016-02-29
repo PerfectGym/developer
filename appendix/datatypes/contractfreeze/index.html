@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Address | Perfectgym Developer Guide</title>
+  <title>Contract freeze | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,14 +53,14 @@
       
 
 <h1>
-<a id="address" class="anchor" href="#address" aria-hidden="true"><span class="octicon octicon-link"></span></a>Address</h1>
+<a id="contract-freeze" class="anchor" href="#contract-freeze" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contract freeze</h1>
 
-<p>Represents an address and is used accress all PerfectGym API.</p>
+<p>Represents a contract freeze.</p>
 
 <h2>
-<a id="address-properties" class="anchor" href="#address-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Address properties</h2>
+<a id="contract-freeze-properties" class="anchor" href="#contract-freeze-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contract freeze properties</h2>
 
-<p>Address is described by the following properties</p>
+<p>Contract freeze is described by the following properties</p>
 
 <table>
 <thead>
@@ -72,29 +72,39 @@
 </thead>
 <tbody>
 <tr>
-<td><code>line1</code></td>
-<td><code>string</code></td>
-<td>Line 1 of the address e.g. street etc.</td>
+<td><code>id</code></td>
+<td><code>long</code></td>
+<td>Unique identifier of contract freeze.</td>
 </tr>
 <tr>
-<td><code>line2</code></td>
+<td><code>startDate</code></td>
 <td><code>string</code></td>
-<td>Line 2 of the address e.g. suite, apartament number etc.</td>
+<td>Contract freeze start date.</td>
 </tr>
 <tr>
-<td><code>postalCode</code></td>
+<td><code>endDate</code></td>
 <td><code>string</code></td>
-<td>Zip code or equivalent.</td>
+<td>Contract freeze edn date.</td>
 </tr>
 <tr>
-<td><code>city</code></td>
-<td><code>string</code></td>
-<td>City name.</td>
+<td><code>reason</code></td>
+<td><a href="/api/contracts/freezereasons#properties">Reason</a></td>
+<td>Contract freeze reason.</td>
 </tr>
 <tr>
-<td><code>country</code></td>
-<td><code>string</code></td>
-<td>Country name.</td>
+<td><code>type</code></td>
+<td><a href="/api/contracts/freezetypedetails#properties">Type</a></td>
+<td>Contract freeze type.</td>
+</tr>
+<tr>
+<td><code>isDeleted</code></td>
+<td><code>bool</code></td>
+<td>Indicates if resource is deleted.</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp. Indicates when resource was last modified.</td>
 </tr>
 </tbody>
 </table>
