@@ -21,6 +21,7 @@ Name        	| Type    						| Description
 `membership`   	|[Membership][Membership]   	| Contract's membership.
 `paymentPlan`   |[Payment paln][PaymentPlan]   	| Contract's payment plan.
 `discounts`		|`array`						| An array of [discount][Discount] objects representing discounts applied to contract.
+`freezes`		|`array`						| An array of [freeze][Freeze] objects representing freezes applied to contract.
 
 
 
@@ -62,4 +63,5 @@ curl -i
 [Membership]: /api/memberships/memberships#properties
 [PaymentPlan]: /api/paymentplans/paymentplans#properties
 [Discount]: /api/paymentplans/discounts#properties
+[Freeze]: /appendix/datatypes/contractfreeze
 

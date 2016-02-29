@@ -61,7 +61,7 @@ curl -X POST
 ### Example response
 
 <%= headers 200 %>
-<%= json(:contract_response) %>
+<%= json(:contract_freeze_response) %>
 
 
 ### Example error response

@@ -39,6 +39,57 @@ module GitHub
             "discounts" => [
               DISCOUNT
             ],  
+            "freezes" => [
+              ],
+            "isCurrent": true,        
+            "isActive": true,
+            "isDeleted": false
+          }
+        ]        
+      }   
+
+      CONTRACT_FREEZE_RESPONSE ||= {
+
+        "elements" => [
+           {
+            "id": 10358,
+            "timestamp": 350287,
+            "signUpDate": "2016-01-26T00:00:00",
+            "startDate": "2016-01-26T00:00:00",
+            "cancelDate": "",
+            "endDate": "",
+            "membership" => MEMBERSHIP_OPEN,
+            "paymentPlan" => PAYMENTPLAN_OPEN24M,  
+            "discounts" => [
+              DISCOUNT
+            ],  
+            "freezes" => [
+              {
+                "startDate": "2016-04-01T00:00:00",
+                "endDate": "2016-04-07T23:59:59",
+                "fee": 1,
+                "status": "NotStarted",
+                "reason": {
+                  "id": 1,
+                  "name": "Holiday"
+                },
+                "type": {
+                  "name": "Daily Freeze",
+                  "isActive": true,
+                  "fixedFee": 1,
+                  "administrationFee": 25,
+                  "freezePeriod": "Day",
+                  "minimumInterval": 2,
+                  "maximumInterval": 8,
+                  "id": 7,
+                  "timestamp": 0,
+                  "isDeleted": false
+                },
+                "id": 175,
+                "timestamp": 692507,
+                "isDeleted": false
+              },
+            ],
             "isCurrent": true,        
             "isActive": true,
             "isDeleted": false
