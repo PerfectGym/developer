@@ -21,19 +21,20 @@ Request creates new user and adds it to your company user's list.
 
 Name     	    | Type       		| Description
 ----------------|-------------------|------------
-`personalId`    |`string`    		| **Must be unique**. User personal identifier.
+`email`     	|`string`    		| **Required**. User email address.
+`homeClubId`	|`long`    			| **Required**. User home club identifier.
+`birthDate`     |`string`    		| **Required**. User birth date.
+`personalId`    |`string`    		| User personal identifier.
 `firstName`     |`string`    		| User first name.
 `lastName`     	|`string`    		| User last name.
-`email`     	|`string`    		| **Must be unique**. User email address.
-`phone`     	|`string`    		| **Must be unique**. User phone number.
+`phone`     	|`string`    		| User phone number.
 `idCardName`	|`string`			| User identity card name.
 `idCardNumber`  |`string`			| User identity card number.
 `legalGuardian`	|`string`			| User legal guardian full name.
-`birthDate`     |`string`    		| User birth date.
 `isForeigner`	|`bool`				| Indicates if user is a forigner.
 `sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     	|[Address][Address] | User address.
-`homeClubId`	|`long`    			| User home club identifier.
+
 
 
 
