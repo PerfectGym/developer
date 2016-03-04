@@ -83,10 +83,27 @@
 </thead>
 <tbody>
 <tr>
-<td><code>personalId</code></td>
+<td><code>email</code></td>
 <td><code>string</code></td>
 <td>
-<strong>Must be unique</strong>. User personal identifier.</td>
+<strong>Required</strong>. User email address.</td>
+</tr>
+<tr>
+<td><code>homeClubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. User home club identifier.</td>
+</tr>
+<tr>
+<td><code>birthDate</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. User birth date.</td>
+</tr>
+<tr>
+<td><code>personalId</code></td>
+<td><code>string</code></td>
+<td>User personal identifier.</td>
 </tr>
 <tr>
 <td><code>firstName</code></td>
@@ -99,16 +116,9 @@
 <td>User last name.</td>
 </tr>
 <tr>
-<td><code>email</code></td>
-<td><code>string</code></td>
-<td>
-<strong>Must be unique</strong>. User email address.</td>
-</tr>
-<tr>
 <td><code>phone</code></td>
 <td><code>string</code></td>
-<td>
-<strong>Must be unique</strong>. User phone number.</td>
+<td>User phone number.</td>
 </tr>
 <tr>
 <td><code>idCardName</code></td>
@@ -124,11 +134,6 @@
 <td><code>legalGuardian</code></td>
 <td><code>string</code></td>
 <td>User legal guardian full name.</td>
-</tr>
-<tr>
-<td><code>birthDate</code></td>
-<td><code>string</code></td>
-<td>User birth date.</td>
 </tr>
 <tr>
 <td><code>isForeigner</code></td>
@@ -148,11 +153,6 @@
 <td><code>address</code></td>
 <td><a href="/appendix/datatypes/address">Address</a></td>
 <td>User address.</td>
-</tr>
-<tr>
-<td><code>homeClubId</code></td>
-<td><code>long</code></td>
-<td>User home club identifier.</td>
 </tr>
 </tbody>
 </table>
