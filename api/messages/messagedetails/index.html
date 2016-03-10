@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Memberships | Perfectgym Developer Guide</title>
+  <title>Message details | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,24 +53,22 @@
       
 
 <h1>
-<a id="memberships" class="anchor" href="#memberships" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memberships</h1>
+<a id="message-details" class="anchor" href="#message-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Message details</h1>
 
-<p>Each user to complete club joining process must select membership type. Membership type states 
-which clubs user can access in which hours and club zones that can be used by the user.
-Membership is a summary representation of single membership type in your company.</p>
+<p>Message details is detaild representation of single message directed to a user. </p>
 
 <ul id="markdown-toc">
-<li><a href="#membership-properties" id="markdown-toc-membership-properties">
-Membership properties</a></li>
-<li><a href="#list-memberships-with-timestamp" id="markdown-toc-list-memberships-with-timestamp">List memberships with timestamp</a></li>
-<li><a href="#list-memberships-available-in-a-given-club" id="markdown-toc-list-memberships-available-in-a-given-club">List memberships available in a given club</a></li>
+<li><a href="#message-details-properties" id="markdown-toc-message-details-properties">
+Message details properties</a></li>
+<li><a href="#retrive-detailed-message-information" id="markdown-toc-retrive-detailed-message-information">Retrive detailed message information.</a></li>
 </ul>
 
 <h2>
-<a id="membership-properties" class="anchor" href="#membership-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="properties"></a>Membership properties</h2>
+<a id="message-details-properties" class="anchor" href="#message-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="properties"></a>Message details properties</h2>
 
-<p>Membership is described by the following properties</p>
+<p>Message details holds the same data as <a href="/api/messages/messages#properties">Message</a> plus some detailed features of a message.
+Only message details specyfic properties are described here.</p>
 
 <table>
 <thead>
@@ -82,40 +80,43 @@ Membership properties</a></li>
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of membership.</td>
-</tr>
-<tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp. Indicates when resource was last modified.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
+<td><code>text</code></td>
 <td><code>string</code></td>
-<td>Membership's name.</td>
+<td>Message text.</td>
 </tr>
 <tr>
-<td><code>isActive</code></td>
-<td><code>bool</code></td>
-<td>Indicates if membership is marked as active.</td>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Message status. <br><strong>Possible values</strong>: <br><ul>
+<li>Planned</li>
+<li>InProgress</li>
+<li>Done</li>
+<li>Postponed</li>
+<li>Failed</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>isDeleted</code></td>
-<td><code>bool</code></td>
-<td>Indicates if resource is deleted.</td>
+<td><code>read</code></td>
+<td><code>string</code></td>
+<td>
+<code>true</code> if message has been read, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>comment</code></td>
+<td><code>string</code></td>
+<td>Message comment.</td>
 </tr>
 </tbody>
 </table>
 
 <h2>
-<a id="list-memberships-with-timestamp" class="anchor" href="#list-memberships-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List memberships with timestamp</h2>
+<a id="retrive-detailed-message-information" class="anchor" href="#retrive-detailed-message-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed message information.</h2>
 
-<pre><code>GET Memberships/Memberships
+<pre><code>GET Messages/Message
 </code></pre>
 
-<p>Returns paginated membership list.</p>
+<p>Returns detailed message informations.</p>
 
 <h3>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
@@ -130,9 +131,11 @@ Membership properties</a></li>
 </thead>
 <tbody>
 <tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp. Request returns memberships with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
+<td>
+<code>messageId      |</code>long`</td>
+<td>
+<strong>Required</strong>. Message identifier.</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -140,14 +143,13 @@ Membership properties</a></li>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of all memberships (<code>timestamp</code> parameter defaults to <code>0</code>) 
-available in a company.</p>
+<p>In this example we fetch message with <code>id</code> = <code>10252</code> detailed information.</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships?timestamp=0
+     http://yoursubdomain.perfectgym.com/api/Messages/Message?messageId=10252       
 </pre>
 
 <h3>
@@ -158,107 +160,15 @@ curl -i
 
 
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elemenst"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">167179</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weekend"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">167181</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lunch"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">188113</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Early Bird "</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">349423</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-
-<h2>
-<a id="list-memberships-available-in-a-given-club" class="anchor" href="#list-memberships-available-in-a-given-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>List memberships available in a given club</h2>
-
-<pre><code>GET Memberships/Memberships
-</code></pre>
-
-<p>Returns paginated memberships list available in given club.</p>
-
-<h3>
-<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>clubId</code></td>
-<td><code>long</code></td>
-<td>
-<strong>Required</strong>. Club identifier.</td>
-</tr>
-<tr>
-<td><code>page</code></td>
-<td><code>int</code></td>
-<td>Page number, defaults to <code>1</code>.</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
-
-<p>In this example we fetch list of all memberships available in club identified with <code>clubId</code> = <code>16</code>.</p>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships?clubId=16
-</pre>
-
-<h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
-
-<pre class="highlight highlight-headers"><code>Status: 200 OK
-</code></pre>
-
-
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elemenst"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">188113</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Early Bird "</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">349423</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dear club member, you have left your shoes in our club. Please collect it at a reception desk."</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Planned"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"read"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shoes"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10252</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">692590</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
