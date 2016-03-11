@@ -164,6 +164,11 @@ User details properties</a></li>
 <td>User legal guardian full name.</td>
 </tr>
 <tr>
+<td><code>photoUrl</code></td>
+<td><code>string</code></td>
+<td>User photo url.</td>
+</tr>
+<tr>
 <td><code>newsletterAgreement</code></td>
 <td><code>bool</code></td>
 <td>User identity card name.</td>
@@ -179,6 +184,21 @@ User details properties</a></li>
 <td>User address.</td>
 </tr>
 <tr>
+<td><code>contracts</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/api/contracts/contractdetails#properties">Contract</a> objects, each representing user's contract.</td>
+</tr>
+<tr>
+<td><code>directDebit</code></td>
+<td><a href="/appendix/datatypes/directdebit">DirectDebit</a></td>
+<td>User direct debit information.</td>
+</tr>
+<tr>
+<td><code>homeClubId</code></td>
+<td><code>long</code></td>
+<td>User home club identifier.</td>
+</tr>
+<tr>
 <td><code>isActive</code></td>
 <td><code>bool</code></td>
 <td>Indicates if cuser is marked as active.</td>
@@ -187,11 +207,6 @@ User details properties</a></li>
 <td><code>isDeleted</code></td>
 <td><code>bool</code></td>
 <td>Indicates if resource is deleted.</td>
-</tr>
-<tr>
-<td><code>contracts</code></td>
-<td><code>array</code></td>
-<td>An array of <a href="/api/contracts/contractdetails#properties">Contract</a> objects, each representing user's contract.</td>
 </tr>
 </tbody>
 </table>
