@@ -13,30 +13,34 @@ User details is detaild representation of single user of your gym.
 
 User is described by the following properties
 
-Name            				| Type      			| Description
---------------------------------|-----------------------|----------------------
-`id`            				|`long`     			| Unique identifier of user.
-`timestamp`    					|`long`     			| Timestamp. Indicates when resource was last modified.
-`personalId`					|`string`				| User personal identifier.
-`number`          				|`string`   			| User number.
-`cardNumber`       				|`string`   			| User membership card number.
-`firstName`     				|`string`   			| User first name.
-`lastName`        				|`string`   			| User last name.
-`email`          				|`string`   			| User email address.
-`photoUrl`						|`string`				| User photo URL.
-`birthDate`         			|`string`   			| User birth date.
-`isForeigner`					|`bool`					| Indicates if user is a forigner.
-`sex`          					|`string`   			| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
-`phoneNumber`      				|`string`   			| User phone number.
-`idCardName`					|`string`				| User identity card name.
-`idCardNumber`  				|`string`				| User identity card number.
-`legalGuardian`  				|`string`				| User legal guardian full name.
-`newsletterAgreement`			|`bool`					| User identity card name.
-`termsAndConditionsAgreement`  	|`bool`					| User identity card number.
-`address`           			|[Address][Address]     | User address.
-`isActive`     					|`bool`     			| Indicates if cuser is marked as active.
-`isDeleted`     				|`bool`                 | Indicates if resource is deleted.
-`contracts`   					|`array`   				| An array of [Contract][Contract] objects, each representing user's contract.
+Name            				| Type      				| Description
+--------------------------------|---------------------------|----------------------
+`id`            				|`long`     				| Unique identifier of user.
+`timestamp`    					|`long`     				| Timestamp. Indicates when resource was last modified.
+`personalId`					|`string`					| User personal identifier.
+`number`          				|`string`   				| User number.
+`cardNumber`       				|`string`   				| User membership card number.
+`firstName`     				|`string`   				| User first name.
+`lastName`        				|`string`   				| User last name.
+`email`          				|`string`   				| User email address.
+`photoUrl`						|`string`					| User photo URL.
+`birthDate`         			|`string`   				| User birth date.
+`isForeigner`					|`bool`						| Indicates if user is a forigner.
+`sex`          					|`string`   				| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
+`phoneNumber`      				|`string`   				| User phone number.
+`idCardName`					|`string`					| User identity card name.
+`idCardNumber`  				|`string`					| User identity card number.
+`legalGuardian`  				|`string`					| User legal guardian full name.
+`photoUrl`		  				|`string`					| User photo url.
+`newsletterAgreement`			|`bool`						| User identity card name.
+`termsAndConditionsAgreement`  	|`bool`						| User identity card number.
+`address`           			|[Address][Address]     	| User address.
+`contracts`   					|`array`   					| An array of [Contract][Contract] objects, each representing user's contract.
+`directDebit`					|[DirectDebit][DirectDebit]	| User direct debit information.
+`homeClubId`					|`long`						| User home club identifier.
+`isActive`     					|`bool`     				| Indicates if cuser is marked as active.
+`isDeleted`     				|`bool`                 	| Indicates if resource is deleted.
+
 
 
 
@@ -110,3 +114,4 @@ curl -i
 
 [Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
+[DirectDebit]: /appendix/datatypes/directdebit
