@@ -18,6 +18,7 @@ Only contract details specyfic properties are described here.
 Name        	| Type    						| Description
 ----------------|-------------------------------|----------------------
 `isCurrent`		|`bool`							| `true` if contract is user's current contract, `false` otherwise.
+`documentUrl`	|`string`						| URL to contract PDF file signed by user.
 `membership`   	|[Membership][Membership]   	| Contract's membership.
 `paymentPlan`   |[Payment paln][PaymentPlan]   	| Contract's payment plan.
 `discounts`		|`array`						| An array of [discount][Discount] objects representing discounts applied to contract.
