@@ -75,7 +75,7 @@ curl -X POST
 
     POST Users/SignDirectDebit
 
-Request is used to sign direct debit agreement PDF document wit a user signature.
+Request is used to sign direct debit agreement PDF document with a user signature.
 
 
 ### Body parameters
@@ -89,7 +89,7 @@ Name     	    	| Type       		| Description
 
 ### Response
 
-[User details][UserDetailsProperties] including sign direct debit agreement URL.
+[User details][UserDetailsProperties] including signed direct debit agreement URL.
 
 
 ### Example request
