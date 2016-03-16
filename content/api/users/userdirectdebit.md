@@ -85,6 +85,8 @@ Name     	    	| Type       		| Description
 `contractId` 		|`long`  	  		| Contract unique identifier. User has to have valid contract to sign direct debit agreement.
 `languageCode`     	|`string`    		| Language identifier direct debit agreement should be translated to (for example EN, DE etc.).
 `signatureData`		|`string`	   		| Signature data `base64` encoded.
+`sourceIp`			|`string`			| IP address of client user signs direct debit agreement on.
+`comment`			|`string`			| Contract signing comment
 
 
 ### Response
@@ -104,7 +106,9 @@ curl -X POST
 	 -d '{
 	    "contractId": "10358",
 	    "languageCode": "EN",
-	    "signatureData": "... signature data ...",		
+	    "signatureData": "... signature data ...",	
+	    "sourceIp": "192.168.1.100",
+	    "comment": "Sample comment"	
 	}' 
 	http://yoursubdomain.perfectgym.com/api/Users/SignDirectDebit
 ```

@@ -122,6 +122,8 @@ Name     	    	| Type       		| Description
 `contractId` 		|`long`  	  		| Contract unique identifier.
 `languageCode`     	|`string`    		| Language identifier contract should be translated to (for example EN, DE etc.).
 `signatureData`		|`string`	   		| Signature data `base64` encoded.
+`sourceIp`			|`string`			| IP address of client user signs contract on.
+`comment`			|`string`			| Contract signing comment
 
 
 ### Response
@@ -142,6 +144,8 @@ curl -X POST
 	    "contractId": "10358",
 	    "languageCode": "EN",
 	    "signatureData": "... signature data ...",		
+	    "sourceIp": "192.168.1.100",
+	    "comment": "Sample comment"
 	}' 
 	http://yoursubdomain.perfectgym.com/api/Users/SignContract
 ```
