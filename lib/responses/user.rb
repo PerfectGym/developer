@@ -32,9 +32,28 @@ module GitHub
         "discounts" => [
           DISCOUNT
         ],          
+        "documentUrl": "",
         "isActive": true,
         "isDeleted": false
-      }
+      }      
+
+      CONTRACT_SIGNED ||= {
+        "id": 10358,
+        "timestamp": 350287,
+        "signUpDate": "2016-01-26T00:00:00",
+        "startDate": "2016-01-26T00:00:00",
+        "cancelDate": "",
+        "endDate": "",
+        "isCurrent": true,
+        "membership" => MEMBERSHIP_OPEN,
+        "paymentPlan" => PAYMENTPLAN_OPEN24M,  
+        "discounts" => [
+          DISCOUNT
+        ],          
+        "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=120",
+        "isActive": true,
+        "isDeleted": false
+      }      
 
 
       USER_RESPONSE ||= {
@@ -69,7 +88,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },       
           "homeClubId": 12,
           "isActive": true,
@@ -131,7 +151,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },       
           "homeClubId": 12,
           "isActive": true,
@@ -173,7 +194,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },                      
           "homeClubId": 12,
           "isActive": true,
@@ -215,7 +237,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },                 
           "homeClubId": 12,
           "isActive": true,
@@ -258,7 +281,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },                  
           "homeClubId": 12,
           "isActive": true,
@@ -268,7 +292,6 @@ module GitHub
           ]
         ]        
       }   
-
       
       USERNOCONTRACT_RESPONSE ||= {
 
@@ -302,12 +325,57 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },                  
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
           "contracts": [            
+          ]
+        ]        
+      }   
+
+      USERCONTRACTSIGNED_RESPONSE ||= {
+
+        "elements" => [
+          "id": 236,
+          "timestamp": 448035,
+          "personalId": "80010101234",
+          "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
+          "cardNumber": "",          
+          "firstName": "John",
+          "lastName": "Fibo",
+          "email": "john.fibo@perfectgym.pl",
+          "phone": "0048123456789",
+          "idCardName": "Passport",
+          "idCardNumber": "ABC 123456",
+          "legalGuardian": "",
+          "photoUrl": "",
+          "birthDate": "1978-06-01T00:00:00",
+          "isForeigner": false,
+          "sex": "Male",
+          "newsletterAgreement": false,
+          "termsAndConditionsAgreement": false,
+          "address": {
+            "country": "Poland",
+            "city": "Warszawa",
+            "postalCode": "02-962",
+            "line1": "ul. Przyczolkowa 334",  
+            "line2": ""
+          }, 
+          "directDebit": {
+            "accountNumber": "",
+            "ownerName": "",
+            "street": "",
+            "cityAndPostalCode": "",
+            "documentUrl": ""
+          },                  
+          "homeClubId": 12,
+          "isActive": true,
+          "isDeleted": false,
+          "contracts": [
+            CONTRACT_SIGNED
           ]
         ]        
       }   
@@ -345,13 +413,58 @@ module GitHub
             "accountNumber": "61 1090 1014 0000 0712 1981 2874",
             "ownerName": "John Fibo",
             "street": "Przyczółkowa 334",
-            "cityAndPostalCode": "02-962 Warszawa"
+            "cityAndPostalCode": "02-962 Warszawa",
+            "documentUrl": ""
           },                 
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
           "contracts": [
-            CONTRACT
+            CONTRACT_SIGNED
+          ]
+        ]        
+      }            
+
+      USERDIRECTDEBITSIGN_RESPONSE ||= {
+
+        "elements" => [
+          "id": 236,
+          "timestamp": 448035,
+          "personalId": "80010101234",
+          "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
+          "cardNumber": "",
+          "firstName": "John",
+          "lastName": "Fibo",
+          "email": "john.fibo@perfectgym.pl",
+          "phone": "0048123456789",
+          "idCardName": "Passport",
+          "idCardNumber": "ABC 123456",
+          "legalGuardian": "",
+          "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Photo?photoId=78",
+          "birthDate": "1978-06-01T00:00:00",
+          "isForeigner": false,
+          "sex": "Male",
+          "newsletterAgreement": false,
+          "termsAndConditionsAgreement": false,
+          "address": {
+            "country": "Poland",
+            "city": "Warszawa",
+            "postalCode": "02-962",
+            "line1": "ul. Przyczolkowa 334",  
+            "line2": ""
+          },  
+          "directDebit": {
+            "accountNumber": "61 1090 1014 0000 0712 1981 2874",
+            "ownerName": "John Fibo",
+            "street": "Przyczółkowa 334",
+            "cityAndPostalCode": "02-962 Warszawa",
+            "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=123"
+          },                 
+          "homeClubId": 12,
+          "isActive": true,
+          "isDeleted": false,
+          "contracts": [
+            CONTRACT_SIGNED
           ]
         ]        
       }            
@@ -389,13 +502,14 @@ module GitHub
             "accountNumber": "61 1090 1014 0000 0712 1981 2874",
             "ownerName": "John Fibo",
             "street": "Przyczółkowa 334",
-            "cityAndPostalCode": "02-962 Warszawa"
+            "cityAndPostalCode": "02-962 Warszawa",
+            "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=123"
           },                 
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
           "contracts": [
-            CONTRACT
+            CONTRACT_SIGNED
           ]
         ]        
       }   
@@ -433,13 +547,14 @@ module GitHub
             "accountNumber": "61 1090 1014 0000 0712 1981 2874",
             "ownerName": "John Fibo",
             "street": "Przyczółkowa 334",
-            "cityAndPostalCode": "02-962 Warszawa"
+            "cityAndPostalCode": "02-962 Warszawa",
+            "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=123"
           },                 
           "homeClubId": 12,
           "isActive": true,
           "isDeleted": false,
           "contracts": [
-            CONTRACT
+            CONTRACT_SIGNED
           ]
         ]        
       }   

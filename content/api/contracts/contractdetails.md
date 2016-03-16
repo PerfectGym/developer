@@ -18,6 +18,7 @@ Only contract details specyfic properties are described here.
 Name        	| Type    						| Description
 ----------------|-------------------------------|----------------------
 `isCurrent`		|`bool`							| `true` if contract is user's current contract, `false` otherwise.
+`documentUrl`	|`string`						| URL to contract agreement PDF file signed by user (for details see [contract agreement signing][ContractSigning]).
 `membership`   	|[Membership][Membership]   	| Contract's membership.
 `paymentPlan`   |[Payment paln][PaymentPlan]   	| Contract's payment plan.
 `discounts`		|`array`						| An array of [discount][Discount] objects representing discounts applied to contract.
@@ -60,6 +61,7 @@ curl -i
 
 
 [ContractProperties]: /api/contracts/contracts#properties 
+[ContractSigning]: /api/users/usercontract#contractsigning
 [Membership]: /api/memberships/memberships#properties
 [PaymentPlan]: /api/paymentplans/paymentplans#properties
 [Discount]: /api/paymentplans/discounts#properties

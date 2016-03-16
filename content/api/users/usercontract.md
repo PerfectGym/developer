@@ -107,5 +107,52 @@ curl -X DELETE
 
 
 
+
+## <a name="contractsigning"></a>Execute contract signing
+
+    POST Users/SignContract
+
+Request is used to sign contract PDF document with a user signature.
+
+
+### Body parameters
+
+Name     	    	| Type       		| Description
+--------------------|-------------------|------------
+`contractId` 		|`long`  	  		| Contract unique identifier.
+`languageCode`     	|`string`    		| Language identifier contract should be translated to (for example EN, DE etc.).
+`signatureData`		|`string`	   		| Signature data `base64` encoded.
+
+
+### Response
+
+[User details][UserDetailsProperties] including signed contract URL.
+
+
+### Example request
+
+In this example we sign direct debit agreement for user with `id` = `236`.
+
+``` command-line
+
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 -d '{
+	    "contractId": "10358",
+	    "languageCode": "EN",
+	    "signatureData": "... signature data ...",		
+	}' 
+	http://yoursubdomain.perfectgym.com/api/Users/SignContract
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:userdirectdebitsign_response) %>
+
+
+
 [UserDetailsProperties]: /api/users/userdetails#properties
 [Contract]: /api/contracts/contractdetails#properties
