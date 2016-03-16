@@ -390,6 +390,16 @@ curl -X DELETE
 <td><code>string</code></td>
 <td>Signature data <code>base64</code> encoded.</td>
 </tr>
+<tr>
+<td><code>sourceIp</code></td>
+<td><code>string</code></td>
+<td>IP address of client user signs contract on.</td>
+</tr>
+<tr>
+<td><code>comment</code></td>
+<td><code>string</code></td>
+<td>Contract signing comment</td>
+</tr>
 </tbody>
 </table>
 
@@ -412,6 +422,8 @@ curl -X POST
         "contractId": "10358",
         "languageCode": "EN",
         "signatureData": "... signature data ...",      
+        "sourceIp": "192.168.1.100",
+        "comment": "Sample comment"
     }' 
     http://yoursubdomain.perfectgym.com/api/Users/SignContract
 </pre>
