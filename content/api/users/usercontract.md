@@ -150,7 +150,7 @@ curl -X POST
 ### Example response
 
 <%= headers 200 %>
-<%= json(:userdirectdebitsign_response) %>
+<%= json(:usercontractsigned_response) %>
 
 
 
