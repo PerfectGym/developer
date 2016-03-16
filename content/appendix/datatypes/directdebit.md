@@ -19,7 +19,7 @@ Name            	| Type      		| Description
 `ownerName`     	|`string`    		| Bank account owner name.
 `street`    		|`int`	    		| Bank account owner street.
 `cityAndPostalCode` |`int`				| Bank account owner city and zip code.
-`documentUrl`		|`string`			| URL to direct debit PDF file signed by user.
+`documentUrl`		|`string`			| URL to direct debit agreement PDF file signed by user (for details see [direct debit agreement signing][DirectDebitSigning]).
 
 
-
+[DirectDebitSigning]: /api/users/userdirectdebit#directdebitsigning

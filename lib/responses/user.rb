@@ -69,7 +69,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },       
           "homeClubId": 12,
           "isActive": true,
@@ -131,7 +132,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },       
           "homeClubId": 12,
           "isActive": true,
@@ -173,7 +175,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },                      
           "homeClubId": 12,
           "isActive": true,
@@ -215,7 +218,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },                 
           "homeClubId": 12,
           "isActive": true,
@@ -258,7 +262,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },                  
           "homeClubId": 12,
           "isActive": true,
@@ -302,7 +307,8 @@ module GitHub
             "accountNumber": "",
             "ownerName": "",
             "street": "",
-            "cityAndPostalCode": ""
+            "cityAndPostalCode": "",
+            "documentUrl": ""
           },                  
           "homeClubId": 12,
           "isActive": true,
@@ -345,7 +351,52 @@ module GitHub
             "accountNumber": "61 1090 1014 0000 0712 1981 2874",
             "ownerName": "John Fibo",
             "street": "Przyczółkowa 334",
-            "cityAndPostalCode": "02-962 Warszawa"
+            "cityAndPostalCode": "02-962 Warszawa",
+            "documentUrl": ""
+          },                 
+          "homeClubId": 12,
+          "isActive": true,
+          "isDeleted": false,
+          "contracts": [
+            CONTRACT
+          ]
+        ]        
+      }            
+
+      USERDIRECTDEBITSIGN_RESPONSE ||= {
+
+        "elements" => [
+          "id": 236,
+          "timestamp": 448035,
+          "personalId": "80010101234",
+          "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
+          "cardNumber": "",
+          "firstName": "John",
+          "lastName": "Fibo",
+          "email": "john.fibo@perfectgym.pl",
+          "phone": "0048123456789",
+          "idCardName": "Passport",
+          "idCardNumber": "ABC 123456",
+          "legalGuardian": "",
+          "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Photo?photoId=78",
+          "birthDate": "1978-06-01T00:00:00",
+          "isForeigner": false,
+          "sex": "Male",
+          "newsletterAgreement": false,
+          "termsAndConditionsAgreement": false,
+          "address": {
+            "country": "Poland",
+            "city": "Warszawa",
+            "postalCode": "02-962",
+            "line1": "ul. Przyczolkowa 334",  
+            "line2": ""
+          },  
+          "directDebit": {
+            "accountNumber": "61 1090 1014 0000 0712 1981 2874",
+            "ownerName": "John Fibo",
+            "street": "Przyczółkowa 334",
+            "cityAndPostalCode": "02-962 Warszawa",
+            "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=123"
           },                 
           "homeClubId": 12,
           "isActive": true,
@@ -389,7 +440,8 @@ module GitHub
             "accountNumber": "61 1090 1014 0000 0712 1981 2874",
             "ownerName": "John Fibo",
             "street": "Przyczółkowa 334",
-            "cityAndPostalCode": "02-962 Warszawa"
+            "cityAndPostalCode": "02-962 Warszawa",
+            "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=123"
           },                 
           "homeClubId": 12,
           "isActive": true,
@@ -433,7 +485,8 @@ module GitHub
             "accountNumber": "61 1090 1014 0000 0712 1981 2874",
             "ownerName": "John Fibo",
             "street": "Przyczółkowa 334",
-            "cityAndPostalCode": "02-962 Warszawa"
+            "cityAndPostalCode": "02-962 Warszawa",
+            "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=123"
           },                 
           "homeClubId": 12,
           "isActive": true,

@@ -28,7 +28,7 @@ Name  	    | Type     		| Description
 Name     	    | Type       		| Description
 ----------------|-------------------|------------
 `extension` 	|`string`    		| Photo file extension. <br><strong>Possible values</strong>: <br><ul><li>BMP</li><li>JPEG</li><li>JPG</li><li>PMG</li></ul>
-`data`     		|`string`    		| Photo data base64 encoded.
+`data`     		|`string`    		| Photo data `base64` encoded.
 
 
 
