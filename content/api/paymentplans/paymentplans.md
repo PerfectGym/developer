@@ -41,9 +41,12 @@ Returns paginated payment plans list.
 
 ### Parameters
 
-Name         | Type   | Description
------|-------|--------|------------
-`timestamp`  |`long`  | Timestamp. Request returns payment plans with timestamp grater then `timestamp`, defaults to `0`.
+Name         | Type     | Description
+-----|-------|----------|------------
+`timestamp`  |`long`  	| Timestamp. Request returns payment plans with timestamp grater then `timestamp`, defaults to `0`.
+`isActive `  |`bool`  	| Indictes if payment plan is marked as active, defaults to `false`.
+`startDate`  |`datetime`| Request returns payment plans with start date grater then `startDate`, defaults to `1753-1-1`.
+`endDate`    |`datetime`| Request returns payment plans with end date lower then `endDate`, defaults to `9999-12-13`.
 
 
 ### Example request
@@ -75,13 +78,14 @@ Returns paginated payment plans list available in given club.
 
 ### Parameters
 
-Name      			| Type   | Description
---------------------|--------|------------
-`clubId`  			|`long`  | **Required**. Club identifier.
-`addOnPaymentPlans` |`bool`	 | If `true` requests returns only add on payment plans, if `false` request returns only payment plans that are not marked as add on plans. Parameter defaults to `false`.
-`channel` 			|`string`| Payment plan availability channel. Request will return only payment plans that are available via given channel.
-`page`    			|`int`   | Page number, defaults to `1`.
-
+Name      			| Type     | Description
+--------------------|----------|------------
+`clubId`  			|`long`    | **Required**. Club identifier.
+`addOnPaymentPlans` |`bool`	   | If `true` requests returns only add on payment plans, if `false` request returns only payment plans that are not marked as add on plans. Parameter defaults to `false`.
+`channel` 			|`string`  | Payment plan availability channel. Request will return only payment plans that are available via given channel.
+`page`    			|`int`     | Page number, defaults to `1`.
+`startDate`  		|`datetime`| Request returns payment plans with start date grater then `startDate`, defaults to `1753-1-1`.
+`endDate`    		|`datetime`| Request returns payment plans with end date lower then `endDate`, defaults to `9999-12-13`.
 
 ### Example request
 

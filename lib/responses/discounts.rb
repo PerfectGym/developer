@@ -15,7 +15,20 @@ module GitHub
             "membershipFeeDiscountType": "PercentDiscount",
             "administartionFeeDiscountValue": 0,
             "joiningFeeDiscountValue": "",
-            "membershipFeeDiscountValue": 50
+            "membershipFeeDiscountValue": 50,
+            "combineDiscounts": [
+              {
+                  "id": 1,
+                  "isActive": true,
+                  "name": "50%",
+                  "administartionFeeDiscountType": "ValueDiscount",
+                  "joiningFeeDiscountType": "None",
+                  "membershipFeeDiscountType": "PercentDiscount",
+                  "administartionFeeDiscountValue": 0,
+                  "joiningFeeDiscountValue": "",
+                  "membershipFeeDiscountValue": 30
+              }
+            ]
           }
         ]      
       }

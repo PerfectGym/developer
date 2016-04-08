@@ -30,6 +30,9 @@ Name            					| Type      | Description
 `administartionFeeDiscountValue` 	|`string`   | Administration fee discount value.
 `joiningFeeDiscountValue`    		|`string`   | Joining fee discount value.
 `membershipFeeDiscountValue`   		|`string`   | Membership fee discount value.
+`combineDiscounts`                  |`array`    | An array of [Discount] objects.
+
+
 
         
 

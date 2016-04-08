@@ -10,7 +10,9 @@ module GitHub
         "shortName": "Cyberbotics",
         "symbol": "FCBR",  
         "type": "Normal",
-        "isDeleted": false
+        "isDeleted": false,
+        "isHidden": false,
+        "openDate": "2015-01-01"
       }
 
       CLUB_MONACO ||= {
@@ -21,7 +23,9 @@ module GitHub
         "shortName": "Monaco",
         "symbol": "MON",
         "type": "Platinum",
-        "isDeleted": false
+        "isDeleted": false,
+        "isHidden": false,
+        "openDate": "2015-01-01"
       }
 
 
@@ -62,7 +66,9 @@ module GitHub
             "shortName": "Cracow",
             "symbol": "CRA",
             "type": "Normal",
-            "isDeleted": false
+            "isDeleted": false,
+            "isHidden": false,
+            "openDate": "2015-01-01"
           },                              
           {
             "id": 14,
@@ -71,7 +77,9 @@ module GitHub
             "shortName": "Moscow",
             "symbol": "",
             "type": "Normal",
-            "isDeleted": true
+            "isDeleted": true,
+            "isHidden": false,
+            "openDate": "2015-01-01"
           },          
         ]              
       }      
@@ -255,7 +263,9 @@ module GitHub
             "shortName": "Cyberbotics",
             "symbol": "CBTCS",
             "type": "Normal",
-            "isDeleted": false
+            "isDeleted": false,
+            "isHidden": false,
+            "openDate": "2015-01-01"
           }
         ]
       }

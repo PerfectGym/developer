@@ -22,6 +22,8 @@ Name            | Type          | Description
 `symbol`        |`long`         | Club symbol.
 `type`          |`long`         | Club type.
 `isDeleted`     |`bool`         | Indicates if resource is deleted.
+`isHidden`      |`bool`			| Indicates if resource is hidden.
+`openDate`		|`datetime`		| Indicates when club was opened
 
 
 
