@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="club-details" class="anchor" href="#club-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Club details</h1>
+<a id="club-details" class="anchor" href="#club-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Club details</h1>
 
 <p>Club details is detaild representation of single club in your company. </p>
 
@@ -64,7 +64,7 @@ Retrive detailed information about specyfic club.</a></li>
 </ul>
 
 <h2>
-<a id="club-details-properties" class="anchor" href="#club-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Club details properties</h2>
+<a id="club-details-properties" class="anchor" href="#club-details-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Club details properties</h2>
 
 <p>Club details holds the same data as <a href="/api/clubs/clubs#properties">Club</a> plus some detailed features of a club.
 Only club details specyfic properties are described here.</p>
@@ -152,7 +152,7 @@ Only club details specyfic properties are described here.</p>
 </table>
 
 <h2>
-<a id="retrive-detailed-information-about-specyfic-club" class="anchor" href="#retrive-detailed-information-about-specyfic-club" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="retrive-detailed-information-about-specyfic-club" class="anchor" href="#retrive-detailed-information-about-specyfic-club" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 <a name="clubdetails"></a>Retrive detailed information about specyfic club.</h2>
 
 <pre><code>GET Clubs/Club
@@ -161,7 +161,7 @@ Only club details specyfic properties are described here.</p>
 <p>Returns detailed club informations.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -187,7 +187,7 @@ Only club details specyfic properties are described here.</p>
 </table>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we fetch club with <code>id</code> = <code>16</code> detailed information. Information will be returned in club's language (<code>languageCode</code> parameter is ommited).</p>
 
@@ -199,7 +199,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -381,7 +381,9 @@ curl -i
       </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CBTCS"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">

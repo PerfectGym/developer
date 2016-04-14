@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="clubs" class="anchor" href="#clubs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clubs</h1>
+<a id="clubs" class="anchor" href="#clubs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clubs</h1>
 
 <p>Club is a summary representation of single club in your company.</p>
 
@@ -64,7 +64,7 @@ Club properties</a></li>
 </ul>
 
 <h2>
-<a id="club-properties" class="anchor" href="#club-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="club-properties" class="anchor" href="#club-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 <a name="properties"></a>Club properties</h2>
 
 <p>Class is described by the following properties</p>
@@ -113,11 +113,21 @@ Club properties</a></li>
 <td><code>bool</code></td>
 <td>Indicates if resource is deleted.</td>
 </tr>
+<tr>
+<td><code>isHidden</code></td>
+<td><code>bool</code></td>
+<td>Indicates if resource is hidden.</td>
+</tr>
+<tr>
+<td><code>openDate</code></td>
+<td><code>datetime</code></td>
+<td>Indicates when club was opened</td>
+</tr>
 </tbody>
 </table>
 
 <h2>
-<a id="list-clubs-with-timestamp" class="anchor" href="#list-clubs-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List clubs with timestamp</h2>
+<a id="list-clubs-with-timestamp" class="anchor" href="#list-clubs-with-timestamp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List clubs with timestamp</h2>
 
 <pre><code>GET Clubs/Clubs
 </code></pre>
@@ -125,7 +135,7 @@ Club properties</a></li>
 <p>Returns paginated list of clubs available in your company.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -146,7 +156,7 @@ Club properties</a></li>
 </table>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we fetch list of all clubs with <code>timestamp</code> greater then <code>254000</code></p>
 
@@ -158,7 +168,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -173,7 +183,9 @@ curl -i
       </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FCBR"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
@@ -182,7 +194,9 @@ curl -i
       </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monaco"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Platinum"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -191,7 +205,9 @@ curl -i
       </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cracow"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CRA"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
@@ -200,7 +216,9 @@ curl -i
       </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moscow"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">

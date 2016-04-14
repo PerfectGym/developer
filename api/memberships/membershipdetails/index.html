@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="membership-details" class="anchor" href="#membership-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Membership details</h1>
+<a id="membership-details" class="anchor" href="#membership-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Membership details</h1>
 
 <p>Membership details is detaild representation of single membership type in your company. </p>
 
@@ -63,7 +63,7 @@
 </ul>
 
 <h2>
-<a id="membership-details-properties" class="anchor" href="#membership-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Membership details properties</h2>
+<a id="membership-details-properties" class="anchor" href="#membership-details-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Membership details properties</h2>
 
 <p>Club details holds the same data as <a href="/api/memberships/memberships#properties">Membership</a> plus some detailed attributes of a membership.
 Only membership details specyfic properties are described here.</p>
@@ -106,7 +106,7 @@ Only membership details specyfic properties are described here.</p>
 </table>
 
 <h2>
-<a id="retrive-detailed-information-about-specyfic-membership-type" class="anchor" href="#retrive-detailed-information-about-specyfic-membership-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed information about specyfic membership type.</h2>
+<a id="retrive-detailed-information-about-specyfic-membership-type" class="anchor" href="#retrive-detailed-information-about-specyfic-membership-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrive detailed information about specyfic membership type.</h2>
 
 <pre><code>GET Memberships/Membership
 </code></pre>
@@ -114,7 +114,7 @@ Only membership details specyfic properties are described here.</p>
 <p>Returns detailed membership type informations.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -134,7 +134,7 @@ Only membership details specyfic properties are described here.</p>
 </table>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we fetch membership type with <code>id</code> = <code>20</code> detailed information.</p>
 
@@ -147,7 +147,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -172,7 +172,9 @@ curl -i
               </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FCBR"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+              </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
@@ -181,7 +183,9 @@ curl -i
               </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monaco"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Platinum"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+              </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">],</span><span class="w">
           </span><span class="nt">"allowedZoneTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
