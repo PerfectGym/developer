@@ -60,4 +60,4 @@ curl -i
 <%= json(:instructors_response) %>
 
 
- [Rating]:  /Api/classes/ratings#properties
+ [Rating]:  /api/classes/ratings#properties

@@ -105,6 +105,6 @@ curl -i
 
 
 
-[ClassesType]:  /Api/classes/classestypes#properties
-[Instructor]:  /Api/instructors/instructors#properties
-[Club]:  /Api/clubs/clubs#properties
+[ClassesType]:  /api/classes/classestypes#properties
+[Instructor]:  /api/instructors/instructors#properties
+[Club]:  /api/clubs/clubs#properties

@@ -20,5 +20,5 @@ available in your company.
 
 
 
-[Clubs]: /Api/clubs/clubs/
-[ClubDetails]: /Api/clubs/clubdetails/
+[Clubs]: /api/clubs/clubs/
+[ClubDetails]: /api/clubs/clubdetails/

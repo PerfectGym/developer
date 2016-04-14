@@ -158,5 +158,5 @@ curl -X POST
 
 
 
-[UserDetailsProperties]: /Api/users/userdetails#properties
-[Contract]: /Api/contracts/contractdetails#properties
+[UserDetailsProperties]: /api/users/userdetails#properties
+[Contract]: /api/contracts/contractdetails#properties

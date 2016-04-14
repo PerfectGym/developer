@@ -35,8 +35,8 @@ available in your gym. It also a
 [Ratings API][Ratings] allows to rate classes and instructors.
 
 
-[ClassesTypes]: /Api/classes/classestypes/
-[Classes]: /Api/classes/classes/
-[UserClasses]: /Api/classes/userclasses/
-[Booking]: /Api/classes/booking/
-[Ratings]: /Api/classes/ratings/
+[ClassesTypes]: /api/classes/classestypes/
+[Classes]: /api/classes/classes/
+[UserClasses]: /api/classes/userclasses/
+[Booking]: /api/classes/booking/
+[Ratings]: /api/classes/ratings/

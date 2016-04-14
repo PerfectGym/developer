@@ -122,6 +122,6 @@ curl -X POST
 
 
 
-[UserDetailsProperties]: /Api/users/userdetails#properties
+[UserDetailsProperties]: /api/users/userdetails#properties
 [Error]: /appendix/datatypes/error
 [DirectDebitErrorCode]: /appendix/errorcodes/directdebiterrorcode

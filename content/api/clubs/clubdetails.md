@@ -69,8 +69,8 @@ curl -i
 
 
 
-[Club]: /Api/clubs/clubs
-[ClubProperties]: /Api/clubs/clubs#properties 
+[Club]: /api/clubs/clubs
+[ClubProperties]: /api/clubs/clubs#properties 
 [Contact]: /appendix/datatypes/contact
 [Equipment]: /appendix/datatypes/equipment
 [Facility]: /appendix/datatypes/facility

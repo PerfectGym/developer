@@ -109,8 +109,8 @@ Total amount is not equal to sum of all fees to be paid.
 
 
 [Fee]: /appendix/datatypes/fee
-[PaymentStatus]: /Api/payments/paymentstatus#properties
+[PaymentStatus]: /api/payments/paymentstatus#properties
 [PaymentDetails]: /appendix/datatypes/paymentdetails
-[CreditCard]: /Api/users/usercreditcard
+[CreditCard]: /api/users/usercreditcard
 [Error]: /appendix/datatypes/error
 [CreditCardPaymentErrorCode]: /appendix/errorcodes/creditcardpaymenterrorcode

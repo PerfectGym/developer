@@ -140,5 +140,5 @@ curl -i
 
 
 
-[Classes]:  /Api/classes/classes
-[ClassesProperties]:  /Api/classes/classes#properties
+[Classes]:  /api/classes/classes
+[ClassesProperties]:  /api/classes/classes#properties

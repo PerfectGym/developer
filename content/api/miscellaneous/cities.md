@@ -56,4 +56,4 @@ curl -i
 <%= json(:CITIES_RESPOSNE) %>
 
 
-[Country]: /Api/miscellaneous/countries#properties
+[Country]: /api/miscellaneous/countries#properties

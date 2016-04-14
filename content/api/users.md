@@ -48,11 +48,11 @@ The Users APIs provides access to users list available in your company.
 
 
 
-[UserDetails]: /Api/users/userdetails/
-[AddingUpdatingUser]: /Api/users/addupdateuser
-[UserContract]: /Api/users/usercontract
-[UserCreditCard]: /Api/users/usercreditcard
-[DirectDebit]: /Api/users/userdirectdebit
-[Agreements]: /Api/users/useragreements
-[PasswordUpdateValidation]: /Api/users/passwordupdatingandvalidation
+[UserDetails]: /api/users/userdetails/
+[AddingUpdatingUser]: /api/users/addupdateuser
+[UserContract]: /api/users/usercontract
+[UserCreditCard]: /api/users/usercreditcard
+[DirectDebit]: /api/users/userdirectdebit
+[Agreements]: /api/users/useragreements
+[PasswordUpdateValidation]: /api/users/passwordupdatingandvalidation
 

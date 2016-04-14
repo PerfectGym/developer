@@ -60,8 +60,8 @@ curl -i
 
 
 
-[MembershipProperties]: /Api/memberships/memberships#properties 
+[MembershipProperties]: /api/memberships/memberships#properties 
 [AccessRule]: /appendix/datatypes/clubaccessrule
 [ClubZoneType]: /appendix/datatypes/clubzonetype
-[PaymentPlanProperties]: /Api/memberships/paymentplans#properties
+[PaymentPlanProperties]: /api/memberships/paymentplans#properties
 

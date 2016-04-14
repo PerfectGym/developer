@@ -14,5 +14,5 @@ available in your company.
 
 
 
-[Instructors]: /Api/instructors/instructors/
+[Instructors]: /api/instructors/instructors/
 

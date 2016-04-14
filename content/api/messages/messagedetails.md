@@ -58,4 +58,4 @@ curl -i
 
 
 
-[MessageProperties]: /Api/messages/messages#properties 
+[MessageProperties]: /api/messages/messages#properties 

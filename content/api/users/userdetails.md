@@ -112,6 +112,6 @@ curl -i
 
 
 
-[Contract]: /Api/contracts/contractdetails#properties
+[Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
 [DirectDebit]: /appendix/datatypes/directdebit

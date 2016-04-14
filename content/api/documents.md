@@ -13,5 +13,5 @@ The Documents APIs provides access to various documents stored in Perfect Gym.
 
 
 
-[Documents]: /Api/documents/documents/
+[Documents]: /api/documents/documents/
 

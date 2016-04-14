@@ -72,6 +72,6 @@ Freeze time range greater then freeze type `maximumInterval` generates following
 <%= json(:contract_error_response) %>
 
 
-[ContractDetails]: /Api/contracts/contractdetails#properties
+[ContractDetails]: /api/contracts/contractdetails#properties
 [Error]: /appendix/datatypes/error
 [FreezeContractErrorCode]: /appendix/errorcodes/freezecontracterrorcode

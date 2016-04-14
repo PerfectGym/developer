@@ -25,7 +25,7 @@ The Payment plans APIs provides access to payment plans and discounts.
 
 
 
-[PaymentPlans]: /Api/paymentplans/paymentplans/
-[PaymentPlanDetails]: /Api/paymentplans/paymentplandetails/
-[Discounts]: /Api/paymentplans/discounts
+[PaymentPlans]: /api/paymentplans/paymentplans/
+[PaymentPlanDetails]: /api/paymentplans/paymentplandetails/
+[Discounts]: /api/paymentplans/discounts
 

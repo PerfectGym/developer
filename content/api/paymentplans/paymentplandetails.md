@@ -72,9 +72,9 @@ curl -i
 
 
 
-[PaymentPlanProperties]: /Api/memberships/paymentplans#properties 
+[PaymentPlanProperties]: /api/memberships/paymentplans#properties 
 [Fees]: /appendix/datatypes/contractfees
-[Membership]: /Api/memberships/memberships#properties
+[Membership]: /api/memberships/memberships#properties
 [AddOn]: /appendix/datatypes/paymentplanaddon
 
 

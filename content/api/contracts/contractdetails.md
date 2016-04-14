@@ -60,10 +60,10 @@ curl -i
 
 
 
-[ContractProperties]: /Api/contracts/contracts#properties 
-[ContractSigning]: /Api/users/usercontract#contractsigning
-[Membership]: /Api/memberships/memberships#properties
-[PaymentPlan]: /Api/paymentplans/paymentplans#properties
-[Discount]: /Api/paymentplans/discounts#properties
+[ContractProperties]: /api/contracts/contracts#properties 
+[ContractSigning]: /api/users/usercontract#contractsigning
+[Membership]: /api/memberships/memberships#properties
+[PaymentPlan]: /api/paymentplans/paymentplans#properties
+[Discount]: /api/paymentplans/discounts#properties
 [Freeze]: /appendix/datatypes/contractfreeze
 

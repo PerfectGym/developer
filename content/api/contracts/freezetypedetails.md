@@ -57,6 +57,6 @@ curl -i
 
 
 
-[FreezeType]: /Api/contracts/freezetypes#properties
+[FreezeType]: /api/contracts/freezetypes#properties
 [FreezeStartDate]: /appendix/datatypes/freezestartdate
 

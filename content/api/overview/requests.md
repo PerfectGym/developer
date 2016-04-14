@@ -83,6 +83,6 @@ $ curl -i https://yourcompany.perfectgym.com/Api/Classes/Classes
 For details about pagination with `timestamp` parameter go to [Pagination using timestamp][PaginationWithTimestamp]
 
 
-[Pagination]:  /Api/overview/pagination#page
-[PaginationWithTimestamp]:  /Api/overview/pagination#timestamp
-[ClubDetails]: /Api/clubs/clubDetails#clubdetails
+[Pagination]:  /api/overview/pagination#page
+[PaginationWithTimestamp]:  /api/overview/pagination#timestamp
+[ClubDetails]: /api/clubs/clubDetails#clubdetails

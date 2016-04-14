@@ -178,7 +178,7 @@ User update request with non existant user identifier
 
 
 
-[UserDetailsProperties]: /Api/users/userdetails#properties
+[UserDetailsProperties]: /api/users/userdetails#properties
 [Error]: /appendix/datatypes/error
 [Address]: /appendix/datatypes/address
 [AddUserErrorCode]: /appendix/errorcodes/addusererrorcode
