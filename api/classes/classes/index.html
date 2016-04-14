@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="classes" class="anchor" href="#classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Classes</h1>
+<a id="classes" class="anchor" href="#classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes</h1>
 
 <p>Class represents fitness class conducted in your club.</p>
 
@@ -65,7 +65,7 @@ Class properties</a></li>
 </ul>
 
 <h2>
-<a id="class-properties" class="anchor" href="#class-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<a id="class-properties" class="anchor" href="#class-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
 <a name="properties"></a>Class properties</h2>
 
 <p>Class is described by the following properties</p>
@@ -81,17 +81,17 @@ Class properties</a></li>
 <tbody>
 <tr>
 <td><code>classType</code></td>
-<td><a href="/api/classes/classestypes#properties">Class type</a></td>
+<td><a href="/Api/classes/classestypes#properties">Class type</a></td>
 <td>Class type.</td>
 </tr>
 <tr>
 <td><code>instructor</code></td>
-<td><a href="/api/instructors/instructors#properties">Instructor</a></td>
+<td><a href="/Api/instructors/instructors#properties">Instructor</a></td>
 <td>Instructor conducting class.</td>
 </tr>
 <tr>
 <td><code>club</code></td>
-<td><a href="/api/clubs/clubs#properties">Club</a></td>
+<td><a href="/Api/clubs/clubs#properties">Club</a></td>
 <td>Club class take place in.</td>
 </tr>
 <tr>
@@ -133,7 +133,7 @@ Class properties</a></li>
 </table>
 
 <h2>
-<a id="list-classes-in-a-given-timeframe" class="anchor" href="#list-classes-in-a-given-timeframe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List classes in a given timeframe</h2>
+<a id="list-classes-in-a-given-timeframe" class="anchor" href="#list-classes-in-a-given-timeframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes in a given timeframe</h2>
 
 <pre><code>GET Classes/Classes
 </code></pre>
@@ -141,7 +141,7 @@ Class properties</a></li>
 <p>Returns paginated classes list.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -179,7 +179,7 @@ Class properties</a></li>
 </table>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we fetch first 100 classes in club with <code>id</code> = <code>2</code>, that starts in december 2015</p>
 
@@ -187,14 +187,14 @@ Class properties</a></li>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+     http://yoursubdomain.perfectgym.com/Api/Classes/Classes
         ?clubId=2
         &amp;startDate=2015-12-01T00:00:00
         &amp;endDate=2015-12-31T23:59:59
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -256,7 +256,7 @@ curl -i
 
 
 <h2>
-<a id="list-classes-with-timestamp" class="anchor" href="#list-classes-with-timestamp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List classes with timestamp</h2>
+<a id="list-classes-with-timestamp" class="anchor" href="#list-classes-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List classes with timestamp</h2>
 
 <pre><code>GET Classes/Classes
 </code></pre>
@@ -264,7 +264,7 @@ curl -i
 <p>Returns paginated classes list.</p>
 
 <h3>
-<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -290,7 +290,7 @@ curl -i
 </table>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we fetch list of all classes in club with <code>id</code> = <code>2</code> and with timestamp greater then <code>254000</code></p>
 
@@ -298,13 +298,13 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+     http://yoursubdomain.perfectgym.com/Api/Classes/Classes
         ?clubId=2
         &amp;timestamp=254000
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>

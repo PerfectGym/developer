@@ -130,7 +130,7 @@ Execute direct debit agreement signing</a></li>
 <h3>
 <a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
 
-<p><a href="/api/users/userdetails#properties">User details</a> including bank account details if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/directdebiterrorcode">direct debit error codes</a>.</p>
+<p><a href="/Api/users/userdetails#properties">User details</a> including bank account details if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/directdebiterrorcode">direct debit error codes</a>.</p>
 
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
@@ -148,7 +148,7 @@ curl -X POST
         "street": "Przyczółkowa 334",
         "cityAndPostalCode": "02-962 Warszawa",      
     }' 
-    http://yoursubdomain.perfectgym.com/api/Users/DirectDebit?userId=236
+    http://yoursubdomain.perfectgym.com/Api/Users/DirectDebit?userId=236
 </pre>
 
 <h3>
@@ -315,7 +315,7 @@ curl -X POST
 <h3>
 <a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
 
-<p><a href="/api/users/userdetails#properties">User details</a> including signed direct debit agreement URL.</p>
+<p><a href="/Api/users/userdetails#properties">User details</a> including signed direct debit agreement URL.</p>
 
 <h3>
 <a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
@@ -334,7 +334,7 @@ curl -X POST
         "sourceIp": "192.168.1.100",
         "comment": "Sample comment" 
     }' 
-    http://yoursubdomain.perfectgym.com/api/Users/SignDirectDebit
+    http://yoursubdomain.perfectgym.com/Api/Users/SignDirectDebit
 </pre>
 
 <h3>

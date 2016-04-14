@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="user-classes" class="anchor" href="#user-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User classes</h1>
+<a id="user-classes" class="anchor" href="#user-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>User classes</h1>
 
 <p>User class represents fitness class conducted in your club.</p>
 
@@ -66,10 +66,10 @@ Class properties</a></li>
 </ul>
 
 <h2>
-<a id="class-properties" class="anchor" href="#class-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<a id="class-properties" class="anchor" href="#class-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
 <a name="properties"></a>Class properties</h2>
 
-<p>User class holds the same data as <a href="/api/classes/classes#properties">Classes</a> plus user specyfic properties.
+<p>User class holds the same data as <a href="/Api/classes/classes#properties">Classes</a> plus user specyfic properties.
 Only user specyfic properties are described here.</p>
 
 <table>
@@ -107,7 +107,7 @@ Only user specyfic properties are described here.</p>
 </table>
 
 <h2>
-<a id="list-user-classes-in-a-given-timeframe" class="anchor" href="#list-user-classes-in-a-given-timeframe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List user classes in a given timeframe</h2>
+<a id="list-user-classes-in-a-given-timeframe" class="anchor" href="#list-user-classes-in-a-given-timeframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user classes in a given timeframe</h2>
 
 <pre><code>GET Classes/UserClasses
 </code></pre>
@@ -115,7 +115,7 @@ Only user specyfic properties are described here.</p>
 <p>Returns paginated user classes list.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -159,7 +159,7 @@ Only user specyfic properties are described here.</p>
 </table>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we fetch first 100 of all user (with id = <code>40</code>) classes in club with <code>id</code> = <code>2</code>, that starts in december 2015</p>
 
@@ -167,7 +167,7 @@ Only user specyfic properties are described here.</p>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses
+     http://yoursubdomain.perfectgym.com/Api/Classes/UserClasses
         ?userId=40
         &amp;clubId=2
         &amp;startDate=2015-12-01T00:00:00
@@ -175,7 +175,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -241,7 +241,7 @@ curl -i
 
 
 <h2>
-<a id="list-user-classes-with-timestamp" class="anchor" href="#list-user-classes-with-timestamp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List user classes with timestamp</h2>
+<a id="list-user-classes-with-timestamp" class="anchor" href="#list-user-classes-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user classes with timestamp</h2>
 
 <pre><code>GET Classes/UserClasses
 </code></pre>
@@ -249,7 +249,7 @@ curl -i
 <p>Returns paginated user classes list.</p>
 
 <h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Query string parameters</h3>
+<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
 
 <table>
 <thead>
@@ -281,7 +281,7 @@ curl -i
 </table>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we fetch list of all user (with id = <code>40</code>) classes in club with <code>id</code> = <code>2</code>, with timestamp greater then <code>254000</code></p>
 
@@ -289,14 +289,14 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses
+     http://yoursubdomain.perfectgym.com/Api/Classes/UserClasses
         ?userId=40
         &amp;clubId=2
         &amp;timestamp=254000
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -362,7 +362,7 @@ curl -i
 
 
 <h2>
-<a id="retrive-user-class-with-class-identifier" class="anchor" href="#retrive-user-class-with-class-identifier" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrive user class with class identifier</h2>
+<a id="retrive-user-class-with-class-identifier" class="anchor" href="#retrive-user-class-with-class-identifier" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive user class with class identifier</h2>
 
 <pre><code>GET Classes/UserClass
 </code></pre>
@@ -370,7 +370,7 @@ curl -i
 <p>Returns individual user class.</p>
 
 <h3>
-<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -397,7 +397,7 @@ curl -i
 </table>
 
 <h3>
-<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we fetch data for class identified with <code>id</code> = <code>1677</code> for user identified with <code>id</code> = <code>40</code></p>
 
@@ -405,13 +405,13 @@ curl -i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClass
+     http://yoursubdomain.perfectgym.com/Api/Classes/UserClass
         ?classId=1677
         &amp;userId=40        
 </pre>
 
 <h3>
-<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>

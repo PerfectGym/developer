@@ -79,7 +79,7 @@ and password used to authenticate your app with PerfectGYm API</p>
 <h3>
 <a id="1-request-access-token" class="anchor" href="#1-request-access-token" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Request access token</h3>
 
-<pre><code>POST https://yoursubdomain.perfectgym.com/api/oauth/authorize
+<pre><code>POST https://yoursubdomain.perfectgym.com/Api/oauth/authorize
 </code></pre>
 
 <h3>
@@ -126,7 +126,7 @@ curl -i -X POST
     -d "password=yourpassword
         &amp;username=yourusername
         &amp;grant_type=password" 
-    https://yoursubdomain.perfectgym.com/api/oauth/authorize
+    https://yoursubdomain.perfectgym.com/Api/oauth/authorize
 </pre>
 
 <h3>
@@ -163,7 +163,7 @@ You can pass the token by including it in the Authorization header.</p>
 <pre class="command-line">
 curl -i 
     -H "Authorization: Bearer abcdefgh12345678"     
-    https://yoursubdomain.perfectgym.com/api/Classes/Classes/1
+    https://yoursubdomain.perfectgym.com/Api/Classes/Classes/1
 </pre>
 
 

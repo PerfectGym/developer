@@ -67,7 +67,7 @@ Contract details properties</a></li>
 <a id="contract-details-properties" class="anchor" href="#contract-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
 <a name="properties"></a>Contract details properties</h2>
 
-<p>Contract details holds the same data as <a href="/api/contracts/contracts#properties">Contract</a> plus some detailed features of a contract.
+<p>Contract details holds the same data as <a href="/Api/contracts/contracts#properties">Contract</a> plus some detailed features of a contract.
 Only contract details specyfic properties are described here.</p>
 
 <table>
@@ -88,22 +88,22 @@ Only contract details specyfic properties are described here.</p>
 <tr>
 <td><code>documentUrl</code></td>
 <td><code>string</code></td>
-<td>URL to contract agreement PDF file signed by user (for details see <a href="/api/users/usercontract#contractsigning">contract agreement signing</a>).</td>
+<td>URL to contract agreement PDF file signed by user (for details see <a href="/Api/users/usercontract#contractsigning">contract agreement signing</a>).</td>
 </tr>
 <tr>
 <td><code>membership</code></td>
-<td><a href="/api/memberships/memberships#properties">Membership</a></td>
+<td><a href="/Api/memberships/memberships#properties">Membership</a></td>
 <td>Contract's membership.</td>
 </tr>
 <tr>
 <td><code>paymentPlan</code></td>
-<td><a href="/api/paymentplans/paymentplans#properties">Payment paln</a></td>
+<td><a href="/Api/paymentplans/paymentplans#properties">Payment paln</a></td>
 <td>Contract's payment plan.</td>
 </tr>
 <tr>
 <td><code>discounts</code></td>
 <td><code>array</code></td>
-<td>An array of <a href="/api/paymentplans/discounts#properties">discount</a> objects representing discounts applied to contract.</td>
+<td>An array of <a href="/Api/paymentplans/discounts#properties">discount</a> objects representing discounts applied to contract.</td>
 </tr>
 <tr>
 <td><code>freezes</code></td>
@@ -151,7 +151,7 @@ Only contract details specyfic properties are described here.</p>
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Contracts/Contract?contractId=10358        
+     http://yoursubdomain.perfectgym.com/Api/Contracts/Contract?contractId=10358        
 </pre>
 
 <h3>
