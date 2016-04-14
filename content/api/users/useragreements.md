@@ -50,7 +50,7 @@ curl -X POST
 	    "termsAndConditionsAgreement": true,
 	    "newsletterAgreement": false,	    
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/Agreements?userId=236
+	http://yoursubdomain.perfectgym.com/Api/Users/Agreements?userId=236
 ```
 
 
@@ -61,5 +61,5 @@ curl -X POST
 
 
 
-[UserDetailsProperties]: /api/users/userdetails#properties
+[UserDetailsProperties]: /Api/users/userdetails#properties
 [Contract]: /appendix/datatypes/contract

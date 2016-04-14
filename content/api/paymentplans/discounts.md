@@ -64,7 +64,7 @@ All discounts are available for today (no `date` parameter provided)
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Discounts/Discounts
+     http://yoursubdomain.perfectgym.com/Api/Discounts/Discounts
      	?paymentPlanId=39
      	&clubId=16
 ```
@@ -101,7 +101,7 @@ In this example we fetch payment plan fees with discount with `id` = `10` applie
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Discounts/DiscountedFees
+     http://yoursubdomain.perfectgym.com/Api/Discounts/DiscountedFees
      	?paymentPlanId=39
      	&discountIds=10
 ```

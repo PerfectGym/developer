@@ -54,7 +54,7 @@ curl -X POST
     		"startDate": "2016-04-01T00:00:00",
     		"endDate": "2016-04-07T00:00:00"	    
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Contracts/Freeze?contractId=10358
+	http://yoursubdomain.perfectgym.com/Api/Contracts/Freeze?contractId=10358
 ```
 
 
@@ -72,6 +72,6 @@ Freeze time range greater then freeze type `maximumInterval` generates following
 <%= json(:contract_error_response) %>
 
 
-[ContractDetails]: /api/contracts/contractdetails#properties
+[ContractDetails]: /Api/contracts/contractdetails#properties
 [Error]: /appendix/datatypes/error
 [FreezeContractErrorCode]: /appendix/errorcodes/freezecontracterrorcode

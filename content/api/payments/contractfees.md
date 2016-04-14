@@ -49,7 +49,7 @@ In this example we fetch list of pending contract fees of user identified with `
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Payments/ContractFees?userId=236
+     http://yoursubdomain.perfectgym.com/Api/Payments/ContractFees?userId=236
 ```
 
 

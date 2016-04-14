@@ -38,7 +38,7 @@ In this example we fetch all available freeze reasons.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Contracts/FreezeReasons
+     http://yoursubdomain.perfectgym.com/Api/Contracts/FreezeReasons
 ```
 
 

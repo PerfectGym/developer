@@ -48,7 +48,7 @@ curl -X POST
 	 -d '{
 	    "cardNumber": "123456789"	    
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/MembershipCard?userId=236
+	http://yoursubdomain.perfectgym.com/Api/Users/MembershipCard?userId=236
 ```
 
 
@@ -59,4 +59,4 @@ curl -X POST
 
 
 
-[UserDetailsProperties]: /api/users/userdetails#properties
+[UserDetailsProperties]: /Api/users/userdetails#properties

@@ -73,7 +73,7 @@ curl -X POST
 	        "country": "Poland"
 	    }
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/User
+	http://yoursubdomain.perfectgym.com/Api/Users/User
 ```
 
 
@@ -159,7 +159,7 @@ curl -X PUT
 	        "country": "Poland"
 	    }
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/User?userId=236
+	http://yoursubdomain.perfectgym.com/Api/Users/User?userId=236
 ```
 
 
@@ -178,7 +178,7 @@ User update request with non existant user identifier
 
 
 
-[UserDetailsProperties]: /api/users/userdetails#properties
+[UserDetailsProperties]: /Api/users/userdetails#properties
 [Error]: /appendix/datatypes/error
 [Address]: /appendix/datatypes/address
 [AddUserErrorCode]: /appendix/errorcodes/addusererrorcode

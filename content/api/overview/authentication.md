@@ -23,7 +23,7 @@ and password used to authenticate your app with PerfectGYm API
 
 ### 1. Request access token
 
-	POST https://yoursubdomain.perfectgym.com/api/oauth/authorize
+	POST https://yoursubdomain.perfectgym.com/Api/oauth/authorize
 
 
 ### Body parameters
@@ -45,7 +45,7 @@ curl -i -X POST
 	-d "password=yourpassword
 		&username=yourusername
 		&grant_type=password" 
-	https://yoursubdomain.perfectgym.com/api/oauth/authorize
+	https://yoursubdomain.perfectgym.com/Api/oauth/authorize
 ```
 
 
@@ -72,7 +72,7 @@ Authorization header should be included in all subsequent API requests.
 ``` command-line
 curl -i 
 	-H "Authorization: Bearer abcdefgh12345678" 	
-	https://yoursubdomain.perfectgym.com/api/Classes/Classes/1
+	https://yoursubdomain.perfectgym.com/Api/Classes/Classes/1
 ```
 
 

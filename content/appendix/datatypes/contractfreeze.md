@@ -25,8 +25,8 @@ Name       		| Type       		| Description
 
 
 
-[Reason]: /api/contracts/freezereasons#properties
-[Type]: /api/contracts/freezetypedetails#properties
+[Reason]: /Api/contracts/freezereasons#properties
+[Type]: /Api/contracts/freezetypedetails#properties
 
 
 

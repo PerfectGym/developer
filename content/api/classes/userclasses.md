@@ -50,7 +50,7 @@ In this example we fetch first 100 of all user (with id = `40`) classes in club 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses
+     http://yoursubdomain.perfectgym.com/Api/Classes/UserClasses
         ?userId=40
         &clubId=2
         &startDate=2015-12-01T00:00:00
@@ -89,7 +89,7 @@ In this example we fetch list of all user (with id = `40`) classes in club with 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClasses
+     http://yoursubdomain.perfectgym.com/Api/Classes/UserClasses
         ?userId=40
         &clubId=2
         &timestamp=254000
@@ -126,7 +126,7 @@ In this example we fetch data for class identified with `id` = `1677` for user i
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/UserClass
+     http://yoursubdomain.perfectgym.com/Api/Classes/UserClass
         ?classId=1677
         &userId=40        
 ```
@@ -140,5 +140,5 @@ curl -i
 
 
 
-[Classes]:  /api/classes/classes
-[ClassesProperties]:  /api/classes/classes#properties
+[Classes]:  /Api/classes/classes
+[ClassesProperties]:  /Api/classes/classes#properties

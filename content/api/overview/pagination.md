@@ -44,7 +44,7 @@ regardless of time they were last modified.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+     http://yoursubdomain.perfectgym.com/Api/Classes/Classes
           ?clubId=2
           &timestamp=0     	
 ```
@@ -60,7 +60,7 @@ Second page, `timestamp` parameter of value `254718` is provided. It means that 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+     http://yoursubdomain.perfectgym.com/Api/Classes/Classes
           ?clubId=2
           &timestamp=254718     	
 ```
@@ -88,7 +88,7 @@ First page (`page` parameter is ommited, so it defaults to `1`)
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes
+     http://yoursubdomain.perfectgym.com/Api/Classes/Classes
           ?clubId=2
           &startDate=2015-12-01T00:00:00
           &endDate=2015-12-31T23:59:59
@@ -101,7 +101,7 @@ Second page (`page` parameter of value `2` is provided)
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/Classes/
+     http://yoursubdomain.perfectgym.com/Api/Classes/Classes/
           ?clubId=2
           &startDate=2015-12-01T00:00:00
           &endDate=2015-12-31T23:59:59

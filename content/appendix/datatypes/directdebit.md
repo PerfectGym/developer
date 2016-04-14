@@ -22,4 +22,4 @@ Name            	| Type      		| Description
 `documentUrl`		|`string`			| URL to direct debit agreement PDF file signed by user (for details see [direct debit agreement signing][DirectDebitSigning]).
 
 
-[DirectDebitSigning]: /api/users/userdirectdebit#directdebitsigning
+[DirectDebitSigning]: /Api/users/userdirectdebit#directdebitsigning

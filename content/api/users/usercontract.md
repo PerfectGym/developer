@@ -55,7 +55,7 @@ curl -X POST
 	    "signDate": "2016-01-26T00:00:00",
 	    "discountIds": [10]	    
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/Contract?userId=236
+	http://yoursubdomain.perfectgym.com/Api/Users/Contract?userId=236
 ```
 
 
@@ -96,7 +96,7 @@ In this example we delete user contract with `id` = `10358`
 curl -X DELETE 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 	 
-	http://yoursubdomain.perfectgym.com/api/Users/Contract?userId=236&contractId=10358
+	http://yoursubdomain.perfectgym.com/Api/Users/Contract?userId=236&contractId=10358
 ```
 
 
@@ -147,7 +147,7 @@ curl -X POST
 	    "sourceIp": "192.168.1.100",
 	    "comment": "Sample comment"
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/SignContract
+	http://yoursubdomain.perfectgym.com/Api/Users/SignContract
 ```
 
 
@@ -158,5 +158,5 @@ curl -X POST
 
 
 
-[UserDetailsProperties]: /api/users/userdetails#properties
-[Contract]: /api/contracts/contractdetails#properties
+[UserDetailsProperties]: /Api/users/userdetails#properties
+[Contract]: /Api/contracts/contractdetails#properties

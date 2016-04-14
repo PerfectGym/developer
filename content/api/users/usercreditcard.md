@@ -63,7 +63,7 @@ curl -X POST
 		"cardHolderName": "John Fibo",
 		"cvcCvv": "000"    
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/CreditCard?userId=236
+	http://yoursubdomain.perfectgym.com/Api/Users/CreditCard?userId=236
 ```
 
 
@@ -74,5 +74,5 @@ curl -X POST
 
 
 
-[UserDetailsProperties]: /api/users/userdetails#properties
+[UserDetailsProperties]: /Api/users/userdetails#properties
 

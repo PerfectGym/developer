@@ -48,7 +48,7 @@ In this example we fetch list of contracts assigned to user identified with `id`
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Contracts/Contracts?userId=236
+     http://yoursubdomain.perfectgym.com/Api/Contracts/Contracts?userId=236
 ```
 
 

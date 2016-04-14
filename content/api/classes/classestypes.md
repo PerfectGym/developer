@@ -49,7 +49,7 @@ available in a company.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/ClassesTypes
+     http://yoursubdomain.perfectgym.com/Api/Classes/ClassesTypes
 ```
 
 
@@ -59,4 +59,4 @@ curl -i
 <%= json(:classtype_response) %>
 
 
-[Rating]:  /api/classes/ratings#properties
+[Rating]:  /Api/classes/ratings#properties

@@ -48,7 +48,7 @@ In this example we fetch membership type with `id` = `20` detailed information.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Membership
+     http://yoursubdomain.perfectgym.com/Api/Memberships/Membership
      	?membershipId=20     	
 ```
 
@@ -60,8 +60,8 @@ curl -i
 
 
 
-[MembershipProperties]: /api/memberships/memberships#properties 
+[MembershipProperties]: /Api/memberships/memberships#properties 
 [AccessRule]: /appendix/datatypes/clubaccessrule
 [ClubZoneType]: /appendix/datatypes/clubzonetype
-[PaymentPlanProperties]: /api/memberships/paymentplans#properties
+[PaymentPlanProperties]: /Api/memberships/paymentplans#properties
 

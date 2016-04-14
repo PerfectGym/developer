@@ -50,7 +50,7 @@ curl -X POST
 	    "extension": "png",
 	    "data": "... photo data ...",	     
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/Photo?userId=236
+	http://yoursubdomain.perfectgym.com/Api/Users/Photo?userId=236
 ```
 
 
@@ -61,5 +61,5 @@ curl -X POST
 
 
 
-[UserDetailsProperties]: /api/users/userdetails#properties
+[UserDetailsProperties]: /Api/users/userdetails#properties
 

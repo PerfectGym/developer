@@ -41,7 +41,7 @@ In this example we sign up user with `id` = `40` for classes with `id` = `1677`
 curl -i 
      -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/BookClass/
+     http://yoursubdomain.perfectgym.com/Api/Classes/BookClass/
      	?classId=1677
      	&userId=40
 ```
@@ -91,7 +91,7 @@ In this example we cancel booking of user with `id` = `40` for classes with `id`
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/CancelBooking
+     http://yoursubdomain.perfectgym.com/Api/Classes/CancelBooking
      	?classId=1677
      	&userId=40
 ```
@@ -112,8 +112,8 @@ Subsequent cancel for class with `id` =`1677` and for user with `id` = `40` gene
 
 
 
-[ClassesTypes]:  /api/classes/classestypes#properties
-[UserClassProperties]: /api/classes/userclasses#properties
+[ClassesTypes]:  /Api/classes/classestypes#properties
+[UserClassProperties]: /Api/classes/userclasses#properties
 [Error]: /appendix/datatypes/error
 [ClassBookingErrorCode]: /appendix/errorcodes/classbookingerrorcode
 [ClassCancelErrorCode]: /appendix/errorcodes/classcancelerrorcode

@@ -60,7 +60,7 @@ In this example we fetch payment plan with `id` = `44` detailed information.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/PaymentPlan
+     http://yoursubdomain.perfectgym.com/Api/Memberships/PaymentPlan
      	?paymentPlanId=40     	
 ```
 
@@ -72,9 +72,9 @@ curl -i
 
 
 
-[PaymentPlanProperties]: /api/memberships/paymentplans#properties 
+[PaymentPlanProperties]: /Api/memberships/paymentplans#properties 
 [Fees]: /appendix/datatypes/contractfees
-[Membership]: /api/memberships/memberships#properties
+[Membership]: /Api/memberships/memberships#properties
 [AddOn]: /appendix/datatypes/paymentplanaddon
 
 

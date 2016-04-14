@@ -11,11 +11,11 @@ The API provides a simple, resource-oriented, RESTful interface with JSON-format
 
 ## General API conventions
 
-All API access is over HTTPS, and accessed from the `yourcompany.perfectgym.com/api/`.  All data is
+All API access is over HTTPS, and accessed from the `yourcompany.perfectgym.com/Api/`.  All data is
 sent and received as JSON.
 
 ``` command-line
-$ curl -i https://yourcompany.perfectgym.com/api/Classes/Classes/1/0
+$ curl -i https://yourcompany.perfectgym.com/Api/Classes/Classes/1/0
 
 > HTTP/1.1 200 OK
 > Cache-Control: no-cache

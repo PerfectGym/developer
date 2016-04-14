@@ -50,7 +50,7 @@ In this example we fetch list of all instructors with `timestamp` greater then `
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Instructors/Instructors?timestamp=254000
+     http://yoursubdomain.perfectgym.com/Api/Instructors/Instructors?timestamp=254000
 ```
 
 
@@ -60,4 +60,4 @@ curl -i
 <%= json(:instructors_response) %>
 
 
- [Rating]:  /api/classes/ratings#properties
+ [Rating]:  /Api/classes/ratings#properties

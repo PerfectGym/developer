@@ -78,7 +78,7 @@ In this example we assign rating `5` to classes with `id` = `1677` by user with 
 curl -i 
      -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/RateClass
+     http://yoursubdomain.perfectgym.com/Api/Classes/RateClass
         ?classId=1677
      	&userId=40
         &classRating=5
@@ -130,7 +130,7 @@ In this example we assign rating `4` to instructor conducting classes with `id` 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Classes/RateInstructor
+     http://yoursubdomain.perfectgym.com/Api/Classes/RateInstructor
         ?classId=1677
         &userId=40
         &isntructorRating=4
@@ -152,7 +152,7 @@ Subsequent instructor rating for class with `id` = `1677` and for user with `id`
 
 
 [Error]: /appendix/datatypes/error
-[UserClassProperties]: /api/classes/userclasses#properties
+[UserClassProperties]: /Api/classes/userclasses#properties
 [ClassRatingErrorCode]: /appendix/errorcodes/classratingerrorcode
 [InstructorRatingErrorCode]: /appendix/errorcodes/instructorratingerrorcode
 

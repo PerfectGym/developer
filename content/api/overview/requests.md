@@ -29,11 +29,11 @@ For detailed request description have a look [here][ClubDetails].
 	
     GET Clubs/Club
 ``` command-line
-$ curl -i https://yourcompany.perfectgym.com/api/Clubs/Club?clubId=16
+$ curl -i https://yourcompany.perfectgym.com/Api/Clubs/Club?clubId=16
 ```
 
 Let's break down this request:
-- `https://yourcompany.perfectgym.com/api/` is a base url for PerfectGym API
+- `https://yourcompany.perfectgym.com/Api/` is a base url for PerfectGym API
 - `Clubs/Club` - resource path
 - `?clubId`-  `clubId` parameter that uniquly identifies resource you want to work with.
 
@@ -53,7 +53,7 @@ between `2016-01-01` and `2016-01-31`
 
 	GET Classes/Classes
 ``` command-line
-$ curl -i https://yourcompany.perfectgym.com/api/Classes/Classes
+$ curl -i https://yourcompany.perfectgym.com/Api/Classes/Classes
 	?clubId=1
 	&startDate=2016-01-01T00:00:00
 	&endDate=2016-01-31T23:59:59
@@ -75,7 +75,7 @@ value greater then `654321`.
 
 	GET Classes/Classes
 ``` command-line
-$ curl -i https://yourcompany.perfectgym.com/api/Classes/Classes
+$ curl -i https://yourcompany.perfectgym.com/Api/Classes/Classes
 	?clubId=1
 	&timestamp=654321
 ```
@@ -83,6 +83,6 @@ $ curl -i https://yourcompany.perfectgym.com/api/Classes/Classes
 For details about pagination with `timestamp` parameter go to [Pagination using timestamp][PaginationWithTimestamp]
 
 
-[Pagination]:  /api/overview/pagination#page
-[PaginationWithTimestamp]:  /api/overview/pagination#timestamp
-[ClubDetails]: /api/clubs/clubDetails#clubdetails
+[Pagination]:  /Api/overview/pagination#page
+[PaginationWithTimestamp]:  /Api/overview/pagination#timestamp
+[ClubDetails]: /Api/clubs/clubDetails#clubdetails

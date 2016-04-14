@@ -47,7 +47,7 @@ In this example we fetch message with `id` = `10252` detailed information.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Messages/Message?messageId=10252     	
+     http://yoursubdomain.perfectgym.com/Api/Messages/Message?messageId=10252     	
 ```
 
 
@@ -58,4 +58,4 @@ curl -i
 
 
 
-[MessageProperties]: /api/messages/messages#properties 
+[MessageProperties]: /Api/messages/messages#properties 

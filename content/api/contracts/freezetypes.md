@@ -52,7 +52,7 @@ In this example we fetch all available freeze types.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Contracts/FreezeTypes?contractId=10358	
+     http://yoursubdomain.perfectgym.com/Api/Contracts/FreezeTypes?contractId=10358	
 ```
 
 

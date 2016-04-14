@@ -21,6 +21,6 @@ available in your gym.
 
 
 
-[Memberships]: /api/memberships/memberships/
-[MembershipDetails]: /api/memberships/membershipdetails/
+[Memberships]: /Api/memberships/memberships/
+[MembershipDetails]: /Api/memberships/membershipdetails/
 

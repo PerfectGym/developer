@@ -18,5 +18,5 @@ The Contracts APIs provides access to user contracts list and contract details.
 
 
 
-[Contracts]: /api/contracts/contracts/
-[ContractDetails]: /api/contracts/contractdetails/
+[Contracts]: /Api/contracts/contracts/
+[ContractDetails]: /Api/contracts/contractdetails/

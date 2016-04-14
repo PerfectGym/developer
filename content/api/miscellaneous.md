@@ -19,7 +19,7 @@ The Miscellaneous APIs provides access to different data useful in developing ap
 
 
 
-[Cities]: /api/miscellaneous/cities/
-[Countries]: /api/miscellaneous/countries/
+[Cities]: /Api/miscellaneous/cities/
+[Countries]: /Api/miscellaneous/countries/
 
 

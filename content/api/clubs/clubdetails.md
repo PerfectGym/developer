@@ -58,7 +58,7 @@ In this example we fetch club with `id` = `16` detailed information. Information
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/Club?clubId=16     	
+     http://yoursubdomain.perfectgym.com/Api/Clubs/Club?clubId=16     	
 ```
 
 
@@ -69,8 +69,8 @@ curl -i
 
 
 
-[Club]: /api/clubs/clubs
-[ClubProperties]: /api/clubs/clubs#properties 
+[Club]: /Api/clubs/clubs
+[ClubProperties]: /Api/clubs/clubs#properties 
 [Contact]: /appendix/datatypes/contact
 [Equipment]: /appendix/datatypes/equipment
 [Facility]: /appendix/datatypes/facility

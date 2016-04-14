@@ -19,6 +19,6 @@ The Messages APIs provides access to a stream of messages directed to a club use
 
 
 
-[Messages]: /api/messages/messages/
-[MessageDetails]: /api/messages/messagedetails
+[Messages]: /Api/messages/messages/
+[MessageDetails]: /Api/messages/messagedetails
 

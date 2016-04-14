@@ -46,7 +46,7 @@ In this example we fetch detaild informations about freeze type with `id` = `7`.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Contracts/FreezeType?freezeTypeId=7&contractId=10358    	
+     http://yoursubdomain.perfectgym.com/Api/Contracts/FreezeType?freezeTypeId=7&contractId=10358    	
 ```
 
 
@@ -57,6 +57,6 @@ curl -i
 
 
 
-[FreezeType]: /api/contracts/freezetypes#properties
+[FreezeType]: /Api/contracts/freezetypes#properties
 [FreezeStartDate]: /appendix/datatypes/freezestartdate
 

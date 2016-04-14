@@ -19,6 +19,6 @@ The Payments APIs provides access to contract payments list and allows user to e
 
 
 
-[PendingFees]: /api/payments/contractfees/
-[Payments]: /api/payments/payments
+[PendingFees]: /Api/payments/contractfees/
+[Payments]: /Api/payments/payments
 

@@ -19,4 +19,4 @@ Name            | Type      | Description
 `paymentId`		|`string`   | Payment identifier. Can be used to check payment status using [payment status][PaymentStatus] endpoint.
 
 
-[PaymentStatus]: /api/payments/paymentstatus
+[PaymentStatus]: /Api/payments/paymentstatus

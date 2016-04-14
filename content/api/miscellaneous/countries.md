@@ -44,7 +44,7 @@ In this example we fetch list of all countries that name contains `pol` string.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Geo/Countries?name=pol
+     http://yoursubdomain.perfectgym.com/Api/Geo/Countries?name=pol
 ```
 
 

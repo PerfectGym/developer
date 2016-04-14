@@ -54,7 +54,7 @@ curl -X POST
 	    "street": "Przyczółkowa 334",
 		"cityAndPostalCode": "02-962 Warszawa",		 
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/DirectDebit?userId=236
+	http://yoursubdomain.perfectgym.com/Api/Users/DirectDebit?userId=236
 ```
 
 
@@ -110,7 +110,7 @@ curl -X POST
 	    "sourceIp": "192.168.1.100",
 	    "comment": "Sample comment"	
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/SignDirectDebit
+	http://yoursubdomain.perfectgym.com/Api/Users/SignDirectDebit
 ```
 
 
@@ -122,6 +122,6 @@ curl -X POST
 
 
 
-[UserDetailsProperties]: /api/users/userdetails#properties
+[UserDetailsProperties]: /Api/users/userdetails#properties
 [Error]: /appendix/datatypes/error
 [DirectDebitErrorCode]: /appendix/errorcodes/directdebiterrorcode

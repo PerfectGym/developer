@@ -66,7 +66,7 @@ In this example we fetch user (with `id` = `1`) detailed information.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Users/User?userId=1
+     http://yoursubdomain.perfectgym.com/Api/Users/User?userId=1
 ```
 
 
@@ -101,7 +101,7 @@ In this example we fetch user (with personal `id` = `80010101234`) detailed info
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Users/User?personalId=80010101234
+     http://yoursubdomain.perfectgym.com/Api/Users/User?personalId=80010101234
 ```
 
 
@@ -112,6 +112,6 @@ curl -i
 
 
 
-[Contract]: /api/contracts/contractdetails#properties
+[Contract]: /Api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
 [DirectDebit]: /appendix/datatypes/directdebit

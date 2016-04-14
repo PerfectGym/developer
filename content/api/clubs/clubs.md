@@ -49,7 +49,7 @@ In this example we fetch list of all clubs with `timestamp` greater then `254000
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Clubs/Clubs?timestamp=254000
+     http://yoursubdomain.perfectgym.com/Api/Clubs/Clubs?timestamp=254000
 ```
 
 

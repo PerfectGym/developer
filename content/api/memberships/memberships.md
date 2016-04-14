@@ -48,7 +48,7 @@ available in a company.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships?timestamp=0
+     http://yoursubdomain.perfectgym.com/Api/Memberships/Memberships?timestamp=0
 ```
 
 
@@ -82,7 +82,7 @@ In this example we fetch list of all memberships available in club identified wi
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Memberships/Memberships?clubId=16
+     http://yoursubdomain.perfectgym.com/Api/Memberships/Memberships?clubId=16
 ```
 
 

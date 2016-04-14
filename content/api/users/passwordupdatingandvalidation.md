@@ -52,7 +52,7 @@ curl -X POST
 	 -d '{
 	    "password": "new_password",	    
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/Password?userId=236
+	http://yoursubdomain.perfectgym.com/Api/Users/Password?userId=236
 ```
 
 
@@ -92,7 +92,7 @@ In this example we reset password of a user identified with `john.fibo@perfectgy
 curl -X POST 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 	 
-	http://yoursubdomain.perfectgym.com/api/Users/ResetPassword?email=john.fibo@perfecthym.pl
+	http://yoursubdomain.perfectgym.com/Api/Users/ResetPassword?email=john.fibo@perfecthym.pl
 ```
 
 
@@ -137,7 +137,7 @@ curl -X POST
 	 	"userName": "john.fibo@perfectgym.pl",
 	    "password": "new_password",	    
 	}' 
-	http://yoursubdomain.perfectgym.com/api/Users/ValidateCredentials
+	http://yoursubdomain.perfectgym.com/Api/Users/ValidateCredentials
 ```
 
 
@@ -157,5 +157,5 @@ Invalid user credentials generates following response:
 
 
 [Error]: /appendix/datatypes/error
-[UserDetailsProperties]: /api/users/userdetails#properties
+[UserDetailsProperties]: /Api/users/userdetails#properties
 [ValidateCredentialsErrorCode]: /appendix/errorcodes/validatecredentialserrorcode

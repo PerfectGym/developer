@@ -24,5 +24,5 @@ Name            	| Type      | Description
 `allowedZoneTypes`  |`array`    | An array of [Club Zone Types][ClubZoneType] objects, each representing club zone type membership holder has access to.
 
 
-[Club]: /api/clubs/clubs#properties
+[Club]: /Api/clubs/clubs#properties
 [ClubZoneType]: /appendix/datatypes/zonetype

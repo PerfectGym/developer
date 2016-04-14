@@ -44,7 +44,7 @@ In this example we fetch list of all polish cities that name contains `Warszawa`
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Geo/Cities
+     http://yoursubdomain.perfectgym.com/Api/Geo/Cities
      	?countryId=187
      	&name=Warszawa
 ```
@@ -56,4 +56,4 @@ curl -i
 <%= json(:CITIES_RESPOSNE) %>
 
 
-[Country]: /api/miscellaneous/countries#properties
+[Country]: /Api/miscellaneous/countries#properties

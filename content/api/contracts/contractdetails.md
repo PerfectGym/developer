@@ -49,7 +49,7 @@ In this example we fetch user contract with `id` = `10358` detailed information.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Contracts/Contract?contractId=10358    	
+     http://yoursubdomain.perfectgym.com/Api/Contracts/Contract?contractId=10358    	
 ```
 
 
@@ -60,10 +60,10 @@ curl -i
 
 
 
-[ContractProperties]: /api/contracts/contracts#properties 
-[ContractSigning]: /api/users/usercontract#contractsigning
-[Membership]: /api/memberships/memberships#properties
-[PaymentPlan]: /api/paymentplans/paymentplans#properties
-[Discount]: /api/paymentplans/discounts#properties
+[ContractProperties]: /Api/contracts/contracts#properties 
+[ContractSigning]: /Api/users/usercontract#contractsigning
+[Membership]: /Api/memberships/memberships#properties
+[PaymentPlan]: /Api/paymentplans/paymentplans#properties
+[Discount]: /Api/paymentplans/discounts#properties
 [Freeze]: /appendix/datatypes/contractfreeze
 

@@ -43,7 +43,7 @@ In this example we fetch payment status for payment identified with `paymentId` 
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Payments/PaymentStatus
+     http://yoursubdomain.perfectgym.com/Api/Payments/PaymentStatus
      	?paymentId=PGAPI_a12b55c5-d526-4e4e-ae9c
 ```
 

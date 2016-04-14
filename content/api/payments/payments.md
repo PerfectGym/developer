@@ -40,7 +40,7 @@ In this example we request payment URL, user can execute payment with.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Payments/Pay
+     http://yoursubdomain.perfectgym.com/Api/Payments/Pay
      	?userId=236
      	&amount=100
 ```
@@ -88,7 +88,7 @@ curl -i
         	"feeIds": [3889, 3890, 3891],
     		"totalAmount": 32.8
     }' 
-    http://yoursubdomain.perfectgym.com/api/Payments/PayWithCreditCard     	
+    http://yoursubdomain.perfectgym.com/Api/Payments/PayWithCreditCard     	
 ```
 
 
@@ -109,8 +109,8 @@ Total amount is not equal to sum of all fees to be paid.
 
 
 [Fee]: /appendix/datatypes/fee
-[PaymentStatus]: /api/payments/paymentstatus#properties
+[PaymentStatus]: /Api/payments/paymentstatus#properties
 [PaymentDetails]: /appendix/datatypes/paymentdetails
-[CreditCard]: /api/users/usercreditcard
+[CreditCard]: /Api/users/usercreditcard
 [Error]: /appendix/datatypes/error
 [CreditCardPaymentErrorCode]: /appendix/errorcodes/creditcardpaymenterrorcode

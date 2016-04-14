@@ -49,7 +49,7 @@ In this example we fetch list of documents assigned to user identified with `id`
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/api/Documents/Documents?userId=236
+     http://yoursubdomain.perfectgym.com/Api/Documents/Documents?userId=236
 ```
 
 

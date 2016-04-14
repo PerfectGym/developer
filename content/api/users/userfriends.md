@@ -42,7 +42,7 @@ In this example we check if user with `id` = `521` can be assigned as friend of 
 curl -X POST 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 	  
-	http://yoursubdomain.perfectgym.com/api/Users/VerifyFriendConnection?fullMemberUserId=236&friendUserId=521
+	http://yoursubdomain.perfectgym.com/Api/Users/VerifyFriendConnection?fullMemberUserId=236&friendUserId=521
 ```
 
 
@@ -86,10 +86,10 @@ In this example user with `id` = `521` as friend of user with `id` = `236`.
 curl -X POST 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 	  
-	http://yoursubdomain.perfectgym.com/api/Users/ConnectFriend?fullMemberUserId=236&friendUserId=521
+	http://yoursubdomain.perfectgym.com/Api/Users/ConnectFriend?fullMemberUserId=236&friendUserId=521
 ```
 
 
 
-[UserDetailsProperties]: /api/users/userdetails#properties
+[UserDetailsProperties]: /Api/users/userdetails#properties
 
