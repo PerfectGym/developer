@@ -21,6 +21,7 @@ User can use it's username and password to login to API in end user mode using v
 
 Request creates an end user account and returns password reset token. 
 To complete sign up process user has to update account password using [password reset method][PasswordReset].
+After completing sign up process user credentials can be used to access API in end user mode.
 
 
 ### Parameters

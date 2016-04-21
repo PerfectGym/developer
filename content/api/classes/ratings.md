@@ -48,19 +48,27 @@ Name         		| Type       | Description
 
 
 
-## Execute class rating
+## Execute class rating ![alt text][EM] ![alt text][UM]
 
     POST Classes/RateClass
 
-Request rates class on behalf of user.
+Rates class on behalf of user.
 
 
-### Parameters
+### Employee mode parameters
 
 Name         | Type       | Description
 -------------|------------|-----------------------
 `classId`    |`long`      | **Required**. Class identifier. Request rates fitness class identified by `classId`.
 `userId`     |`long`      | **Required**. User identifier.  Request rates fitness class on behalf of user identified by `userId`.
+`rating`     |`int`       | **Required**. Rating. Value of `1` to `5`. Rating user assigns to selected classes.
+
+
+### User mode parameters
+
+Name         | Type       | Description
+-------------|------------|-----------------------
+`classId`    |`long`      | **Required**. Class identifier. Request rates fitness class identified by `classId` on behalf of authenticated identifier.
 `rating`     |`int`       | **Required**. Rating. Value of `1` to `5`. Rating user assigns to selected classes.
 
 
@@ -70,7 +78,7 @@ Name         | Type       | Description
 with [class rating error codes][ClassRatingErrorCode] otherwise.
 
 
-### Example request
+### Employee mode example request
 
 In this example we assign rating `5` to classes with `id` = `1677` by user with `id` = `40`.
 
@@ -100,19 +108,26 @@ Subsequent rating for class with `id` = `1677` and for user with `id` = `40` gen
 
 
 
-## Execute instructor rating
+## Execute instructor rating ![alt text][EM] ![alt text][UM]
 
     POST Classes/RateInstructor
 
-Request rates instructor conducting class on behalf of user.
+Rates instructor conducting class on behalf of user.
 
 
-### Parameters
+### Employee mode parameters
 
 Name         | Type       | Description
 -------------|------------|------------------------
 `classId`    |`long`      | **Required**. Class identifier. Request rates instructor conducting class identified by `classId`.
 `userId`     |`long`      | **Required**. User identifier.  Request rates instructor on behalf of user identified by `userId`.
+`rating`     |`int`       | **Required**. Rating. Value of `1` to `5`. Rating user assigns to selected instructor.
+
+### User mode parameters
+
+Name         | Type       | Description
+-------------|------------|------------------------
+`classId`    |`long`      | **Required**. Class identifier. Request rates instructor conducting class identified by `classId` on behalf of authenticated identifier.
 `rating`     |`int`       | **Required**. Rating. Value of `1` to `5`. Rating user assigns to selected instructor.
 
 
@@ -122,7 +137,7 @@ Name         | Type       | Description
 with [instructor rating error codes][InstructorRatingErrorCode] otherwise.
 
 
-### Example request
+### Employee mode example request
 
 In this example we assign rating `4` to instructor conducting classes with `id` = `1677` by user with `id` = `40`.
 
@@ -156,4 +171,6 @@ Subsequent instructor rating for class with `id` = `1677` and for user with `id`
 [ClassRatingErrorCode]: /appendix/errorcodes/classratingerrorcode
 [InstructorRatingErrorCode]: /appendix/errorcodes/instructorratingerrorcode
 
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
 

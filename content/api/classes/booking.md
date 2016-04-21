@@ -9,21 +9,26 @@ This API allow users to sign up (book) and sign out (cancel) for fitness classes
 {:toc}
 
 
-## Execute class booking
+## Execute class booking ![alt text][EM] ![alt text][UM]
 
     POST Classes/BookClass
 
-Request signs up user for fitness class.
+Signs up user for fitness class.
 
 
-
-
-### Parameters 
+### Employee mode parameters 
 
 Name         | Type       | Description
 -----|-------|------------|------------
-`classId`    |`long`      | **Required**. Class identifier. Request signs up user for fitness class identified by `classId`.
-`userId`     |`long`      | **Required**. User identifier.  Request signs up user identified by `userId` for fitness class.
+`classId`    |`long`      | **Required**. Class identifier. Request signs up user for fitness class identified with `classId`.
+`userId`     |`long`      | **Required**. User identifier.  Request signs up user identified with `userId` for fitness class.
+
+
+### User mode parameters 
+
+Name         | Type       | Description
+-----|-------|------------|------------
+`classId`    |`long`      | **Required**. Class identifier. Request signs up authenticated user for fitness class identified by `classId`.
 
 
 
@@ -33,7 +38,7 @@ Name         | Type       | Description
 with [class booking error codes][ClassBookingErrorCode] otherwise.
 
 
-### Example request
+### Employee mode example request
 
 In this example we sign up user with `id` = `40` for classes with `id` = `1677`
 
@@ -62,19 +67,28 @@ Subsequent booking for class with `id` =`1677` and for user with `id` = `40` gen
 
 
 
-## Execute class cancel
+
+## Execute class cancel ![alt text][EM] ![alt text][UM]
 
     POST Classes/CancelBooking
 
-Request cancels user booking.
+Cancels user booking.
 
 
-### Parameters
+### Employee mode parameters
 
 Name         | Type       | Description
 -----|-------|------------|------------
 `classId`    |`long`      | **Required**. Class identifier. Request cancels user booking for fitness class identified by `classId`.
 `userId`     |`long`      | **Required**. User identifier.  Request cancels user identified by `userId` booking for fitness class.
+
+
+### User mode parameters
+
+Name         | Type       | Description
+-----|-------|------------|------------
+`classId`    |`long`      | **Required**. Class identifier. Request cancels authenticated user booking for fitness class identified by `classId`.
+
 
 
 ### Response
@@ -83,7 +97,7 @@ Name         | Type       | Description
 with [class cancel error codes][ClassCancelErrorCode] otherwise.
 
 
-### Example request
+### Employee mode example request
 
 In this example we cancel booking of user with `id` = `40` for classes with `id` = `1677`
 
@@ -117,3 +131,6 @@ Subsequent cancel for class with `id` =`1677` and for user with `id` = `40` gene
 [Error]: /appendix/datatypes/error
 [ClassBookingErrorCode]: /appendix/errorcodes/classbookingerrorcode
 [ClassCancelErrorCode]: /appendix/errorcodes/classcancelerrorcode
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
