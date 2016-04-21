@@ -69,9 +69,19 @@ Prerequisites</a></li>
 <a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>
 <a name="prerequisites"></a>Prerequisites</h2>
 
-<p>Before accessing API, you need a special API user in your Perfect Gym instalation. 
+<p>PerfectGym API can work in employee or end user mode. 
+In employee mode API works on behalf of a club employee.
+In end user mode API works on behalf of a club member.</p>
+
+<p>To access API in employee mode, you need a special API user in your Perfect Gym instalation. 
 Please <a href="mailto:pomoc@perfectgym.com">contact Perfect Gym</a> and we will provide you user name
-and password used to authenticate your app with PerfectGYm API</p>
+and password used to authenticate your app with PerfectGym API employee mode.</p>
+
+<p>To access API in end user mode, user needs to sign up for an end user account. After signing up
+for an end user account, user's credentials can be used to access API in end user mode. 
+For details see <a href="/api/users/passwordupdatingandvalidation#signup">signing up for end user account</a></p>
+
+<p>Each method described in PerfectGym API documentation is marked as working in employee mode, end user mode or both.</p>
 
 <h2>
 <a id="authentication-flow" class="anchor" href="#authentication-flow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication flow</h2>
@@ -98,13 +108,13 @@ and password used to authenticate your app with PerfectGYm API</p>
 <td><code>username</code></td>
 <td><code>string</code></td>
 <td>
-<strong>Required</strong>. User name you received from PerfectGym, see <a href="#prerequisites">prerequisites</a>.</td>
+<strong>Required</strong>. User name you received from PerfectGym (employee mode) or club member email address (end user mode). For details see <a href="#prerequisites">prerequisites</a>.</td>
 </tr>
 <tr>
 <td><code>password</code></td>
 <td><code>string</code></td>
 <td>
-<strong>Required</strong>. User password you received from PerfectGym, see <a href="#prerequisites">prerequisites</a>.</td>
+<strong>Required</strong>. User password you received from PerfectGym (employee mode), or club member password (end user moded). For details see <a href="#prerequisites">prerequisites</a>.</td>
 </tr>
 <tr>
 <td><code>grant_type</code></td>
