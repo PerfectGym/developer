@@ -66,157 +66,23 @@ User can use it's username and password to login to API in end user mode using v
 </ul>
 
 <ul id="markdown-toc">
+<li><a href="#sign-up-for-end-user-account" id="markdown-toc-sign-up-for-end-user-account">
+Sign up for end user account</a></li>
 <li><a href="#request-password-reset-token" id="markdown-toc-request-password-reset-token">Request password reset token</a></li>
 <li><a href="#password-reset" id="markdown-toc-password-reset">
 Password reset</a></li>
 <li><a href="#validate-user-credentials" id="markdown-toc-validate-user-credentials">Validate user credentials</a></li>
 </ul>
 
-<!-- ## <a name="signup"></a>Sign up for end user account
-
-    POST Users/SignUp
-
-Request creates and user account and returns password reset token. To complete sign up process 
-
-
-### Parameters
-
-Name        | Type          | Description
-------------|---------------|------------
-`userId`    |`long`         | **Required**. User identifier.
-
-
-### Body parameters
-
-Name                | Type          | Description
---------------------|---------------|------------
-`password`          |`string`       | User password.
-
-
-
-### Response
-
-[User details][UserDetailsProperties].
-
-
-### Example request
-
-In this example we update user's password.
-
-<pre class="command-line">
-
-curl -X POST 
-     -H "Authorization: Bearer $ACCESS_TOKEN" 
-     -H "Content-Type: application/json" 
-     -d '{
-        "password": "new_password",     
-    }' 
-    http://yoursubdomain.perfectgym.com/Api/Users/Password?userId=236
-</pre>
-
-
-
-### Example response
-
-``` headers
-Status: 200 OK
-```
-
-``` json
-{
-  "elements": [
-    {
-      "id": 236,
-      "timestamp": 448035,
-      "personalId": "80010101234",
-      "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
-      "cardNumber": "",
-      "firstName": "John",
-      "lastName": "Fibo",
-      "email": "john.fibo@perfectgym.pl",
-      "phone": "0048123456789",
-      "idCardName": "Passport",
-      "idCardNumber": "ABC 123456",
-      "legalGuardian": "",
-      "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Photo?photoId=78",
-      "birthDate": "1978-06-01T00:00:00",
-      "isForeigner": false,
-      "sex": "Male",
-      "newsletterAgreement": false,
-      "termsAndConditionsAgreement": true,
-      "address": {
-        "country": "Poland",
-        "city": "Warszawa",
-        "postalCode": "02-962",
-        "line1": "ul. Przyczolkowa 334",
-        "line2": ""
-      },
-      "directDebit": {
-        "accountNumber": "61 1090 1014 0000 0712 1981 2874",
-        "ownerName": "John Fibo",
-        "street": "Przyczółkowa 334",
-        "cityAndPostalCode": "02-962 Warszawa",
-        "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=123"
-      },
-      "homeClubId": 12,
-      "isActive": true,
-      "isDeleted": false,
-      "contracts": [
-        {
-          "id": 10358,
-          "timestamp": 350287,
-          "signUpDate": "2016-01-26T00:00:00",
-          "startDate": "2016-01-26T00:00:00",
-          "cancelDate": "",
-          "endDate": "",
-          "isCurrent": true,
-          "membership": {
-            "id": 1,
-            "timestamp": 349423,
-            "name": "Open",
-            "isActive": true,
-            "isDeleted": false
-          },
-          "paymentPlan": {
-            "id": 44,
-            "timestamp": 447623,
-            "name": "Open 24m",
-            "isActive": true,
-            "isAddOnPaymentPlan": false,
-            "isDeleted": false
-          },
-          "discounts": [
-            {
-              "id": 10,
-              "isActive": true,
-              "name": "50%",
-              "administartionFeeDiscountType": "ValueDiscount",
-              "joiningFeeDiscountType": "None",
-              "membershipFeeDiscountType": "PercentDiscount",
-              "administartionFeeDiscountValue": 0,
-              "joiningFeeDiscountValue": "",
-              "membershipFeeDiscountValue": 50
-            }
-          ],
-          "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=120",
-          "isActive": true,
-          "isDeleted": false
-        }
-      ]
-    }
-  ]
-}
-```
- -->
-
 <h2>
-<a id="request-password-reset-token" class="anchor" href="#request-password-reset-token" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request password reset token</h2>
+<a id="sign-up-for-end-user-account" class="anchor" href="#sign-up-for-end-user-account" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="signup"></a>Sign up for end user account</h2>
 
-<pre><code>GET Users/ResetPassword
+<pre><code>GET Users/SignUp
 </code></pre>
 
-<p>Request returns password reset token. Using password reset token user is able to update his account password.
-For details see <a href="/api/users/passwordupdatingandvalidation#passwordreset">password reset method</a>.</p>
+<p>Request creates an end user account and returns password reset token. 
+To complete sign up process user has to update account password using <a href="/api/users/passwordupdatingandvalidation#passwordreset">password reset method</a>.</p>
 
 <h3>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
@@ -247,6 +113,71 @@ For details see <a href="/api/users/passwordupdatingandvalidation#passwordreset"
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
+<p>In this example we sign up for an account for user identified with given email address.</p>
+
+<pre class="command-line">
+
+curl -X GET 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json"     
+    http://yoursubdomain.perfectgym.com/Api/Users/SignUp?email=john.fibo@perfectgym.pl
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"resetPasswordToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c10cdf6-565d-47cf-a7af-d27e6f989df8"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="request-password-reset-token" class="anchor" href="#request-password-reset-token" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request password reset token</h2>
+
+<pre><code>GET Users/ResetPassword
+</code></pre>
+
+<p>Request returns password reset token. Using password reset token user is able to update his account password.
+For details see <a href="/api/users/passwordupdatingandvalidation#passwordreset">password reset method</a>.</p>
+
+<h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. User email.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/appendix/datatypes/passwordresettoken">Password reset token</a>.</p>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
 <p>In this example user's password reset token.</p>
 
 <pre class="command-line">
@@ -258,7 +189,7 @@ curl -X GET
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -311,12 +242,12 @@ curl -X GET
 </table>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a>.</p>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we update password for account with a given password reset token associated.</p>
 
@@ -333,7 +264,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -459,12 +390,12 @@ curl -X POST
 </table>
 
 <h3>
-<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-3" class="anchor" href="#response-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a> if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/validatecredentialserrorcode">validate credentials error codes</a> otherwise.</p>
 
 <h3>
-<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-3" class="anchor" href="#example-request-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we validate user credentials.</p>
 
@@ -481,7 +412,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-3" class="anchor" href="#example-response-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
