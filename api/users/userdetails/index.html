@@ -61,6 +61,7 @@
 <li><a href="#user-details-properties" id="markdown-toc-user-details-properties">
 User details properties</a></li>
 <li><a href="#retrive-detailed-information-about-user-identified-by-user-unique-identifier" id="markdown-toc-retrive-detailed-information-about-user-identified-by-user-unique-identifier">Retrive detailed information about user identified by user unique identifier.</a></li>
+<li><a href="#retrive-detailed-information-about-user-identified-by-user-email-address" id="markdown-toc-retrive-detailed-information-about-user-identified-by-user-email-address">Retrive detailed information about user identified by user email address.</a></li>
 <li><a href="#retrive-detailed-information-about-user-identified-by-personal-id" id="markdown-toc-retrive-detailed-information-about-user-identified-by-personal-id">Retrive detailed information about user identified by personal id.</a></li>
 </ul>
 
@@ -348,6 +349,137 @@ curl -i
 
 
 <h2>
+<a id="retrive-detailed-information-about-user-identified-by-user-email-address" class="anchor" href="#retrive-detailed-information-about-user-identified-by-user-email-address" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed information about user identified by user email address.</h2>
+
+<pre><code>GET Users/User
+</code></pre>
+
+<p>Returns detailed user informations.</p>
+
+<h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>User email address.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch user (with <code>email</code> = <code>john.fibo@perfectgym.ok</code>) detailed information.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Users/User?email=john.fibo@perfectgym.pl
+</pre>
+
+<h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447183</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80010101234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102000001"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jan"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nowak"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nowak@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"photoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1944-09-17T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isForeigner"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"legalGuardian"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20-259"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"al. Jerozolimskie 114"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"directDebit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ownerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cityAndPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"documentUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"homeClubId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"contracts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10358</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">350287</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"signUpDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-28T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-04-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"cancelDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-03-31T23:59:59"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-03-31T23:59:59"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isCurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"membership"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">349423</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"paymentPlan"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">252688</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Student weekly 45"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"discounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"administartionFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValueDiscount"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"joiningFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"membershipFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PercentDiscount"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"administartionFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"joiningFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"membershipFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
 <a id="retrive-detailed-information-about-user-identified-by-personal-id" class="anchor" href="#retrive-detailed-information-about-user-identified-by-personal-id" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed information about user identified by personal id.</h2>
 
 <pre><code>GET Users/User
@@ -358,7 +490,7 @@ uniquly identified, if more then one user with given personal id exists,
 empty result is returned.</p>
 
 <h3>
-<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters-2" class="anchor" href="#parameters-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -378,7 +510,7 @@ empty result is returned.</p>
 </table>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we fetch user (with personal <code>id</code> = <code>80010101234</code>) detailed information.</p>
 
@@ -390,7 +522,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
