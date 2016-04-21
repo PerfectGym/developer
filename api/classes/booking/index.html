@@ -58,20 +58,23 @@
 <p>This API allow users to sign up (book) and sign out (cancel) for fitness classes.</p>
 
 <ul id="markdown-toc">
-<li><a href="#execute-class-booking" id="markdown-toc-execute-class-booking">Execute class booking</a></li>
-<li><a href="#execute-class-cancel" id="markdown-toc-execute-class-cancel">Execute class cancel</a></li>
+<li><a href="#execute-class-booking--" id="markdown-toc-execute-class-booking--">Execute class booking  
+</a></li>
+<li><a href="#execute-class-cancel--" id="markdown-toc-execute-class-cancel--">Execute class cancel  
+</a></li>
 </ul>
 
 <h2>
-<a id="execute-class-booking" class="anchor" href="#execute-class-booking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class booking</h2>
+<a id="execute-class-booking--" class="anchor" href="#execute-class-booking--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class booking <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+</h2>
 
 <pre><code>POST Classes/BookClass
 </code></pre>
 
-<p>Request signs up user for fitness class.</p>
+<p>Signs up user for fitness class.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="employee-mode-parameters" class="anchor" href="#employee-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -86,13 +89,34 @@
 <td><code>classId</code></td>
 <td><code>long</code></td>
 <td>
-<strong>Required</strong>. Class identifier. Request signs up user for fitness class identified by <code>classId</code>.</td>
+<strong>Required</strong>. Class identifier. Request signs up user for fitness class identified with <code>classId</code>.</td>
 </tr>
 <tr>
 <td><code>userId</code></td>
 <td><code>long</code></td>
 <td>
-<strong>Required</strong>. User identifier.  Request signs up user identified by <code>userId</code> for fitness class.</td>
+<strong>Required</strong>. User identifier.  Request signs up user identified with <code>userId</code> for fitness class.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="user-mode-parameters" class="anchor" href="#user-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Class identifier. Request signs up authenticated user for fitness class identified by <code>classId</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -104,7 +128,7 @@
 with <a href="/appendix/errorcodes/classbookingerrorcode">class booking error codes</a> otherwise.</p>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="employee-mode-example-request" class="anchor" href="#employee-mode-example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode example request</h3>
 
 <p>In this example we sign up user with <code>id</code> = <code>40</code> for classes with <code>id</code> = <code>1677</code></p>
 
@@ -205,15 +229,16 @@ curl -i
 
 
 <h2>
-<a id="execute-class-cancel" class="anchor" href="#execute-class-cancel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class cancel</h2>
+<a id="execute-class-cancel--" class="anchor" href="#execute-class-cancel--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class cancel <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+</h2>
 
 <pre><code>POST Classes/CancelBooking
 </code></pre>
 
-<p>Request cancels user booking.</p>
+<p>Cancels user booking.</p>
 
 <h3>
-<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="employee-mode-parameters-1" class="anchor" href="#employee-mode-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -240,13 +265,34 @@ curl -i
 </table>
 
 <h3>
+<a id="user-mode-parameters-1" class="anchor" href="#user-mode-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Class identifier. Request cancels authenticated user booking for fitness class identified by <code>classId</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
 <a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/classes/userclasses#properties">Class details</a> if class cancel is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
 with <a href="/appendix/errorcodes/classcancelerrorcode">class cancel error codes</a> otherwise.</p>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="employee-mode-example-request-1" class="anchor" href="#employee-mode-example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode example request</h3>
 
 <p>In this example we cancel booking of user with <code>id</code> = <code>40</code> for classes with <code>id</code> = <code>1677</code></p>
 
