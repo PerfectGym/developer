@@ -557,7 +557,14 @@ module GitHub
             CONTRACT_SIGNED
           ]
         ]        
-      }   
+      } 
+
+      USERRESETPASSWORDTOKEN_RESPONSE ||= {
+
+        "elements" => [
+          "resetPasswordToken": "9c10cdf6-565d-47cf-a7af-d27e6f989df8"  
+        ]
+      }  
 
       USERADD_ERROR_RESPONSE ||= {      
          

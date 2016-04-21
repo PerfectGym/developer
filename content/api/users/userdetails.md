@@ -26,6 +26,7 @@ Name            				| Type      				| Description
 `photoUrl`						|`string`					| User photo URL.
 `birthDate`         			|`string`   				| User birth date.
 `isForeigner`					|`bool`						| Indicates if user is a forigner.
+`hasAccount`					|`bool`						| Indicates if user has signed up for end user account.
 `sex`          					|`string`   				| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `phoneNumber`      				|`string`   				| User phone number.
 `idCardName`					|`string`					| User identity card name.

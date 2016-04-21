@@ -4,20 +4,22 @@ title: Password updating and validation
 
 # Password updating and validation
 
-This API lest you update user password and validate credentials. User can use it's username and password to login to varions client web and mobile apps, including:
+This API lest you create user account, update user password and validate user's credentials. 
+User can use it's username and password to login to API in end user mode using varions client web and mobile apps, including:
 - KIOSK web app
 - Client Portal web app
 - Perfect Gym Go mobile app
+- Your custom app
 
 
 {:toc}
 
 
-## Update user password
+<!-- ## <a name="signup"></a>Sign up for end user account
 
-    POST Users/Password
+    POST Users/SignUp
 
-Request updates user password.
+Request creates and user account and returns password reset token. To complete sign up process 
 
 
 ### Parameters
@@ -59,46 +61,92 @@ curl -X POST
 ### Example response
 
 <%= headers 200 %>
-<%= json(:usertermsandconditions_response) %>
+<%= json(:usertermsandconditions_response) %> -->
 
 
 
-## Password reset
+## Request password reset token
 
-	POST Users/ResetPassword
+    GET Users/ResetPassword
 
-Request resets password and sends user an email with new password.
+Request returns password reset token. Using password reset token user is able to update his account password.
+For details see [password reset method][PasswordReset].
 
 
 ### Parameters
 
 Name  	    | Type     		| Description
 ------------|---------------|------------
-`email`     |`string`  		| **Required**. Email address of a user that password is to be reset.
+`email`     |`string` 		| **Required**. User email.
+
+
+### Response
+
+[Password reset token][PasswordResetToken].
+
+
+### Example request
+
+In this example user's password reset token.
+
+``` command-line
+
+curl -X GET 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 http://yoursubdomain.perfectgym.com/Api/Users/Password?email=john.fibo@perfectgym.pl
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:userresetpasswordtoken_response) %>
+
+
+
+## <a name="passwordreset"></a>Password reset
+
+	POST Users/ResetPassword
+
+Request updates user account password. Prior to updating user account password, password reset token must be aquired.
+
+
+### Body parameters
+
+Name  	    			| Type     		| Description
+------------------------|---------------|------------
+`resetPasswordToken`	|`string`  		| **Required**. Password reset token.
+`password`				|`string`  		| **Required**. New user account password.
 
 
 
 ### Response
 
-Request resturns no content.
+[User details][UserDetailsProperties].
 
 
 ### Example request
 
-In this example we reset password of a user identified with `john.fibo@perfectgym.pl` email address.
+In this example we update password for account with a given password reset token associated.
 
 ``` command-line
 
 curl -X POST 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 	 
-	http://yoursubdomain.perfectgym.com/Api/Users/ResetPassword?email=john.fibo@perfecthym.pl
+	 -d '{
+	 	"passwordToken": "9c10cdf6-565d-47cf-a7af-d27e6f989df8",
+	    "password": "new_password"	    
+	}' 
+	http://yoursubdomain.perfectgym.com/Api/Users/ResetPassword
 ```
 
 
 ### Example response
 
-<%= headers 204 %>
+<%= headers 200 %>
+<%= json(:usertermsandconditions_response) %>
 
 
 
@@ -126,7 +174,7 @@ Name     			| Type    		| Description
 
 ### Example request
 
-In this example we update user's password.
+In this example we validate user credentials.
 
 ``` command-line
 
@@ -135,7 +183,7 @@ curl -X POST
 	 -H "Content-Type: application/json" 
 	 -d '{
 	 	"userName": "john.fibo@perfectgym.pl",
-	    "password": "new_password",	    
+	    "password": "password",	    
 	}' 
 	http://yoursubdomain.perfectgym.com/Api/Users/ValidateCredentials
 ```
@@ -159,3 +207,5 @@ Invalid user credentials generates following response:
 [Error]: /appendix/datatypes/error
 [UserDetailsProperties]: /api/users/userdetails#properties
 [ValidateCredentialsErrorCode]: /appendix/errorcodes/validatecredentialserrorcode
+[PasswordReset]: /api/users/passwordupdatingandvalidation#passwordreset
+[PasswordResetToken]: /appendix/datatypes/passwordresettoken
