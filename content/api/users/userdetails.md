@@ -78,6 +78,39 @@ curl -i
 
 
 
+## Retrive detailed information about user identified by user email address.
+
+    GET Users/User
+
+Returns detailed user informations.
+
+
+### Parameters
+
+Name            | Type       | Description
+----------------|------------|------------------------
+`email`	        |`string`    | User email address.
+
+
+### Example request
+
+In this example we fetch user (with `email` = `john.fibo@perfectgym.ok`) detailed information.
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Users/User?email=john.fibo@perfectgym.pl
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:user_response) %>
+
+
+
 ## Retrive detailed information about user identified by personal id.
 
     GET Users/User
