@@ -15,53 +15,43 @@ User can use it's username and password to login to API in end user mode using v
 {:toc}
 
 
-<!-- ## <a name="signup"></a>Sign up for end user account
+## <a name="signup"></a>Sign up for end user account
 
-    POST Users/SignUp
+    GET Users/SignUp
 
-Request creates and user account and returns password reset token. To complete sign up process 
+Request creates an end user account and returns password reset token. 
+To complete sign up process user has to update account password using [password reset method][PasswordReset].
 
 
 ### Parameters
 
 Name  	    | Type     		| Description
 ------------|---------------|------------
-`userId`    |`long`    		| **Required**. User identifier.
-
-
-### Body parameters
-
-Name     			| Type    		| Description
---------------------|---------------|------------
-`password`     		|`string`  		| User password.
-
+`email`		|`string`  		| **Required**. User email.
 
 
 ### Response
 
-[User details][UserDetailsProperties].
+[Password reset token][PasswordResetToken].
 
 
 ### Example request
 
-In this example we update user's password.
+In this example we sign up for an account for user identified with given email address.
 
 ``` command-line
 
-curl -X POST 
+curl -X GET 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
-	 -H "Content-Type: application/json" 
-	 -d '{
-	    "password": "new_password",	    
-	}' 
-	http://yoursubdomain.perfectgym.com/Api/Users/Password?userId=236
+	 -H "Content-Type: application/json" 	 
+	http://yoursubdomain.perfectgym.com/Api/Users/SignUp?email=john.fibo@perfectgym.pl
 ```
 
 
 ### Example response
 
 <%= headers 200 %>
-<%= json(:usertermsandconditions_response) %> -->
+<%= json(:userresetpasswordtoken_response) %>
 
 
 
