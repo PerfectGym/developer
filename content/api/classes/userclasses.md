@@ -24,14 +24,14 @@ Name            		| Type    | Description
 
 
 
-## List user classes in a given timeframe
+## List user classes in a given timeframe ![alt text][EM] ![alt text][UM]
 
     GET Classes/UserClasses
 
 Returns paginated user classes list.
 
 
-### Parameters
+### Employee mode parameters 
 
 Name         | Type       | Description
 -----|-------|------------|------------
@@ -41,8 +41,18 @@ Name         | Type       | Description
 `endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
 `page`       |`int`       | Optional. Page number, defaults to `1`.
 
+### User mode parameters 
 
-### Example request
+Name         | Type       | Description
+-----|-------|------------|------------
+`clubId`     |`long`      | **Required**. Club identifier. Request returns classes for authenticated user that take place in club identified by `clubId`.
+`startDate`  |`datetime`  | **Required**. Start date. Request returns classes that starts leter then `startDate`.
+`endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
+`page`       |`int`       | Optional. Page number, defaults to `1`.
+
+
+
+### Employee mode example request
 
 In this example we fetch first 100 of all user (with id = `40`) classes in club with `id` = `2`, that starts in december 2015
 
@@ -65,14 +75,14 @@ curl -i
 
 
 
-## List user classes with timestamp 
+## List user classes with timestamp ![alt text][EM] ![alt text][UM]
 
     GET Classes/UserClasses
 
 Returns paginated user classes list.
 
 
-### Query string parameters
+### Employee mode parameters 
 
 Name         | Type   | Description
 -----|-------|--------|------------
@@ -81,7 +91,15 @@ Name         | Type   | Description
 `timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
 
 
-### Example request
+### User mode parameters 
+
+Name         | Type   | Description
+-----|-------|--------|------------
+`clubId`     |`long`  | **Required**. Club identifier. Request returns classes for authenticated user that take place in club identified by `clubId`.
+`timestamp`  |`long`  | Timestamp. Request returns classes with timestamp grater then `timestamp`, defaults to `0`.
+
+
+### Employee mode example request
 
 In this example we fetch list of all user (with id = `40`) classes in club with `id` = `2`, with timestamp greater then `254000`
 
@@ -103,22 +121,29 @@ curl -i
 
 
 
-## Retrive user class with class identifier
+## Retrive user class with class identifier ![alt text][EM] ![alt text][UM]
 
     GET Classes/UserClass
 
 Returns individual user class.
 
 
-### Parameters
+### Employee mode parameters 
 
 Name         | Type   | Description
 -------------|--------|--------------------
 `classId`    |`long`  | **Required**. Class identifier. Request returns class identified by `classId`.
 `userId`     |`long`  | **Required**. User identifier. Request returns class data for user identified by `userId`.
 
+### User mode parameters 
 
-### Example request
+Name         | Type   | Description
+-------------|--------|--------------------
+`classId`    |`long`  | **Required**. Class identifier. Request returns class identified by `classId` for authenticated user.
+
+
+
+### Employee mode example request
 
 In this example we fetch data for class identified with `id` = `1677` for user identified with `id` = `40`
 
@@ -142,3 +167,6 @@ curl -i
 
 [Classes]:  /api/classes/classes
 [ClassesProperties]:  /api/classes/classes#properties
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
