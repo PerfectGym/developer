@@ -60,9 +60,12 @@
 <ul id="markdown-toc">
 <li><a href="#class-properties" id="markdown-toc-class-properties">
 Class properties</a></li>
-<li><a href="#list-user-classes-in-a-given-timeframe" id="markdown-toc-list-user-classes-in-a-given-timeframe">List user classes in a given timeframe</a></li>
-<li><a href="#list-user-classes-with-timestamp" id="markdown-toc-list-user-classes-with-timestamp">List user classes with timestamp</a></li>
-<li><a href="#retrive-user-class-with-class-identifier" id="markdown-toc-retrive-user-class-with-class-identifier">Retrive user class with class identifier</a></li>
+<li><a href="#list-user-classes-in-a-given-timeframe--" id="markdown-toc-list-user-classes-in-a-given-timeframe--">List user classes in a given timeframe  
+</a></li>
+<li><a href="#list-user-classes-with-timestamp--" id="markdown-toc-list-user-classes-with-timestamp--">List user classes with timestamp  
+</a></li>
+<li><a href="#retrive-user-class-with-class-identifier--" id="markdown-toc-retrive-user-class-with-class-identifier--">Retrive user class with class identifier  
+</a></li>
 </ul>
 
 <h2>
@@ -107,7 +110,8 @@ Only user specyfic properties are described here.</p>
 </table>
 
 <h2>
-<a id="list-user-classes-in-a-given-timeframe" class="anchor" href="#list-user-classes-in-a-given-timeframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user classes in a given timeframe</h2>
+<a id="list-user-classes-in-a-given-timeframe--" class="anchor" href="#list-user-classes-in-a-given-timeframe--" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user classes in a given timeframe <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+</h2>
 
 <pre><code>GET Classes/UserClasses
 </code></pre>
@@ -115,7 +119,7 @@ Only user specyfic properties are described here.</p>
 <p>Returns paginated user classes list.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="employee-mode-parameters" class="anchor" href="#employee-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -159,7 +163,45 @@ Only user specyfic properties are described here.</p>
 </table>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="user-mode-parameters" class="anchor" href="#user-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Club identifier. Request returns classes for authenticated user that take place in club identified by <code>clubId</code>.</td>
+</tr>
+<tr>
+<td><code>startDate</code></td>
+<td><code>datetime</code></td>
+<td>
+<strong>Required</strong>. Start date. Request returns classes that starts leter then <code>startDate</code>.</td>
+</tr>
+<tr>
+<td><code>endDate</code></td>
+<td><code>datetime</code></td>
+<td>
+<strong>Required</strong>. End date. Request returns classes that ends earlier then <code>endtDate</code>.</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td><code>int</code></td>
+<td>Optional. Page number, defaults to <code>1</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="employee-mode-example-request" class="anchor" href="#employee-mode-example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode example request</h3>
 
 <p>In this example we fetch first 100 of all user (with id = <code>40</code>) classes in club with <code>id</code> = <code>2</code>, that starts in december 2015</p>
 
@@ -241,7 +283,8 @@ curl -i
 
 
 <h2>
-<a id="list-user-classes-with-timestamp" class="anchor" href="#list-user-classes-with-timestamp" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user classes with timestamp</h2>
+<a id="list-user-classes-with-timestamp--" class="anchor" href="#list-user-classes-with-timestamp--" aria-hidden="true"><span class="octicon octicon-link"></span></a>List user classes with timestamp <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+</h2>
 
 <pre><code>GET Classes/UserClasses
 </code></pre>
@@ -249,7 +292,7 @@ curl -i
 <p>Returns paginated user classes list.</p>
 
 <h3>
-<a id="query-string-parameters" class="anchor" href="#query-string-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query string parameters</h3>
+<a id="employee-mode-parameters-1" class="anchor" href="#employee-mode-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -281,7 +324,33 @@ curl -i
 </table>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="user-mode-parameters-1" class="anchor" href="#user-mode-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Club identifier. Request returns classes for authenticated user that take place in club identified by <code>clubId</code>.</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp. Request returns classes with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="employee-mode-example-request-1" class="anchor" href="#employee-mode-example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode example request</h3>
 
 <p>In this example we fetch list of all user (with id = <code>40</code>) classes in club with <code>id</code> = <code>2</code>, with timestamp greater then <code>254000</code></p>
 
@@ -362,7 +431,8 @@ curl -i
 
 
 <h2>
-<a id="retrive-user-class-with-class-identifier" class="anchor" href="#retrive-user-class-with-class-identifier" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive user class with class identifier</h2>
+<a id="retrive-user-class-with-class-identifier--" class="anchor" href="#retrive-user-class-with-class-identifier--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive user class with class identifier <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+</h2>
 
 <pre><code>GET Classes/UserClass
 </code></pre>
@@ -370,7 +440,7 @@ curl -i
 <p>Returns individual user class.</p>
 
 <h3>
-<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="employee-mode-parameters-2" class="anchor" href="#employee-mode-parameters-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -397,7 +467,28 @@ curl -i
 </table>
 
 <h3>
-<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="user-mode-parameters-2" class="anchor" href="#user-mode-parameters-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Class identifier. Request returns class identified by <code>classId</code> for authenticated user.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="employee-mode-example-request-2" class="anchor" href="#employee-mode-example-request-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode example request</h3>
 
 <p>In this example we fetch data for class identified with <code>id</code> = <code>1677</code> for user identified with <code>id</code> = <code>40</code></p>
 
