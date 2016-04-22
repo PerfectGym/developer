@@ -9,7 +9,7 @@ This API allow to add new users and update existing user's data.
 {:toc}
 
 
-## Add new user
+## Add new user ![alt text][EM]
 
     POST Users/User
 
@@ -92,7 +92,7 @@ Subsequent user add request with same samlpe data generates following error:
 
 
 
-## Update existing user
+## Update existing user ![alt text][EM]
 
     PUT Users/User
 
@@ -183,3 +183,6 @@ User update request with non existant user identifier
 [Address]: /appendix/datatypes/address
 [AddUserErrorCode]: /appendix/errorcodes/addusererrorcode
 [UpdateUserErrorCode]: /appendix/errorcodes/updateusererrorcode
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

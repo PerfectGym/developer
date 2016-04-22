@@ -10,7 +10,7 @@ This API allows user to pay contract fees using online payment systems.
 
 
 
-## Execute online payment
+## Execute online payment ![alt text][EM]
 
     GET Payments/Pay
 
@@ -53,7 +53,7 @@ curl -i
 
 
 
-## Execute payment with credit card
+## Execute payment with credit card ![alt text][EM]
 
     POST Payments/PayWithCreditCard
 
@@ -114,3 +114,6 @@ Total amount is not equal to sum of all fees to be paid.
 [CreditCard]: /api/users/usercreditcard
 [Error]: /appendix/datatypes/error
 [CreditCardPaymentErrorCode]: /appendix/errorcodes/creditcardpaymenterrorcode
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

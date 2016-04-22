@@ -12,7 +12,7 @@ This API lest you assign a friend to a full member user account.
 ## Overview
 
 
-## Verify connection possibility
+## Verify connection possibility ![alt text][EM]
 
     GET Users/VerifyFriendConnection
 
@@ -56,7 +56,7 @@ curl -X POST
 
 
 
-## Execute connection
+## Execute connection ![alt text][EM]
 
     GET Users/ConnectFriend
 
@@ -93,3 +93,5 @@ curl -X POST
 
 [UserDetailsProperties]: /api/users/userdetails#properties
 
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

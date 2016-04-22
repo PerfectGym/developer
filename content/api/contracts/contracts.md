@@ -26,7 +26,7 @@ Name            | Type      					| Description
 
 
 
-## List user contracts 
+## List user contracts ![alt text][EM]
 
     GET Contracts/Contracts
 
@@ -56,3 +56,6 @@ curl -i
 
 <%= headers 200 %>
 <%= json(:contracts_response) %>
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

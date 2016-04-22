@@ -9,7 +9,7 @@ This API lest you store information that user has agreed to marketing and terms 
 {:toc}
 
 
-## Save user agreements
+## Save user agreements ![alt text][EM]
 
     POST Users/Agreements
 
@@ -63,3 +63,6 @@ curl -X POST
 
 [UserDetailsProperties]: /api/users/userdetails#properties
 [Contract]: /appendix/datatypes/contract
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

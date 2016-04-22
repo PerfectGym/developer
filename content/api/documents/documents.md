@@ -26,7 +26,7 @@ Name            | Type      					| Description
 
 
 
-## List user documents 
+## List user documents ![alt text][EM]
 
     GET Documents/Documents
 
@@ -57,3 +57,6 @@ curl -i
 
 <%= headers 200 %>
 <%= json(:documents_response) %>
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

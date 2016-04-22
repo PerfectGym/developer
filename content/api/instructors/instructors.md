@@ -28,7 +28,7 @@ Name            | Type                        | Description
 
 
 
-## List instructors with timestamp 
+## List instructors with timestamp ![alt text][EM] ![alt text][UM]
 
     GET Instructors/Instructors
 
@@ -60,4 +60,7 @@ curl -i
 <%= json(:instructors_response) %>
 
 
- [Rating]:  /api/classes/ratings#properties
+[Rating]:  /api/classes/ratings#properties
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

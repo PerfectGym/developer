@@ -26,7 +26,7 @@ Name         | Type     | Description
 
 
 
-## List classes types with timestamp
+## List classes types with timestamp ![alt text][EM] ![alt text][UM]
 
     GET Classes/ClassesTypes
 
@@ -60,3 +60,6 @@ curl -i
 
 
 [Rating]:  /api/classes/ratings#properties
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

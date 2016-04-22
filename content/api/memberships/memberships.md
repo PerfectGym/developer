@@ -25,7 +25,7 @@ Name            | Type      | Description
 
 
 
-## List memberships with timestamp
+## List memberships with timestamp ![alt text][EM]
 
     GET Memberships/Memberships
 
@@ -59,7 +59,7 @@ curl -i
 
 
 
-## List memberships available in a given club
+## List memberships available in a given club ![alt text][EM]
 
     GET Memberships/Memberships
 
@@ -91,5 +91,6 @@ curl -i
 <%= headers 200 %>
 <%= json(:membershipsinclub_response) %>
 
-
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
 

@@ -9,7 +9,7 @@ Pending contract fee is a summary representation of a fee to be paid by a user.
 {:toc}
 
 
-## <a name="properties"></a>Pending contract fee properties
+## <a name="properties"></a>Pending contract fee properties ![alt text][EM]
 
 Pending contract fee is described by the following properties
 
@@ -27,7 +27,7 @@ Name            | Type                        | Description
 
 
 
-## List user pending contract fees
+## List user pending contract fees ![alt text][EM]
 
     GET Payments/ContractFees
 
@@ -61,3 +61,6 @@ curl -i
 
 
 [Fee]: /appendix/datatypes/fee
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

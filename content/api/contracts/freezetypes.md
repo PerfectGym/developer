@@ -30,7 +30,7 @@ Name       			| Type      | Description
 
       
 
-## List available freeze types for given contract.
+## List available freeze types for given contract ![alt text][EM]
 
     GET Contracts/FreezeTypes
 
@@ -60,4 +60,7 @@ curl -i
 
 <%= headers 200 %>
 <%= json(:freezetypes_response) %>
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
 

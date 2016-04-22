@@ -25,7 +25,7 @@ Name            	 | Type      | Description
           
 
 
-## Retrive detailed information about specyfic membership type.
+## Retrive detailed information about specyfic membership type ![alt text][EM]
 
     GET Memberships/Membership
 
@@ -65,3 +65,5 @@ curl -i
 [ClubZoneType]: /appendix/datatypes/clubzonetype
 [PaymentPlanProperties]: /api/memberships/paymentplans#properties
 
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

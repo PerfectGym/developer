@@ -26,7 +26,7 @@ Name        	| Type    						| Description
 
 
 
-## Retrive detailed information about specyfic user contract.
+## Retrive detailed information about specyfic user contract ![alt text][EM]
 
     GET Contracts/Contract
 
@@ -66,4 +66,7 @@ curl -i
 [PaymentPlan]: /api/paymentplans/paymentplans#properties
 [Discount]: /api/paymentplans/discounts#properties
 [Freeze]: /appendix/datatypes/contractfreeze
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
 

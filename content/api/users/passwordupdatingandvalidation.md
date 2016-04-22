@@ -15,7 +15,7 @@ User can use it's username and password to login to API in end user mode using v
 {:toc}
 
 
-## <a name="signup"></a>Sign up for end user account
+## <a name="signup"></a>Sign up for end user account ![alt text][EM]
 
     GET Users/SignUp
 
@@ -56,7 +56,7 @@ curl -X GET
 
 
 
-## Request password reset token
+## Request password reset token ![alt text][EM]
 
     GET Users/ResetPassword
 
@@ -96,7 +96,7 @@ curl -X GET
 
 
 
-## <a name="passwordreset"></a>Password reset
+## <a name="passwordreset"></a>Password reset ![alt text][EM]
 
 	POST Users/ResetPassword
 
@@ -142,7 +142,7 @@ curl -X POST
 
 
 
-## Validate user credentials
+## Validate user credentials ![alt text][EM]
 
     POST Users/ValidateCredentials
 
@@ -200,3 +200,6 @@ Invalid user credentials generates following response:
 [ValidateCredentialsErrorCode]: /appendix/errorcodes/validatecredentialserrorcode
 [PasswordReset]: /api/users/passwordupdatingandvalidation#passwordreset
 [PasswordResetToken]: /appendix/datatypes/passwordresettoken
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

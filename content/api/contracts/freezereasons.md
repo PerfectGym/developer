@@ -22,7 +22,7 @@ Name       	| Type      | Description
 
 
 
-## List available freeze reasons.
+## List available freeze reasons ![alt text][EM]
 
     GET Contracts/FreezeReasons
 
@@ -46,4 +46,7 @@ curl -i
 
 <%= headers 200 %>
 <%= json(:freezereasons_response) %>
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
 

@@ -9,7 +9,7 @@ This API lest you assign credit card to a club user.
 {:toc}
 
 
-## Assign credit card to a club user
+## Assign credit card to a club user ![alt text][EM]
 
     POST Users/CreditCard
 
@@ -75,4 +75,7 @@ curl -X POST
 
 
 [UserDetailsProperties]: /api/users/userdetails#properties
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
 

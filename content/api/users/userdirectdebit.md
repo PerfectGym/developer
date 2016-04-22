@@ -9,7 +9,7 @@ This API lest you assign bank account details to a club user.
 {:toc}
 
 
-## Assign bank account details to a club user
+## Assign bank account details to a club user ![alt text][EM]
 
     POST Users/DirectDebit
 
@@ -71,7 +71,7 @@ curl -X POST
 
 
 
-## <a name="directdebitsigning"></a>Execute direct debit agreement signing
+## <a name="directdebitsigning"></a>Execute direct debit agreement signing ![alt text][EM]
 
     POST Users/SignDirectDebit
 
@@ -125,3 +125,6 @@ curl -X POST
 [UserDetailsProperties]: /api/users/userdetails#properties
 [Error]: /appendix/datatypes/error
 [DirectDebitErrorCode]: /appendix/errorcodes/directdebiterrorcode
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

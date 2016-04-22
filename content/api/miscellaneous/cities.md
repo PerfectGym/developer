@@ -20,7 +20,7 @@ Name         | Type     		  | Description
 
 
 
-## List cities with given name
+## List cities with given name ![alt text][EM]
 
     GET Geo/Cities
 
@@ -57,3 +57,6 @@ curl -i
 
 
 [Country]: /api/miscellaneous/countries#properties
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

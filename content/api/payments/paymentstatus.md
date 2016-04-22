@@ -21,7 +21,7 @@ Name            | Type        | Description
 
 
 
-## Retrive payment status
+## Retrive payment status ![alt text][EM]
 
     GET Payments/PaymentStatus
 
@@ -54,4 +54,7 @@ curl -i
 <%= json(:paymentstatus_response) %>
 
 
- [PaymentDetails]: /appendix/datatypes/paymentdetails
+[PaymentDetails]: /appendix/datatypes/paymentdetails
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

@@ -27,7 +27,7 @@ Name            | Type          | Description
 
 
 
-## List clubs with timestamp 
+## List clubs with timestamp ![alt text][EM] ![alt text][UM]
 
     GET Clubs/Clubs
 
@@ -57,3 +57,7 @@ curl -i
 
 <%= headers 200 %>
 <%= json(:clubs_response) %>
+
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

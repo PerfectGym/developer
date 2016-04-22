@@ -32,7 +32,7 @@ Name            		| Type      | Description
 
 
 
-## List payment plan with timestamp
+## List payment plan with timestamp ![alt text][EM]
 
     GET PaymentPlans/PaymentPlans
 
@@ -69,7 +69,7 @@ curl -i
 
 
 
-## List payment plans available in a given club
+## List payment plans available in a given club ![alt text][EM]
 
     GET PaymentPlans/PaymentPlans
 
@@ -106,4 +106,5 @@ curl -i
 <%= json(:paymentplans_response) %>
 
 
-
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

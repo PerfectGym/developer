@@ -45,7 +45,7 @@ Name            				| Type      				| Description
 
 
 
-## Retrive detailed information about user identified by user unique identifier.
+## Retrive detailed information about user identified by user unique identifier ![alt text][EM]
 
     GET Users/User
 
@@ -78,7 +78,7 @@ curl -i
 
 
 
-## Retrive detailed information about user identified by user email address.
+## Retrive detailed information about user identified by user email address ![alt text][EM]
 
     GET Users/User
 
@@ -111,7 +111,7 @@ curl -i
 
 
 
-## Retrive detailed information about user identified by personal id.
+## Retrive detailed information about user identified by personal id ![alt text][EM]
 
     GET Users/User
 
@@ -149,3 +149,6 @@ curl -i
 [Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
 [DirectDebit]: /appendix/datatypes/directdebit
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

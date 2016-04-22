@@ -36,7 +36,7 @@ Name            	 | Type        				| Description
 
 
 
-## Retrive detailed information about specyfic payment plan.
+## Retrive detailed information about specyfic payment plan ![alt text][EM]
 
     GET Memberships/PaymentPlan
 
@@ -77,4 +77,5 @@ curl -i
 [Membership]: /api/memberships/memberships#properties
 [AddOn]: /appendix/datatypes/paymentplanaddon
 
-
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

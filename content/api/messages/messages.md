@@ -22,7 +22,7 @@ Name            | Type      					| Description
 
 
 
-## List user messages
+## List user messages ![alt text][EM]
 
     GET Messages/Messages
 
@@ -53,3 +53,6 @@ curl -i
 
 <%= headers 200 %>
 <%= json(:messages_response) %>
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

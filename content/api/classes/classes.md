@@ -29,7 +29,7 @@ Name            | Type                        | Description
 
 
 
-## List classes in a given timeframe
+## List classes in a given timeframe ![alt text][EM] ![alt text][UM]
 
     GET Classes/Classes
 
@@ -68,7 +68,7 @@ curl -i
 
 
 
-## List classes with timestamp 
+## List classes with timestamp ![alt text][EM] ![alt text][UM]
 
     GET Classes/Classes
 
@@ -108,3 +108,6 @@ curl -i
 [ClassesType]:  /api/classes/classestypes#properties
 [Instructor]:  /api/instructors/instructors#properties
 [Club]:  /api/clubs/clubs#properties
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

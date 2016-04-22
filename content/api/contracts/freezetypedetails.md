@@ -22,7 +22,7 @@ Name    		    	| Type    			| Description
 
 
 
-## Retrive detailed information about specyfic freeze type.
+## Retrive detailed information about specyfic freeze type ![alt text][EM]
 
     GET Contracts/FreezeType
 
@@ -59,4 +59,7 @@ curl -i
 
 [FreezeType]: /api/contracts/freezetypes#properties
 [FreezeStartDate]: /appendix/datatypes/freezestartdate
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
 

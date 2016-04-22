@@ -37,7 +37,7 @@ Name            					| Type      | Description
         
 
 
-## List available discounts for a given payment plan
+## List available discounts for a given payment plan ![alt text][EM]
 
     GET Discounts/Discounts
 
@@ -77,7 +77,7 @@ curl -i
 
 
 
-## Retrive discounted fees for given payment plan
+## Retrive discounted fees for given payment plan ![alt text][EM]
 
     GET Discounts/DiscountedFees
 
@@ -111,5 +111,9 @@ curl -i
 
 <%= headers 200 %>
 <%= json(:discountedfees_response) %>
+
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
 
 

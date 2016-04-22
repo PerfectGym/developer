@@ -9,7 +9,7 @@ This API lest you freeze user contract.
 {:toc}
 
 
-## Execute contract freeze
+## Execute contract freeze ![alt text][EM]
 
     POST Contracts/Freeze
 
@@ -75,3 +75,6 @@ Freeze time range greater then freeze type `maximumInterval` generates following
 [ContractDetails]: /api/contracts/contractdetails#properties
 [Error]: /appendix/datatypes/error
 [FreezeContractErrorCode]: /appendix/errorcodes/freezecontracterrorcode
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

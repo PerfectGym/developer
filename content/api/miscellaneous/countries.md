@@ -21,7 +21,7 @@ Name         | Type     | Description
 
 
 
-## List countries with given name
+## List countries with given name ![alt text][EM]
 
     GET Geo/Countries
 
@@ -52,3 +52,6 @@ curl -i
 
 <%= headers 200 %>
 <%= json(:countries_response) %>
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

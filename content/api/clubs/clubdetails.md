@@ -34,7 +34,7 @@ Name            		| Type    | Description
 
 
 
-## <a name="clubdetails"></a>Retrive detailed information about specyfic club.
+## <a name="clubdetails"></a>Retrive detailed information about specyfic club ![alt text][EM] ![alt text][UM]
 
     GET Clubs/Club
 
@@ -78,3 +78,6 @@ curl -i
 [Url]: /appendix/datatypes/url
 [Zone]: /appendix/datatypes/zone
 [Address]: /appendix/datatypes/address
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

@@ -24,7 +24,7 @@ Name        | Type     | Description
       
 
 
-## Retrive detailed message information.
+## Retrive detailed message information ![alt text][EM]
 
     GET Messages/Message
 
@@ -59,3 +59,6 @@ curl -i
 
 
 [MessageProperties]: /api/messages/messages#properties 
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

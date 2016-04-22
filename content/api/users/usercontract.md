@@ -9,7 +9,7 @@ This API lest you list, assign and delete user contracts.
 {:toc}
 
 
-## Assign contract to a club user
+## Assign contract to a club user ![alt text][EM]
 
     POST Users/Contract
 
@@ -66,7 +66,7 @@ curl -X POST
 
 
 
-## Delete user contract
+## Delete user contract ![alt text][EM]
 
     DELETE Users/Contract
 
@@ -108,7 +108,7 @@ curl -X DELETE
 
 
 
-## <a name="contractsigning"></a>Execute contract signing
+## <a name="contractsigning"></a>Execute contract signing ![alt text][EM]
 
     POST Users/SignContract
 
@@ -160,3 +160,6 @@ curl -X POST
 
 [UserDetailsProperties]: /api/users/userdetails#properties
 [Contract]: /api/contracts/contractdetails#properties
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
