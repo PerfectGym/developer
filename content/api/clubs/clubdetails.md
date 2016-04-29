@@ -20,11 +20,6 @@ Name            		| Type    | Description
 `displayName`           |`string`   		  | Club display name.
 `description`     		|`string`   		  | Club detailed description.
 `languageCode`    		|`string`   		  | Language identifier club information are translated to (for example `EN`, `DE` etc.)
-`address`               |[Address][Address]   | Club address.
-`longitude`             |`decimal`  		  | Club latitude.
-`longitude`             |`decimal`  		  | Club longitude.
-`email`                 |`string`   		  | Club e-mail address.
-`phoneNumber`           |`string`   		  | Club phone number.
 `equipment`             |`array`    		  | An array of [Equipment][Equipment] objects, each representing equipment type available in club.
 `facilities`            |`array`    		  | An array of [Facility][Facility] objects, each representing facility available in club.
 `openingHours`          |`array`    		  | An array of [Opening hours][OpeningHours] objects, each representing club opening hours in a given week day.

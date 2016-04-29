@@ -10,9 +10,20 @@ module GitHub
         "shortName": "Cyberbotics",
         "symbol": "FCBR",  
         "type": "Normal",
+        "openDate": "2015-01-01",
+        "latitude": 52.51038,
+        "longitude": 13.39763,
+        "email": "club@cyberbotics.com",
+        "phoneNumber": "+49 12 123 456 789",
+        "address": {
+          "line1": "Leipziger Str. 46/47",
+          "line2": "",
+          "city": "Berlin",
+          "postalCode": "10-117",
+          "country": "Germany",
+        },
         "isDeleted": false,
-        "isHidden": false,
-        "openDate": "2015-01-01"
+        "isHidden": false,        
       }
 
       CLUB_MONACO ||= {
@@ -23,9 +34,20 @@ module GitHub
         "shortName": "Monaco",
         "symbol": "MON",
         "type": "Platinum",
+        "openDate": "2015-01-01",
+        "latitude": 52.51038,
+        "longitude": 13.39763,
+        "email": "club@clubmonaco.com",
+        "phoneNumber": "+49 12 123 456 789",
+        "address": {
+          "line1": "Rue Grimaldi 47",
+          "line2": "",
+          "city": "Monaco",
+          "postalCode": "10-117",
+          "country": "Monaco",
+        },
         "isDeleted": false,
-        "isHidden": false,
-        "openDate": "2015-01-01"
+        "isHidden": false,        
       }
 
 
@@ -66,9 +88,20 @@ module GitHub
             "shortName": "Cracow",
             "symbol": "CRA",
             "type": "Normal",
+            "openDate": "2015-01-01",
+            "latitude": 52.51038,
+            "longitude": 13.39763,
+            "email": "club@clubkrakow.com",
+            "phoneNumber": "+49 12 123 456 789",
+            "address": {
+              "line1": "Al. Słowackiego 46/47",
+              "line2": "",
+              "city": "Kraków",
+              "postalCode": "10-117",
+              "country": "Poland",
+            },
             "isDeleted": false,
-            "isHidden": false,
-            "openDate": "2015-01-01"
+            "isHidden": false,            
           },                              
           {
             "id": 14,
@@ -77,9 +110,20 @@ module GitHub
             "shortName": "Moscow",
             "symbol": "",
             "type": "Normal",
+            "openDate": "2015-01-01",
+            "latitude": 52.51038,
+            "longitude": 13.39763,
+            "email": "club@clubmoscow.com",
+            "phoneNumber": "+49 12 123 456 789",
+            "address": {
+              "line1": "Leipziger Str. 46/47",
+              "line2": "",
+              "city": "Moscow",
+              "postalCode": "10-117",
+              "country": "Russia",
+            },
             "isDeleted": true,
-            "isHidden": false,
-            "openDate": "2015-01-01"
+            "isHidden": false,            
           },          
         ]              
       }      
@@ -92,18 +136,7 @@ module GitHub
           {
             "displayName": "Cyberbotics Berlin",
             "description": "Our club began in 1979 and has always been a favorite of different types of athletes and fitness enthusiasts. Refined and updated to offer a setting that is open and light where both staff and clientele are friendly and casual and the focus is on well-balanced health.",
-            "languageCode": "",            
-            "latitude": 52.51038,
-            "longitude": 13.39763,
-            "email": "club@cyberbotics.com",
-            "phoneNumber": "+49 12 123 456 789",
-            "address": {
-              "line1": "Leipziger Str. 46/47",
-              "line2": "",
-              "city": "Berlin",
-              "postalCode": "10-117",
-              "country": "Germany",
-            },
+            "languageCode": "",                        
             "equipment": [
               {
                 "id": 10,
@@ -263,9 +296,20 @@ module GitHub
             "shortName": "Cyberbotics",
             "symbol": "CBTCS",
             "type": "Normal",
+            "openDate": "2015-01-01",
+            "latitude": 52.51038,
+            "longitude": 13.39763,
+            "email": "club@cyberbotics.com",
+            "phoneNumber": "+49 12 123 456 789",
+            "address": {
+              "line1": "Leipziger Str. 46/47",
+              "line2": "",
+              "city": "Berlin",
+              "postalCode": "10-117",
+              "country": "Germany",
+            },
             "isDeleted": false,
-            "isHidden": false,
-            "openDate": "2015-01-01"
+            "isHidden": false,            
           }
         ]
       }

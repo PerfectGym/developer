@@ -13,17 +13,24 @@ Club is a summary representation of single club in your company.
 
 Class is described by the following properties
 
-Name            | Type          | Description
------|----------|-------------------------------------
-`id`            |`long`         | Unique identifier of class.
-`timestamp`    	|`long`     	| Timestamp. Indicates when resource was last modified.
-`name`          |`string`       | Club name.
-`shortName`     |`long`         | Club short name.
-`symbol`        |`long`         | Club symbol.
-`type`          |`long`         | Club type.
-`isDeleted`     |`bool`         | Indicates if resource is deleted.
-`isHidden`      |`bool`			| Indicates if resource is hidden.
-`openDate`		|`datetime`		| Indicates when club was opened
+Name            | Type          		| Description
+----------------|-----------------------|-------------------------------------
+`id`            |`long`         		| Unique identifier of class.
+`timestamp`    	|`long`     			| Timestamp. Indicates when resource was last modified.
+`name`          |`string`       		| Club name.
+`shortName`     |`long`         		| Club short name.
+`symbol`        |`long`         		| Club symbol.
+`email`         |`string`   			| Club e-mail address.
+`phoneNumber`   |`string`   			| Club phone number.
+`longitude`     |`decimal`  			| Club latitude.
+`longitude`     |`decimal`  			| Club longitude.
+`timeZone`		|`string`				| Club time zone in `tz` format.
+`openDate`		|`datetime`				| Indicates when club was opened
+`address`       |[Address][Address]   	| Club address.
+`type`          |`long`         		| Club type.
+`isDeleted`     |`bool`         		| Indicates if resource is deleted.
+`isHidden`      |`bool`					| Indicates if resource is hidden.
+
 
 
 
@@ -61,3 +68,5 @@ curl -i
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"
+
+[Address]: /appendix/datatypes/address
