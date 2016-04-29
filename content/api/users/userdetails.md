@@ -146,6 +146,32 @@ curl -i
 
 
 
+## Retrive authenticated user detailed informations ![alt text][UM]
+
+    GET Users/User
+
+Returns detailed user informations.
+
+
+### Example request
+
+In this example we fetch authenticated user detailed information.
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Users/User
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:user_response) %>
+
+
+
 [Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
 [DirectDebit]: /appendix/datatypes/directdebit
