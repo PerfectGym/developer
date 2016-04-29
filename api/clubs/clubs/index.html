@@ -105,6 +105,41 @@ Club properties</a></li>
 <td>Club symbol.</td>
 </tr>
 <tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>Club e-mail address.</td>
+</tr>
+<tr>
+<td><code>phoneNumber</code></td>
+<td><code>string</code></td>
+<td>Club phone number.</td>
+</tr>
+<tr>
+<td><code>longitude</code></td>
+<td><code>decimal</code></td>
+<td>Club latitude.</td>
+</tr>
+<tr>
+<td><code>longitude</code></td>
+<td><code>decimal</code></td>
+<td>Club longitude.</td>
+</tr>
+<tr>
+<td><code>timeZone</code></td>
+<td><code>string</code></td>
+<td>Club time zone in <code>tz</code> format.</td>
+</tr>
+<tr>
+<td><code>openDate</code></td>
+<td><code>datetime</code></td>
+<td>Indicates when club was opened</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td><a href="/appendix/datatypes/address">Address</a></td>
+<td>Club address.</td>
+</tr>
+<tr>
 <td><code>type</code></td>
 <td><code>long</code></td>
 <td>Club type.</td>
@@ -118,11 +153,6 @@ Club properties</a></li>
 <td><code>isHidden</code></td>
 <td><code>bool</code></td>
 <td>Indicates if resource is hidden.</td>
-</tr>
-<tr>
-<td><code>openDate</code></td>
-<td><code>datetime</code></td>
-<td>Indicates when club was opened</td>
 </tr>
 </tbody>
 </table>
@@ -185,9 +215,20 @@ curl -i
       </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FCBR"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.51038</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.39763</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"club@cyberbotics.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 12 123 456 789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leipziger Str. 46/47"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-117"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
+      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
@@ -196,9 +237,20 @@ curl -i
       </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monaco"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Platinum"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.51038</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.39763</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"club@clubmonaco.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 12 123 456 789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rue Grimaldi 47"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monaco"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-117"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monaco"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
+      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -207,9 +259,20 @@ curl -i
       </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cracow"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CRA"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.51038</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.39763</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"club@clubkrakow.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 12 123 456 789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Al. Słowackiego 46/47"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kraków"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-117"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
+      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
@@ -218,9 +281,20 @@ curl -i
       </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moscow"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.51038</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.39763</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"club@clubmoscow.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 12 123 456 789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leipziger Str. 46/47"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moscow"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-117"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Russia"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
+      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">

@@ -95,31 +95,6 @@ Only club details specyfic properties are described here.</p>
 <td>Language identifier club information are translated to (for example <code>EN</code>, <code>DE</code> etc.)</td>
 </tr>
 <tr>
-<td><code>address</code></td>
-<td><a href="/appendix/datatypes/address">Address</a></td>
-<td>Club address.</td>
-</tr>
-<tr>
-<td><code>longitude</code></td>
-<td><code>decimal</code></td>
-<td>Club latitude.</td>
-</tr>
-<tr>
-<td><code>longitude</code></td>
-<td><code>decimal</code></td>
-<td>Club longitude.</td>
-</tr>
-<tr>
-<td><code>email</code></td>
-<td><code>string</code></td>
-<td>Club e-mail address.</td>
-</tr>
-<tr>
-<td><code>phoneNumber</code></td>
-<td><code>string</code></td>
-<td>Club phone number.</td>
-</tr>
-<tr>
 <td><code>equipment</code></td>
 <td><code>array</code></td>
 <td>An array of <a href="/appendix/datatypes/equipment">Equipment</a> objects, each representing equipment type available in club.</td>
@@ -213,17 +188,6 @@ curl -i
       </span><span class="nt">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics Berlin"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our club began in 1979 and has always been a favorite of different types of athletes and fitness enthusiasts. Refined and updated to offer a setting that is open and light where both staff and clientele are friendly and casual and the focus is on well-balanced health."</span><span class="p">,</span><span class="w">
       </span><span class="nt">"languageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.51038</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.39763</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"club@cyberbotics.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 12 123 456 789"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leipziger Str. 46/47"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-117"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
       </span><span class="nt">"equipment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -383,9 +347,20 @@ curl -i
       </span><span class="nt">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cyberbotics"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CBTCS"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">52.51038</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.39763</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"club@cyberbotics.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+49 12 123 456 789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leipziger Str. 46/47"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berlin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-117"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"openDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01"</span><span class="w">
+      </span><span class="nt">"isHidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
