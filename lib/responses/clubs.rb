@@ -15,6 +15,7 @@ module GitHub
         "longitude": 13.39763,
         "email": "club@cyberbotics.com",
         "phoneNumber": "+49 12 123 456 789",
+        "timezone": "Central European Standard Time",
         "address": {
           "line1": "Leipziger Str. 46/47",
           "line2": "",
@@ -39,6 +40,7 @@ module GitHub
         "longitude": 13.39763,
         "email": "club@clubmonaco.com",
         "phoneNumber": "+49 12 123 456 789",
+        "timezone": "Central European Standard Time",
         "address": {
           "line1": "Rue Grimaldi 47",
           "line2": "",
@@ -93,6 +95,7 @@ module GitHub
             "longitude": 13.39763,
             "email": "club@clubkrakow.com",
             "phoneNumber": "+49 12 123 456 789",
+            "timezone": "Central European Standard Time",
             "address": {
               "line1": "Al. Słowackiego 46/47",
               "line2": "",
@@ -115,6 +118,7 @@ module GitHub
             "longitude": 13.39763,
             "email": "club@clubmoscow.com",
             "phoneNumber": "+49 12 123 456 789",
+            "timezone": "Central European Standard Time",
             "address": {
               "line1": "Leipziger Str. 46/47",
               "line2": "",
@@ -301,6 +305,7 @@ module GitHub
             "longitude": 13.39763,
             "email": "club@cyberbotics.com",
             "phoneNumber": "+49 12 123 456 789",
+            "timezone": "Central European Standard Time",
             "address": {
               "line1": "Leipziger Str. 46/47",
               "line2": "",

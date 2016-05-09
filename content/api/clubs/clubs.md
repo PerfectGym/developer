@@ -24,7 +24,7 @@ Name            | Type          		| Description
 `phoneNumber`   |`string`   			| Club phone number.
 `longitude`     |`decimal`  			| Club latitude.
 `longitude`     |`decimal`  			| Club longitude.
-`timeZone`		|`string`				| Club time zone in `tz` format.
+`timeZone`		|`string`				| Club time zone in `windows` format (for example: `Central European Standard Time`).
 `openDate`		|`datetime`				| Indicates when club was opened
 `address`       |[Address][Address]   	| Club address.
 `type`          |`long`         		| Club type.
