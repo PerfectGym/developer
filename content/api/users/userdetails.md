@@ -4,35 +4,28 @@ title: User details
 
 # User details
 
-User details is detaild representation of single user of your gym. 
+User details is detaild representation of single club member in your gym. 
 
 {:toc}
 
 
 ## <a name="properties"></a>User details properties
 
-User is described by the following properties
+User details holds the same data as [User][User] plus some detailed features of a user. Only user details specyfic properties are described here.
 
 Name            				| Type      				| Description
 --------------------------------|---------------------------|----------------------
-`id`            				|`long`     				| Unique identifier of user.
-`timestamp`    					|`long`     				| Timestamp. Indicates when resource was last modified.
 `personalId`					|`string`					| User personal identifier.
 `number`          				|`string`   				| User number.
 `cardNumber`       				|`string`   				| User membership card number.
-`firstName`     				|`string`   				| User first name.
-`lastName`        				|`string`   				| User last name.
 `email`          				|`string`   				| User email address.
-`photoUrl`						|`string`					| User photo URL.
 `birthDate`         			|`string`   				| User birth date.
 `isForeigner`					|`bool`						| Indicates if user is a forigner.
 `hasAccount`					|`bool`						| Indicates if user has signed up for end user account.
-`sex`          					|`string`   				| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `phoneNumber`      				|`string`   				| User phone number.
 `idCardName`					|`string`					| User identity card name.
 `idCardNumber`  				|`string`					| User identity card number.
 `legalGuardian`  				|`string`					| User legal guardian full name.
-`photoUrl`		  				|`string`					| User photo url.
 `newsletterAgreement`			|`bool`						| User identity card name.
 `termsAndConditionsAgreement`  	|`bool`						| User identity card number.
 `address`           			|[Address][Address]     	| User address.
@@ -40,7 +33,6 @@ Name            				| Type      				| Description
 `directDebit`					|[DirectDebit][DirectDebit]	| User direct debit information.
 `homeClubId`					|`long`						| User home club identifier.
 `isActive`     					|`bool`     				| Indicates if cuser is marked as active.
-`isDeleted`     				|`bool`                 	| Indicates if resource is deleted.
 
 
 
@@ -172,6 +164,7 @@ curl -i
 
 
 
+[User]: /api/users/user#properties
 [Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
 [DirectDebit]: /appendix/datatypes/directdebit
