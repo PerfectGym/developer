@@ -58,7 +58,7 @@ curl -X GET
 
 ## Request password reset token ![alt text][EM]
 
-    GET Users/ResetPassword
+    POST Users/ResetPasswordToken
 
 Request returns password reset token. Using password reset token user is able to update his account password.
 For details see [password reset method][PasswordReset].
