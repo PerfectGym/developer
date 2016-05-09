@@ -559,6 +559,136 @@ module GitHub
         ]        
       } 
 
+
+
+      USERCLUBVISITS_RESPONSE ||= {
+
+        "elements" => [
+          {
+            "enterDate": "2015-07-01T16:17:38",
+            "exitDate": "2015-07-01T17:30:25",
+            "club": {
+              "id": 9,
+              "timestamp": 255968,
+              "name": "Club Monaco",
+              "shortName": "Monaco",
+              "symbol": "MON",
+              "type": "Platinum",
+              "openDate": "2015-01-01",
+              "latitude": 52.51038,
+              "longitude": 13.39763,
+              "email": "club@clubmonaco.com",
+              "phoneNumber": "+49 12 123 456 789",
+              "timezone": "Central European Standard Time",
+              "address": {
+                "line1": "Rue Grimaldi 47",
+                "line2": "",
+                "city": "Monaco",
+                "postalCode": "10-117",
+                "country": "Monaco"
+              },
+              "isDeleted": false,
+              "isHidden": false
+            },
+            "id": 219,
+            "timestamp": 219102,
+            "isDeleted": false
+          },
+          {
+            "enterDate": "2015-11-24T17:06:50",
+            "exitDate": "2015-11-24T18:51:16",
+            "club": {
+              "id": 9,
+              "timestamp": 255968,
+              "name": "Club Monaco",
+              "shortName": "Monaco",
+              "symbol": "MON",
+              "type": "Platinum",
+              "openDate": "2015-01-01",
+              "latitude": 52.51038,
+              "longitude": 13.39763,
+              "email": "club@clubmonaco.com",
+              "phoneNumber": "+49 12 123 456 789",
+              "timezone": "Central European Standard Time",
+              "address": {
+                "line1": "Rue Grimaldi 47",
+                "line2": "",
+                "city": "Monaco",
+                "postalCode": "10-117",
+                "country": "Monaco"
+              },
+              "isDeleted": false,
+              "isHidden": false
+            },
+            "id": 333,
+            "timestamp": 410378,
+            "isDeleted": false
+          },
+          {
+            "enterDate": "2015-11-25T09:57:07",
+            "exitDate": "2015-11-25T13:04:44",
+            "club": {
+              "id": 9,
+              "timestamp": 255968,
+              "name": "Club Monaco",
+              "shortName": "Monaco",
+              "symbol": "MON",
+              "type": "Platinum",
+              "openDate": "2015-01-01",
+              "latitude": 52.51038,
+              "longitude": 13.39763,
+              "email": "club@clubmonaco.com",
+              "phoneNumber": "+49 12 123 456 789",
+              "timezone": "Central European Standard Time",
+              "address": {
+                "line1": "Rue Grimaldi 47",
+                "line2": "",
+                "city": "Monaco",
+                "postalCode": "10-117",
+                "country": "Monaco"
+              },
+              "isDeleted": false,
+              "isHidden": false
+            },
+            "id": 340,
+            "timestamp": 410472,
+            "isDeleted": false
+          },
+          {
+            "enterDate": "2015-11-30T16:14:52",
+            "exitDate": "2015-11-30T18:27:00",
+            "club": {
+              "id": 9,
+              "timestamp": 255968,
+              "name": "Club Monaco",
+              "shortName": "Monaco",
+              "symbol": "MON",
+              "type": "Platinum",
+              "openDate": "2015-01-01",
+              "latitude": 52.51038,
+              "longitude": 13.39763,
+              "email": "club@clubmonaco.com",
+              "phoneNumber": "+49 12 123 456 789",
+              "timezone": "Central European Standard Time",
+              "address": {
+                "line1": "Rue Grimaldi 47",
+                "line2": "",
+                "city": "Monaco",
+                "postalCode": "10-117",
+                "country": "Monaco"
+              },
+              "isDeleted": false,
+              "isHidden": false
+            },
+            "id": 349,
+            "timestamp": 412023,
+            "isDeleted": false
+          }
+
+        ]        
+      } 
+
+
       USERRESETPASSWORDTOKEN_RESPONSE ||= {
 
         "elements" => [
