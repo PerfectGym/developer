@@ -42,10 +42,18 @@
   
   
   {
+    "title": "Who is in",
+    
+    "url": "/api/classes/whoisin/",
+    "body": " Who is in This API gives access to information about users signed up for classes.  List users signed up for given classes    List users signed up for given classes   GET Clubs/WhoIsIn  Returns signed up for a given class users list.  Parameters    Name Type Description     classId long  Required. Class identifier. Request returns list of users signed up for class identified with classId.     Response Collection of Users.  Example request In this example we fetch list of users signed up for class identified with id = 1677  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Classes/WhoIsIn/ ?classId=1677   Example response Status: 200 OK  { \"elements\": [ { \"id\": 1, \"firstName\": \"Jan\", \"lastName\": \"Nowak\", \"photoUrl\": \"\", \"sex\": \"Male\", \"isPresent\": true, \"isDeleted\": false, \"timestamp\": 447183 } ] } "
+  },
+  
+  
+  {
     "title": "Classes",
     
     "url": "/api/classes/",
-    "body": " Classes The Classes APIs provides access to class schedule, bookings and ratings.  Classes types  Classes types API gives you read only access to list of classes types available in your gym.  Classes  Classes API gives you read only access to list of fitness classes available in your gym.  User classes  User Classes API gives you read only access to user specyfic list of fitness classes available in your gym. It also a  Booking  Booking API allows to book and cancel fitness classes.  Ratings  Ratings API allows to rate classes and instructors."
+    "body": " Classes The Classes APIs provides access to class schedule, bookings and ratings.  Classes types  Classes types API gives you read only access to list of classes types available in your gym.  Classes  Classes API gives you read only access to list of fitness classes available in your gym.  User classes  User Classes API gives you read only access to user specyfic list of fitness classes available in your gym. It also a  Booking  Booking API allows to book and cancel fitness classes.  Ratings  Ratings API allows to rate classes and instructors.  Who is in  Who is in API gives you read only access to information about users signed up for classes."
   },
   
   
@@ -77,7 +85,7 @@
     "title": "Clubs",
     
     "url": "/api/clubs/",
-    "body": " Clubs The Clubs APIs provides access to clubs list and club details that are part of your company.  Clubs  Clubs API gives you read only access to list of clubs available in your company.  Club details  Club details API gives you read only access to detailed information about clubs available in your company."
+    "body": " Clubs The Clubs APIs provides access to clubs list and club details that are part of your company.  Clubs  Clubs API gives you read only access to list of clubs available in your company.  Club details  Club details API gives you read only access to detailed information about clubs available in your company.  Who is in  Who is in API gives you read only access to information about users currently present in your club."
   },
   
   
