@@ -35,8 +35,14 @@ available in your gym. It also a
 [Ratings API][Ratings] allows to rate classes and instructors.
 
 
+## [Who is in][WhoIsIn]
+
+[Who is in API][WhoIsIn] gives you read only access to information about users signed up for classes.
+
+
 [ClassesTypes]: /api/classes/classestypes/
 [Classes]: /api/classes/classes/
 [UserClasses]: /api/classes/userclasses/
 [Booking]: /api/classes/booking/
 [Ratings]: /api/classes/ratings/
+[WhoIsIn]: /api/classes/whoisin/

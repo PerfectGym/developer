@@ -19,6 +19,12 @@ available in your company.
 available in your company.
 
 
+## [Who is in][WhoIsIn]
+
+[Who is in API][WhoIsIn] gives you read only access to information about users currently present in your club.
+
+
 
 [Clubs]: /api/clubs/clubs/
 [ClubDetails]: /api/clubs/clubdetails/
+[WhoIsIn]: /api/clubs/whoisin
