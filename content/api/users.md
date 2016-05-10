@@ -29,6 +29,7 @@ The Users APIs provides access to users list available in your company.
 [User credit card API][UserCreditCard] lest you assign credit card to a club user.
 
 
+
 ## [Direct debit][DirectDebit]
 
 [Direct debit API][DirectDebit] lest you assign back account details to a club user.
@@ -47,6 +48,12 @@ The Users APIs provides access to users list available in your company.
 
 
 
+## [User club visits][UserClubVisits]
+
+[User club visits API][UserClubVisits] gives you read only access to information about user visits in your club.
+
+
+
 
 [UserDetails]: /api/users/userdetails/
 [AddingUpdatingUser]: /api/users/addupdateuser
@@ -55,4 +62,5 @@ The Users APIs provides access to users list available in your company.
 [DirectDebit]: /api/users/userdirectdebit
 [Agreements]: /api/users/useragreements
 [PasswordUpdateValidation]: /api/users/passwordupdatingandvalidation
+[UserClubVisits]: /api/users/clubvisits
 

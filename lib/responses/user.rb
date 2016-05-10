@@ -686,7 +686,24 @@ module GitHub
           }
 
         ]        
-      } 
+      }
+
+
+      WHOISINUSERS_RESPONSE ||= {
+
+        "elements" => [ 
+          {
+            "id": 1,            
+            "firstName": "Jan",
+            "lastName": "Nowak",            
+            "photoUrl": "",            
+            "sex": "Male",                                      
+            "isPresent": true,
+            "isDeleted": false,
+            "timestamp": 447183
+          } 
+        ]
+      }
 
 
       USERRESETPASSWORDTOKEN_RESPONSE ||= {
