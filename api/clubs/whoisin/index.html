@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Payment status | Perfectgym Developer Guide</title>
+  <title>Who is in | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,58 +53,23 @@
       
 
 <h1>
-<a id="payment-status" class="anchor" href="#payment-status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Payment status</h1>
+<a id="who-is-in" class="anchor" href="#who-is-in" aria-hidden="true"><span class="octicon octicon-link"></span></a>Who is in</h1>
 
-<p>Payment status represents status of payment executed via online payment system.</p>
+<p>This API gives access to information about users currently present in your club.</p>
 
 <ul id="markdown-toc">
-<li><a href="#payment-status-properties" id="markdown-toc-payment-status-properties">
-Payment status properties</a></li>
-<li><a href="#retrive-payment-status-" id="markdown-toc-retrive-payment-status-">Retrive payment status 
+<li><a href="#list-users-present-in-your-club-" id="markdown-toc-list-users-present-in-your-club-">List users present in your club 
 </a></li>
 </ul>
 
 <h2>
-<a id="payment-status-properties" class="anchor" href="#payment-status-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<a name="properties"></a>Payment status properties</h2>
-
-<p>Payment status is described by the following properties</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>status</code></td>
-<td><code>string</code></td>
-<td>Payment status. <br><strong>Possible values</strong>: <br><ul>
-<li>Success</li>
-<li>InProgress</li>
-<li>Error</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td><code>errorMessage</code></td>
-<td><code>string</code></td>
-<td>Error message in case <code>status</code> = <code>Error</code>.</td>
-</tr>
-</tbody>
-</table>
-
-<h2>
-<a id="retrive-payment-status-" class="anchor" href="#retrive-payment-status-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive payment status <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="list-users-present-in-your-club-" class="anchor" href="#list-users-present-in-your-club-" aria-hidden="true"><span class="octicon octicon-link"></span></a>List users present in your club <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
-<pre><code>GET Payments/PaymentStatus
+<pre><code>GET Clubs/WhoIsIn
 </code></pre>
 
-<p>Returns status for online payment identified with <code>paymentId</code>.</p>
+<p>Returns present in club users list.</p>
 
 <h3>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
@@ -119,25 +84,30 @@ Payment status properties</a></li>
 </thead>
 <tbody>
 <tr>
-<td><code>paymentId</code></td>
-<td><code>string</code></td>
-<td>Payment identifier returned by payment method in <a href="/appendix/datatypes/paymentdetails">payment details</a>
-</td>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Club identifier. Request returns list of users present in club identified with <code>clubId</code>.</td>
 </tr>
 </tbody>
 </table>
 
 <h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<p>Collection of <a href="/api/users/user">Users</a>.</p>
+
+<h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch payment status for payment identified with <code>paymentId</code> = <code>PGAPI_a12b55c5-d526-4e4e-ae9c</code></p>
+<p>In this example we fetch list of users present in club identified with <code>id</code> = <code>16</code></p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Payments/PaymentStatus
-        ?paymentId=PGAPI_a12b55c5-d526-4e4e-ae9c
+     http://yoursubdomain.perfectgym.com/Api/Clubs/WhoIsIn/
+        ?clubId=16      
 </pre>
 
 <h3>
@@ -150,8 +120,14 @@ curl -i
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jan"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nowak"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"photoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isPresent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447183</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">

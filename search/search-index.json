@@ -66,6 +66,14 @@
   
   
   {
+    "title": "Who is in",
+    
+    "url": "/api/clubs/whoisin/",
+    "body": " Who is in This API gives access to information about users currently present in your club.  List users present in your club    List users present in your club   GET Clubs/WhoIsIn  Returns present in club users list.  Parameters    Name Type Description     clubId long  Required. Club identifier. Request returns list of users present in club identified with clubId.     Response Collection of Users.  Example request In this example we fetch list of users present in club identified with id = 16  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Clubs/WhoIsIn/ ?clubId=16   Example response Status: 200 OK  { \"elements\": [ { \"id\": 1, \"firstName\": \"Jan\", \"lastName\": \"Nowak\", \"photoUrl\": \"\", \"sex\": \"Male\", \"isPresent\": true, \"isDeleted\": false, \"timestamp\": 447183 } ] } "
+  },
+  
+  
+  {
     "title": "Clubs",
     
     "url": "/api/clubs/",
@@ -437,7 +445,7 @@
     "title": "Users",
     
     "url": "/api/users/",
-    "body": " Users The Users APIs provides access to users list available in your company.  User details  User details API gives you read only access to detailed information about your clubs users.  Adding and updating user  Adding and updating user API lest you add new users to your company users list or update basic data of existing users.  User contract  User contract API lest you assign contract to a club user.  User credit card  User credit card API lest you assign credit card to a club user.  Direct debit  Direct debit API lest you assign back account details to a club user.  Agreements  Agreements API lest you store information if user has agreed to marketing and terms and conditions agreements.  Password updating and credential validation  Password updating and credential validation API lest you update user password and validate user credentials."
+    "body": " Users The Users APIs provides access to users list available in your company.  User details  User details API gives you read only access to detailed information about your clubs users.  Adding and updating user  Adding and updating user API lest you add new users to your company users list or update basic data of existing users.  User contract  User contract API lest you assign contract to a club user.  User credit card  User credit card API lest you assign credit card to a club user.  Direct debit  Direct debit API lest you assign back account details to a club user.  Agreements  Agreements API lest you store information if user has agreed to marketing and terms and conditions agreements.  Password updating and credential validation  Password updating and credential validation API lest you update user password and validate user credentials.  User club visits  User club visits API gives you read only access to information about user visits in your club."
   },
   
   
