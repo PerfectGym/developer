@@ -41,6 +41,7 @@ module GitHub
             ],  
             "freezes" => [
               ],
+            "status": "Current",
             "isCurrent": true,        
             "isActive": true,
             "isDeleted": false
@@ -90,6 +91,7 @@ module GitHub
                 "isDeleted": false
               },
             ],
+            "status": "Current",
             "isCurrent": true,        
             "isActive": true,
             "isDeleted": false

@@ -18,6 +18,7 @@ Only contract details specyfic properties are described here.
 Name        	| Type    						| Description
 ----------------|-------------------------------|----------------------
 `isCurrent`		|`bool`							| `true` if contract is user's current contract, `false` otherwise.
+`status`		|`string`						| Contract status. <br><strong>Possible values</strong>: <br><ul><li>Current</li><li>Ended</li><li>NotStarted</li><li>Freezed</li></ul>
 `documentUrl`	|`string`						| URL to contract agreement PDF file signed by user (for details see [contract agreement signing][ContractSigning]).
 `membership`   	|[Membership][Membership]   	| Contract's membership.
 `paymentPlan`   |[Payment paln][PaymentPlan]   	| Contract's payment plan.
