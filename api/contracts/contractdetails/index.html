@@ -87,6 +87,17 @@ Only contract details specyfic properties are described here.</p>
 <code>true</code> if contract is user's current contract, <code>false</code> otherwise.</td>
 </tr>
 <tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Contract status. <br><strong>Possible values</strong>: <br><ul>
+<li>Current</li>
+<li>Ended</li>
+<li>NotStarted</li>
+<li>Freezed</li>
+</ul>
+</td>
+</tr>
+<tr>
 <td><code>documentUrl</code></td>
 <td><code>string</code></td>
 <td>URL to contract agreement PDF file signed by user (for details see <a href="/api/users/usercontract#contractsigning">contract agreement signing</a>).</td>
@@ -203,6 +214,7 @@ curl -i
       </span><span class="nt">"freezes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 
       </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isCurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
