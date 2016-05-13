@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="user-friends" class="anchor" href="#user-friends" aria-hidden="true"><span class="octicon octicon-link"></span></a>User friends</h1>
+<a id="user-friends" class="anchor" href="#user-friends" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User friends</h1>
 
 <p>This API lest you assign a friend to a full member user account.</p>
 
@@ -63,13 +63,14 @@
 </a></li>
 <li><a href="#execute-connection-" id="markdown-toc-execute-connection-">Execute connection 
 </a></li>
+<li><a href="#get-friend-status" id="markdown-toc-get-friend-status">Get friend status</a></li>
 </ul>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
 
 <h2>
-<a id="verify-connection-possibility-" class="anchor" href="#verify-connection-possibility-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Verify connection possibility <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="verify-connection-possibility-" class="anchor" href="#verify-connection-possibility-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Verify connection possibility <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>GET Users/VerifyFriendConnection
@@ -78,7 +79,7 @@
 <p>Request checks if two users can be connected as friends in Perfect Gym system. </p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -105,12 +106,12 @@
 </table>
 
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a> including user friends list.</p>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we check if user with <code>id</code> = <code>521</code> can be assigned as friend of user with <code>id</code> = <code>236</code>.</p>
 
@@ -217,7 +218,7 @@ Status: 200 OK
  -->
 
 <h2>
-<a id="execute-connection-" class="anchor" href="#execute-connection-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute connection <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="execute-connection-" class="anchor" href="#execute-connection-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute connection <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>GET Users/ConnectFriend
@@ -226,7 +227,7 @@ Status: 200 OK
 <p>Request assigns friend to a full club member.</p>
 
 <h3>
-<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -253,12 +254,12 @@ Status: 200 OK
 </table>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a> including user friends list.</p>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example user with <code>id</code> = <code>521</code> as friend of user with <code>id</code> = <code>236</code>.</p>
 
@@ -269,6 +270,72 @@ curl -X POST
      -H "Content-Type: application/json"      
     http://yoursubdomain.perfectgym.com/Api/Users/ConnectFriend?fullMemberUserId=236&amp;friendUserId=521
 </pre>
+
+<h2>
+<a id="get-friend-status" class="anchor" href="#get-friend-status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get friend status</h2>
+
+<pre><code>GET Users/FriendStatus
+</code></pre>
+
+<p>Get information on the relationship between the user and friends in time</p>
+
+<h3>
+<a id="parameters-2" class="anchor" href="#parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. User identifier.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/appendix/datatypes/friendstatus">Friends status</a>.</p>
+
+<h3>
+<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we get information about user friends with <code>id</code> = <code>236</code>.</p>
+
+<pre class="command-line">
+
+curl -X POST 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json" 
+     
+    http://yoursubdomain.perfectgym.com/Api/Users/FriendStatus?userId=236
+</pre>
+
+<p>Example response</p>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"dateFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"dateTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-26T00:00:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 
 
     </div>
