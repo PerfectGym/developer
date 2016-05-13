@@ -15,12 +15,13 @@ Message details holds the same data as [Message][MessageProperties] plus some de
 Only message details specyfic properties are described here.
 
 
-Name        | Type     | Description
-------------|----------|----------------------
-`text`		|`string`  | Message text.
-`status`    |`string`  | Message status. <br><strong>Possible values</strong>: <br><ul><li>Planned</li><li>InProgress</li><li>Done</li><li>Postponed</li><li>Failed</li></ul>
-`read`    	|`string`  | `true` if message has been read, `false` otherwise.
-`comment`   |`string`  | Message comment.
+Name         | Type     | Description
+-------------|----------|----------------------
+`text`	 	 |`string`  | Message text.
+`status`     |`string`  | Message status. <br><strong>Possible values</strong>: <br><ul><li>Planned</li><li>InProgress</li><li>Done</li><li>Postponed</li><li>Failed</li></ul>
+`read`    	 |`string`  | `true` if message has been read, `false` otherwise.
+`comment`    |`string`  | Message comment.
+`attachments`|`array`   | An array of [File][File] objects.
       
 
 
@@ -59,6 +60,7 @@ curl -i
 
 
 [MessageProperties]: /api/messages/messages#properties 
+[File]: /appendix/datatypes/file
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"

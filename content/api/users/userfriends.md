@@ -89,9 +89,47 @@ curl -X POST
 	http://yoursubdomain.perfectgym.com/Api/Users/ConnectFriend?fullMemberUserId=236&friendUserId=521
 ```
 
+## Get friend status 
+
+    GET Users/FriendStatus
+
+Get information on the relationship between the user and friends in time
+
+### Parameters
+
+Name  	    | Type     		| Description
+------------|---------------|------------
+`userId`    |`long`    		| **Required**. User identifier.
+
+
+
+### Response
+
+[Friends status][UserFriendStatus].
+
+
+### Example request
+
+In this example we get information about user friends with `id` = `236`.
+
+``` command-line
+
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 
+	http://yoursubdomain.perfectgym.com/Api/Users/FriendStatus?userId=236
+```
+
+Example response
+
+<%= headers 200 %>
+<%= json(:userfriend_response) %>
+
 
 
 [UserDetailsProperties]: /api/users/userdetails#properties
+[UserFriendStatus]:  /appendix/datatypes/friendstatus
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"

@@ -31,14 +31,14 @@ Name            	 | Type        				| Description
 `membership`		 |[Membership][Membership]	| Payment plan membership.
 `channels`			 |`array`					| An array of `string` objects, each representing a channel given payment plan is available in. **Possible values** : <br><ul><li>`Web`</li><li>`Internet`</li><li>`Intranet`</li><li>`MembershipPortal`</li><li>`CorporatePortal`</li><li>`KIOSK`</li></ul>
 `addOns`			 |`array`					| An array of [Add on][AddOn] objects, each representing a payment plan add on. If `isAddOnPaymentPlan` == `false` an array is empty.
-          
+`regulationFiles`    |`array`                   | An array of [File][File] objects
 
 
 
 
 ## Retrive detailed information about specyfic payment plan ![alt text][EM]
 
-    GET Memberships/PaymentPlan
+    GET PaymentPlans/PaymentPlan
 
 Returns detailed payment plan information.
 
@@ -60,7 +60,7 @@ In this example we fetch payment plan with `id` = `44` detailed information.
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Memberships/PaymentPlan
+     http://yoursubdomain.perfectgym.com/Api/PaymentPlans/PaymentPlan
      	?paymentPlanId=40     	
 ```
 
@@ -76,6 +76,7 @@ curl -i
 [Fees]: /appendix/datatypes/contractfees
 [Membership]: /api/memberships/memberships#properties
 [AddOn]: /appendix/datatypes/paymentplanaddon
+[File]: /appendix/datatypes/file
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"

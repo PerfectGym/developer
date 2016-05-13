@@ -159,6 +159,7 @@ module GitHub
         "elements" => [      
           {
             "freezeFee": 1,
+            "freezeMaxLength":30,
             "availableStartDates": [
               {
                 "year": 2016,

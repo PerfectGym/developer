@@ -103,7 +103,12 @@ module GitHub
             "timestamp": 447623,
             "name": "Open 24m",
             "isActive": true,
-            "isDeleted": false
+            "isDeleted": false,
+            "regulationFiles":[{
+				          "id": 101,
+				          "name": "file.pdf"
+				          }]
+
           }
         ]      
       }

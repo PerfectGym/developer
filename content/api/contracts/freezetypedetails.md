@@ -19,6 +19,7 @@ Name    		    	| Type    			| Description
 ------------------------|-------------------|----------------------
 `freezeFee`				|`decimal`			| Freeze fee.
 `availableStartDates`	|`array`			| An array of [start dates][FreezeStartDate] objects representing dates freeze can start.
+`freezeMaxLength`	    |`int`			    | Maximum freeze length .
 
 
 

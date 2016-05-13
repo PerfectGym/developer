@@ -28,8 +28,12 @@ module GitHub
             "title": "Shoes",
             "id": 10252,
             "timestamp": 692590,
-            "isDeleted": false
-          },          
+            "isDeleted": false,
+            "attachments":[{
+				          "id": 10358,
+				          "name": "file.pdf"
+				          }]
+          }          
         ]              
       }      
       

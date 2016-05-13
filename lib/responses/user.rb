@@ -53,7 +53,23 @@ module GitHub
         "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=120",
         "isActive": true,
         "isDeleted": false
-      }      
+      } 
+
+      AGREEMENTTYPE_RESPONSE ||= {        
+        "elements" => [
+	        "id": 2,       
+	        "name": "Newsletter",
+	        "description": "Newsletter"
+		 ]                     
+      } 
+
+      USERFRIEND_RESPONSE ||= {        
+        "elements" => [
+	        "userId": 10,	       
+	        "dateFrom": "2016-01-26T00:00:00",
+	        "dateTo": "2016-02-26T00:00:00",
+		 ]                     
+      }                
 
 
       USER_RESPONSE ||= {
