@@ -60,7 +60,7 @@
 <ul id="markdown-toc">
 <li><a href="#add-new-user-" id="markdown-toc-add-new-user-">Add new user 
 </a></li>
-<li><a href="#update-existing-user-" id="markdown-toc-update-existing-user-">Update existing user 
+<li><a href="#update-existing-user--" id="markdown-toc-update-existing-user--">Update existing user  
 </a></li>
 </ul>
 
@@ -119,7 +119,7 @@
 <td>User last name.</td>
 </tr>
 <tr>
-<td><code>phone</code></td>
+<td><code>phoneNumber</code></td>
 <td><code>string</code></td>
 <td>User phone number.</td>
 </tr>
@@ -180,7 +180,7 @@ curl -X POST
         "firstName": "John",
         "lastName": "Fibo",
         "email": "john.fibo@perfectgym.pl",
-        "phone": "0048123456789",
+        "phoneNumber": "0048123456789",
         "idCardName": "Passport",
         "idCardNumber": "ABC 123456",
         "legalGuardian": "",
@@ -217,7 +217,7 @@ curl -X POST
       </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"legalGuardian"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -275,7 +275,7 @@ curl -X POST
 
 
 <h2>
-<a id="update-existing-user-" class="anchor" href="#update-existing-user-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update existing user <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="update-existing-user--" class="anchor" href="#update-existing-user--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update existing user <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
 </h2>
 
 <pre><code>PUT Users/User
@@ -284,7 +284,7 @@ curl -X POST
 <p>Request updates existing user's data.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="employee-mode-parameters" class="anchor" href="#employee-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -304,7 +304,14 @@ curl -X POST
 </table>
 
 <h3>
+<a id="user-mode-parameters" class="anchor" href="#user-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+
+<p>Request in user mode has no parameters. Request updates authentificated user.</p>
+
+<h3>
 <a id="body-parameters-1" class="anchor" href="#body-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+
+<p>You should pass only parameters that acctualy needs to be updated. <code>Null</code> parameters are discarded.</p>
 
 <table>
 <thead>
@@ -338,7 +345,7 @@ curl -X POST
 <strong>Must be unique</strong>. User email address.</td>
 </tr>
 <tr>
-<td><code>phone</code></td>
+<td><code>phoneNumber</code></td>
 <td><code>string</code></td>
 <td>
 <strong>Must be unique</strong>. User phone number.</td>
@@ -401,18 +408,7 @@ with <a href="/appendix/errorcodes/updateusererrorcode">update user error codes<
 curl -X PUT 
      -H "Authorization: Bearer $ACCESS_TOKEN" 
      -H "Content-Type: application/json" 
-     -d '{
-        "firstName": "John",
-        "lastName": "Fibo",
-        "email": "john.fibo@perfectgym.pl",
-        "phone": "0048123456789",
-        "idCardName": "Passport",
-        "idCardNumber": "ABC 123456",
-        "legalGuardian": "",
-        "birthDate": "1978-06-01T00:00:00",
-        "isForeigner": false,
-        "sex": "Male",
-        "homeClubId": 12,
+     -d '{      
         "address": {
             "line1": "ul. Przyczolkowa 334",
             "line2": "",
@@ -442,7 +438,7 @@ curl -X PUT
       </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"legalGuardian"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">

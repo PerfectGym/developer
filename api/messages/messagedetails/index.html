@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="message-details" class="anchor" href="#message-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Message details</h1>
+<a id="message-details" class="anchor" href="#message-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Message details</h1>
 
 <p>Message details is detaild representation of single message directed to a user. </p>
 
@@ -65,7 +65,7 @@ Message details properties</a></li>
 </ul>
 
 <h2>
-<a id="message-details-properties" class="anchor" href="#message-details-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<a id="message-details-properties" class="anchor" href="#message-details-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
 <a name="properties"></a>Message details properties</h2>
 
 <p>Message details holds the same data as <a href="/api/messages/messages#properties">Message</a> plus some detailed features of a message.
@@ -117,7 +117,7 @@ Only message details specyfic properties are described here.</p>
 </table>
 
 <h2>
-<a id="retrive-detailed-message-information-" class="anchor" href="#retrive-detailed-message-information-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrive detailed message information <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="retrive-detailed-message-information-" class="anchor" href="#retrive-detailed-message-information-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Retrive detailed message information <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>GET Messages/Message
@@ -126,7 +126,7 @@ Only message details specyfic properties are described here.</p>
 <p>Returns detailed message informations.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -138,16 +138,17 @@ Only message details specyfic properties are described here.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>messageId</code></td>
-<td><code>long</code></td>
+<td>
+<code>messageId      |</code>long`</td>
 <td>
 <strong>Required</strong>. Message identifier.</td>
+<td></td>
 </tr>
 </tbody>
 </table>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we fetch message with <code>id</code> = <code>10252</code> detailed information.</p>
 
@@ -159,7 +160,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
