@@ -79,7 +79,7 @@ curl -i
 
     GET Classes/UserClasses
 
-Returns paginated user classes list.
+Returns paginated user classes list. All feature classes and all past classes user has attended are included.
 
 
 ### Employee mode parameters 
