@@ -27,7 +27,7 @@ Name     	    | Type       		| Description
 `personalId`    |`string`    		| User personal identifier.
 `firstName`     |`string`    		| User first name.
 `lastName`     	|`string`    		| User last name.
-`phone`     	|`string`    		| User phone number.
+`phoneNumber`  	|`string`    		| User phone number.
 `idCardName`	|`string`			| User identity card name.
 `idCardNumber`  |`string`			| User identity card number.
 `legalGuardian`	|`string`			| User legal guardian full name.
@@ -57,7 +57,7 @@ curl -X POST
 	    "firstName": "John",
 	    "lastName": "Fibo",
 	    "email": "john.fibo@perfectgym.pl",
-	    "phone": "0048123456789",
+	    "phoneNumber": "0048123456789",
 	    "idCardName": "Passport",
         "idCardNumber": "ABC 123456",
         "legalGuardian": "",
@@ -92,21 +92,28 @@ Subsequent user add request with same samlpe data generates following error:
 
 
 
-## Update existing user ![alt text][EM]
+## Update existing user ![alt text][EM] ![alt text][UM]
 
     PUT Users/User
 
 Request updates existing user's data.
 
 
-### Parameters
+### Employee mode parameters
 
 Name            | Type       | Description
 ----------------|------------|------------
 `userId`        |`long`      | User's identifier.
 
 
+### User mode parameters
+
+Request in user mode has no parameters. Request updates authentificated user.
+
+
 ### Body parameters
+
+You should pass only parameters that acctualy needs to be updated. `Null` parameters are discarded.
 
 Name     	    | Type       		| Description
 ----------------|-------------------|------------
@@ -114,7 +121,7 @@ Name     	    | Type       		| Description
 `firstName`     |`string`    		| User first name.
 `lastName`     	|`string`    		| User last name.
 `email`     	|`string`    		| **Must be unique**. User email address.
-`phone`     	|`string`    		| **Must be unique**. User phone number.
+`phoneNumber`  	|`string`    		| **Must be unique**. User phone number.
 `idCardName`	|`string`			| User identity card name.
 `idCardNumber`  |`string`			| User identity card number.
 `legalGuardian`	|`string`			| User legal guardian full name.
@@ -139,18 +146,7 @@ In this example we update user's address.
 curl -X PUT 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 
-	 -d '{
-	    "firstName": "John",
-	    "lastName": "Fibo",
-	    "email": "john.fibo@perfectgym.pl",
-	    "phone": "0048123456789",
-	    "idCardName": "Passport",
-        "idCardNumber": "ABC 123456",
-        "legalGuardian": "",
-	    "birthDate": "1978-06-01T00:00:00",
-	    "isForeigner": false,
-	    "sex": "Male",
-	    "homeClubId": 12,
+	 -d '{	    
 	    "address": {
 	        "line1": "ul. Przyczolkowa 334",
 	        "line2": "",
