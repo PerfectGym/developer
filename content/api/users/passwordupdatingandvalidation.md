@@ -58,7 +58,7 @@ curl -X GET
 
 ## Request password reset token ![alt text][EM]
 
-    POST Users/ResetPasswordToken
+    GET Users/ResetPassword
 
 Request returns password reset token. Using password reset token user is able to update his account password.
 For details see [password reset method][PasswordReset].
@@ -85,7 +85,7 @@ In this example user's password reset token.
 curl -X GET 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 
-	 http://yoursubdomain.perfectgym.com/Api/Users/Password?email=john.fibo@perfectgym.pl
+	 http://yoursubdomain.perfectgym.com/Api/Users/ResetPassword?email=john.fibo@perfectgym.pl
 ```
 
 
