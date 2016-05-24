@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="contract-freezing" class="anchor" href="#contract-freezing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contract freezing</h1>
+<a id="contract-freezing" class="anchor" href="#contract-freezing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contract freezing</h1>
 
 <p>This API lest you freeze user contract.</p>
 
@@ -63,7 +63,7 @@
 </ul>
 
 <h2>
-<a id="execute-contract-freeze-" class="anchor" href="#execute-contract-freeze-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute contract freeze <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="execute-contract-freeze-" class="anchor" href="#execute-contract-freeze-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute contract freeze <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>POST Contracts/Freeze
@@ -72,7 +72,7 @@
 <p>Request freezes user contract.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -93,7 +93,7 @@
 </table>
 
 <h3>
-<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
@@ -128,12 +128,12 @@
 </table>
 
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/contracts/contractdetails#properties">Contract details</a> if freeze is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/freezecontracterrorcode">freeze error codes</a> otherwise.</p>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we freeze contract with <code>id</code> = <code>10358</code> using freeze type with <code>id</code> = <code>7</code>. Contract will be suspended from 2016-04-01 till 2016-04-07</p>
 
@@ -152,7 +152,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -233,7 +233,7 @@ curl -X POST
 
 
 <h3>
-<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <p>Freeze time range greater then freeze type <code>maximumInterval</code> generates following error:</p>
 

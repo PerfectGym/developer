@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="ratings" class="anchor" href="#ratings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ratings</h1>
+<a id="ratings" class="anchor" href="#ratings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ratings</h1>
 
 <p>This API allow users to rate classes and instructors.</p>
 
@@ -69,7 +69,7 @@
 </ul>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
 
 <p>In PerfectGym user can rate two entities:</p>
 
@@ -89,7 +89,7 @@ even if element (class type or instructor) has been already rated.
 Subsequent ratings adds up to element rating.</p>
 
 <h2>
-<a id="ranking" class="anchor" href="#ranking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ranking</h2>
+<a id="ranking" class="anchor" href="#ranking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ranking</h2>
 
 <p>Ratings data can be used to create class types or instructors rankings. Problem arises though: 
 should element with rating <code>5</code> based on one submision be heigher then element with rating <code>4.7</code>
@@ -99,7 +99,7 @@ based on 20 submitions?</p>
 elements by <code>rankingFactor</code> ascending sets elements in the proper ranking order.</p>
 
 <h2>
-<a id="-rating-properties" class="anchor" href="#-rating-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="-rating-properties" class="anchor" href="#-rating-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 <a name="properties"></a> Rating properties</h2>
 
 <p>Rating is described by the following properties</p>
@@ -132,7 +132,7 @@ elements by <code>rankingFactor</code> ascending sets elements in the proper ran
 </table>
 
 <h2>
-<a id="execute-class-rating--" class="anchor" href="#execute-class-rating--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class rating <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+<a id="execute-class-rating--" class="anchor" href="#execute-class-rating--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute class rating <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
 </h2>
 
 <pre><code>POST Classes/RateClass
@@ -141,7 +141,7 @@ elements by <code>rankingFactor</code> ascending sets elements in the proper ran
 <p>Rates class on behalf of user.</p>
 
 <h3>
-<a id="employee-mode-parameters" class="anchor" href="#employee-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
+<a id="employee-mode-parameters" class="anchor" href="#employee-mode-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -174,7 +174,7 @@ elements by <code>rankingFactor</code> ascending sets elements in the proper ran
 </table>
 
 <h3>
-<a id="user-mode-parameters" class="anchor" href="#user-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+<a id="user-mode-parameters" class="anchor" href="#user-mode-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User mode parameters</h3>
 
 <table>
 <thead>
@@ -201,13 +201,13 @@ elements by <code>rankingFactor</code> ascending sets elements in the proper ran
 </table>
 
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/classes/userclasses#properties">Class details</a> if class rating is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
 with <a href="/appendix/errorcodes/classratingerrorcode">class rating error codes</a> otherwise.</p>
 
 <h3>
-<a id="employee-mode-example-request" class="anchor" href="#employee-mode-example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode example request</h3>
+<a id="employee-mode-example-request" class="anchor" href="#employee-mode-example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Employee mode example request</h3>
 
 <p>In this example we assign rating <code>5</code> to classes with <code>id</code> = <code>1677</code> by user with <code>id</code> = <code>40</code>.</p>
 
@@ -222,7 +222,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -300,7 +300,7 @@ curl -i
 
 
 <h3>
-<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <p>Subsequent rating for class with <code>id</code> = <code>1677</code> and for user with <code>id</code> = <code>40</code> generates following error:</p>
 
@@ -321,7 +321,7 @@ curl -i
 
 
 <h2>
-<a id="execute-instructor-rating--" class="anchor" href="#execute-instructor-rating--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute instructor rating <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+<a id="execute-instructor-rating--" class="anchor" href="#execute-instructor-rating--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute instructor rating <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
 </h2>
 
 <pre><code>POST Classes/RateInstructor
@@ -330,7 +330,7 @@ curl -i
 <p>Rates instructor conducting class on behalf of user.</p>
 
 <h3>
-<a id="employee-mode-parameters-1" class="anchor" href="#employee-mode-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
+<a id="employee-mode-parameters-1" class="anchor" href="#employee-mode-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -363,7 +363,7 @@ curl -i
 </table>
 
 <h3>
-<a id="user-mode-parameters-1" class="anchor" href="#user-mode-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+<a id="user-mode-parameters-1" class="anchor" href="#user-mode-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User mode parameters</h3>
 
 <table>
 <thead>
@@ -390,13 +390,13 @@ curl -i
 </table>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/classes/userclasses#properties">Class details</a> if instructor rating is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
 with <a href="/appendix/errorcodes/instructorratingerrorcode">instructor rating error codes</a> otherwise.</p>
 
 <h3>
-<a id="employee-mode-example-request-1" class="anchor" href="#employee-mode-example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode example request</h3>
+<a id="employee-mode-example-request-1" class="anchor" href="#employee-mode-example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Employee mode example request</h3>
 
 <p>In this example we assign rating <code>4</code> to instructor conducting classes with <code>id</code> = <code>1677</code> by user with <code>id</code> = <code>40</code>.</p>
 
@@ -411,7 +411,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -489,7 +489,7 @@ curl -i
 
 
 <h3>
-<a id="example-error-response-1" class="anchor" href="#example-error-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response-1" class="anchor" href="#example-error-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <p>Subsequent instructor rating for class with <code>id</code> = <code>1677</code> and for user with <code>id</code> = <code>40</code> generates following error:</p>
 

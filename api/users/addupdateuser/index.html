@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="adding-and-updating-users" class="anchor" href="#adding-and-updating-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding and updating users</h1>
+<a id="adding-and-updating-users" class="anchor" href="#adding-and-updating-users" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adding and updating users</h1>
 
 <p>This API allow to add new users and update existing user's data.</p>
 
@@ -65,7 +65,7 @@
 </ul>
 
 <h2>
-<a id="add-new-user-" class="anchor" href="#add-new-user-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add new user <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="add-new-user-" class="anchor" href="#add-new-user-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add new user <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>POST Users/User
@@ -74,7 +74,7 @@
 <p>Request creates new user and adds it to your company user's list.</p>
 
 <h3>
-<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
@@ -161,13 +161,13 @@
 </table>
 
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a> if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
 with <a href="/appendix/errorcodes/addusererrorcode">add user error codes</a> otherwise.</p>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we add new user with some sample data to the company user's list.</p>
 
@@ -200,7 +200,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -254,7 +254,7 @@ curl -X POST
 
 
 <h3>
-<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <p>Subsequent user add request with same samlpe data generates following error:</p>
 
@@ -275,7 +275,7 @@ curl -X POST
 
 
 <h2>
-<a id="update-existing-user--" class="anchor" href="#update-existing-user--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update existing user <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+<a id="update-existing-user--" class="anchor" href="#update-existing-user--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update existing user <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
 </h2>
 
 <pre><code>PUT Users/User
@@ -284,7 +284,7 @@ curl -X POST
 <p>Request updates existing user's data.</p>
 
 <h3>
-<a id="employee-mode-parameters" class="anchor" href="#employee-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
+<a id="employee-mode-parameters" class="anchor" href="#employee-mode-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -304,12 +304,12 @@ curl -X POST
 </table>
 
 <h3>
-<a id="user-mode-parameters" class="anchor" href="#user-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+<a id="user-mode-parameters" class="anchor" href="#user-mode-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User mode parameters</h3>
 
 <p>Request in user mode has no parameters. Request updates authentificated user.</p>
 
 <h3>
-<a id="body-parameters-1" class="anchor" href="#body-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="body-parameters-1" class="anchor" href="#body-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <p>You should pass only parameters that acctualy needs to be updated. <code>Null</code> parameters are discarded.</p>
 
@@ -393,13 +393,13 @@ curl -X POST
 </table>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a> if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
 with <a href="/appendix/errorcodes/updateusererrorcode">update user error codes</a> otherwise.</p>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we update user's address.</p>
 
@@ -421,7 +421,7 @@ curl -X PUT
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -475,7 +475,7 @@ curl -X PUT
 
 
 <h3>
-<a id="example-error-response-1" class="anchor" href="#example-error-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response-1" class="anchor" href="#example-error-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <p>User update request with non existant user identifier</p>
 

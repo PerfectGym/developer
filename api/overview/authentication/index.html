@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="authentication" class="anchor" href="#authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h1>
+<a id="authentication" class="anchor" href="#authentication" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authentication</h1>
 
 <p>PerfectGym API uses token-based authentification as an authentification protocol. 
 Requests that require authentication will return <code>401 Unauthorized</code> if no valid token
@@ -66,7 +66,7 @@ Prerequisites</a></li>
 </ul>
 
 <h2>
-<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 <a name="prerequisites"></a>Prerequisites</h2>
 
 <p>PerfectGym API can work in employee or end user mode. 
@@ -84,16 +84,16 @@ For details see <a href="/api/users/passwordupdatingandvalidation#signup">signin
 <p>Each method described in PerfectGym API documentation is marked as working in employee mode, end user mode or both.</p>
 
 <h2>
-<a id="authentication-flow" class="anchor" href="#authentication-flow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication flow</h2>
+<a id="authentication-flow" class="anchor" href="#authentication-flow" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authentication flow</h2>
 
 <h3>
-<a id="1-request-access-token" class="anchor" href="#1-request-access-token" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Request access token</h3>
+<a id="1-request-access-token" class="anchor" href="#1-request-access-token" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Request access token</h3>
 
 <pre><code>POST https://yoursubdomain.perfectgym.com/Api/oauth/authorize
 </code></pre>
 
 <h3>
-<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
@@ -128,7 +128,7 @@ For details see <a href="/api/users/passwordupdatingandvalidation#signup">signin
 <p>Authentication parameters must be encoded using <code>application/x-www-form-urlencoded</code> content type.</p>
 
 <h3>
-<a id="request-example" class="anchor" href="#request-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request example</h3>
+<a id="request-example" class="anchor" href="#request-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Request example</h3>
 
 <pre class="command-line">
 curl -i -X POST 
@@ -140,7 +140,7 @@ curl -i -X POST
 </pre>
 
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -157,7 +157,7 @@ curl -i -X POST
 <p>Token expiration time is presented in seconds.</p>
 
 <h3>
-<a id="2-use-the-access-token-to-access-the-api" class="anchor" href="#2-use-the-access-token-to-access-the-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Use the access token to access the API</h3>
+<a id="2-use-the-access-token-to-access-the-api" class="anchor" href="#2-use-the-access-token-to-access-the-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Use the access token to access the API</h3>
 
 <p>The access token allows you to make authenticated requests to the API. 
 You can pass the token by including it in the Authorization header.</p>
@@ -168,7 +168,7 @@ You can pass the token by including it in the Authorization header.</p>
 <p>Authorization header should be included in all subsequent API requests.</p>
 
 <h3>
-<a id="authenticated-request-example" class="anchor" href="#authenticated-request-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authenticated request example</h3>
+<a id="authenticated-request-example" class="anchor" href="#authenticated-request-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authenticated request example</h3>
 
 <pre class="command-line">
 curl -i 

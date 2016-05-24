@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="direct-debit" class="anchor" href="#direct-debit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Direct debit</h1>
+<a id="direct-debit" class="anchor" href="#direct-debit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Direct debit</h1>
 
 <p>This API lest you assign bank account details to a club user.</p>
 
@@ -66,7 +66,7 @@ Execute direct debit agreement signing
 </ul>
 
 <h2>
-<a id="assign-bank-account-details-to-a-club-user-" class="anchor" href="#assign-bank-account-details-to-a-club-user-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assign bank account details to a club user <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="assign-bank-account-details-to-a-club-user-" class="anchor" href="#assign-bank-account-details-to-a-club-user-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Assign bank account details to a club user <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>POST Users/DirectDebit
@@ -75,7 +75,7 @@ Execute direct debit agreement signing
 <p>Request assigns bank account details to existing club user and selects it as current payment method.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -96,7 +96,7 @@ Execute direct debit agreement signing
 </table>
 
 <h3>
-<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
@@ -131,12 +131,12 @@ Execute direct debit agreement signing
 </table>
 
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a> including bank account details if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/directdebiterrorcode">direct debit error codes</a>.</p>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we assign bank account details to a user with <code>id</code> = <code>236</code>.</p>
 
@@ -155,7 +155,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -248,7 +248,7 @@ curl -X POST
 
 
 <h3>
-<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 400 Bad Request
 </code></pre>
@@ -267,7 +267,7 @@ curl -X POST
 
 
 <h2>
-<a id="execute-direct-debit-agreement-signing-" class="anchor" href="#execute-direct-debit-agreement-signing-" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="execute-direct-debit-agreement-signing-" class="anchor" href="#execute-direct-debit-agreement-signing-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 <a name="directdebitsigning"></a>Execute direct debit agreement signing <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
@@ -277,7 +277,7 @@ curl -X POST
 <p>Request is used to sign direct debit agreement PDF document with a user signature.</p>
 
 <h3>
-<a id="body-parameters-1" class="anchor" href="#body-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="body-parameters-1" class="anchor" href="#body-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
@@ -317,12 +317,12 @@ curl -X POST
 </table>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a> including signed direct debit agreement URL.</p>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we sign direct debit agreement for user with <code>id</code> = <code>236</code>.</p>
 
@@ -342,7 +342,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>

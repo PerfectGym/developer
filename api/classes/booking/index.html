@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="booking" class="anchor" href="#booking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Booking</h1>
+<a id="booking" class="anchor" href="#booking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Booking</h1>
 
 <p>This API allow users to sign up (book) and sign out (cancel) for fitness classes.</p>
 
@@ -65,7 +65,7 @@
 </ul>
 
 <h2>
-<a id="execute-class-booking--" class="anchor" href="#execute-class-booking--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class booking <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+<a id="execute-class-booking--" class="anchor" href="#execute-class-booking--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute class booking <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
 </h2>
 
 <pre><code>POST Classes/BookClass
@@ -74,7 +74,7 @@
 <p>Signs up user for fitness class.</p>
 
 <h3>
-<a id="employee-mode-parameters" class="anchor" href="#employee-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
+<a id="employee-mode-parameters" class="anchor" href="#employee-mode-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -101,7 +101,7 @@
 </table>
 
 <h3>
-<a id="user-mode-parameters" class="anchor" href="#user-mode-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+<a id="user-mode-parameters" class="anchor" href="#user-mode-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User mode parameters</h3>
 
 <table>
 <thead>
@@ -122,13 +122,13 @@
 </table>
 
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/classes/userclasses#properties">Class details</a> if booking is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
 with <a href="/appendix/errorcodes/classbookingerrorcode">class booking error codes</a> otherwise.</p>
 
 <h3>
-<a id="employee-mode-example-request" class="anchor" href="#employee-mode-example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode example request</h3>
+<a id="employee-mode-example-request" class="anchor" href="#employee-mode-example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Employee mode example request</h3>
 
 <p>In this example we sign up user with <code>id</code> = <code>40</code> for classes with <code>id</code> = <code>1677</code></p>
 
@@ -142,7 +142,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -220,7 +220,7 @@ curl -i
 
 
 <h3>
-<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <p>Subsequent booking for class with <code>id</code> =<code>1677</code> and for user with <code>id</code> = <code>40</code> generates following error:</p>
 
@@ -241,7 +241,7 @@ curl -i
 
 
 <h2>
-<a id="execute-class-cancel--" class="anchor" href="#execute-class-cancel--" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute class cancel <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+<a id="execute-class-cancel--" class="anchor" href="#execute-class-cancel--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute class cancel <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
 </h2>
 
 <pre><code>POST Classes/CancelBooking
@@ -250,7 +250,7 @@ curl -i
 <p>Cancels user booking.</p>
 
 <h3>
-<a id="employee-mode-parameters-1" class="anchor" href="#employee-mode-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode parameters</h3>
+<a id="employee-mode-parameters-1" class="anchor" href="#employee-mode-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Employee mode parameters</h3>
 
 <table>
 <thead>
@@ -277,7 +277,7 @@ curl -i
 </table>
 
 <h3>
-<a id="user-mode-parameters-1" class="anchor" href="#user-mode-parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>User mode parameters</h3>
+<a id="user-mode-parameters-1" class="anchor" href="#user-mode-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User mode parameters</h3>
 
 <table>
 <thead>
@@ -298,13 +298,13 @@ curl -i
 </table>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/classes/userclasses#properties">Class details</a> if class cancel is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
 with <a href="/appendix/errorcodes/classcancelerrorcode">class cancel error codes</a> otherwise.</p>
 
 <h3>
-<a id="employee-mode-example-request-1" class="anchor" href="#employee-mode-example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Employee mode example request</h3>
+<a id="employee-mode-example-request-1" class="anchor" href="#employee-mode-example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Employee mode example request</h3>
 
 <p>In this example we cancel booking of user with <code>id</code> = <code>40</code> for classes with <code>id</code> = <code>1677</code></p>
 
@@ -318,7 +318,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -396,7 +396,7 @@ curl -i
 
 
 <h3>
-<a id="example-error-response-1" class="anchor" href="#example-error-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response-1" class="anchor" href="#example-error-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <p>Subsequent cancel for class with <code>id</code> =<code>1677</code> and for user with <code>id</code> = <code>40</code> generates following error:</p>
 

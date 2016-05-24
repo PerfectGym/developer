@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="pagination" class="anchor" href="#pagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pagination</h1>
+<a id="pagination" class="anchor" href="#pagination" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pagination</h1>
 
 <p>PerfectGym API endpoint that returns list of resources usualy use pagination. </p>
 
@@ -66,7 +66,7 @@ Pagination using page query string parameter</a></li>
 </ul>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
 
 <p>For pagination API uses two distinct techniques:</p>
 
@@ -83,7 +83,7 @@ Pagination using page query string parameter</a></li>
 Selected pagination method is described alongside endpoint parameters description.</p>
 
 <h2>
-<a id="pagination-using-timestamp-query-string-parameter" class="anchor" href="#pagination-using-timestamp-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="pagination-using-timestamp-query-string-parameter" class="anchor" href="#pagination-using-timestamp-query-string-parameter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 <a name="timestamp"></a>Pagination using <code>timestamp</code> query string parameter</h2>
 
 <p>Requests with <code>timestamp</code> query string parameter return list of resources added or changed after point in time represented
@@ -94,7 +94,7 @@ by <code>timestamp</code> value. Result is ordered by <code>timestamp</code> asc
 <p>To get all elements iterate with <code>timestamp</code> parameter untill you get result with less then 100 elements.</p>
 
 <h3>
-<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
 
 <p>In this example we fetch list of available in club with <code>id</code> = <code>2</code> classes. 
 <em>(Several element properties in JSON response were ommited for clarity)</em></p>
@@ -169,7 +169,7 @@ curl -i
 
 
 <h2>
-<a id="pagination-using-page-query-string-parameter" class="anchor" href="#pagination-using-page-query-string-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a id="pagination-using-page-query-string-parameter" class="anchor" href="#pagination-using-page-query-string-parameter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 <a name="page"></a>Pagination using <code>page</code> query string parameter</h2>
 
 <p>We use <code>page</code> query string parameter to choose a page. <code>page</code> parameter is always optional. 
@@ -178,7 +178,7 @@ The default page is the first one, so if you ommit <code>page</code> parameter, 
 <p>To get all elements iterate with <code>page</code> parameter untill you get result with less then 100 elements.</p>
 
 <h3>
-<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
 
 <p>In this example we fetch list of available in club with <code>id</code> = <code>2</code> classes, that starts in december 2015.</p>
 

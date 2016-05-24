@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="responses" class="anchor" href="#responses" aria-hidden="true"><span class="octicon octicon-link"></span></a>Responses</h1>
+<a id="responses" class="anchor" href="#responses" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Responses</h1>
 
 <p>This describes PerfectGym API responses basics.</p>
 
@@ -66,7 +66,7 @@
 </ul>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
 
 <p>Responses contains resources list or individual resources for GET requests.
 For POST requests, individual resource that request operates on is returned. </p>
@@ -76,12 +76,12 @@ which holds the results of the API call, plus the metadata related to the reques
 In case of logical errors, error detailes are enclosed in error envelope.</p>
 
 <h2>
-<a id="response-envelope" class="anchor" href="#response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response Envelope</h2>
+<a id="response-envelope" class="anchor" href="#response-envelope" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response Envelope</h2>
 
 <p>Response envelope encloses resources list or individual resources returned by PerfectGym API.</p>
 
 <h3>
-<a id="response-envelope-properties" class="anchor" href="#response-envelope-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response envelope properties</h3>
+<a id="response-envelope-properties" class="anchor" href="#response-envelope-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response envelope properties</h3>
 
 <table>
 <thead>
@@ -99,7 +99,7 @@ In case of logical errors, error detailes are enclosed in error envelope.</p>
 </table>
 
 <h3>
-<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -135,13 +135,13 @@ In case of logical errors, error detailes are enclosed in error envelope.</p>
 
 
 <h2>
-<a id="error-response-envelope" class="anchor" href="#error-response-envelope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Response Envelope</h2>
+<a id="error-response-envelope" class="anchor" href="#error-response-envelope" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Error Response Envelope</h2>
 
 <p>Error response envelope encloses information about logical errors that occured during API calls.
 Error responses come with <code>HTTP 400</code> status code.</p>
 
 <h3>
-<a id="error-envelope-properties" class="anchor" href="#error-envelope-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error envelope properties</h3>
+<a id="error-envelope-properties" class="anchor" href="#error-envelope-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Error envelope properties</h3>
 
 <table>
 <thead>
@@ -159,7 +159,7 @@ Error responses come with <code>HTTP 400</code> status code.</p>
 </table>
 
 <h3>
-<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 400 Bad Request
 </code></pre>
@@ -178,7 +178,7 @@ Error responses come with <code>HTTP 400</code> status code.</p>
 
 
 <h2>
-<a id="summary-representations" class="anchor" href="#summary-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary Representations</h2>
+<a id="summary-representations" class="anchor" href="#summary-representations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary Representations</h2>
 
 <p>When you fetch a list of resources, the response includes a <em>subset</em> of the
 attributes for that resource. This is the "summary" representation of the
@@ -187,7 +187,7 @@ For performance reasons, the summary representation excludes those attributes.
 To obtain those attributes, fetch the "detailed" representation.)</p>
 
 <h3>
-<a id="example-2" class="anchor" href="#example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+<a id="example-2" class="anchor" href="#example-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
 
 <p>When you get a list of classes, you get the summary
 representation of each class type. Here, we fetch the list of classes
@@ -197,14 +197,14 @@ in a given club:</p>
 </code></pre>
 
 <h2>
-<a id="detailed-representations" class="anchor" href="#detailed-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Detailed Representations</h2>
+<a id="detailed-representations" class="anchor" href="#detailed-representations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Detailed Representations</h2>
 
 <p>When you fetch an individual resource, the response typically includes <em>all</em>
 attributes for that resource. This is the "detailed" representation of the
 resource.</p>
 
 <h3>
-<a id="example-3" class="anchor" href="#example-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+<a id="example-3" class="anchor" href="#example-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
 
 <p>When you get an individual class, you get the detailed
 representation of the class:</p>
