@@ -33,6 +33,8 @@ Name            				| Type      				| Description
 `directDebit`					|[DirectDebit][DirectDebit]	| User direct debit information.
 `homeClubId`					|`long`						| User home club identifier.
 `isActive`     					|`bool`     				| Indicates if cuser is marked as active.
+`prepaidAmount`     			|`decimal`     				| User prepaid account value .
+`employee`     			        |[Employee][Employee]     	| User prepaid account value .
 
 
 
@@ -70,9 +72,9 @@ curl -i
 
 
 
-## Retrive detailed information about user identified by user email address ![alt text][EM]
+## Retrive detailed information about user identified by parameters ![alt text][EM]
 
-    GET Users/User
+    GET Users/Search
 
 Returns detailed user informations.
 
@@ -82,7 +84,9 @@ Returns detailed user informations.
 Name            | Type       | Description
 ----------------|------------|------------------------
 `email`	        |`string`    | User email address.
-
+`cardNumber`    |`string`    | User card number.
+`personalId`    |`long`      | User personal id.
+`userId`        |`long`      | User id.
 
 ### Example request
 
@@ -92,7 +96,7 @@ In this example we fetch user (with `email` = `john.fibo@perfectgym.ok`) detaile
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Users/User?email=john.fibo@perfectgym.pl
+     http://yoursubdomain.perfectgym.com/Api/Users/Search?email=john.fibo@perfectgym.pl
 ```
 
 
@@ -100,43 +104,6 @@ curl -i
 
 <%= headers 200 %>
 <%= json(:user_response) %>
-
-
-
-## Retrive detailed information about user identified by personal id ![alt text][EM]
-
-    GET Users/User
-
-Returns detailed informations of user identified by personal id. User must be
-uniquly identified, if more then one user with given personal id exists,
-empty result is returned.
-
-
-### Parameters
-
-Name            | Type       | Description
-----------------|------------|------------
-`personalId`    |`string`    | User personal id.
-
-
-### Example request
-
-In this example we fetch user (with personal `id` = `80010101234`) detailed information.
-
-``` command-line
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Users/User?personalId=80010101234
-```
-
-
-### Example response
-
-<%= headers 200 %>
-<%= json(:user_response) %>
-
-
 
 ## Retrive authenticated user detailed informations ![alt text][UM]
 
@@ -167,6 +134,7 @@ curl -i
 [User]: /api/users/user#properties
 [Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
+[Employee]: /appendix/datatypes/employee
 [DirectDebit]: /appendix/datatypes/directdebit
 
 [EM]: /assets/images/employee.png "Employee mode"

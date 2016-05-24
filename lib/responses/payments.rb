@@ -76,6 +76,17 @@ module GitHub
         ]
       }
 
+	 PREPAIDSTATUS_RESPONSE ||= {
+
+        "elements" => [
+          {
+            "operationType": "CashLessPrepaid",
+            "billNumber": "123",
+			"customerBalance": "200",
+          }
+        ]
+      }
+
       PAYMENT_ERROR_RESPONSE ||= {      
          
         "errors" => [

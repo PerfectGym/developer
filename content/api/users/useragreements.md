@@ -21,14 +21,14 @@ Request saves information that user has agreed to marketing and terms and condit
 Name  	    | Type     		| Description
 ------------|---------------|------------
 `userId`    |`long`    		| **Required**. User identifier.
-
+ 
 
 ### Body parameters
 
 Name     	    				| Type    		| Description
 --------------------------------|---------------|------------
-`newsletterAgreement`     		|`bool`    		| `true` if user has agreed to receive marketing newsletter, `false` otherwise.
-`termsAndConditionsAgreement` 	|`bool`    		| `true` if user has agreed to general terms and conditions, `false` otherwise.
+`agreementIds`     		        |`array`    	|  **Required**. An array of long values, each representing agreement identifier .
+
 
 
 

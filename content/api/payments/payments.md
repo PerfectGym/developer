@@ -53,6 +53,96 @@ curl -i
 
 
 
+## Change user prepaid account value ![alt text][EM]
+
+    POST Payments/Prepaid
+
+Use to add funds to user's prepaid account 
+
+### Body parameters
+
+Name 	     	    | Type  	| Description
+--------------------|-----------|--------------------
+`userId`  	   		|`long`     | **Required**. User identifier.
+`totalAmmount`  	|`decimal`  | **Required**. Total amount to be add.
+
+
+### Response
+
+[Prepaid Status][PrepaidStatus] 
+
+
+
+### Example request
+
+In this example we request to increase prepaid balance `id` = `236`.
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     -H "Content-Type: application/json" 
+     -d '{
+        	"userId": 236,        	
+    		"totalAmount": 32.8
+    }' 
+    http://yoursubdomain.perfectgym.com/Api/Payments/Prepaid     	
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:prepaidstatus_response) %>
+
+
+## Buy product ![alt text][EM]
+
+    POST Payments/Product
+
+Use to buy product using user's prepaid account 
+
+### Body parameters
+
+Name 	     	    | Type  	| Description
+--------------------|-----------|--------------------
+`userId`  	   		|`long`     | **Required**. User identifier.
+`productId`  	    |`long`     | **Required**. Product identifier.
+`quantity`  	    |`long`     | **Required**. Product quantity.
+
+
+### Response
+
+[Prepaid Status][PrepaidStatus] 
+
+
+
+### Example request
+
+In this example we request to buy product with `productId` = `2` for user identified with `id` = `236`.
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     -H "Content-Type: application/json" 
+     -d '{
+        	"userId": 236,        	
+    		"productId": 2,
+			"quantity": 1
+
+    }' 
+    http://yoursubdomain.perfectgym.com/Api/Payments/Product     	
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:prepaidstatus_response) %>
+
+
+
 ## Execute payment with credit card ![alt text][EM]
 
     POST Payments/PayWithCreditCard
@@ -111,6 +201,7 @@ Total amount is not equal to sum of all fees to be paid.
 [Fee]: /appendix/datatypes/fee
 [PaymentStatus]: /api/payments/paymentstatus#properties
 [PaymentDetails]: /appendix/datatypes/paymentdetails
+[PrepaidStatus]: /appendix/datatypes/prepaiddetails
 [CreditCard]: /api/users/usercreditcard
 [Error]: /appendix/datatypes/error
 [CreditCardPaymentErrorCode]: /appendix/errorcodes/creditcardpaymenterrorcode

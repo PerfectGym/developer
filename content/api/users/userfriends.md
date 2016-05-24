@@ -69,7 +69,8 @@ Name  	    		| Type     		| Description
 --------------------|---------------|------------
 `fullMemberUserId`  |`long`    		| **Required**. Full member user identifier. Request assignes user identified with `friendUserId` as a friend of club member identified with `fullMemberUserId`.
 `friendUserId`  	|`long`    		| **Required**. Friend user identifier. Request assignes user identified with `friendUserId` as a friend of club member identified with `fullMemberUserId`.
-
+`dateFrom`  	    |`dateTime`    	| **Required**. Start relationship between the user and friends
+`dateUntil`  	    |`dateTime`    	|               End relationship between the user and friends
 
 
 ### Response
@@ -101,7 +102,7 @@ Name  	    | Type     		| Description
 ------------|---------------|------------
 `userId`    |`long`    		| **Required**. User identifier.
 
-
+ 
 
 ### Response
 

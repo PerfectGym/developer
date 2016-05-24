@@ -23,7 +23,7 @@ Name         | Type     | Description
 `comment`    |`string`  | Message comment.
 `attachments`|`array`   | An array of [File][File] objects.
       
-
+ 
 
 ## Retrive detailed message information ![alt text][EM]
 
@@ -36,7 +36,7 @@ Returns detailed message informations.
 
 Name            | Type       | Description
 ----------------|------------|------------------------
-`messageId      |`long`      | **Required**. Message identifier.
+`messageId`     | `long`      | **Required**. Message identifier.
 
 
 

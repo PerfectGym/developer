@@ -21,7 +21,7 @@ Name    		    	| Type    			| Description
 `availableStartDates`	|`array`			| An array of [start dates][FreezeStartDate] objects representing dates freeze can start.
 `freezeMaxLength`	    |`int`			    | Maximum freeze length .
 
-
+ 
 
 ## Retrive detailed information about specyfic freeze type ![alt text][EM]
 

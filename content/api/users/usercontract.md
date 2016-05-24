@@ -9,6 +9,87 @@ This API lest you list, assign and delete user contracts.
 {:toc}
 
 
+## Add user and assign contract![alt text][EM]
+
+    POST Users/UserContract
+
+Request assigns new contract to new club user.
+
+
+### Body parameters
+
+Name     	    | Type       		| Description
+----------------|-------------------|------------
+`paymentPlanId` |`string`    		| Payment plan identifier. Request creates new contract based on payment plan identified by `paymentPlanId`
+`startDate`     |`string`    		| Contract start date.
+`signDate`     	|`string`    		| Contract sign date.
+`discountIds`   |`array`			| Array of discount identifiers to be applied to contract.
+`email`     	|`string`    		| **Required**. User email address.
+`homeClubId`	|`long`    			| **Required**. User home club identifier.
+`birthDate`     |`string`    		| **Required**. User birth date.
+`personalId`    |`string`    		| User personal identifier.
+`firstName`     |`string`    		| User first name.
+`lastName`     	|`string`    		| User last name.
+`phoneNumber`  	|`string`    		| User phone number.
+`idCardName`	|`string`			| User identity card name.
+`idCardNumber`  |`string`			| User identity card number.
+`legalGuardian`	|`string`			| User legal guardian full name.
+`isForeigner`	|`bool`				| Indicates if user is a forigner.
+`sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
+`address`     	|[Address][Address] | User address.
+
+
+
+### Response
+
+[User details][UserDetailsProperties] with [contract][Contract] detailed description.
+
+
+### Example request
+
+In this example we create new contract based on payment plan with `id` = `44`.
+Also discount with `id` = `10` is applied.
+
+``` command-line
+
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 -d '{
+	    "paymentPlanId": 44,
+	    "startDate": "2016-01-26T00:00:00",
+	    "signDate": "2016-01-26T00:00:00",
+	    "discountIds": [10],
+        "firstName": "John",
+	    "lastName": "Fibo",
+	    "email": "john.fibo@perfectgym.pl",
+	    "phoneNumber": "0048123456789",
+	    "idCardName": "Passport",
+        "idCardNumber": "ABC 123456",
+        "legalGuardian": "",
+	    "birthDate": "1978-06-01T00:00:00",
+	    "isForeigner": false,
+	    "sex": "Male",
+	    "homeClubId": 12,
+	    "address": {
+	        "line1": "al. Jerozolimskie 114",
+	        "line2": "",
+	        "city": "Warszawa",
+	        "postalCode": "20-259",
+	        "country": "Poland"
+	    }	    
+	}' 
+	http://yoursubdomain.perfectgym.com/Api/Users/Contract?userId=236
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:usercontract_response) %>
+
+
+
 ## Assign contract to a club user ![alt text][EM]
 
     POST Users/Contract

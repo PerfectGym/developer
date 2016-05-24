@@ -7,7 +7,7 @@ title: Payment plan details
 Payment plan details is detaild representation of single payment plan in your company. 
 
 {:toc}
-
+ 
 
 ## Payment plan details properties
 
