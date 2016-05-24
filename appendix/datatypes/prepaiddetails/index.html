@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Agreement type | Perfectgym Developer Guide</title>
+  <title>Prepaid status details | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,14 +53,14 @@
       
 
 <h1>
-<a id="agreement-type" class="anchor" href="#agreement-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Agreement type</h1>
+<a id="prepaid-status-details" class="anchor" href="#prepaid-status-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prepaid status details</h1>
 
-<p>Represent available contract</p>
+<p>Represents prepaid operation result.</p>
 
 <h2>
-<a id="agreement-type-properties" class="anchor" href="#agreement-type-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Agreement type properties</h2>
+<a id="prepaid-status-details-properties" class="anchor" href="#prepaid-status-details-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prepaid status details properties</h2>
 
-<p>Agreement type is described by the following properties</p>
+<p>Prepaid status details is described by the following properties</p>
 
 <table>
 <thead>
@@ -72,24 +72,19 @@
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>operationType</code></td>
+<td><code>string</code></td>
+<td>Operation type</td>
+</tr>
+<tr>
+<td><code>billNumber</code></td>
 <td><code>long</code></td>
-<td>Unique identifier of agreement.</td>
+<td>Bill identifier.</td>
 </tr>
 <tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>Agreement name.</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td><code>string</code></td>
-<td>Agreement description.</td>
-</tr>
-<tr>
-<td><code>signOnClientSide</code></td>
-<td><code>bool</code></td>
-<td>Is sign on client side.</td>
+<td><code>cstomerBalance</code></td>
+<td><code>decimal</code></td>
+<td>User prepaid account value.</td>
 </tr>
 </tbody>
 </table>

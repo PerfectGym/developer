@@ -53,19 +53,23 @@
       
 
 <h1>
-<a id="payments" class="anchor" href="#payments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Payments</h1>
+<a id="payments" class="anchor" href="#payments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Payments</h1>
 
 <p>This API allows user to pay contract fees using online payment systems.</p>
 
 <ul id="markdown-toc">
 <li><a href="#execute-online-payment-" id="markdown-toc-execute-online-payment-">Execute online payment 
 </a></li>
+<li><a href="#change-user-prepaid-account-value-" id="markdown-toc-change-user-prepaid-account-value-">Change user prepaid account value 
+</a></li>
+<li><a href="#buy-product-" id="markdown-toc-buy-product-">Buy product 
+</a></li>
 <li><a href="#execute-payment-with-credit-card-" id="markdown-toc-execute-payment-with-credit-card-">Execute payment with credit card 
 </a></li>
 </ul>
 
 <h2>
-<a id="execute-online-payment-" class="anchor" href="#execute-online-payment-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute online payment <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="execute-online-payment-" class="anchor" href="#execute-online-payment-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute online payment <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>GET Payments/Pay
@@ -74,7 +78,7 @@
 <p>Returns online payment URL and transaction identifier.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -106,12 +110,12 @@
 </table>
 
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/appendix/datatypes/paymentdetails">Payment details</a> including payment URL user should be redirected to, to proceed with a payment.</p>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we request payment URL, user can execute payment with.</p>
 
@@ -125,7 +129,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -143,7 +147,169 @@ curl -i
 
 
 <h2>
-<a id="execute-payment-with-credit-card-" class="anchor" href="#execute-payment-with-credit-card-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execute payment with credit card <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="change-user-prepaid-account-value-" class="anchor" href="#change-user-prepaid-account-value-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Change user prepaid account value <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>POST Payments/Prepaid
+</code></pre>
+
+<p>Use to add funds to user's prepaid account </p>
+
+<h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. User identifier.</td>
+</tr>
+<tr>
+<td><code>totalAmmount</code></td>
+<td><code>decimal</code></td>
+<td>
+<strong>Required</strong>. Total amount to be add.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/appendix/datatypes/prepaiddetails">Prepaid Status</a> </p>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we request to increase prepaid balance <code>id</code> = <code>236</code>.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     -H "Content-Type: application/json" 
+     -d '{
+            "userId": 236,          
+            "totalAmount": 32.8
+    }' 
+    http://yoursubdomain.perfectgym.com/Api/Payments/Prepaid        
+</pre>
+
+<h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"operationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CashLessPrepaid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"billNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customerBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="buy-product-" class="anchor" href="#buy-product-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Buy product <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>POST Payments/Product
+</code></pre>
+
+<p>Use to buy product using user's prepaid account </p>
+
+<h3>
+<a id="body-parameters-1" class="anchor" href="#body-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. User identifier.</td>
+</tr>
+<tr>
+<td><code>productId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Product identifier.</td>
+</tr>
+<tr>
+<td><code>quantity</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Product quantity.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/appendix/datatypes/prepaiddetails">Prepaid Status</a> </p>
+
+<h3>
+<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we request to buy product with <code>productId</code> = <code>2</code> for user identified with <code>id</code> = <code>236</code>.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     -H "Content-Type: application/json" 
+     -d '{
+            "userId": 236,          
+            "productId": 2,
+            "quantity": 1
+
+    }' 
+    http://yoursubdomain.perfectgym.com/Api/Payments/Product        
+</pre>
+
+<h3>
+<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"operationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CashLessPrepaid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"billNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customerBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="execute-payment-with-credit-card-" class="anchor" href="#execute-payment-with-credit-card-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute payment with credit card <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>POST Payments/PayWithCreditCard
@@ -152,7 +318,7 @@ curl -i
 <p>Request executes payment with user credit card. Credit card details must be assigned using <a href="/api/users/usercreditcard">CreditCard</a> request.</p>
 
 <h3>
-<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="body-parameters-2" class="anchor" href="#body-parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
@@ -185,12 +351,12 @@ curl -i
 </table>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-3" class="anchor" href="#response-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/payments/paymentstatus#properties">Payment status</a> if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/creditcardpaymenterrorcode">credit card payment error codes</a> otherwise.</p>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-3" class="anchor" href="#example-request-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we request payment of pending contract fees for user identified with <code>id</code> = <code>236</code>.</p>
 
@@ -208,7 +374,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-3" class="anchor" href="#example-response-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -226,7 +392,7 @@ curl -i
 
 
 <h3>
-<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <p>Total amount is not equal to sum of all fees to be paid.</p>
 

@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="agreements" class="anchor" href="#agreements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agreements</h1>
+<a id="agreements" class="anchor" href="#agreements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Agreements</h1>
 
 <p>This API lest you store information that user has agreed to marketing and terms and conditions agreements.</p>
 
@@ -64,7 +64,7 @@
 </ul>
 
 <h2>
-<a id="save-user-agreements-" class="anchor" href="#save-user-agreements-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Save user agreements <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="save-user-agreements-" class="anchor" href="#save-user-agreements-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Save user agreements <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>POST Users/Agreements
@@ -73,7 +73,7 @@
 <p>Request saves information that user has agreed to marketing and terms and conditions agreements.</p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -94,7 +94,7 @@
 </table>
 
 <h3>
-<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
@@ -106,27 +106,21 @@
 </thead>
 <tbody>
 <tr>
-<td><code>newsletterAgreement</code></td>
-<td><code>bool</code></td>
+<td><code>agreementIds</code></td>
+<td><code>array</code></td>
 <td>
-<code>true</code> if user has agreed to receive marketing newsletter, <code>false</code> otherwise.</td>
-</tr>
-<tr>
-<td><code>termsAndConditionsAgreement</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if user has agreed to general terms and conditions, <code>false</code> otherwise.</td>
+<strong>Required</strong>. An array of long values, each representing agreement identifier .</td>
 </tr>
 </tbody>
 </table>
 
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a>.</p>
 
 <h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we store information that user has with <code>id</code> = <code>236</code> has agreed to service terms and conditions.</p>
 
@@ -143,7 +137,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -236,7 +230,7 @@ curl -X POST
 
 
 <h2>
-<a id="get-agreements-type" class="anchor" href="#get-agreements-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get agreements type</h2>
+<a id="get-agreements-type" class="anchor" href="#get-agreements-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get agreements type</h2>
 
 <pre><code>GET Users/AgreementType
 </code></pre>
@@ -244,12 +238,12 @@ curl -X POST
 <p>Get available types of agreements.</p>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/appendix/datatypes/agreementType">Agreement types</a>.</p>
 
 <h3>
-<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we get information about types of agreements.</p>
 
@@ -263,7 +257,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
