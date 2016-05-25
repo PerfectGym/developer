@@ -108,7 +108,7 @@ curl -i
 
 ## List product targets ![alt text][EM] 
 
-    GET Products/ClubServiceType
+    GET Products/ProductTargets
 
 Returns targets list.
 
@@ -126,7 +126,7 @@ curl -i
 ```
 ## List club service types ![alt text][EM] 
 
-    GET Products/ClubServiceType
+    GET Products/ClubServiceTypes
 
 Returns club service types list.
 
