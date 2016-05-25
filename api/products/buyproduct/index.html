@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Who is in | Perfectgym Developer Guide</title>
+  <title>Buy products | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,26 +53,19 @@
       
 
 <h1>
-<a id="who-is-in" class="anchor" href="#who-is-in" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Who is in</h1>
-
-<p>This API gives access to information about users signed up for classes.</p>
-
-<ul id="markdown-toc">
-<li><a href="#list-users-signed-up-for-given-classes-" id="markdown-toc-list-users-signed-up-for-given-classes-">List users signed up for given classes 
-</a></li>
-</ul>
+<a id="product-purchase" class="anchor" href="#product-purchase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Product purchase</h1>
 
 <h2>
-<a id="list-users-signed-up-for-given-classes-" class="anchor" href="#list-users-signed-up-for-given-classes-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List users signed up for given classes <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="buy-product-" class="anchor" href="#buy-product-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Buy product <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
-<pre><code>GET Clubs/WhoIsIn
+<pre><code>POST Payments/Product/Buy
 </code></pre>
 
-<p>Returns signed up for a given class users list.</p>
+<p>Use to buy product using user's prepaid account </p>
 
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
@@ -84,10 +77,22 @@
 </thead>
 <tbody>
 <tr>
-<td><code>classId</code></td>
+<td><code>userId</code></td>
 <td><code>long</code></td>
 <td>
-<strong>Required</strong>. Class identifier. Request returns list of users signed up for class identified with <code>classId</code>.</td>
+<strong>Required</strong>. User identifier.</td>
+</tr>
+<tr>
+<td><code>productId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Product identifier.</td>
+</tr>
+<tr>
+<td><code>quantity</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Product quantity.</td>
 </tr>
 </tbody>
 </table>
@@ -95,19 +100,25 @@
 <h3>
 <a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
-<p>Collection of <a href="/api/users/user">Users</a>.</p>
+<p><a href="/appendix/datatypes/prepaiddetails">Prepaid Status</a> </p>
 
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch list of users signed up for class identified with <code>id</code> = <code>1677</code></p>
+<p>In this example we request to buy product with <code>productId</code> = <code>2</code> for user identified with <code>id</code> = <code>236</code>.</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Classes/WhoIsIn/
-        ?classId=1677       
+     -H "Content-Type: application/json" 
+     -d '{
+            "userId": 236,          
+            "productId": 2,
+            "quantity": 1
+
+    }' 
+    http://yoursubdomain.perfectgym.com/Api/Payments/Product/Buy        
 </pre>
 
 <h3>
@@ -120,14 +131,9 @@ curl -i
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jan"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nowak"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"photoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isPresent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447183</span><span class="w">
+      </span><span class="nt">"operationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CashLessPrepaid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"billNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customerBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
