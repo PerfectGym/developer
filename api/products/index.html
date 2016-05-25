@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>User documents | Perfectgym Developer Guide</title>
+  <title>Products | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,149 +53,16 @@
       
 
 <h1>
-<a id="user-documents" class="anchor" href="#user-documents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User documents</h1>
+<a id="products" class="anchor" href="#products" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Products</h1>
 
-<p>Document is a summary representation of single user document stored in Perfect Gym.</p>
-
-<ul id="markdown-toc">
-<li><a href="#document-properties" id="markdown-toc-document-properties">
-Document properties</a></li>
-<li><a href="#list-user-documents-" id="markdown-toc-list-user-documents-">List user documents 
-</a></li>
-</ul>
+<p>The Products APIs provides access to products list, product purchase.</p>
 
 <h2>
-<a id="document-properties" class="anchor" href="#document-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
-<a name="properties"></a>Document properties</h2>
-
-<p>Document is described by the following properties</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of document.</td>
-</tr>
-<tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp. Indicates when resource was last modified.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>Document file name.</td>
-</tr>
-<tr>
-<td><code>extension</code></td>
-<td><code>string</code></td>
-<td>File extension.</td>
-</tr>
-<tr>
-<td><code>type</code></td>
-<td><code>string</code></td>
-<td>Document type. <br><strong>Possible values</strong>: <br><ul>
-<li>Invoice</li>
-<li>ContractAgreement</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td><code>size</code></td>
-<td><code>long</code></td>
-<td>File size in bytes.</td>
-</tr>
-<tr>
-<td><code>url</code></td>
-<td><code>string</code></td>
-<td>Document url.</td>
-</tr>
-<tr>
-<td><code>isDeleted</code></td>
-<td><code>bool</code></td>
-<td>Indicates if resource is deleted.</td>
-</tr>
-</tbody>
-</table>
-
-<h2>
-<a id="list-user-documents-" class="anchor" href="#list-user-documents-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List user documents <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="products-1" class="anchor" href="#products-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/products/products/">Products</a>
 </h2>
 
-<pre><code>GET Documents/Documents
-</code></pre>
-
-<p>Returns paginated list of user documents.</p>
-
-<h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>userId</code></td>
-<td><code>long</code></td>
-<td>
-<strong>Required</strong>. User identifier. Request returns documents assigned to user identified by <code>userId</code>.</td>
-</tr>
-<tr>
-<td><code>timestamp</code></td>
-<td><code>long</code></td>
-<td>Timestamp. Request returns user documents with timestamp grater then <code>timestamp</code>, defaults to 0.</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
-
-<p>In this example we fetch list of documents assigned to user identified with <code>id</code> = <code>236</code></p>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Documents/Documents?userId=236
-</pre>
-
-<h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
-
-<pre class="highlight highlight-headers"><code>Status: 200 OK
-</code></pre>
-
-
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git_pg.txt"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">".txt"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ContractAgreement"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://yoursubdomain.perfectgym.com/Api/Files/File?fileId=183"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">183</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">692580</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
+<p><a href="/api/products/products/">Products API</a> gives you read only access to list of products 
+available in your gym.</p>
 
 
     </div>
