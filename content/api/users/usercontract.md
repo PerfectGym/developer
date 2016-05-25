@@ -241,6 +241,7 @@ curl -X POST
 
 [UserDetailsProperties]: /api/users/userdetails#properties
 [Contract]: /api/contracts/contractdetails#properties
+[Address]: /appendix/datatypes/address
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"

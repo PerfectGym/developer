@@ -96,7 +96,42 @@ module GitHub
             "message": ""
           }
         ]                        
-      }     
+      }
+      
+      PRODUCT_RESPONSE ||= {
+
+        "elements" => [
+          {
+            "category": "Drink",
+            "createdTime": "2014-03-28T16:19:51",
+            "isActive": "True",
+            "name": "Mineral water",
+            "price": "5",
+            "type": "ProductGood",
+            "unitOfMeasure": "Piece",
+          }, 
+          {
+            "category": "Waterfall Golf",
+            "createdTime": "2014-02-28T16:19:51",
+            "isActive": "True",
+            "name": "Waterfall Golf",
+            "price": "10",
+            "type": "ProductService",
+            "unitOfMeasure": "Piece",
+          },
+		  {
+            "category": "Waterfall Golf",
+            "createdTime": "2014-02-28T16:19:51",
+            "isActive": "True",
+            "name": "Waterfall 20 Golf",
+            "price": "10",
+            "type": "ProductBundle",
+            "unitOfMeasure": "Piece",
+          }                 
+        ]      
+      }
+
+     
     end
   end
 end
