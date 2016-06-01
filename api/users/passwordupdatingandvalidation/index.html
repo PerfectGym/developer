@@ -83,7 +83,7 @@ Password reset
 <a name="signup"></a>Sign up for end user account <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
-<pre><code>GET Users/SignUp
+<pre><code>POST Users/SignUp
 </code></pre>
 
 <p>Request creates an end user account and returns password reset token. 
@@ -123,7 +123,7 @@ After completing sign up process user credentials can be used to access API in e
 
 <pre class="command-line">
 
-curl -X GET 
+curl -X POST 
      -H "Authorization: Bearer $ACCESS_TOKEN" 
      -H "Content-Type: application/json"     
     http://yoursubdomain.perfectgym.com/Api/Users/SignUp?email=john.fibo@perfectgym.pl
