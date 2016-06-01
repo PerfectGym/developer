@@ -61,9 +61,11 @@
 <li><a href="#products-properties" id="markdown-toc-products-properties">Products properties</a></li>
 <li><a href="#list-products-in-club-" id="markdown-toc-list-products-in-club-">List products in club 
 </a></li>
-<li><a href="#list-product-targets-" id="markdown-toc-list-product-targets-">List product targets 
+<li><a href="#product-targets-" id="markdown-toc-product-targets-">Product targets 
 </a></li>
-<li><a href="#list-club-service-types-" id="markdown-toc-list-club-service-types-">List club service types 
+<li><a href="#club-service-types-" id="markdown-toc-club-service-types-">Club service types 
+</a></li>
+<li><a href="#product-categories--" id="markdown-toc-product-categories--">Product categories  
 </a></li>
 </ul>
 
@@ -156,6 +158,11 @@
 <td><code>string</code></td>
 <td>Service type.</td>
 </tr>
+<tr>
+<td><code>categoryTypeId</code></td>
+<td><code>long</code></td>
+<td>Category type identifier.</td>
+</tr>
 </tbody>
 </table>
 
@@ -213,7 +220,7 @@ curl -i
 
 
 <h2>
-<a id="list-product-targets-" class="anchor" href="#list-product-targets-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List product targets <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="product-targets-" class="anchor" href="#product-targets-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Product targets <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>GET Products/ProductTargets 
@@ -235,7 +242,7 @@ curl -i
 </pre>
 
 <h2>
-<a id="list-club-service-types-" class="anchor" href="#list-club-service-types-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List club service types <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="club-service-types-" class="anchor" href="#club-service-types-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Club service types <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>GET Products/ClubServiceTypes
@@ -253,6 +260,28 @@ curl -i
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
      http://yoursubdomain.perfectgym.com/Api/Products/ClubServiceTypes
+        
+</pre>
+
+<h2>
+<a id="product-categories--" class="anchor" href="#product-categories--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Product categories  <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>GET Products/CategoryTypes
+</code></pre>
+
+<p>Returns product categories. </p>
+
+<h3>
+<a id="example-request-3" class="anchor" href="#example-request-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch list of categories</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Products/CategoryTypes
         
 </pre>
 
