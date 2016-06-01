@@ -5,7 +5,7 @@ title: Buy products
 
 ##  Buy product ![alt text][EM]
 
-    POST Payments/Product/Buy
+    POST Products/Product/Buy
 
 Use to buy product using user's prepaid account 
 
@@ -39,7 +39,7 @@ curl -i
 			"quantity": 1
 
     }' 
-    http://yoursubdomain.perfectgym.com/Api/Payments/Product/Buy     	
+    http://yoursubdomain.perfectgym.com/Api/Products/Product/Buy     	
 ```
 
 
