@@ -34,7 +34,7 @@ Name            				| Type      				| Description
 `homeClubId`					|`long`						| User home club identifier.
 `isActive`     					|`bool`     				| Indicates if cuser is marked as active.
 `prepaidAmount`     			|`decimal`     				| User prepaid account value .
-`employee`     			        |[Employee][Employee]     	| User prepaid account value .
+`employee`     			        |[Employee][Employee]     	| If user is a employee, field contains employee details .
 
 
 
