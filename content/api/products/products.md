@@ -41,6 +41,7 @@ Name             | Type       | Description
 `clubId`         |`long`      | **Required**. Club identifier. Request returns products in club identified by `clubId`.
 `productTarget`  |`string`    | Defined place where product is available.
 `clubServiceType`|`string`    | Service type.
+`categoryTypeId` |`long`      | Category type identifier.
 
 
 
@@ -62,7 +63,7 @@ curl -i
 <%= json(:product_response) %>
 
 
-## List product targets ![alt text][EM] 
+## Product targets ![alt text][EM] 
 
     GET Products/ProductTargets 
 
@@ -80,7 +81,7 @@ curl -i
      http://yoursubdomain.perfectgym.com/Api/Products/ProductTargets
         
 ```
-## List club service types ![alt text][EM] 
+## Club service types ![alt text][EM] 
 
     GET Products/ClubServiceTypes
 
@@ -96,6 +97,25 @@ curl -i
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
      http://yoursubdomain.perfectgym.com/Api/Products/ClubServiceTypes
+        
+```
+
+## Product categories  ![alt text][EM] 
+
+    GET Products/CategoryTypes
+
+Returns product categories. 
+
+
+### Example request
+
+In this example we fetch list of categories
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Products/CategoryTypes
         
 ```
 
