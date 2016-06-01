@@ -17,7 +17,7 @@ User can use it's username and password to login to API in end user mode using v
 
 ## <a name="signup"></a>Sign up for end user account ![alt text][EM]
 
-    GET Users/SignUp
+    POST Users/SignUp
 
 Request creates an end user account and returns password reset token. 
 To complete sign up process user has to update account password using [password reset method][PasswordReset].
@@ -42,7 +42,7 @@ In this example we sign up for an account for user identified with given email a
 
 ``` command-line
 
-curl -X GET 
+curl -X POST 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 	 
 	http://yoursubdomain.perfectgym.com/Api/Users/SignUp?email=john.fibo@perfectgym.pl
