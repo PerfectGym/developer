@@ -141,6 +141,59 @@ curl -X POST
 
 
 
+## Send email with link to page to reset password ![alt text][EM]
+
+	GET Users/SendEmailToResetPassword
+
+Sending en email message with link to page to reset password. Link include token to reset password, which can be pass to ResetPassword method.
+
+### Parameters
+
+Name  	    | Type     		| Description
+------------|---------------|------------
+`email`     |`string` 		| **Required**. User email.
+
+
+### Response
+
+[The result of sending email message][ResultStatus].
+
+
+### Example request
+
+In this example user's password reset token.
+
+``` command-line
+
+curl -X GET 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 http://yoursubdomain.perfectgym.com/Api/Users/SendEmailToResetPassword?email=john.fibo@perfectgym.pl
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:resultstatus_response) %>
+
+### Example error response
+
+Template of email message is not defined.
+
+<%= headers 400 %>
+<%= json(:sendemailtoresetpassword_emailtemplatenotdefined_error_response) %>
+
+Error during sending email message.
+
+<%= headers 400 %>
+<%= json(:sendemailtoresetpassword_unablesendemail_error_response) %>
+
+Error during creating reset password token token.
+
+<%= headers 400 %>
+<%= json(:sendemailtoresetpassword_invalidtoken_error_response) %>
+
 
 ## Validate user credentials ![alt text][EM]
 

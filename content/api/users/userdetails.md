@@ -19,6 +19,7 @@ Name            				| Type      				| Description
 `number`          				|`string`   				| User number.
 `cardNumber`       				|`string`   				| User membership card number.
 `email`          				|`string`   				| User email address.
+`emailAddressIsConfirmed`		|`bool`						| Does email address has been confirmed by the user.
 `birthDate`         			|`string`   				| User birth date.
 `isForeigner`					|`bool`						| Indicates if user is a forigner.
 `hasAccount`					|`bool`						| Indicates if user has signed up for end user account.

@@ -83,6 +83,7 @@ module GitHub
           "firstName": "Jan",
           "lastName": "Nowak",
           "email": "nowak@example.com",
+		  "emailAddressIsConfirmed": false,
           "photoUrl": "",
           "birthDate": "1944-09-17T00:00:00",
           "isForeigner": false,
@@ -146,6 +147,7 @@ module GitHub
           "firstName": "John",
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": false,
           "phoneNumber": "0048123456789",
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
@@ -189,6 +191,7 @@ module GitHub
           "firstName": "John",
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": false,
           "phoneNumber": "0048123456789",
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
@@ -232,6 +235,7 @@ module GitHub
           "firstName": "John",
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": false,
           "phoneNumber": "0048123456789",
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
@@ -276,6 +280,7 @@ module GitHub
           "firstName": "John",
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": false,
           "phoneNumber": "0048123456789",
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
@@ -320,6 +325,7 @@ module GitHub
           "firstName": "John",
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": false,
           "phoneNumber": "0048123456789",
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
@@ -363,6 +369,7 @@ module GitHub
           "firstName": "John",
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": false,
           "phoneNumber": "0048123456789",
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
@@ -408,6 +415,7 @@ module GitHub
           "firstName": "John",
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": false,
           "phoneNumber": "0048123456789",
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
@@ -452,6 +460,7 @@ module GitHub
           "firstName": "John",
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": false,
           "phoneNumber": "0048123456789",
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
@@ -497,6 +506,7 @@ module GitHub
           "firstName": "John",
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": false,
           "phoneNumber": "0048123456789",
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
@@ -542,6 +552,7 @@ module GitHub
           "firstName": "John",
           "lastName": "Fibo",
           "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": false,
           "phoneNumber": "0048123456789",
           "idCardName": "Passport",
           "idCardNumber": "ABC 123456",
@@ -772,6 +783,100 @@ module GitHub
           }
         ]                        
       }     
+	  
+	  RESULTSTATUS_RESPONSE ||= {
+		"elements" => [
+			{
+				ResultStatus: "Success"
+			}
+		]
+	  }
+	  
+	  SENDEMAILTORESETPASSWORD_EMAILTEMPLATENOTDEFINED_ERROR_RESPONSE ||= {
+		"errors" => [
+			{
+				"code": "EmailTemplateNotDefined",
+				"property": "",
+				"message": ""
+			}
+		]
+	  }
+	  
+	  SENDEMAILTORESETPASSWORD_UNABLESENDEMAIL_ERROR_RESPONSE ||= {
+		"errors" => [
+			{
+				"code": "UnableSendEmail",
+				"property": "",
+				"message": ""
+			}
+		]
+	  }
+	  
+	  SENDEMAILTORESETPASSWORD_INVALIDTOKEN_ERROR_RESPONSE ||= {
+		"errors" => [
+			{
+				"code": "InvalidToken",
+				"property": "",
+				"message": ""
+			}
+		]
+	  }
+	  
+	  CONFIRMEMAILADDRESS_INVALIDTOKEN_ERROR_RESPONSE ||= {
+		"errors" => [
+			{
+				"code": "InvalidToken",
+				"property": "",
+				"message": ""
+			}
+		]
+	  }
+	  
+	  USEREMAILCONFIRMED_RESPONSE ||= {
+
+        "elements" => [
+          "id": 236,
+          "timestamp": 448035,
+          "personalId": "80010101234",
+          "number": "2b7b02df-08ae-4720-a3ce-a594bfc46d47",
+          "cardNumber": "",          
+          "firstName": "John",
+          "lastName": "Fibo",
+          "email": "john.fibo@perfectgym.pl",
+		  "emailAddressIsConfirmed": true,
+          "phoneNumber": "0048123456789",
+          "idCardName": "Passport",
+          "idCardNumber": "ABC 123456",
+          "legalGuardian": "",
+          "photoUrl": "",
+          "birthDate": "1978-06-01T00:00:00",
+          "isForeigner": false,
+          "sex": "Male",
+          "newsletterAgreement": false,
+          "termsAndConditionsAgreement": false,
+          "address": {
+            "country": "Poland",
+            "city": "Warszawa",
+            "postalCode": "02-962",
+            "line1": "ul. Przyczolkowa 334",  
+            "line2": ""
+          }, 
+          "directDebit": {
+            "accountNumber": "",
+            "ownerName": "",
+            "street": "",
+            "cityAndPostalCode": "",
+            "documentUrl": ""
+          },                      
+          "homeClubId": 12,
+          "isActive": true,
+          "isDeleted": false,
+          "contracts" => [
+          ] 
+        ]        
+      }
+	  
+	  
 
     end
   end

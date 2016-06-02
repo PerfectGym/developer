@@ -172,6 +172,46 @@ User update request with non existant user identifier
 <%= headers 400 %>
 <%= json(:userupdate_error_response) %>
 
+## Confirm user email address ![alt text][EM]
+	
+	GET Users/ConfirmEmailAddress
+	
+### Parameters
+
+Name  	    | Type     		| Description
+------------|---------------|------------
+`token`     |`string` 		| **Required**. Token.
+
+### Response
+
+[User details][UserDetailsProperties].
+
+
+### Example request
+
+In this example user's password reset token.
+
+``` command-line
+
+curl -X GET 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 http://yoursubdomain.perfectgym.com/Api/Users/ConfirmEmailAddress?token=a012345678901234567890123456789b
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:useremailconfirmed_response) %>
+
+### Example error response
+
+The token is invalid, is not assigned to any email address.
+
+<%= headers 400 %>
+<%= json(:confirmemailaddress_invalidtoken_error_response) %>
+
 
 
 [UserDetailsProperties]: /api/users/userdetails#properties
