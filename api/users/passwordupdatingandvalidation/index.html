@@ -74,6 +74,8 @@ Sign up for end user account
 <li><a href="#password-reset-" id="markdown-toc-password-reset-">
 Password reset 
 </a></li>
+<li><a href="#send-email-with-link-to-page-to-reset-password-" id="markdown-toc-send-email-with-link-to-page-to-reset-password-">Send email with link to page to reset password 
+</a></li>
 <li><a href="#validate-user-credentials-" id="markdown-toc-validate-user-credentials-">Validate user credentials 
 </a></li>
 </ul>
@@ -289,6 +291,7 @@ curl -X POST
       </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"emailAddressIsConfirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
@@ -365,7 +368,129 @@ curl -X POST
 
 
 <h2>
-<a id="validate-user-credentials-" class="anchor" href="#validate-user-credentials-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validate user credentials <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="send-email-with-link-to-page-to-reset-password-" class="anchor" href="#send-email-with-link-to-page-to-reset-password-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Send email with link to page to reset password <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>GET Users/SendEmailToResetPassword
+</code></pre>
+
+<p>Sending en email message with link to page to reset password. Link include token to reset password, which can be pass to ResetPassword method.</p>
+
+<h3>
+<a id="parameters-2" class="anchor" href="#parameters-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. User email.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-3" class="anchor" href="#response-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<p>[The result of sending email message][ResultStatus].</p>
+
+<h3>
+<a id="example-request-3" class="anchor" href="#example-request-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example user's password reset token.</p>
+
+<pre class="command-line">
+
+curl -X GET 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json" 
+     http://yoursubdomain.perfectgym.com/Api/Users/SendEmailToResetPassword?email=john.fibo@perfectgym.pl
+</pre>
+
+<h3>
+<a id="example-response-3" class="anchor" href="#example-response-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"ResultStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+
+<p>Template of email message is not defined.</p>
+
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EmailTemplateNotDefined"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<p>Error during sending email message.</p>
+
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UnableSendEmail"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<p>Error during creating reset password token token.</p>
+
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidToken"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="validate-user-credentials-" class="anchor" href="#validate-user-credentials-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Validate user credentials <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>POST Users/ValidateCredentials
@@ -438,6 +563,7 @@ curl -X POST
       </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"emailAddressIsConfirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
