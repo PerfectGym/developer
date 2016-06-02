@@ -184,7 +184,7 @@ Name  	    | Type     		| Description
 
 ### Response
 
-[User details][UserDetailsProperties].
+Returns [User details][UserDetailsProperties] when confirm email addres for given token, otherwise, it returns InvalidToken error.
 
 
 ### Example request

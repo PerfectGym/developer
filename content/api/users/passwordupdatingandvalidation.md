@@ -156,7 +156,7 @@ Name  	    | Type     		| Description
 
 ### Response
 
-[The result of sending email message][ResultStatus].
+Returns Success when send an email message, otherwise, it return error code: "EmailTemplateNotDefined", "UnableSendEmail" or "InvalidToken".
 
 
 ### Example request
@@ -193,6 +193,7 @@ Error during creating reset password token token.
 
 <%= headers 400 %>
 <%= json(:sendemailtoresetpassword_invalidtoken_error_response) %>
+
 
 
 ## Validate user credentials ![alt text][EM]

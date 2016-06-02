@@ -51,7 +51,7 @@ curl -X POST
 	 -d '{
 	    "accountNumber": "61 1090 1014 0000 0712 1981 2874",
 	    "ownerName": "John Fibo",
-	    "street": "Przyczółkowa 334",
+	    "street": "Przyczolkowa 334",
 		"cityAndPostalCode": "02-962 Warszawa",		 
 	}' 
 	http://yoursubdomain.perfectgym.com/Api/Users/DirectDebit?userId=236
