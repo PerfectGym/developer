@@ -62,6 +62,8 @@
 </a></li>
 <li><a href="#update-existing-user--" id="markdown-toc-update-existing-user--">Update existing user  
 </a></li>
+<li><a href="#confirm-user-email-address-" id="markdown-toc-confirm-user-email-address-">Confirm user email address 
+</a></li>
 </ul>
 
 <h2>
@@ -217,6 +219,7 @@ curl -X POST
       </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"emailAddressIsConfirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
@@ -438,6 +441,7 @@ curl -X PUT
       </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"emailAddressIsConfirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
@@ -487,6 +491,128 @@ curl -X PUT
   </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UserDoesNotExists"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="confirm-user-email-address-" class="anchor" href="#confirm-user-email-address-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Confirm user email address <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>GET Users/ConfirmEmailAddress
+</code></pre>
+
+<h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>token</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. Token.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+
+<p>Returns <a href="/api/users/userdetails#properties">User details</a> when confirm email addres for given token, otherwise, it returns InvalidToken error.</p>
+
+<h3>
+<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example user's password reset token.</p>
+
+<pre class="command-line">
+
+curl -X GET 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json" 
+     http://yoursubdomain.perfectgym.com/Api/Users/ConfirmEmailAddress?token=a012345678901234567890123456789b
+</pre>
+
+<h3>
+<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">236</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">448035</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80010101234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b7b02df-08ae-4720-a3ce-a594bfc46d47"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.fibo@perfectgym.pl"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"emailAddressIsConfirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0048123456789"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"idCardName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"idCardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC 123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"legalGuardian"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"photoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1978-06-01T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isForeigner"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"newsletterAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"termsAndConditionsAgreement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warszawa"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02-962"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ul. Przyczolkowa 334"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"directDebit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ownerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cityAndPostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"documentUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"homeClubId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"contracts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h3>
+<a id="example-error-response-2" class="anchor" href="#example-error-response-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+
+<p>The token is invalid, is not assigned to any email address.</p>
+
+<pre class="highlight highlight-headers"><code>Status: 400 Bad Request
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidToken"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
