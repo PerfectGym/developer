@@ -63,3 +63,105 @@ curl -X POST
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"
+
+
+
+
+## Block card ![alt text][EM]
+
+    POST Users/Card/Block
+
+Request blocks users card.
+
+
+### Parameters
+
+Name     	    				| Type    		| Description
+--------------------------------|---------------|------------
+`carNumber`     		        |`string`    	|  **Optional**. States which of users cards has to be blocked. If null, then the default card will be blocked.
+
+
+
+
+### Response
+
+[User details][UserDetailsProperties].
+
+
+### Example request
+
+
+
+``` command-line
+
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 
+	http://yoursubdomain.perfectgym.com/Api/Users/Card/Block
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:usertermsandconditions_response) %>
+
+
+
+[UserDetailsProperties]: /api/users/userdetails#properties
+[Contract]: /appendix/datatypes/contract
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"
+
+
+
+
+## Unblock card ![alt text][EM]
+
+    POST Users/Card/Unblock
+
+Request will unblock the card.
+
+
+### Parameters
+
+Name     	    				| Type    		| Description
+--------------------------------|---------------|------------
+`carNumber`     		        |`string`    	|  **Optional**. States which of users' cards has to be unblocked. If null than the most recently blocked card will be unblocked.
+
+
+
+
+### Response
+
+[User details][UserDetailsProperties].
+
+
+### Example request
+
+
+
+``` command-line
+
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 
+	http://yoursubdomain.perfectgym.com/Api/Users/Card/Unblock
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:usermembershipcard_response) %>
+
+
+
+[UserDetailsProperties]: /api/users/userdetails#properties
+[Contract]: /appendix/datatypes/contract
+
+[EM]: /assets/images/employee.png "Employee mode"
+[UM]: /assets/images/user.png "User mode"

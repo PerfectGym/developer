@@ -16,7 +16,16 @@ module GitHub
           "rating": 4.1,
           "votesCount": 1234,
           "rankingSort": 2.3                        
-        }                    
+        },
+          "category" => {
+            "id": 2,            
+            "category": "MIX",
+            "imageUrl": "http://pure/Api/Files/Photo?photoId=45",
+            "isDeleted": false,
+            "isProductRequiredForBooking": false,
+            "name": "Mix",
+            "timestamp": 1223165441
+          }                    
       }    
 
       CLASSTYPE_POWERYOGA ||= {        
@@ -29,10 +38,18 @@ module GitHub
           "rating": 4.1,
           "votesCount": 4321,
           "rankingSort": 4.3
-        }                   
-      }      
-
-
+        },
+          "category" => {
+            "id": 2,            
+            "category": "MIX",
+            "imageUrl": "http://pure/Api/Files/Photo?photoId=45",
+            "isDeleted": false,
+            "isProductRequiredForBooking": false,
+            "name": "Mix",
+            "timestamp": 1223165441
+          }                    
+      }
+      
       CLASSTYPE_RESPONSE ||= {        
         
         "elements" => [
@@ -40,6 +57,17 @@ module GitHub
           CLASSTYPE_POWERYOGA
         ]
       }      
+      
+      CLASSCATEGORY_RESPONSE ||= {
+        "id": 2,            
+        "category": "MIX",
+        "imageUrl": "http://pure/Api/Files/Photo?photoId=45",
+        "isDeleted": false,
+        "isProductRequiredForBooking": false,
+        "name": "Mix",
+        "timestamp": 1223165441,
+        "classTypes": CLASSTYPE_RESPONSE
+      }     
 
       CLASSES_RESPONSE ||= {  
 
@@ -253,7 +281,7 @@ module GitHub
             "message": ""
           }
         ]
-      }           
+      }            
     end
   end
 end

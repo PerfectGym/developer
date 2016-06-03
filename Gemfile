@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.2.3'
+ruby '2.3.0'
 
 gem 'nanoc', '~> 4.0'
 gem 'nanoc-conref-fs', '~> 0.5'
@@ -18,7 +18,7 @@ gem 'adsf'
 gem 'builder', '~> 3.2'
 
 group :development do
-  gem 'nokogiri', '~> 1.6.0'
+  gem 'nokogiri', '~> 1.6.8.rc3'
   gem 'rake', '10.3.2'
   gem 'awesome_print', '1.6.1'
 end

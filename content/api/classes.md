@@ -18,6 +18,11 @@ available in your gym.
 [Classes API][Classes] gives you read only access to list of fitness classes 
 available in your gym.
 
+## [Classes categories][Categories]
+
+[Classes categories API][Categories] gives you read only access to list of fitness classes categories
+available in your gym.
+
 
 ## [User classes][UserClasses]
 
@@ -42,6 +47,7 @@ available in your gym. It also a
 
 [ClassesTypes]: /api/classes/classestypes/
 [Classes]: /api/classes/classes/
+[Categories]: /api/classes/categories/
 [UserClasses]: /api/classes/userclasses/
 [Booking]: /api/classes/booking/
 [Ratings]: /api/classes/ratings/

@@ -12,7 +12,6 @@ The Users APIs provides access to users list available in your company.
 [User details API][UserDetails] gives you read only access to detailed information about your clubs users.
 
 
-
 ## [Adding and updating user][AddingUpdatingUser]
 
 [Adding and updating user API][AddingUpdatingUser] lest you add new users to your company users list or update basic data of existing users.
