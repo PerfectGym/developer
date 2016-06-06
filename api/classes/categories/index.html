@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Users | Perfectgym Developer Guide</title>
+  <title>Classes types | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,20 +53,22 @@
       
 
 <h1>
-<a id="users" class="anchor" href="#users" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Users</h1>
+<a id="classes-categories" class="anchor" href="#classes-categories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Classes categories</h1>
 
-<p>User is a summary representation of single club member in your gym.</p>
+<p>Each fitness class is of certain class type, and each class type belongs to a certain classes category.</p>
 
 <ul id="markdown-toc">
-<li><a href="#user-properties" id="markdown-toc-user-properties">
-User properties</a></li>
+<li><a href="#class-category-properties" id="markdown-toc-class-category-properties">
+Class category properties</a></li>
+<li><a href="#list-classes-categories-with-timestamp--" id="markdown-toc-list-classes-categories-with-timestamp--">List classes categories with timestamp  
+</a></li>
 </ul>
 
 <h2>
-<a id="user-properties" class="anchor" href="#user-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
-<a name="properties"></a>User properties</h2>
+<a id="class-category-properties" class="anchor" href="#class-category-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<a name="properties"></a>Class category properties</h2>
 
-<p>User is described by the following properties</p>
+<p>Class category is described by the following properties</p>
 
 <table>
 <thead>
@@ -80,7 +82,7 @@ User properties</a></li>
 <tr>
 <td><code>id</code></td>
 <td><code>long</code></td>
-<td>Unique identifier of user.</td>
+<td>Unique identifier of class category.</td>
 </tr>
 <tr>
 <td><code>timestamp</code></td>
@@ -88,42 +90,142 @@ User properties</a></li>
 <td>Timestamp. Indicates when resource was last modified.</td>
 </tr>
 <tr>
-<td><code>firstName</code></td>
-<td><code>string</code></td>
-<td>User first name.</td>
-</tr>
-<tr>
-<td><code>lastName</code></td>
-<td><code>string</code></td>
-<td>User last name.</td>
-</tr>
-<tr>
-<td><code>photoUrl</code></td>
-<td><code>string</code></td>
-<td>User photo URL.</td>
-</tr>
-<tr>
-<td><code>presentInClub</code></td>
-<td><code>bool</code></td>
-<td>
-<code>true</code> if user is currently present in club, <code>false</code> otherwise.</td>
-</tr>
-<tr>
-<td><code>sex</code></td>
-<td><code>string</code></td>
-<td>User sex. <br><strong>Possible values</strong>: <br><ul>
-<li>Male</li>
-<li>Female</li>
-</ul>
-</td>
-</tr>
-<tr>
 <td><code>isDeleted</code></td>
 <td><code>bool</code></td>
 <td>Indicates if resource is deleted.</td>
 </tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Class category name.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>Class category description.</td>
+</tr>
+<tr>
+<td><code>imageUrl</code></td>
+<td><code>string</code></td>
+<td>Class category image.</td>
+</tr>
+<tr>
+<td><code>classTypes</code></td>
+<td><code>array</code></td>
+<td>Classes types in this category.</td>
+</tr>
+<tr>
+<td><code>isProductRequiredForBooking</code></td>
+<td><code>string</code></td>
+<td>Indicates if classes of this category can be paid for with products.</td>
+</tr>
 </tbody>
 </table>
+
+<h2>
+<a id="list-classes-categories-with-timestamp--" class="anchor" href="#list-classes-categories-with-timestamp--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List classes categories with timestamp <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+</h2>
+
+<pre><code>GET Classes/Categories
+</code></pre>
+
+<p>Returns paginated classes categories list.</p>
+
+<h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp. Request returns classes categories with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch list of all classes categories (<code>timestamp</code> parameter defaults to <code>0</code>) 
+available in a company.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Classes/Categories
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIX"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://pure/Api/Files/Photo?photoId=45"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"isProductRequiredForBooking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mix"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1223165441</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"classTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">263952</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Box perfectly combines cardio and strength training under the guise of groove!"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.3</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIX"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://pure/Api/Files/Photo?photoId=45"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isProductRequiredForBooking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mix"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1223165441</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">382653</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POWER JOGA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Power Yoga is definitely an intense workout that will make you sweat."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"votesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4321</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"rankingSort"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.3</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIX"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://pure/Api/Files/Photo?photoId=45"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isProductRequiredForBooking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mix"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1223165441</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 
 
     </div>

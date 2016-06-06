@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h1>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h1>
 
 <ul id="markdown-toc">
 <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
@@ -66,7 +66,7 @@
 <p>Let's walk through core API concepts as we tackle some everyday use cases.</p>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
 
 <p>Most applications will use an existing <a href="/libraries/">wrapper library</a> in the language
 of your choice, but it's important to familiarize yourself with the underlying API
@@ -75,7 +75,7 @@ HTTP methods first.</p>
 <p>There's no easier way to kick the tires than through <a href="http://curl.haxx.se/">cURL</a>.</p>
 
 <h3>
-<a id="hello-world" class="anchor" href="#hello-world" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hello World</h3>
+<a id="hello-world" class="anchor" href="#hello-world" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hello World</h3>
 
 <p>Let's start by testing our setup. Open up a command prompt and enter the
 following command:</p>
@@ -152,14 +152,14 @@ client has already spent.</li>
 </ul>
 
 <h2>
-<a id="authentication" class="anchor" href="#authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h2>
+<a id="authentication" class="anchor" href="#authentication" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authentication</h2>
 
 <p>Unauthenticated clients can make 60 requests per hour. To get more, we'll need to
 <em>authenticate</em>. In fact, doing anything interesting with the GitHub API requires
 <a href="/v3/#authentication">authentication</a>.</p>
 
 <h3>
-<a id="basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic</h3>
+<a id="basic" class="anchor" href="#basic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic</h3>
 
 <p>The easiest way to authenticate with the GitHub API is by simply using your GitHub
 username and password via Basic Authentication.</p>
@@ -180,7 +180,7 @@ should see your rate limit bumped to 5,000 requests an hour, as indicated in the
 reading and writing private information via the API.</p>
 
 <h3>
-<a id="two-factor-authentication" class="anchor" href="#two-factor-authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Two-factor authentication</h3>
+<a id="two-factor-authentication" class="anchor" href="#two-factor-authentication" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Two-factor authentication</h3>
 
 <p>If you have <a href="https://help.github.com/articles/about-two-factor-authentication">two-factor authentication</a> enabled, the API will return a
 <code>401 Unauthorized</code> error code for the above request (and every other API request):</p>
@@ -204,7 +204,7 @@ OAuth authentication instead of Basic Authentication. See the
 <a href="/guides/getting-started/#oauth">OAuth section</a> below for more information.</p>
 
 <h3>
-<a id="get-your-own-user-profile" class="anchor" href="#get-your-own-user-profile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get your own user profile</h3>
+<a id="get-your-own-user-profile" class="anchor" href="#get-your-own-user-profile" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get your own user profile</h3>
 
 <p>When properly authenticated, you can take advantage of the permissions
 associated with your GitHub account. For example, try getting
@@ -231,7 +231,7 @@ information for your user profile. For example, you'll see a <code>plan</code> o
 in the response which gives details about the GitHub plan for the account.</p>
 
 <h3>
-<a id="oauth" class="anchor" href="#oauth" aria-hidden="true"><span class="octicon octicon-link"></span></a>OAuth</h3>
+<a id="oauth" class="anchor" href="#oauth" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OAuth</h3>
 
 <p>While convenient, Basic Authentication isn't ideal because you shouldn't give your GitHub
 username and password to anyone. Applications that need to read or write
@@ -341,7 +341,7 @@ been changed to protect the innocent.</p>
 the <a href="/v3/repos/">Repositories API</a>.</p>
 
 <h2>
-<a id="repositories" class="anchor" href="#repositories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repositories</h2>
+<a id="repositories" class="anchor" href="#repositories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repositories</h2>
 
 <p>Almost any meaningful use of the GitHub API will involve some level of Repository
 information. We can <a href="/v3/repos/#get"><code>GET</code> repository details</a> in the same way we fetched user
@@ -394,7 +394,7 @@ shell setup, cURL sometimes requires a quoted URL or else it ignores the
 query string.</p>
 
 <h3>
-<a id="create-a-repository" class="anchor" href="#create-a-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a repository</h3>
+<a id="create-a-repository" class="anchor" href="#create-a-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create a repository</h3>
 
 <p>Fetching information for existing repositories is a common use case, but the
 GitHub API supports creating new repositories as well. To <a href="/v3/repos/#create">create a repository</a>,
@@ -440,7 +440,7 @@ repositories, the GitHub API returns a <code>404</code> in this case, as if to s
 neither confirm nor deny the existence of this repository."</p>
 
 <h2>
-<a id="issues" class="anchor" href="#issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues</h2>
+<a id="issues" class="anchor" href="#issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Issues</h2>
 
 <p>The UI for Issues on GitHub aims to provide 'just enough' workflow while
 staying out of your way. With the GitHub <a href="/v3/issues/">Issues API</a>, you can pull
@@ -470,7 +470,7 @@ authenticated user. To <a href="/v3/issues/#list-issues">see all your issues</a>
 </pre>
 
 <h3>
-<a id="pagination" class="anchor" href="#pagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pagination</h3>
+<a id="pagination" class="anchor" href="#pagination" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pagination</h3>
 
 <p>A project the size of Rails has thousands of issues. We'll need to <a href="/v3/#pagination">paginate</a>,
 making multiple API calls to get the data. Let's repeat that last call, this
@@ -492,7 +492,7 @@ more than thirty issues (the default page size), the API tells us where we can
 find the next page and the last page of results.</p>
 
 <h3>
-<a id="creating-an-issue" class="anchor" href="#creating-an-issue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating an issue</h3>
+<a id="creating-an-issue" class="anchor" href="#creating-an-issue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating an issue</h3>
 
 <p>Now that we've seen how to paginate lists of issues, let's <a href="/v3/issues/#create-an-issue">create an issue</a> from
 the API.</p>
@@ -556,7 +556,7 @@ the issue:</p>
 the <code>Location</code> response header and the <code>url</code> field of the JSON response.</p>
 
 <h2>
-<a id="conditional-requests" class="anchor" href="#conditional-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditional requests</h2>
+<a id="conditional-requests" class="anchor" href="#conditional-requests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conditional requests</h2>
 
 <p>A big part of being a good API citizen is respecting rate limits by
 caching information that hasn't changed. The API supports <a href="/v3/#conditional-requests">conditional

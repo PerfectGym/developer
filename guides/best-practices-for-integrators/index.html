@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="best-practices-for-integrators" class="anchor" href="#best-practices-for-integrators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Best practices for integrators</h1>
+<a id="best-practices-for-integrators" class="anchor" href="#best-practices-for-integrators" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Best practices for integrators</h1>
 
 <p>Interested in integrating with the GitHub platform? <a href="https://github.com/integrations">You're in good company</a>. This guide will help you build an app that provides the best experience for your users <em>and</em> ensure that it's reliably interacting with the API.</p>
 
@@ -70,7 +70,7 @@
 </ul>
 
 <h2>
-<a id="secure-payloads-delivered-from-github" class="anchor" href="#secure-payloads-delivered-from-github" aria-hidden="true"><span class="octicon octicon-link"></span></a>Secure payloads delivered from GitHub</h2>
+<a id="secure-payloads-delivered-from-github" class="anchor" href="#secure-payloads-delivered-from-github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Secure payloads delivered from GitHub</h2>
 
 <p>It's very important that you secure <a href="/v3/activity/events/types/">the payloads sent from GitHub</a>. Although no personal information (like passwords) is ever transmitted in a payload, leaking <em>any</em> information is not good. Some information that might be sensitive include committer email address or the names of private repositories.</p>
 
@@ -83,7 +83,7 @@
 </ol>
 
 <h2>
-<a id="favor-asynchronous-work-over-synchronous" class="anchor" href="#favor-asynchronous-work-over-synchronous" aria-hidden="true"><span class="octicon octicon-link"></span></a>Favor asynchronous work over synchronous</h2>
+<a id="favor-asynchronous-work-over-synchronous" class="anchor" href="#favor-asynchronous-work-over-synchronous" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Favor asynchronous work over synchronous</h2>
 
 <p>GitHub expects that integrations respond within thirty seconds of receiving the webhook payload. If your service takes longer than that to complete, then GitHub terminates the connection and the payload is lost.</p>
 
@@ -92,7 +92,7 @@
 <p>Note that even with a background job running, GitHub still expects your server to respond within thirty seconds. Your server simply needs to acknowledge that it received the payload by sending some sort of response. It's critical that your service to performs any validations on a payload as soon as possible, so that you can accurately report whether your server will continue with the request or not.</p>
 
 <h2>
-<a id="use-appropriate-http-status-codes-when-responding-to-github" class="anchor" href="#use-appropriate-http-status-codes-when-responding-to-github" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use appropriate HTTP status codes when responding to GitHub</h2>
+<a id="use-appropriate-http-status-codes-when-responding-to-github" class="anchor" href="#use-appropriate-http-status-codes-when-responding-to-github" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use appropriate HTTP status codes when responding to GitHub</h2>
 
 <p>Every webhook has its own "Recent Deliveries" section, which lists whether a deployment was successful or not.</p>
 
@@ -101,21 +101,21 @@
 <p>You should make use of proper HTTP status codes in order to inform users. You can use codes like <code>201</code> or <code>202</code> to acknowledge receipt of payload that won't be processed (for example, a payload delivered by a branch that's not the default). Reserve the <code>500</code> error code for catastrophic failures.</p>
 
 <h2>
-<a id="provide-as-much-information-as-possible-to-the-user" class="anchor" href="#provide-as-much-information-as-possible-to-the-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Provide as much information as possible to the user</h2>
+<a id="provide-as-much-information-as-possible-to-the-user" class="anchor" href="#provide-as-much-information-as-possible-to-the-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Provide as much information as possible to the user</h2>
 
 <p>Users can dig into the server responses you send back to GitHub. Ensure that your messages are clear and informative.</p>
 
 <p><img src="/assets/images/payload_response_tab.png" alt="Viewing a payload response"></p>
 
 <h2>
-<a id="follow-any-redirects-that-the-api-sends-you" class="anchor" href="#follow-any-redirects-that-the-api-sends-you" aria-hidden="true"><span class="octicon octicon-link"></span></a>Follow any redirects that the API sends you</h2>
+<a id="follow-any-redirects-that-the-api-sends-you" class="anchor" href="#follow-any-redirects-that-the-api-sends-you" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Follow any redirects that the API sends you</h2>
 
 <p>GitHub is explicit in telling you when a resource has moved by providing a redirect status code. You should follow these redirections. Every redirect response sets the <code>Location</code> header with the new URI to go to. If you receive a redirect, it's best to update your code to follow the new URI, in case you're requesting a deprecated path that we might remove.</p>
 
 <p>We've provided <a href="/v3/#http-redirects">a list of HTTP status codes</a> to watch out for when designing your app to follow redirects.</p>
 
 <h2>
-<a id="dont-manually-parse-urls" class="anchor" href="#dont-manually-parse-urls" aria-hidden="true"><span class="octicon octicon-link"></span></a>Don't manually parse URLs</h2>
+<a id="dont-manually-parse-urls" class="anchor" href="#dont-manually-parse-urls" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Don't manually parse URLs</h2>
 
 <p>Often, API responses contain data in the form of URLs. For example, when requesting a repository, we'll send a key called <code>clone_url</code> with a URL you can use to clone the repository.</p>
 
@@ -124,7 +124,7 @@
 <p>For example, when working with paginated results, it's often tempting to construct URLs that append <code>?page=&lt;number&gt;</code> to the end. Avoid that temptation. <a href="/guides/traversing-with-pagination">Our guide on pagination</a> offers some safe tips on dependably following paginated results.</p>
 
 <h2>
-<a id="dealing-with-rate-limits" class="anchor" href="#dealing-with-rate-limits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with rate limits</h2>
+<a id="dealing-with-rate-limits" class="anchor" href="#dealing-with-rate-limits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dealing with rate limits</h2>
 
 <p>The GitHub API <a href="/v3/#rate-limiting">rate limit</a> ensures that the API is fast and available for everyone.</p>
 
@@ -133,7 +133,7 @@
 <p>You can always <a href="/v3/rate_limit/">check your rate limit status</a> at any time. Checking your rate limit incurs no cost against your rate limit.</p>
 
 <h2>
-<a id="dealing-with-abuse-rate-limits" class="anchor" href="#dealing-with-abuse-rate-limits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with abuse rate limits</h2>
+<a id="dealing-with-abuse-rate-limits" class="anchor" href="#dealing-with-abuse-rate-limits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dealing with abuse rate limits</h2>
 
 <p><a href="/v3/#abuse-rate-limits">Abuse rate limits</a> are another way we ensure the API's availability.
 To avoid hitting this limit, you should ensure your application follows the guidelines below.</p>
@@ -153,7 +153,7 @@ may be further limited. Please create this content at a reasonable pace to avoid
 <p>We reserve the right to change these guidelines as needed to ensure availability.</p>
 
 <h2>
-<a id="dealing-with-api-errors" class="anchor" href="#dealing-with-api-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with API errors</h2>
+<a id="dealing-with-api-errors" class="anchor" href="#dealing-with-api-errors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dealing with API errors</h2>
 
 <p>Although your code would never introduce a bug, you may find that you've encountered successive errors when trying to access the API.</p>
 

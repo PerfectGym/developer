@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="basics-of-authentication" class="anchor" href="#basics-of-authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basics of Authentication</h1>
+<a id="basics-of-authentication" class="anchor" href="#basics-of-authentication" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basics of Authentication</h1>
 
 <ul id="markdown-toc">
 <li><a href="#registering-your-app" id="markdown-toc-registering-your-app">Registering your app</a></li>
@@ -72,7 +72,7 @@ the <a href="/v3/oauth/#web-application-flow">web flow</a> of an application in 
 </div>
 
 <h2>
-<a id="registering-your-app" class="anchor" href="#registering-your-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Registering your app</h2>
+<a id="registering-your-app" class="anchor" href="#registering-your-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Registering your app</h2>
 
 <p>First, you'll need to <a href="https://github.com/settings/applications/new">register your application</a>. Every
 registered OAuth application is assigned a unique Client ID and Client Secret.
@@ -88,7 +88,7 @@ successful authentication.</p>
 is set to <code>http://localhost:4567</code>. Let's fill in the callback URL as <code>http://localhost:4567/callback</code>.</p>
 
 <h2>
-<a id="accepting-user-authorization" class="anchor" href="#accepting-user-authorization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Accepting user authorization</h2>
+<a id="accepting-user-authorization" class="anchor" href="#accepting-user-authorization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Accepting user authorization</h2>
 
 <p>Now, let's start filling out our simple server. Create a file called <em>server.rb</em> and paste this into it:</p>
 
@@ -149,7 +149,7 @@ a route for it, so GitHub doesn't know where to drop the user after they authori
 the app. Let's fix that now!</p>
 
 <h3>
-<a id="providing-a-callback" class="anchor" href="#providing-a-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>Providing a callback</h3>
+<a id="providing-a-callback" class="anchor" href="#providing-a-callback" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Providing a callback</h3>
 
 <p>In <em>server.rb</em>, add a route to specify what the callback should do:</p>
 
@@ -177,7 +177,7 @@ Note that you'll probably never access the API through REST. For a more serious
 application, you should probably use <a href="/libraries/">a library written in the language of your choice</a>.</p>
 
 <h3>
-<a id="checking-granted-scopes" class="anchor" href="#checking-granted-scopes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checking granted scopes</h3>
+<a id="checking-granted-scopes" class="anchor" href="#checking-granted-scopes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Checking granted scopes</h3>
 
 <p>In the future, users will be able to <a href="/changes/2013-10-04-oauth-changes-coming/">edit the scopes you requested</a>,
 and your application might be granted less access than you originally asked for.
@@ -224,7 +224,7 @@ Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.</p>
 
 <h3>
-<a id="making-authenticated-requests" class="anchor" href="#making-authenticated-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making authenticated requests</h3>
+<a id="making-authenticated-requests" class="anchor" href="#making-authenticated-requests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Making authenticated requests</h3>
 
 <p>At last, with this access token, you'll be able to make authenticated requests as
 the logged in user:</p>
@@ -264,7 +264,7 @@ the logged in user:</p>
 
 
 <h2>
-<a id="implementing-persistent-authentication" class="anchor" href="#implementing-persistent-authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing "persistent" authentication</h2>
+<a id="implementing-persistent-authentication" class="anchor" href="#implementing-persistent-authentication" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementing "persistent" authentication</h2>
 
 <p>It'd be a pretty bad model if we required users to log into the app every single
 time they needed to access the web page. For example, try navigating directly to

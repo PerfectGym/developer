@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="discovering-resources-for-a-user" class="anchor" href="#discovering-resources-for-a-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discovering resources for a user</h1>
+<a id="discovering-resources-for-a-user" class="anchor" href="#discovering-resources-for-a-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Discovering resources for a user</h1>
 
 <ul id="markdown-toc">
 <li><a href="#getting-started" id="markdown-toc-getting-started">Getting started</a></li>
@@ -66,12 +66,12 @@
 <p>To interact with the GitHub API, we'll be using <a href="https://github.com/octokit/octokit.rb">Octokit.rb</a>. You can find the complete source code for this project in the <a href="https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user">platform-samples</a> repository.</p>
 
 <h2>
-<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting started</h2>
 
 <p>If you haven't already, you should read the <a href="/guides/basics-of-authentication/">"Basics of Authentication"</a> guide before working through the examples below. The examples below assume that you have <a href="/guides/basics-of-authentication/#registering-your-app">registered an OAuth application</a> and that your <a href="/guides/basics-of-authentication/#making-authenticated-requests">application has an OAuth token for a user</a>.</p>
 
 <h2>
-<a id="discover-the-repositories-that-your-app-can-access-for-a-user" class="anchor" href="#discover-the-repositories-that-your-app-can-access-for-a-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discover the repositories that your app can access for a user</h2>
+<a id="discover-the-repositories-that-your-app-can-access-for-a-user" class="anchor" href="#discover-the-repositories-that-your-app-can-access-for-a-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Discover the repositories that your app can access for a user</h2>
 
 <p>In addition to having their own personal repositories, a user may be a collaborator on repositories owned by other users and organizations. Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's a public repository where the user has write access.</p>
 
@@ -111,7 +111,7 @@
 
 
 <h2>
-<a id="discover-the-organizations-that-your-app-can-access-for-a-user" class="anchor" href="#discover-the-organizations-that-your-app-can-access-for-a-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Discover the organizations that your app can access for a user</h2>
+<a id="discover-the-organizations-that-your-app-can-access-for-a-user" class="anchor" href="#discover-the-organizations-that-your-app-can-access-for-a-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Discover the organizations that your app can access for a user</h2>
 
 <p>Applications can perform all sorts of organization-related tasks for a user. To perform these tasks, the app needs an <a href="/v3/oauth/#scopes">OAuth authorization</a> with sufficient permission. For example, the <code>read:org</code> scope allows you to <a href="/v3/orgs/teams/#list-teams">list teams</a>, and the <code>user</code> scope lets you <a href="/v3/orgs/members/#publicize-a-users-membership">publicize the user’s organization membership</a>. Once a user has granted one or more of these scopes to your app, you're ready to fetch the user’s organizations.</p>
 
@@ -140,7 +140,7 @@
 
 
 <h3>
-<a id="dont-rely-on-public-organizations" class="anchor" href="#dont-rely-on-public-organizations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Don’t rely on public organizations</h3>
+<a id="dont-rely-on-public-organizations" class="anchor" href="#dont-rely-on-public-organizations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Don’t rely on public organizations</h3>
 
 <p>If you've read the docs from cover to cover, you may have noticed an <a href="/v3/orgs/#list-user-organizations">API method for listing a user's public organization memberships</a>. Most applications should avoid this API method. This method only returns the user's public organization memberships, not their private organization memberships.</p>
 

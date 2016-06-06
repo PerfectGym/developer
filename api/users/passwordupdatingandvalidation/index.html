@@ -368,7 +368,7 @@ curl -X POST
 
 
 <h2>
-<a id="send-email-with-link-to-page-to-reset-password-" class="anchor" href="#send-email-with-link-to-page-to-reset-password-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Send email with link to page to reset password <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="send-email-with-link-to-page-to-reset-password-" class="anchor" href="#send-email-with-link-to-page-to-reset-password-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Send email with link to page to reset password <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>GET Users/SendEmailToResetPassword
@@ -377,7 +377,7 @@ curl -X POST
 <p>Sending en email message with link to page to reset password. Link include token to reset password, which can be pass to ResetPassword method.</p>
 
 <h3>
-<a id="parameters-2" class="anchor" href="#parameters-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="parameters-2" class="anchor" href="#parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
 
 <table>
 <thead>
@@ -398,12 +398,12 @@ curl -X POST
 </table>
 
 <h3>
-<a id="response-3" class="anchor" href="#response-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-3" class="anchor" href="#response-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p>Returns Success when send an email message, otherwise, it return error code: "EmailTemplateNotDefined", "UnableSendEmail" or "InvalidToken".</p>
 
 <h3>
-<a id="example-request-3" class="anchor" href="#example-request-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-3" class="anchor" href="#example-request-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example user's password reset token.</p>
 
@@ -416,7 +416,7 @@ curl -X GET
 </pre>
 
 <h3>
-<a id="example-response-3" class="anchor" href="#example-response-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-3" class="anchor" href="#example-response-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -433,7 +433,7 @@ curl -X GET
 
 
 <h3>
-<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <p>Template of email message is not defined.</p>
 
@@ -490,7 +490,7 @@ curl -X GET
 
 
 <h2>
-<a id="validate-user-credentials-" class="anchor" href="#validate-user-credentials-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Validate user credentials <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="validate-user-credentials-" class="anchor" href="#validate-user-credentials-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Validate user credentials <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
 <pre><code>POST Users/ValidateCredentials
@@ -524,12 +524,12 @@ curl -X GET
 </table>
 
 <h3>
-<a id="response-3" class="anchor" href="#response-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-4" class="anchor" href="#response-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/users/userdetails#properties">User details</a> if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/validatecredentialserrorcode">validate credentials error codes</a> otherwise.</p>
 
 <h3>
-<a id="example-request-3" class="anchor" href="#example-request-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-4" class="anchor" href="#example-request-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we validate user credentials.</p>
 
@@ -546,7 +546,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response-3" class="anchor" href="#example-response-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-4" class="anchor" href="#example-response-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -640,7 +640,7 @@ curl -X POST
 
 
 <h3>
-<a id="example-error-response" class="anchor" href="#example-error-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
+<a id="example-error-response-1" class="anchor" href="#example-error-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example error response</h3>
 
 <p>Invalid user credentials generates following response:</p>
 
@@ -681,6 +681,7 @@ curl -X POST
         <ul class="js-guides">
           <li><a href="/api/classes/classestypes/">Classes types</a></li>
           <li><a href="/api/classes/classes/">Classes</a></li>
+          <li><a href="/api/classes/categories/">Categories</a></li>
           <li><a href="/api/classes/userclasses/">User classes</a></li>
           <li><a href="/api/classes/booking/">Booking</a></li>
           <li><a href="/api/classes/ratings/">Ratings</a></li>

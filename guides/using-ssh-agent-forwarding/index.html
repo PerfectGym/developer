@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="using-ssh-agent-forwarding" class="anchor" href="#using-ssh-agent-forwarding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using SSH agent forwarding</h1>
+<a id="using-ssh-agent-forwarding" class="anchor" href="#using-ssh-agent-forwarding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using SSH agent forwarding</h1>
 
 <ul id="markdown-toc">
 <li><a href="#setting-up-ssh-agent-forwarding" id="markdown-toc-setting-up-ssh-agent-forwarding">Setting up SSH agent forwarding</a></li>
@@ -68,7 +68,7 @@
 <p>Check out <a href="http://www.unixwiz.net/techtips/ssh-agent-forwarding.html">Steve Friedl's Tech Tips guide</a> for a more detailed explanation of SSH agent forwarding.</p>
 
 <h2>
-<a id="setting-up-ssh-agent-forwarding" class="anchor" href="#setting-up-ssh-agent-forwarding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up SSH agent forwarding</h2>
+<a id="setting-up-ssh-agent-forwarding" class="anchor" href="#setting-up-ssh-agent-forwarding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setting up SSH agent forwarding</h2>
 
 <p>Ensure that your own SSH key is set up and working. You can use <a href="https://help.github.com/articles/generating-ssh-keys">our guide on generating SSH keys</a> if you've not done this yet.</p>
 
@@ -101,7 +101,7 @@
 </div>
 
 <h2>
-<a id="testing-ssh-agent-forwarding" class="anchor" href="#testing-ssh-agent-forwarding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing SSH agent forwarding</h2>
+<a id="testing-ssh-agent-forwarding" class="anchor" href="#testing-ssh-agent-forwarding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing SSH agent forwarding</h2>
 
 <p>To test that agent forwarding is working with your server, you can SSH into your server and run <code>ssh -T git@github.com</code> once more.  If all is well, you'll get back the same prompt as you did locally.</p>
 
@@ -125,12 +125,12 @@
 </pre>
 
 <h2>
-<a id="troubleshooting-ssh-agent-forwarding" class="anchor" href="#troubleshooting-ssh-agent-forwarding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting SSH agent forwarding</h2>
+<a id="troubleshooting-ssh-agent-forwarding" class="anchor" href="#troubleshooting-ssh-agent-forwarding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Troubleshooting SSH agent forwarding</h2>
 
 <p>Here are some things to look out for when troubleshooting SSH agent forwarding.</p>
 
 <h3>
-<a id="you-must-be-using-an-ssh-url-to-check-out-code" class="anchor" href="#you-must-be-using-an-ssh-url-to-check-out-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>You must be using an SSH URL to check out code</h3>
+<a id="you-must-be-using-an-ssh-url-to-check-out-code" class="anchor" href="#you-must-be-using-an-ssh-url-to-check-out-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>You must be using an SSH URL to check out code</h3>
 
 <p>SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the <em>.git/config</em> file on your server and ensure the URL is an SSH-style URL like below:</p>
 
@@ -141,12 +141,12 @@
 </pre>
 
 <h3>
-<a id="your-ssh-keys-must-work-locally" class="anchor" href="#your-ssh-keys-must-work-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your SSH keys must work locally</h3>
+<a id="your-ssh-keys-must-work-locally" class="anchor" href="#your-ssh-keys-must-work-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Your SSH keys must work locally</h3>
 
 <p>Before you can make your keys work through agent forwarding, they must work locally first. <a href="https://help.github.com/articles/generating-ssh-keys">Our guide on generating SSH keys</a> can help you set up your SSH keys locally.</p>
 
 <h3>
-<a id="your-system-must-allow-ssh-agent-forwarding" class="anchor" href="#your-system-must-allow-ssh-agent-forwarding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your system must allow SSH agent forwarding</h3>
+<a id="your-system-must-allow-ssh-agent-forwarding" class="anchor" href="#your-system-must-allow-ssh-agent-forwarding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Your system must allow SSH agent forwarding</h3>
 
 <p>Sometimes, system configurations disallow SSH agent forwarding. You can check if a system configuration file is being used by entering the following command in the terminal:</p>
 
@@ -175,12 +175,12 @@
 <p>In this example, our <em>/etc/ssh_config</em> file specifically says <code>ForwardAgent no</code>, which is a way to block agent forwarding. Deleting this line from the file should get agent forwarding working once more.</p>
 
 <h3>
-<a id="your-server-must-allow-ssh-agent-forwarding-on-inbound-connections" class="anchor" href="#your-server-must-allow-ssh-agent-forwarding-on-inbound-connections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your server must allow SSH agent forwarding on inbound connections</h3>
+<a id="your-server-must-allow-ssh-agent-forwarding-on-inbound-connections" class="anchor" href="#your-server-must-allow-ssh-agent-forwarding-on-inbound-connections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Your server must allow SSH agent forwarding on inbound connections</h3>
 
 <p>Agent forwarding may also be blocked on your server. You can check that agent forwarding is permitted by SSHing into the server and running <code>sshd_config</code>. The output from this command should indicate that <code>AllowAgentForwarding</code> is set.</p>
 
 <h3>
-<a id="your-local-ssh-agent-must-be-running" class="anchor" href="#your-local-ssh-agent-must-be-running" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your local <code>ssh-agent</code> must be running</h3>
+<a id="your-local-ssh-agent-must-be-running" class="anchor" href="#your-local-ssh-agent-must-be-running" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Your local <code>ssh-agent</code> must be running</h3>
 
 <p>On most computers, the operating system automatically launches <code>ssh-agent</code> for you.  On Windows, however, you need to do this manually. We have <a href="https://help.github.com/articles/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-msysgit">a guide on how to start <code>ssh-agent</code> whenever you open Git Bash</a>.</p>
 
@@ -193,7 +193,7 @@
 </pre>
 
 <h3>
-<a id="your-key-must-be-available-to-ssh-agent" class="anchor" href="#your-key-must-be-available-to-ssh-agent" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your key must be available to <code>ssh-agent</code>
+<a id="your-key-must-be-available-to-ssh-agent" class="anchor" href="#your-key-must-be-available-to-ssh-agent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Your key must be available to <code>ssh-agent</code>
 </h3>
 
 <p>You can check that your key is visible to <code>ssh-agent</code> by running the following command:</p>

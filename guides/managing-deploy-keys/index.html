@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="managing-deploy-keys" class="anchor" href="#managing-deploy-keys" aria-hidden="true"><span class="octicon octicon-link"></span></a>Managing Deploy Keys</h1>
+<a id="managing-deploy-keys" class="anchor" href="#managing-deploy-keys" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Managing Deploy Keys</h1>
 
 <ul id="markdown-toc">
 <li><a href="#ssh-agent-forwarding" id="markdown-toc-ssh-agent-forwarding">SSH agent forwarding</a></li>
@@ -74,12 +74,12 @@
 <p>This guide will help you decide what strategy is best for you.</p>
 
 <h2>
-<a id="ssh-agent-forwarding" class="anchor" href="#ssh-agent-forwarding" aria-hidden="true"><span class="octicon octicon-link"></span></a>SSH agent forwarding</h2>
+<a id="ssh-agent-forwarding" class="anchor" href="#ssh-agent-forwarding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SSH agent forwarding</h2>
 
 <p>In many cases, especially in the beginning of a project, SSH agent forwarding is the quickest and simplest method to use.  Agent forwarding uses the same SSH keys that your local development computer uses.</p>
 
 <h4>
-<a id="pros" class="anchor" href="#pros" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pros</h4>
+<a id="pros" class="anchor" href="#pros" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pros</h4>
 
 <ul>
 <li>You do not have to generate or keep track of any new keys.</li>
@@ -88,7 +88,7 @@
 </ul>
 
 <h4>
-<a id="cons" class="anchor" href="#cons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cons</h4>
+<a id="cons" class="anchor" href="#cons" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cons</h4>
 
 <ul>
 <li>Users <strong>must</strong> SSH in to deploy; automated deploy processes can't be used.</li>
@@ -96,7 +96,7 @@
 </ul>
 
 <h4>
-<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h4>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h4>
 
 <ol>
 <li>Turn on agent forwarding locally. See <a href="/guides/using-ssh-agent-forwarding/">our guide on SSH agent forwarding</a> for more information.</li>
@@ -105,12 +105,12 @@
 </ol>
 
 <h2>
-<a id="https-cloning-with-oauth-tokens" class="anchor" href="#https-cloning-with-oauth-tokens" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTPS cloning with OAuth tokens</h2>
+<a id="https-cloning-with-oauth-tokens" class="anchor" href="#https-cloning-with-oauth-tokens" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HTTPS cloning with OAuth tokens</h2>
 
 <p>If you don't want to use SSH keys, you can use <a href="https://help.github.com/articles/git-automation-with-oauth-tokens">HTTPS with OAuth tokens</a>.</p>
 
 <h4>
-<a id="pros-1" class="anchor" href="#pros-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pros</h4>
+<a id="pros-1" class="anchor" href="#pros-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pros</h4>
 
 <ul>
 <li>Anyone with access to the server can deploy the repository.</li>
@@ -122,7 +122,7 @@
 </ul>
 
 <h4>
-<a id="cons-1" class="anchor" href="#cons-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cons</h4>
+<a id="cons-1" class="anchor" href="#cons-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cons</h4>
 
 <ul>
 <li>You must make sure that you configure your token with the correct access scopes.</li>
@@ -130,17 +130,17 @@
 </ul>
 
 <h4>
-<a id="setup-1" class="anchor" href="#setup-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h4>
+<a id="setup-1" class="anchor" href="#setup-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h4>
 
 <p>See <a href="https://help.github.com/articles/git-automation-with-oauth-tokens">our guide on Git automation with tokens</a>.</p>
 
 <h2>
-<a id="deploy-keys" class="anchor" href="#deploy-keys" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deploy keys</h2>
+<a id="deploy-keys" class="anchor" href="#deploy-keys" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploy keys</h2>
 
 <p>A deploy key is an SSH key that is stored on your server and grants access to a single GitHub repository.  This key is attached directly to the repository instead of to a personal user account.</p>
 
 <h4>
-<a id="pros-2" class="anchor" href="#pros-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pros</h4>
+<a id="pros-2" class="anchor" href="#pros-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pros</h4>
 
 <ul>
 <li>Anyone with access to the repository and server has the ability to deploy the project.</li>
@@ -149,7 +149,7 @@
 </ul>
 
 <h4>
-<a id="cons-2" class="anchor" href="#cons-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cons</h4>
+<a id="cons-2" class="anchor" href="#cons-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cons</h4>
 
 <ul>
 <li>Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.</li>
@@ -157,7 +157,7 @@
 </ul>
 
 <h4>
-<a id="setup-2" class="anchor" href="#setup-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h4>
+<a id="setup-2" class="anchor" href="#setup-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h4>
 
 <ol>
 <li>
@@ -180,7 +180,7 @@
 </ol>
 
 <h2>
-<a id="machine-users" class="anchor" href="#machine-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Machine users</h2>
+<a id="machine-users" class="anchor" href="#machine-users" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Machine users</h2>
 
 <p>If your server needs to access multiple repositories, you can choose to create a new GitHub account and attach an SSH key that will be used exclusively for automation.  Since this GitHub account won't be used by a human, it's called a machine user.  You can then <a href="https://help.github.com/articles/how-do-i-add-a-collaborator">add the machine user as collaborator</a> or <a href="https://help.github.com/articles/adding-organization-members-to-a-team">add the machine user to a team</a> with access to the repositories it needs to manipulate.  <strong>NOTE</strong>: Adding a machine user as a collaborator always grants read/write access.  Adding a machine user to a team grants the permissions of the team.</p>
 
@@ -191,7 +191,7 @@
 </div>
 
 <h4>
-<a id="pros-3" class="anchor" href="#pros-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pros</h4>
+<a id="pros-3" class="anchor" href="#pros-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pros</h4>
 
 <ul>
 <li>Anyone with access to the repository and server has the ability to deploy the project.</li>
@@ -200,7 +200,7 @@
 </ul>
 
 <h4>
-<a id="cons-3" class="anchor" href="#cons-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cons</h4>
+<a id="cons-3" class="anchor" href="#cons-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cons</h4>
 
 <ul>
 <li>Only organizations have access to create teams; therefore only organizations can use them to restrict machine users to read-only access.  Personal repositories always grant collaborators read/write access.</li>
@@ -208,7 +208,7 @@
 </ul>
 
 <h4>
-<a id="setup-3" class="anchor" href="#setup-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h4>
+<a id="setup-3" class="anchor" href="#setup-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h4>
 
 <ol>
 <li>

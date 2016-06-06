@@ -53,7 +53,7 @@
       
 
 <h1>
-<a id="traversing-with-pagination" class="anchor" href="#traversing-with-pagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Traversing with Pagination</h1>
+<a id="traversing-with-pagination" class="anchor" href="#traversing-with-pagination" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Traversing with Pagination</h1>
 
 <ul id="markdown-toc">
 <li><a href="#basics-of-pagination" id="markdown-toc-basics-of-pagination">Basics of Pagination</a></li>
@@ -70,7 +70,7 @@ the results using pagination. You can find the complete source code for this pro
 in the <a href="https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination">platform-samples</a> repository.</p>
 
 <h2>
-<a id="basics-of-pagination" class="anchor" href="#basics-of-pagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basics of Pagination</h2>
+<a id="basics-of-pagination" class="anchor" href="#basics-of-pagination" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basics of Pagination</h2>
 
 <p>To start with, it's important to know a few facts about receiving paginated items:</p>
 
@@ -113,7 +113,7 @@ commits on a repository</a>, use pagination results that are based
 on SHA values, not numbers.</p>
 
 <h3>
-<a id="navigating-through-the-pages" class="anchor" href="#navigating-through-the-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Navigating through the pages</h3>
+<a id="navigating-through-the-pages" class="anchor" href="#navigating-through-the-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Navigating through the pages</h3>
 
 <p>Now that you know how many pages there are to receive, you can start navigating
 through the pages to consume the results. You do this by passing in a <code>page</code>
@@ -139,7 +139,7 @@ page. Using this information, you could construct some UI that lets users jump
 between the first, previous, next, or last list of results in an API call.</p>
 
 <h3>
-<a id="changing-the-number-of-items-received" class="anchor" href="#changing-the-number-of-items-received" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changing the number of items received</h3>
+<a id="changing-the-number-of-items-received" class="anchor" href="#changing-the-number-of-items-received" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing the number of items received</h3>
 
 <p>By passing the <code>per_page</code> parameter, you can specify how many items you want
 each page to return, up to 100 items. Let's try asking for 50 items about <code>addClass</code>:</p>
@@ -159,7 +159,7 @@ is now 20. This is because we are asking for more information per page about
 our results.</p>
 
 <h2>
-<a id="consuming-the-information" class="anchor" href="#consuming-the-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Consuming the information</h2>
+<a id="consuming-the-information" class="anchor" href="#consuming-the-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Consuming the information</h2>
 
 <p>You don't want to be making low-level curl calls just to be able to work with
 pagination, so let's write a little Ruby script that does everything we've
@@ -250,7 +250,7 @@ your code should remain intact:</p>
 
 
 <h2>
-<a id="constructing-pagination-links" class="anchor" href="#constructing-pagination-links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructing Pagination Links</h2>
+<a id="constructing-pagination-links" class="anchor" href="#constructing-pagination-links" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Constructing Pagination Links</h2>
 
 <p>Normally, with pagination, your goal isn't to concatenate all of the possible
 results, but rather, to produce a set of navigation, like this:</p>
