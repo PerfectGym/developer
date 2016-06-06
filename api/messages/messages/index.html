@@ -99,6 +99,29 @@ Message properties</a></li>
 <td><code>bool</code></td>
 <td>Indicates if resource is deleted.</td>
 </tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Message status. <br><strong>Possible values</strong>: <br><ul>
+<li>Planned</li>
+<li>InProgress</li>
+<li>Done</li>
+<li>Postponed</li>
+<li>Failed</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>isReaded</code></td>
+<td><code>bool</code></td>
+<td>
+<code>true</code> if message has been read, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>createdDate</code></td>
+<td><code>dateTime</code></td>
+<td>Message created date.</td>
+</tr>
 </tbody>
 </table>
 
@@ -162,7 +185,10 @@ curl -i
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shoes"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10252</span><span class="p">,</span><span class="w">
       </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">692590</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Planned"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isReaded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
