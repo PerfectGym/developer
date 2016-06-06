@@ -19,6 +19,10 @@ Name            | Type      					| Description
 `timestamp`    	|`long`     					| Timestamp. Indicates when resource was last modified.
 `title`	    	|`string`   					| Message title.
 `isDeleted`     |`bool`                         | Indicates if resource is deleted.
+`status`        |`string`                       | Message status. <br><strong>Possible values</strong>: <br><ul><li>Planned</li><li>InProgress</li><li>Done</li><li>Postponed</li><li>Failed</li></ul>
+`isReaded`    	|`bool`                         | `true` if message has been read, `false` otherwise.
+`createdDate`   |`dateTime`                     | Message created date.
+
 
 
 

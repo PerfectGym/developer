@@ -11,7 +11,10 @@ module GitHub
             "title": "Shoes",
             "id": 10252,
             "timestamp": 692590,
-            "isDeleted": false
+            "isDeleted": false,
+            "status": "Planned",
+            "isReaded": false,
+            "createdDate": "2016-01-26T00:00:00"
           },          
         ]              
       }      

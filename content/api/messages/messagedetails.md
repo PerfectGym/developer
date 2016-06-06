@@ -19,7 +19,7 @@ Name         | Type     | Description
 -------------|----------|----------------------
 `text`	 	 |`string`  | Message text.
 `status`     |`string`  | Message status. <br><strong>Possible values</strong>: <br><ul><li>Planned</li><li>InProgress</li><li>Done</li><li>Postponed</li><li>Failed</li></ul>
-`read`    	 |`string`  | `true` if message has been read, `false` otherwise.
+`read`    	 |`bool`    | `true` if message has been read, `false` otherwise.
 `comment`    |`string`  | Message comment.
 `attachments`|`array`   | An array of [File][File] objects.
       
