@@ -60,7 +60,8 @@
 <ul id="markdown-toc">
 <li><a href="#add-new-user-" id="markdown-toc-add-new-user-">Add new user 
 </a></li>
-<li><a href="#update-existing-user--" id="markdown-toc-update-existing-user--">Update existing user  
+<li><a href="#update-existing-user--" id="markdown-toc-update-existing-user--">
+Update existing user  
 </a></li>
 <li><a href="#confirm-user-email-address-" id="markdown-toc-confirm-user-email-address-">Confirm user email address 
 </a></li>
@@ -279,7 +280,8 @@ curl -X POST
 
 
 <h2>
-<a id="update-existing-user--" class="anchor" href="#update-existing-user--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update existing user <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+<a id="update-existing-user--" class="anchor" href="#update-existing-user--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<a name="update_user"></a>Update existing user <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
 </h2>
 
 <pre><code>PUT Users/User
@@ -378,6 +380,11 @@ curl -X POST
 <td><code>isForigner</code></td>
 <td><code>bool</code></td>
 <td>Indicates if user is a forigner.</td>
+</tr>
+<tr>
+<td><code>showActivityInClub</code></td>
+<td><code>bool</code></td>
+<td>Indicates if user wants to be included in list of user signed up for classes or users present in club. For details see <a href="/api/classes/whoisin">Who is in class</a> or <a href="/api/clubs/whoisin">Who is in club</a>.</td>
 </tr>
 <tr>
 <td><code>sex</code></td>
