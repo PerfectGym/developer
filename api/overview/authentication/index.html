@@ -77,8 +77,8 @@ In end user mode API works on behalf of a club member.</p>
 Please <a href="mailto:pomoc@perfectgym.com">contact Perfect Gym</a> and we will provide you user name
 and password used to authenticate your app with PerfectGym API employee mode.</p>
 
-<p>To access API in end user mode, user needs to sign up for an end user account. After signing up
-for an end user account, user's credentials can be used to access API in end user mode. 
+<p>To access API in end user mode, user needs to sign up for an end user account. End user account can be created with an email or Facebook account. 
+After signing up for an end user account, user's credentials can be used to access API in end user mode. 
 For details see <a href="/api/users/passwordupdatingandvalidation#signup">signing up for end user account</a></p>
 
 <p>Each method described in PerfectGym API documentation is marked as working in employee mode, end user mode or both.</p>
@@ -93,7 +93,7 @@ For details see <a href="/api/users/passwordupdatingandvalidation#signup">signin
 </code></pre>
 
 <h3>
-<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="access-token-with-email---body-parameters" class="anchor" href="#access-token-with-email---body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Access token with email - body parameters</h3>
 
 <table>
 <thead>
@@ -115,6 +115,33 @@ For details see <a href="/api/users/passwordupdatingandvalidation#signup">signin
 <td><code>string</code></td>
 <td>
 <strong>Required</strong>. User password you received from PerfectGym (employee mode), or club member password (end user moded). For details see <a href="#prerequisites">prerequisites</a>.</td>
+</tr>
+<tr>
+<td><code>grant_type</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. This has to be explicitly set to <code>password</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="access-token-with-facebook---body-parameters" class="anchor" href="#access-token-with-facebook---body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Access token with Facebook - body parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>facebookToken</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. Facebook account associated with club member email address (end user mode).</td>
 </tr>
 <tr>
 <td><code>grant_type</code></td>
@@ -257,7 +284,7 @@ curl -i
           <li><a href="/api/users/useragreements/">User agreements</a></li>   
           <li><a href="/api/users/usermembershipcard/">User membership card</a></li>           
           <li><a href="/api/users/userfriends/">Bring a friend (preliminary)</a></li>           
-          <li><a href="/api/users/passwordupdatingandvalidation/">Password updating, reset & credentials validation</a></li>          
+          <li><a href="/api/users/passwordupdatingandvalidation/">Account signup, password reset & credentials validation</a></li>          
           <li><a href="/api/users/clubvisits/">User club visits</a></li>          
         </ul>
       </li>     
