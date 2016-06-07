@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Fee | Perfectgym Developer Guide</title>
+  <title>Club photo | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,14 +53,14 @@
       
 
 <h1>
-<a id="fee" class="anchor" href="#fee" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fee</h1>
+<a id="club-photo" class="anchor" href="#club-photo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Club photo</h1>
 
-<p>Represents a set of contract fees.</p>
+<p>Represents photo of your club.</p>
 
 <h2>
-<a id="fee-properties" class="anchor" href="#fee-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fee properties</h2>
+<a id="photo-properties" class="anchor" href="#photo-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Photo properties</h2>
 
-<p>Contract fees are described by the following properties</p>
+<p>Club photo is described by the following properties</p>
 
 <table>
 <thead>
@@ -72,24 +72,24 @@
 </thead>
 <tbody>
 <tr>
-<td><code>joiningFee</code></td>
-<td><a href="/appendix/datatypes/fee">Fee</a></td>
-<td>Joining fee.</td>
+<td><code>id</code></td>
+<td><code>long</code></td>
+<td>Unique identifier of equipment.</td>
 </tr>
 <tr>
-<td><code>administarationFee</code></td>
-<td><a href="/appendix/datatypes/fee">Fee</a></td>
-<td>Administration fee.</td>
+<td><code>photoUrl</code></td>
+<td><code>string</code></td>
+<td>Club photo URL.</td>
 </tr>
 <tr>
-<td><code>membershipFee</code></td>
-<td><a href="/appendix/datatypes/fee">Fee</a></td>
-<td>Membership fee.</td>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp. Indicates when resource was last modified.</td>
 </tr>
 <tr>
-<td><code>freezFee</code></td>
-<td><a href="/appendix/datatypes/fee">Fee</a></td>
-<td>Freeze fee.</td>
+<td><code>isDeleted</code></td>
+<td><code>bool</code></td>
+<td>Indicates if resource is deleted.</td>
 </tr>
 </tbody>
 </table>
