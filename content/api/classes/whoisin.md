@@ -13,7 +13,7 @@ This API gives access to information about users signed up for classes.
 
     GET Clubs/WhoIsIn
 
-Returns signed up for a given class users list.
+Returns list of users signed up for a given class. Only users that agreed to be listed are included. For details see [Update existing user][UpdateExistingUser], `showActivityInClub` property.
 
 
 ### Parameters 
@@ -50,6 +50,7 @@ curl -i
 
 
 [User]: /api/users/user
+[UpdateExistingUser]: /api/users/addupdateuser#update_user
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"

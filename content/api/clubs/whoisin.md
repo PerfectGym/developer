@@ -13,7 +13,7 @@ This API gives access to information about users currently present in your club.
 
     GET Clubs/WhoIsIn
 
-Returns present in club users list.
+Returns list of users present in club. Only users that agreed to be listed are included. For details see [Update existing user][UpdateExistingUser], `showActivityInClub` property.
 
 
 ### Parameters 
@@ -50,6 +50,7 @@ curl -i
 
 
 [User]: /api/users/user
+[UpdateExistingUser]: /api/users/addupdateuser#update_user
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"

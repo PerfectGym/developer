@@ -92,7 +92,7 @@ Subsequent user add request with same samlpe data generates following error:
 
 
 
-## Update existing user ![alt text][EM] ![alt text][UM]
+## <a name="update_user"></a>Update existing user ![alt text][EM] ![alt text][UM]
 
     PUT Users/User
 
@@ -115,20 +115,21 @@ Request in user mode has no parameters. Request updates authentificated user.
 
 You should pass only parameters that acctualy needs to be updated. `Null` parameters are discarded.
 
-Name     	    | Type       		| Description
-----------------|-------------------|------------
-`personalId`    |`string`    		| **Must be unique**. User personal identifier.
-`firstName`     |`string`    		| User first name.
-`lastName`     	|`string`    		| User last name.
-`email`     	|`string`    		| **Must be unique**. User email address.
-`phoneNumber`  	|`string`    		| **Must be unique**. User phone number.
-`idCardName`	|`string`			| User identity card name.
-`idCardNumber`  |`string`			| User identity card number.
-`legalGuardian`	|`string`			| User legal guardian full name.
-`birthDate`     |`string`    		| User birth date.
-`isForigner`	|`bool`				| Indicates if user is a forigner.
-`sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
-`address`     	|[Address][Address] | User address.
+Name     	    		| Type       		| Description
+------------------------|-------------------|------------
+`personalId`    		|`string`    		| **Must be unique**. User personal identifier.
+`firstName`     		|`string`    		| User first name.
+`lastName`     			|`string`    		| User last name.
+`email`     			|`string`    		| **Must be unique**. User email address.
+`phoneNumber`  			|`string`    		| **Must be unique**. User phone number.
+`idCardName`			|`string`			| User identity card name.
+`idCardNumber`  		|`string`			| User identity card number.
+`legalGuardian`			|`string`			| User legal guardian full name.
+`birthDate`     		|`string`    		| User birth date.
+`isForigner`			|`bool`				| Indicates if user is a forigner.
+`showActivityInClub`	|`bool`				| Indicates if user wants to be included in list of user signed up for classes or users present in club. For details see [Who is in class][WhoIsInClass] or [Who is in club][WhoIsInClub].
+`sex`     				|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
+`address`     			|[Address][Address] | User address.
 
 
 ### Response
@@ -219,6 +220,8 @@ The token is invalid, is not assigned to any email address.
 [Address]: /appendix/datatypes/address
 [AddUserErrorCode]: /appendix/errorcodes/addusererrorcode
 [UpdateUserErrorCode]: /appendix/errorcodes/updateusererrorcode
+[WhoIsInClass]: /api/classes/whoisin
+[WhoIsInClub]: /api/clubs/whoisin
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"
