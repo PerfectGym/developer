@@ -83,7 +83,7 @@ module GitHub
           "firstName": "Jan",
           "lastName": "Nowak",
           "email": "nowak@example.com",
-		  "emailAddressIsConfirmed": false,
+		      "emailAddressIsConfirmed": false,
           "photoUrl": "",
           "birthDate": "1944-09-17T00:00:00",
           "isForeigner": false,

@@ -21,8 +21,8 @@ To access API in employee mode, you need a special API user in your Perfect Gym 
 Please [contact Perfect Gym](mailto:pomoc@perfectgym.com) and we will provide you user name
 and password used to authenticate your app with PerfectGym API employee mode.
 
-To access API in end user mode, user needs to sign up for an end user account. After signing up
-for an end user account, user's credentials can be used to access API in end user mode. 
+To access API in end user mode, user needs to sign up for an end user account. End user account can be created with an email or Facebook account. 
+After signing up for an end user account, user's credentials can be used to access API in end user mode. 
 For details see [signing up for end user account][SignUpForEndUserAccount]
 
 Each method described in PerfectGym API documentation is marked as working in employee mode, end user mode or both.
@@ -36,13 +36,21 @@ Each method described in PerfectGym API documentation is marked as working in em
 	POST https://yoursubdomain.perfectgym.com/Api/oauth/authorize
 
 
-### Body parameters
+### Access token with email - body parameters
 
 Name | Type | Description
 -----|------|--------------
 `username`  |`string` | **Required**. User name you received from PerfectGym (employee mode) or club member email address (end user mode). For details see [prerequisites](#prerequisites).
 `password`  |`string` | **Required**. User password you received from PerfectGym (employee mode), or club member password (end user moded). For details see [prerequisites](#prerequisites).
 `grant_type`|`string` | **Required**. This has to be explicitly set to `password`.
+
+
+### Access token with Facebook - body parameters
+
+Name 			 | Type    | Description
+-----------------|---------|--------------
+`facebookToken`  |`string` | **Required**. Facebook account associated with club member email address (end user mode).
+`grant_type`	 |`string` | **Required**. This has to be explicitly set to `password`.
 
 Authentication parameters must be encoded using `application/x-www-form-urlencoded` content type.
 
