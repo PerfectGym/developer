@@ -15,7 +15,7 @@ User can use it's username and password to login to API in end user mode using v
 {:toc}
 
 
-## <a name="signup"></a>Sign up for end user account ![alt text][EM]
+## <a name="signup"></a>Sign up for end user account with email ![alt text][EM]
 
     POST Users/SignUp
 
@@ -53,6 +53,47 @@ curl -X POST
 
 <%= headers 200 %>
 <%= json(:userresetpasswordtoken_response) %>
+
+
+
+## <a name="signup"></a>Sign up for end user account with Facebook ![alt text][EM]
+
+    POST Users/SignUpWithFacebook
+
+Request creates an end user account and returns [User details][UserDetailsProperties]. 
+User is identified with Facebook email address.
+After completing sign up process Facebook token can be used to access API in end user mode.
+
+
+### Parameters
+
+Name  	    		| Type     		| Description
+--------------------|---------------|------------
+`facebookToken`		|`string`  		| **Required**. Facebook token.
+
+
+### Response
+
+[User details][UserDetailsProperties].
+
+
+### Example request
+
+In this example we sign up for an account for user identified with an email address based on Facebook token.
+
+``` command-line
+
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 	 
+	http://yoursubdomain.perfectgym.com/Api/Users/SignUp?facebookToken=FACEBOOK_TOKEN
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:user_response) %>
 
 
 
