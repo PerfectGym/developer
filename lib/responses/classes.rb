@@ -11,6 +11,8 @@ module GitHub
         "id" => 1,
         "timestamp" => 263952,
         "name" => "Box",
+        "photoUrl" => "",
+        "iconUrl" => "",
         "description" => "Box perfectly combines cardio and strength training under the guise of groove!",
         "rating" => {
           "rating": 4.1,
@@ -33,6 +35,8 @@ module GitHub
         "id": 2,
         "timestamp": 382653,
         "name": "POWER JOGA",
+        "photoUrl" => "",
+        "iconUrl" => "",
         "description": "Power Yoga is definitely an intense workout that will make you sweat.",
         "rating" => {
           "rating": 4.1,
