@@ -18,11 +18,13 @@ Name            				| Type      				| Description
 `personalId`					|`string`					| User personal identifier.
 `number`          				|`string`   				| User number.
 `cardNumber`       				|`string`   				| User membership card number.
+`facebookId`                    |`long`                     | Identifier of Facebook account user has signed up for end user account with. For details see [Sign up with Facebook][SignUpWithFacebook].
 `email`          				|`string`   				| User email address.
 `emailAddressIsConfirmed`		|`bool`						| Does email address has been confirmed by the user.
 `birthDate`         			|`string`   				| User birth date.
 `isForeigner`					|`bool`						| Indicates if user is a forigner.
 `hasAccount`					|`bool`						| Indicates if user has signed up for end user account.
+`hasPassword`                   |`bool`                     | Indicates if user has provided password for his end user account.
 `phoneNumber`      				|`string`   				| User phone number.
 `idCardName`					|`string`					| User identity card name.
 `idCardNumber`  				|`string`					| User identity card number.
@@ -137,6 +139,7 @@ curl -i
 [Address]: /appendix/datatypes/address
 [Employee]: /appendix/datatypes/employee
 [DirectDebit]: /appendix/datatypes/directdebit
+[SignUpWithFacebook]: /api/users/passwordupdatingandvalidation#signupWithFacebook
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"

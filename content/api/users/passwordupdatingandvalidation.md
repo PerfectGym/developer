@@ -56,7 +56,7 @@ curl -X POST
 
 
 
-## <a name="signup"></a>Sign up for end user account with Facebook ![alt text][EM]
+## <a name="signupWithFacebook"></a>Sign up for end user account with Facebook ![alt text][EM]
 
     POST Users/SignUpWithFacebook
 
