@@ -21,6 +21,7 @@ Name            | Type                        | Description
 `lastName`      |`string`                     | Instructor's last name.
 `displayName`   |`string`                     | Instructor's display name.
 `email`         |`string`                     | Instructor's email.
+`photoUrl`		|`string`					  | Instructor's photo URL.
 `sex`           |`string`                     | Instructor's sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `rating`        |[Rating][]					  | Instructor's rating.
 `isActive`      |`bool`                       | Indicates if instructor is active.

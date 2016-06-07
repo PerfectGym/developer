@@ -10,6 +10,7 @@ module GitHub
         "lastName": "Strickland",
         "displayName": "Agatha Strickland",
         "email": "a.strickland@cyberbotics.com",
+        "photoUrl": "",
         "sex": "Female",
         "rating" => {
           "rating": 4.7,
