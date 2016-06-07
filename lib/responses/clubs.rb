@@ -294,6 +294,21 @@ module GitHub
                 "isDeleted": false
               }
             ],
+            "photos": [
+              {
+                "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Photo?photoId=142",
+                "id": 5,
+                "timestamp": 374980,
+                "isDeleted": false
+              },
+              {
+                "photoUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Photo?photoId=143",
+                "id": 6,
+                "timestamp": 374983,
+                "isDeleted": false
+              },            
+            ],
+
             "id": 16,
             "timestamp": 271990,
             "name": "Cyberbotics Berlin",

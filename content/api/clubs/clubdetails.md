@@ -26,6 +26,7 @@ Name            		| Type    | Description
 `urls`                  |`array`    		  | An array of [Url][Url] objects, each representing an url to your club's social service site.
 `contacts`              |`array`    		  | An array of [Contact][Contact] objects, each representing an individual or a departament in your club, user can reach using e-mail or phone.
 `zones`                 |`array`    		  | An array of [Zone][Zone] objects, each representing a distinct area in club.
+`photos`                |`array`    		  | An array of [Photo][Photo] objects, each representing photo of your club.
 
 
 
@@ -72,6 +73,7 @@ curl -i
 [OpeningHours]: /appendix/datatypes/openinghours
 [Url]: /appendix/datatypes/url
 [Zone]: /appendix/datatypes/zone
+[Photo]: /appendix/datatypes/clubphoto
 [Address]: /appendix/datatypes/address
 
 [EM]: /assets/images/employee.png "Employee mode"
