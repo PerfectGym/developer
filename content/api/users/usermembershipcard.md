@@ -94,7 +94,7 @@ Name     	    				| Type    		| Description
 
 ``` command-line
 
-curl -X POST 
+curl -X PUT 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 
 	 
@@ -145,7 +145,7 @@ Name     	    				| Type    		| Description
 
 ``` command-line
 
-curl -X POST 
+curl -X PUT 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 
 	 

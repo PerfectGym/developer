@@ -25,6 +25,8 @@ Name         | Type     | Description
 `photoUrl`	 |`string`	| Class type photo URL.
 `iconUrl`	 |`string`	| Class type icon URL.
 `rating`     |[Rating][]| Class type rating.
+`ageFromMonths`	 |`int`	| Class type age restriction lower bound.
+`ageToMonths`	 |`int`	| Class type age restriction upper bound.
 
 
 

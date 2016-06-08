@@ -30,7 +30,7 @@ Name     	    | Type       		| Description
 `phoneNumber`  	|`string`    		| User phone number.
 `idCardName`	|`string`			| User identity card name.
 `idCardNumber`  |`string`			| User identity card number.
-`legalGuardian`	|`string`			| User legal guardian full name.
+`legalGuardian`	|[LegalGuardian][LegalGuardian]	| User legal guardian.
 `isForeigner`	|`bool`				| Indicates if user is a forigner.
 `sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     	|[Address][Address] | User address.
@@ -218,6 +218,7 @@ The token is invalid, is not assigned to any email address.
 [UserDetailsProperties]: /api/users/userdetails#properties
 [Error]: /appendix/datatypes/error
 [Address]: /appendix/datatypes/address
+[LegalGuardian]: /appendix/datatypes/legalGuardian
 [AddUserErrorCode]: /appendix/errorcodes/addusererrorcode
 [UpdateUserErrorCode]: /appendix/errorcodes/updateusererrorcode
 [WhoIsInClass]: /api/classes/whoisin
