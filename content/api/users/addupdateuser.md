@@ -15,7 +15,7 @@ This API allow to add new users and update existing user's data.
 
 Request creates new user and adds it to your company user's list.
 
-
+ 
 
 ### Body parameters
 
@@ -36,7 +36,7 @@ Name     	    | Type       		| Description
 `address`     	|[Address][Address] | User address.
 
 
-
+  
 
 ### Response
 
@@ -130,6 +130,7 @@ Name     	    		| Type       		| Description
 `showActivityInClub`	|`bool`				| Indicates if user wants to be included in list of user signed up for classes or users present in club. For details see [Who is in class][WhoIsInClass] or [Who is in club][WhoIsInClub].
 `sex`     				|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     			|[Address][Address] | User address.
+`paymentPrimarySource`  |`string`           | Payment source value - 'CreditCard', 'DirectDebit', 'Cash'.
 
 
 ### Response

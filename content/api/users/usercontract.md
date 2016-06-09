@@ -33,7 +33,7 @@ Name     	    | Type       				| Description
 `phoneNumber`  	|`string`    				| User phone number.
 `idCardName`	|`string`					| User identity card name.
 `idCardNumber`  |`string`					| User identity card number.
-`legalGuardian`	|`string`					| User legal guardian full name.
+`legalGuardian`	|[LegalGuardian][LegalGuardian]	| User legal guardian.
 `isForeigner`	|`bool`						| Indicates if user is a forigner.
 `sex`     		|`string`    				| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     	|[Address][Address] 		| User address.
@@ -244,6 +244,7 @@ curl -X POST
 [Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
 [DirectDebit]:  /api/users/userdirectdebit
+[LegalGuardian]: /appendix/datatypes/legalGuardian
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"
