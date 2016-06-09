@@ -18,25 +18,26 @@ Request assigns new contract to new club user.
 
 ### Body parameters
 
-Name     	    | Type       		| Description
-----------------|-------------------|------------
-`paymentPlanId` |`string`    		| Payment plan identifier. Request creates new contract based on payment plan identified by `paymentPlanId`
-`startDate`     |`string`    		| Contract start date.
-`signDate`     	|`string`    		| Contract sign date.
-`discountIds`   |`array`			| Array of discount identifiers to be applied to contract.
-`email`     	|`string`    		| **Required**. User email address.
-`homeClubId`	|`long`    			| **Required**. User home club identifier.
-`birthDate`     |`string`    		| **Required**. User birth date.
-`personalId`    |`string`    		| User personal identifier.
-`firstName`     |`string`    		| User first name.
-`lastName`     	|`string`    		| User last name.
-`phoneNumber`  	|`string`    		| User phone number.
-`idCardName`	|`string`			| User identity card name.
-`idCardNumber`  |`string`			| User identity card number.
-`legalGuardian`	|`string`			| User legal guardian full name.
-`isForeigner`	|`bool`				| Indicates if user is a forigner.
-`sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
-`address`     	|[Address][Address] | User address.
+Name     	    | Type       				| Description
+----------------|---------------------------|------------
+`paymentPlanId` |`string`    				| Payment plan identifier. Request creates new contract based on payment plan identified by `paymentPlanId`
+`startDate`     |`string`    				| Contract start date.
+`signDate`     	|`string`    				| Contract sign date.
+`discountIds`   |`array`					| Array of discount identifiers to be applied to contract.
+`email`     	|`string`    				| **Required**. User email address.
+`homeClubId`	|`long`    					| **Required**. User home club identifier.
+`birthDate`     |`string`    				| **Required**. User birth date.
+`personalId`    |`string`    				| User personal identifier.
+`firstName`     |`string`    				| User first name.
+`lastName`     	|`string`    				| User last name.
+`phoneNumber`  	|`string`    				| User phone number.
+`idCardName`	|`string`					| User identity card name.
+`idCardNumber`  |`string`					| User identity card number.
+`legalGuardian`	|`string`					| User legal guardian full name.
+`isForeigner`	|`bool`						| Indicates if user is a forigner.
+`sex`     		|`string`    				| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
+`address`     	|[Address][Address] 		| User address.
+`directDebit`   |[DirectDebit][DirectDebit] | Direct debit
 
 
 
@@ -242,6 +243,7 @@ curl -X POST
 [UserDetailsProperties]: /api/users/userdetails#properties
 [Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
+[DirectDebit]:  /api/users/userdirectdebit
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"
