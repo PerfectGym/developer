@@ -373,7 +373,7 @@
     "title": "Products",
     
     "url": "/api/products/products/",
-    "body": " Products Represents product available in your club.  Products properties List products in club  Product targets  Club service types  Product categories    Products properties Product is described by the following properties    Name Type Description     name string Product name.   price decimal Product price.   isActive bool Is product available.   unitOfMeasure string Unit of measure.   type string Product type.   category string Product category.   createdTime datetime Product added date.     List products in club   GET Products/Products  Returns products list.  Parameters    Name Type Description     clubId long  Required. Club identifier. Request returns products in club identified by clubId.   productTarget string Defined place where product is available.   clubServiceType string Service type.   categoryTypeId long Category type identifier.     Example request In this example we fetch products in club with id = 2  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Products/Products?clubId=2   Example response Status: 200 OK  { \"elements\": [ { \"category\": \"Drink\", \"createdTime\": \"2014-03-28T16:19:51\", \"isActive\": \"True\", \"name\": \"Mineral water\", \"price\": \"5\", \"type\": \"ProductGood\", \"unitOfMeasure\": \"Piece\" }, { \"category\": \"Waterfall Golf\", \"createdTime\": \"2014-02-28T16:19:51\", \"isActive\": \"True\", \"name\": \"Waterfall Golf\", \"price\": \"10\", \"type\": \"ProductService\", \"unitOfMeasure\": \"Piece\" }, { \"category\": \"Waterfall Golf\", \"createdTime\": \"2014-02-28T16:19:51\", \"isActive\": \"True\", \"name\": \"Waterfall 20 Golf\", \"price\": \"10\", \"type\": \"ProductBundle\", \"unitOfMeasure\": \"Piece\" } ] }   Product targets   GET Products/ProductTargets  Returns targets list.  Example request In this example we fetch list of targets  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Products/ProductTargets   Club service types   GET Products/ClubServiceTypes  Returns club service types list.  Example request In this example we fetch list of service types  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Products/ClubServiceTypes   Product categories   GET Products/CategoryTypes  Returns product categories.   Example request In this example we fetch list of categories  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Products/CategoryTypes "
+    "body": " Products Represents product available in your club.  Products properties List products in club  Product targets  Club service types  Product categories    Products properties Product is described by the following properties    Name Type Description     name string Product name.   price decimal Product price.   isActive bool Is product available.   unitOfMeasure string Unit of measure.   type string Product type.   category string Product category.   createdTime datetime Product added date.   clubZoneTypes ClubZoneTypes Club zone available with product.   categoriesClasses CategoriesClasses Classes available with product.     List products in club   GET Products/Products  Returns products list.  Parameters    Name Type Description     clubId long  Required. Club identifier. Request returns products in club identified by clubId.   productTarget string Defined place where product is available.   clubServiceType string Service type.   categoryTypeId long Category type identifier.     Example request In this example we fetch products in club with id = 2  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Products/Products?clubId=2   Example response Status: 200 OK  { \"elements\": [ { \"category\": \"Drink\", \"createdTime\": \"2014-03-28T16:19:51\", \"isActive\": \"True\", \"name\": \"Mineral water\", \"price\": \"5\", \"type\": \"ProductGood\", \"unitOfMeasure\": \"Piece\" }, { \"category\": \"Waterfall Golf\", \"createdTime\": \"2014-02-28T16:19:51\", \"isActive\": \"True\", \"name\": \"Waterfall Golf\", \"price\": \"10\", \"type\": \"ProductService\", \"unitOfMeasure\": \"Piece\" }, { \"category\": \"Waterfall Golf\", \"createdTime\": \"2014-02-28T16:19:51\", \"isActive\": \"True\", \"name\": \"Waterfall 20 Golf\", \"price\": \"10\", \"type\": \"ProductBundle\", \"unitOfMeasure\": \"Piece\" } ] }   Product targets   GET Products/ProductTargets  Returns targets list.  Example request In this example we fetch list of targets  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Products/ProductTargets   Club service types   GET Products/ClubServiceTypes  Returns club service types list.  Example request In this example we fetch list of service types  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Products/ClubServiceTypes   Product categories   GET Products/CategoryTypes  Returns product categories.   Example request In this example we fetch list of categories  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Products/CategoryTypes "
   },
   
   
@@ -522,6 +522,14 @@
   
   
   {
+    "title": "Categories classes",
+    
+    "url": "/appendix/datatypes/categoriesClasses/",
+    "body": " Categories classes Represents a categories classes.  Categories classes properties Categories classes is described by the following properties    Name Type Description     id long Unique identifier of class.   name string Class name.   description string Class description.   "
+  },
+  
+  
+  {
     "title": "Club access rule",
     
     "url": "/appendix/datatypes/clubaccessrule/",
@@ -534,6 +542,14 @@
     
     "url": "/appendix/datatypes/clubphoto/",
     "body": " Club photo Represents photo of your club.  Photo properties Club photo is described by the following properties    Name Type Description     id long Unique identifier of equipment.   photoUrl string Club photo URL.   timestamp long Timestamp. Indicates when resource was last modified.   isDeleted bool Indicates if resource is deleted.   "
+  },
+  
+  
+  {
+    "title": "Club zone type",
+    
+    "url": "/appendix/datatypes/clubzonetypes/",
+    "body": " Club zone type Represents a club zone type   Club zone type properties Club zone type is described by the following properties    Name Type Description     id long Unique identifier of zone type.   name string Zone type name.   description string Zone type description.   "
   },
   
   
