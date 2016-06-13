@@ -13,15 +13,17 @@ Represents product available in your club.
 
 Product is described by the following properties
 
-Name            | Type                        | Description
------|----------|------------------------------------------
-`name`          |`string`                     | Product name.
-`price`         |`decimal`                    | Product price.
-`isActive`		|`bool` 				      | Is product available.
-`unitOfMeasure` |`string`                     | Unit of measure.
-`type`          |`string`                     | Product type.
-`category`      |`string`                     | Product category.
-`createdTime`   |`datetime`                   | Product added date.
+Name               | Type                                 | Description
+-------------------|--------------------------------------|---------------------------------
+`name`             |`string`                              | Product name.
+`price`            |`decimal`                             | Product price.
+`isActive`		   |`bool` 				                  | Is product available.
+`unitOfMeasure`    |`string`                              | Unit of measure.
+`type`             |`string`                              | Product type.
+`category`         |`string`                              | Product category.
+`createdTime`      |`datetime`                            | Product added date.
+`clubZoneTypes`    |[ClubZoneTypes][ClubZoneTypes]        | Club zone available with product.
+`categoriesClasses`|[CategoriesClasses][CategoriesClasses]| Classes available with product.
 
 
 
@@ -83,7 +85,7 @@ curl -i
 ```
 ## Club service types ![alt text][EM] 
 
-    GET Products/ClubServiceTypes
+    GET Products/ClubServiceTypes 
 
 Returns club service types list.
 
@@ -121,5 +123,7 @@ curl -i
 
 
 [PrepaidStatus]: /appendix/datatypes/prepaiddetails
+[ClubZoneTypes]: /appendix/datatypes/clubzonetypes
+[CategoriesClasses]: /appendix/datatypes/categoriesClasses
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"
