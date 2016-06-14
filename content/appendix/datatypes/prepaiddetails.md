@@ -18,6 +18,7 @@ Name             | Type      | Description
 `operationType`  |`string`   | Operation type
 `billNumber`	 |`long`     | Bill identifier.
 `cstomerBalance` |`decimal`  | User prepaid account value.
+`operationDate`  |`datetime` | Date of operation
 
 
 

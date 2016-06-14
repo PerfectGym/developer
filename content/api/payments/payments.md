@@ -64,7 +64,10 @@ Use to add funds to user's prepaid account
 Name 	     	    | Type  	| Description
 --------------------|-----------|--------------------
 `userId`  	   		|`long`     | **Required**. User identifier.
-`totalAmmount`  	|`decimal`  | **Required**. Total amount to be add.
+`ammount`  			|`decimal`  | **Required**. Amount to add or withdraw.
+`clubId`			|`decimal`	| Identity of club where payment is made.
+`paymentMethod`		|`string`	| Method of payment: Cash, Card, Online, MoneyTransfer.
+`prepaidSource`		|`string`	| Identity/code/name of machine or device where payment is made.
 
 
 ### Response
@@ -84,7 +87,10 @@ curl -i
      -H "Content-Type: application/json" 
      -d '{
         	"userId": 236,        	
-    		"totalAmount": 32.8
+    		"totalAmount": 32.8,
+			"clubId": 15,
+			"paymentMethod": "Cash",
+			"prepaidSource": "Machine-A01"
     }' 
     http://yoursubdomain.perfectgym.com/Api/Payments/Prepaid     	
 ```

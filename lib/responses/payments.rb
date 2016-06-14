@@ -83,6 +83,7 @@ module GitHub
             "operationType": "CashLessPrepaid",
             "billNumber": "123",
 			"customerBalance": "200",
+			"operationDate": "2016-06-02T14:35:22"
           }
         ]
       }
