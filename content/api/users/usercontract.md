@@ -4,7 +4,7 @@ title: User contracts
 
 # User contracts
 
-This API lest you list, assign and delete user contracts.
+This API lets you list, assign and delete user contracts.
 
 {:toc}
 

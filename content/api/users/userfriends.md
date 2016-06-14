@@ -4,7 +4,7 @@ title: User friends
 
 # User friends
 
-This API lest you assign a friend to a full member user account.
+This API lets you assign a friend to a full member user account.
 
 {:toc}
 

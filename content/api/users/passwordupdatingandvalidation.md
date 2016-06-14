@@ -4,7 +4,7 @@ title: Password updating and validation
 
 # Password updating and validation
 
-This API lest you create user account, update user password and validate user's credentials. 
+This API lets you create user account, update user password and validate user's credentials. 
 User can use it's username and password to login to API in end user mode using varions client web and mobile apps, including:
 - KIOSK web app
 - Client Portal web app

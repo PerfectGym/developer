@@ -4,7 +4,7 @@ title: User credit card
 
 # User credit card
 
-This API lest you assign credit card to a club user.
+This API lets you assign credit card to a club user.
 
 {:toc}
 

@@ -4,7 +4,7 @@ title: User membership card
 
 # User membership card
 
-This API lest you assign membership card to a club user.
+This API lets you assign membership card to a club user.
 
 {:toc}
 

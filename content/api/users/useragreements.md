@@ -4,7 +4,7 @@ title: Agreements
 
 # Agreements
 
-This API lest you store information that user has agreed to marketing and terms and conditions agreements.
+This API lets you store information that user has agreed to marketing and terms and conditions agreements.
 
 {:toc}
 

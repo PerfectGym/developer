@@ -14,35 +14,35 @@ The Users APIs provides access to users list available in your company.
 
 ## [Adding and updating user][AddingUpdatingUser]
 
-[Adding and updating user API][AddingUpdatingUser] lest you add new users to your company users list or update basic data of existing users.
+[Adding and updating user API][AddingUpdatingUser] lets you add new users to your company users list or update basic data of existing users.
 
 
 
 ## [User contract][UserContract]
 
-[User contract API][UserContract] lest you assign contract to a club user.
+[User contract API][UserContract] lets you assign contract to a club user.
 
 
 ## [User credit card][UserCreditCard]
 
-[User credit card API][UserCreditCard] lest you assign credit card to a club user.
+[User credit card API][UserCreditCard] lets you assign credit card to a club user.
 
 
 
 ## [Direct debit][DirectDebit]
 
-[Direct debit API][DirectDebit] lest you assign back account details to a club user.
+[Direct debit API][DirectDebit] lets you assign back account details to a club user.
 
 
 
 ## [Agreements][Agreements]
 
-[Agreements API][Agreements] lest you store information if user has agreed to marketing and terms and conditions agreements.
+[Agreements API][Agreements] lets you store information if user has agreed to marketing and terms and conditions agreements.
 
 
 ## [Password updating and credential validation][PasswordUpdateValidation]
 
-[Password updating and credential validation API][PasswordUpdateValidation] lest you update user password and validate user credentials.
+[Password updating and credential validation API][PasswordUpdateValidation] lets you update user password and validate user credentials.
 
 
 

@@ -4,7 +4,7 @@ title: User photo
 
 # User photo
 
-This API lest you assign photo to a club user.
+This API lets you assign photo to a club user.
 
 {:toc}
 

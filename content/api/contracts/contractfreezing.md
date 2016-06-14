@@ -4,7 +4,7 @@ title: Contract freezing
 
 # Contract freezing
 
-This API lest you freeze user contract.
+This API lets you freeze user contract.
 
 {:toc}
 

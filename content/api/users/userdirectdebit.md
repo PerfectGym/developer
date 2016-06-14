@@ -4,7 +4,7 @@ title: Direct debit
 
 # Direct debit
 
-This API lest you assign bank account details to a club user.
+This API lets you assign bank account details to a club user.
 
 {:toc}
 
