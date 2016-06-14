@@ -124,7 +124,7 @@ Name     	    		| Type       		| Description
 `phoneNumber`  			|`string`    		| **Must be unique**. User phone number.
 `idCardName`			|`string`			| User identity card name.
 `idCardNumber`  		|`string`			| User identity card number.
-`legalGuardian`			|`string`			| User legal guardian full name.
+`legalGuardian`			|[LegalGuardian][LegalGuardian]	| User legal guardian. If object is not null, <strong>then the new legal guardian will be created and the old one will be marked as obsolete</strong>. So this object should be passed with all fields filled.
 `birthDate`     		|`string`    		| User birth date.
 `isForigner`			|`bool`				| Indicates if user is a forigner.
 `showActivityInClub`	|`bool`				| Indicates if user wants to be included in list of user signed up for classes or users present in club. For details see [Who is in class][WhoIsInClass] or [Who is in club][WhoIsInClub].
