@@ -24,5 +24,5 @@ Name            | Type      | Description
 `postalCode`   	|`string`   | Postal code.
 `street`   	    |`string`   | Street name.
 `bankAccount`   |`string`   | Bank account number.
-`signatureData`   |`byte[]`   | **Required**. Signature picture in the form of array of bytes.
+`signatureDataBase64`   |`string`   | **Required**. Signature photo data `base64` encoded.
 
