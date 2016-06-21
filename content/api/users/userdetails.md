@@ -35,6 +35,7 @@ Name            				| Type      				| Description
 `contracts`   					|`array`   					| An array of [Contract][Contract] objects, each representing user's contract.
 `directDebit`					|[DirectDebit][DirectDebit]	| User direct debit information.
 `homeClubId`					|`long`						| User home club identifier.
+`registeredAtClubId`			|`long`						| User registration club identifier.
 `isActive`     					|`bool`     				| Indicates if cuser is marked as active.
 `prepaidAmount`     			|`decimal`     				| User prepaid account value .
 `employee`     			        |[Employee][Employee]     	| If user is a employee, field contains employee details .
