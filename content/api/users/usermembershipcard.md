@@ -8,6 +8,75 @@ This API lets you assign membership card to a club user.
 
 {:toc}
 
+## <a name="properties"></a>Membership card properties
+
+User membership card is described by the following properties
+
+Name            				| Type      				| Description
+--------------------------------|---------------------------|----------------------
+`cardNumber`            		|`string`     				| Number of the card.
+`timestamp`    					|`long`     				| Timestamp. Indicates when resource was last modified.
+`isBlocked`     				|`bool`   					| Card is blocked.
+`isDeleted`        				|`bool`   					| Card is deleted.
+`cardType`						|`string`					| Type of the card: NormalCard, TemporaryCard.
+`contractId`					|`long`						| The current contract identifier at the time of assigning the card.
+`assigneReason`                 |`string`                   | The reason for assigning cards to the user. [List of reasons][AssaigneResons]
+
+[AssaigneResons]: /api/users/usermembershipcard#assaignereasons
+
+## <a name="assaignereasons"></a>Reasons for assigning a membership card
+- NotSpecified
+- ForgottenCard
+- InactiveCard
+- OneDayPass
+- LockerKey
+- GuestCard
+- FriendCard
+- OtherClub
+- TemporaryCard
+- BenefitCard
+- TemporaryGuestCard
+- FingerprintCard
+
+## Get all membership user cards ![alt text][EM]
+
+    GET Users/MembershipCards
+
+Request all membership user cards.
+
+
+### Parameters
+
+Name  	    | Type     		| Description
+------------|---------------|------------
+`userId`    |`long`    		| **Required**. User identifier.
+
+
+### Response
+
+List of user [membership cards][MembershipCardProperties].
+
+
+### Example request
+
+In this example we want to get all cards of user with id = 777
+
+``` command-line
+
+curl -X GET
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	http://yoursubdomain.perfectgym.com/Api/Users/MembershipCards?userId=777
+```
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:membershipcard_response) %>
+
+
+[MembershipCardProperties]: /api/users/usermembershipcard#properties
+
 
 ## Assign membership card to a club user ![alt text][EM]
 
