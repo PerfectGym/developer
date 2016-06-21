@@ -38,7 +38,7 @@ Name     	    | Type       		| Description
 
 ### Example request
 
-In this example we assign new membership card to a user with `id` = `236`.
+In this example we assign new membership card to a user with `id` = `777`.
 
 ``` command-line
 
@@ -48,7 +48,7 @@ curl -X POST
 	 -d '{
 	    "cardNumber": "123456789"	    
 	}' 
-	http://yoursubdomain.perfectgym.com/Api/Users/MembershipCard?userId=236
+	http://yoursubdomain.perfectgym.com/Api/Users/MembershipCard?userId=777
 ```
 
 
@@ -65,6 +65,48 @@ curl -X POST
 [UM]: /assets/images/user.png "User mode"
 
 
+## Detach membership card from club user ![alt text][EM]
+
+	POST Users/DetachMembershipCard
+	
+### Parameters
+
+Name  	    | Type     		| Description
+------------|---------------|------------
+`userId`    |`long`    		| **Required**. User identifier. Request detach membership card to user identified by `userId`.
+
+
+### Body parameters
+
+Name     	    | Type       		| Description
+----------------|-------------------|------------
+`cardNumber` 	|`string`    		| Membership card number.
+
+### Response
+
+[User details][UserDetailsProperties].
+
+
+### Example request
+
+In this example we detach membership card number `123456789` from a user with `id` = `777`.
+
+``` command-line
+
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 -d '{
+	    "cardNumber": "123456789"	    
+	}' 
+	http://yoursubdomain.perfectgym.com/Api/Users/MembershipCard?userId=777
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:usermembershipcard_response) %>
 
 
 ## Block card ![alt text][EM]

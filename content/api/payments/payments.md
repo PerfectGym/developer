@@ -61,13 +61,14 @@ Use to add funds to user's prepaid account
 
 ### Body parameters
 
-Name 	     	    | Type  	| Description
---------------------|-----------|--------------------
-`userId`  	   		|`long`     | **Required**. User identifier.
-`ammount`  			|`decimal`  | **Required**. Amount to add or withdraw.
-`clubId`			|`decimal`	| Identity of club where payment is made.
-`paymentMethod`		|`string`	| Method of payment: Cash, Card, Online, MoneyTransfer.
-`prepaidSource`		|`string`	| Identity/code/name of machine or device where payment is made.
+Name 	     	    	| Type  	| Description
+------------------------|-----------|--------------------
+`userId`  	   			|`long`     | **Required**. User identifier.
+`ammount`  				|`decimal`  | **Required**. Amount to add or withdraw (negative value of amount).
+`clubId`				|`decimal`	| Identity of club where payment is made.
+`paymentMethod`			|`string`	| Method of payment: Cash, Card, Online, MoneyTransfer.
+`prepaidSource`			|`string`	| Max length  36. Identity/code/name of machine or device where payment is made.
+`operationDescription`	|`string`	| Max length 195. Description of the operation, the reaso of the operation.
 
 
 ### Response
@@ -90,7 +91,8 @@ curl -i
     		"totalAmount": 32.8,
 			"clubId": 15,
 			"paymentMethod": "Cash",
-			"prepaidSource": "Machine-A01"
+			"prepaidSource": "Machine-A01",
+			"operationDescription": "Add money by Cash disposal machine"
     }' 
     http://yoursubdomain.perfectgym.com/Api/Payments/Prepaid     	
 ```
