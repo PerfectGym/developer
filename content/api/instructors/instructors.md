@@ -41,6 +41,7 @@ Returns paginated list of instructors available in your company.
 Name         | Type   | Description
 -----|-------|--------|------------
 `timestamp`  |`long`  | Timestamp. Request returns instructors with timestamp grater then `timestamp`, defaults to `0`
+`page`       |`int`   | Limited number of results (page size `100`)
 
 
 ### Example request
