@@ -175,7 +175,7 @@ curl -i
 <td><code>ammount</code></td>
 <td><code>decimal</code></td>
 <td>
-<strong>Required</strong>. Amount to add or withdraw.</td>
+<strong>Required</strong>. Amount to add or withdraw (negative value of amount).</td>
 </tr>
 <tr>
 <td><code>clubId</code></td>
@@ -190,7 +190,12 @@ curl -i
 <tr>
 <td><code>prepaidSource</code></td>
 <td><code>string</code></td>
-<td>Identity/code/name of machine or device where payment is made.</td>
+<td>Max length  36. Identity/code/name of machine or device where payment is made.</td>
+</tr>
+<tr>
+<td><code>operationDescription</code></td>
+<td><code>string</code></td>
+<td>Max length 195. Description of the operation, the reaso of the operation.</td>
 </tr>
 </tbody>
 </table>
@@ -215,7 +220,8 @@ curl -i
             "totalAmount": 32.8,
             "clubId": 15,
             "paymentMethod": "Cash",
-            "prepaidSource": "Machine-A01"
+            "prepaidSource": "Machine-A01",
+            "operationDescription": "Add money by Cash disposal machine"
     }' 
     http://yoursubdomain.perfectgym.com/Api/Payments/Prepaid        
 </pre>
