@@ -110,7 +110,7 @@ module GitHub
             "documentUrl": ""
           },       
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts" => [
@@ -176,7 +176,7 @@ module GitHub
             "documentUrl": ""
           },       
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts" => [
@@ -222,7 +222,7 @@ module GitHub
             "documentUrl": ""
           },                      
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts" => [
@@ -268,7 +268,7 @@ module GitHub
             "documentUrl": ""
           },                 
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts" => [
@@ -315,7 +315,7 @@ module GitHub
             "documentUrl": ""
           },                  
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts": [
@@ -362,7 +362,7 @@ module GitHub
             "documentUrl": ""
           },                  
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts": [            
@@ -408,7 +408,7 @@ module GitHub
             "documentUrl": ""
           },                  
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts": [
@@ -456,7 +456,7 @@ module GitHub
             "documentUrl": ""
           },                 
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts": [
@@ -503,7 +503,7 @@ module GitHub
             "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=123"
           },                 
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts": [
@@ -551,7 +551,7 @@ module GitHub
             "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=123"
           },                 
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts": [
@@ -599,7 +599,7 @@ module GitHub
             "documentUrl": "http://yoursubdomain.perfectgym.com/Api/Files/Files?fileId=123"
           },                 
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts": [
@@ -892,7 +892,7 @@ module GitHub
             "documentUrl": ""
           },                      
           "homeClubId": 12,
-		  "registeredAtClubId": null,
+		  "registeredAtClubId": "",
           "isActive": true,
           "isDeleted": false,
           "contracts" => [
