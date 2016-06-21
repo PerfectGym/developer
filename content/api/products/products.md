@@ -15,6 +15,7 @@ Product is described by the following properties
 
 Name               | Type                                 | Description
 -------------------|--------------------------------------|---------------------------------
+`id`			   |`long`								  | Product identity.
 `name`             |`string`                              | Product name.
 `price`            |`decimal`                             | Product price.
 `isActive`		   |`bool` 				                  | Is product available.
