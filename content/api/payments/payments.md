@@ -64,7 +64,7 @@ Use to add funds to user's prepaid account
 Name 	     	    	| Type  	| Description
 ------------------------|-----------|--------------------
 `userId`  	   			|`long`     | **Required**. User identifier.
-`ammount`  				|`decimal`  | **Required**. Amount to add or withdraw (negative value of amount).
+`totalAmmount` 			|`decimal`  | **Required**. Amount to add or withdraw (negative value of amount).
 `clubId`				|`decimal`	| Identity of club where payment is made.
 `paymentMethod`			|`string`	| Method of payment: Cash, Card, Online, MoneyTransfer.
 `prepaidSource`			|`string`	| Max length  36. Identity/code/name of machine or device where payment is made.
