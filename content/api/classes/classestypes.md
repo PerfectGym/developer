@@ -27,6 +27,7 @@ Name         | Type     | Description
 `rating`     |[Rating][]| Class type rating.
 `ageFromMonths`	 |`int`	| Class type age restriction lower bound.
 `ageToMonths`	 |`int`	| Class type age restriction upper bound.
+`translations`|[ClassTypeTranslation][ClassTypeTranslation]| Class type translations.
 
 
 
@@ -64,6 +65,7 @@ curl -i
 
 
 [Rating]:  /api/classes/ratings#properties
+[ClassTypeTranslation]:  /appendix/datatypes/classtypetranslation
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"
