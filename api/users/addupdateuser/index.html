@@ -101,6 +101,11 @@ Update existing user
 <strong>Required</strong>. User home club identifier.</td>
 </tr>
 <tr>
+<td><code>registeredAtClubId</code></td>
+<td><code>long</code></td>
+<td>Club's identifier where user is registered. When undefined takes <code>homeClubId</code> value.</td>
+</tr>
+<tr>
 <td><code>birthDate</code></td>
 <td><code>string</code></td>
 <td>
@@ -159,6 +164,11 @@ Update existing user
 <td><code>address</code></td>
 <td><a href="/appendix/datatypes/address">Address</a></td>
 <td>User address.</td>
+</tr>
+<tr>
+<td><code>isGuest</code></td>
+<td><code>bool</code></td>
+<td>Indicates if user is a guest without contract, not a permanent club member.</td>
 </tr>
 </tbody>
 </table>
