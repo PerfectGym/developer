@@ -73,6 +73,8 @@ Payment plan properties</a></li>
 </a></li>
 <li><a href="#list-payment-plans-available-in-a-given-club-" id="markdown-toc-list-payment-plans-available-in-a-given-club-">List payment plans available in a given club 
 </a></li>
+<li><a href="#pro-rata-payment-calculation-" id="markdown-toc-pro-rata-payment-calculation-">Pro rata payment calculation 
+</a></li>
 </ul>
 
 <h2>
@@ -334,6 +336,89 @@ curl -i
       </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isAddOnPaymentPlan"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="pro-rata-payment-calculation-" class="anchor" href="#pro-rata-payment-calculation-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pro rata payment calculation <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>GET PaymentPlans/ProrataCalculation
+</code></pre>
+
+<p>Returns calculation of pro rata payment.</p>
+
+<h3>
+<a id="parameters-2" class="anchor" href="#parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paymentPlanId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Payment plan identifier.</td>
+</tr>
+<tr>
+<td><code>startDate</code></td>
+<td><code>datetime</code></td>
+<td>
+<strong>Required</strong>. Calculation start date.</td>
+</tr>
+<tr>
+<td><code>paymentSource</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. Payment source (DirectDebit, CreditCard, Cash).</td>
+</tr>
+<tr>
+<td><code>discountIds</code></td>
+<td><code>array</code></td>
+<td>An array of discounts idenifiers to applay.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/PaymentPlans/ProrataCalculation
+        ?paymentPlanId=1&amp;startDate=2016-01-01&amp;paymentSource=Cash
+</pre>
+
+<h3>
+<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"amountTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"daysProratedCountTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstInstallmentDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-23T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstMonthAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstMonthDaysProratedCount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDiscounted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"nextMonthsAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"nextMonthsDaysProratedCount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"recurringFeeStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-01T00:00:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
