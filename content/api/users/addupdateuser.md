@@ -19,22 +19,23 @@ Request creates new user and adds it to your company user's list.
 
 ### Body parameters
 
-Name     	    | Type       		| Description
-----------------|-------------------|------------
-`email`     	|`string`    		| **Required**. User email address.
-`homeClubId`	|`long`    			| **Required**. User home club identifier.
-`birthDate`     |`string`    		| **Required**. User birth date.
-`personalId`    |`string`    		| User personal identifier.
-`firstName`     |`string`    		| User first name.
-`lastName`     	|`string`    		| User last name.
-`phoneNumber`  	|`string`    		| User phone number.
-`idCardName`	|`string`			| User identity card name.
-`idCardNumber`  |`string`			| User identity card number.
-`legalGuardian`	|[LegalGuardian][LegalGuardian]	| User legal guardian.
-`isForeigner`	|`bool`				| Indicates if user is a forigner.
-`sex`     		|`string`    		| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
-`address`     	|[Address][Address] | User address.
-
+Name     	    		| Type       					| Description
+------------------------|-------------------------------|-------------------------------------
+`email`     			|`string`    					| **Required**. User email address.
+`homeClubId`			|`long`    						| **Required**. User home club identifier.
+`registeredAtClubId`	|`long`							| Club's identifier where user is registered. When undefined takes `homeClubId` value.
+`birthDate`     		|`string`    					| **Required**. User birth date.
+`personalId`    		|`string`    					| User personal identifier.
+`firstName`     		|`string`    					| User first name.
+`lastName`     			|`string`    					| User last name.
+`phoneNumber`  			|`string`    					| User phone number.
+`idCardName`			|`string`						| User identity card name.
+`idCardNumber`  		|`string`						| User identity card number.
+`legalGuardian`			|[LegalGuardian][LegalGuardian]	| User legal guardian.
+`isForeigner`			|`bool`							| Indicates if user is a forigner.
+`sex`     				|`string`    					| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
+`address`     			|[Address][Address] 			| User address.
+`isGuest`				|`bool`							| Indicates if user is a guest without contract, not a permanent club member.
 
   
 
