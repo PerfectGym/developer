@@ -112,6 +112,25 @@ module GitHub
           }
         ]      
       }
+
+       PRORATA_RESPONSE ||= {
+
+        "elements" => [
+          {
+
+			"amountTotal":"125",
+			"daysProratedCountTotal":"30",
+			"firstInstallmentDate":"2016-06-23T00:00:00",
+			"firstMonthAmount":"0",
+			"firstMonthDaysProratedCount":"0",
+			"isDiscounted":"False",
+			"nextMonthsAmount":"125",
+			"nextMonthsDaysProratedCount":"30",
+			"recurringFeeStartDate":"2016-07-01T00:00:00"                
+
+          }
+        ]      
+      }
     end
   end
 end

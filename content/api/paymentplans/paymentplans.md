@@ -106,5 +106,40 @@ curl -i
 <%= json(:paymentplans_response) %>
 
 
+## Pro rata payment calculation ![alt text][EM]
+
+    GET PaymentPlans/ProrataCalculation
+
+Returns calculation of pro rata payment.
+
+
+### Parameters
+
+Name      			| Type     | Description
+--------------------|----------|------------
+`paymentPlanId`  	|`long`    | **Required**. Payment plan identifier.
+`startDate`  		|`datetime`| **Required**. Calculation start date.
+`paymentSource`  	|`string`  | **Required**. Payment source (DirectDebit, CreditCard, Cash).
+`discountIds`  	    |`array `  | An array of discounts idenifiers to applay.
+
+
+### Example request
+
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/PaymentPlans/ProrataCalculation
+     	?paymentPlanId=1&startDate=2016-01-01&paymentSource=Cash
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:prorata_response) %>
+
+
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"
