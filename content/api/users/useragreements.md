@@ -47,8 +47,7 @@ curl -X POST
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 
 	 -d '{
-	    "termsAndConditionsAgreement": true,
-	    "newsletterAgreement": false,	    
+	   "agreementIds" : [3]    
 	}' 
 	http://yoursubdomain.perfectgym.com/Api/Users/Agreements?userId=236
 ```
