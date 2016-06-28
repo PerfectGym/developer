@@ -31,6 +31,8 @@ Name     	    	| Type       		| Description
 `ownerName`     	|`string`    		| Bank account owner name.
 `street`    		|`int`	    		| Bank account owner street.
 `cityAndPostalCode` |`int`				| Bank account owner city and zip code.
+`countrySymbol`     |`string`			| Bank account country symbol.
+`bic`               |`string`			| Bank account BIC number.
 
 
 
@@ -52,7 +54,8 @@ curl -X POST
 	    "accountNumber": "61 1090 1014 0000 0712 1981 2874",
 	    "ownerName": "John Fibo",
 	    "street": "Przyczolkowa 334",
-		"cityAndPostalCode": "02-962 Warszawa",		 
+		"cityAndPostalCode": "02-962 Warszawa",
+        "countrySymbol": "pl",			 
 	}' 
 	http://yoursubdomain.perfectgym.com/Api/Users/DirectDebit?userId=236
 ```

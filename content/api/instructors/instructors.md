@@ -26,6 +26,9 @@ Name            | Type                        | Description
 `rating`        |[Rating][]					  | Instructor's rating.
 `isActive`      |`bool`                       | Indicates if instructor is active.
 `isDeleted`     |`bool`                       | Indicates if resource is deleted.
+`employeePosition`|`string`                   | Instructor's position.
+`clubs`         |`Array`                      | Instructor available in clubs.
+
 
 
 
