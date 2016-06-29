@@ -229,9 +229,9 @@ curl -X PUT
 
 
 
-## Unblock card ![alt text][EM]
+## Unblock card ![alt text][UM]
 
-    POST Users/Card/Unblock
+    PUT Users/Card/Unblock
 
 Request will unblock the card.
 

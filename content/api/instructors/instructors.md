@@ -65,6 +65,81 @@ curl -i
 <%= json(:instructors_response) %>
 
 
+## Availability of instructors ![alt text][EM] 
+
+    GET Instructors/Instructor/Available
+
+Returns paginated list of instructors available in club at a certain time.
+
+
+### Parameters
+
+Name         | Type   	   | Description
+-----|-------|-------------|------------
+`page`       |`int`   	   | Limited number of results (page size `100`)
+`clubId`     |`long`  	   | **Required**. Club identifier
+`employeeId` |`long`   	   | **Required**. Employee identifier
+`startDate`  |`datetime`   | **Required**. Start date
+`endDate`    |`datetime`   | **Required**. End date
+
+
+### Example request
+
+In this example we fetch list of employee availability with id `6456` between `2016-01-01` and `2017-01-01`
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Instructors/Instructor/Available?clubId=38&employeeId=6456&startDate=2016-01-01&endDate=2017-01-01
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:instructors_available_response) %>
+
+
+## Instructor training schedule  ![alt text][EM] 
+
+    GET Instructors/Instructor/Sheduler
+
+Returns list of instructor activity.
+
+
+### Parameters
+
+Name         | Type   	   | Description
+-----|-------|-------------|------------
+`page`       |`int`   	   | Limited number of results (page size `100`)
+`clubId`     |`long`  	   | **Required**. Club identifier
+`employeeId` |`long`   	   | **Required**. Employee identifier
+`startDate`  |`datetime`   | **Required**. Start date
+`endDate`    |`datetime`   | **Required**. End date
+
+
+### Example request
+
+In this example we fetch list of activity assigned to employee with id `6456` between `2016-01-28` and `2016-01-29`
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Instructors/Instructor/Sheduler?clubId=38&employeeId=6456&startDate=2016-01-28&endDate=2016-01-29
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:instructors_sheduler_response) %>
+
+
+
+
+
 [Rating]:  /api/classes/ratings#properties
 
 [EM]: /assets/images/employee.png "Employee mode"
