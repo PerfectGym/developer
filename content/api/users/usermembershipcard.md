@@ -178,9 +178,9 @@ curl -X POST
 <%= json(:usermembershipcard_response) %>
 
 
-## Block card ![alt text][EM]
+## Block card ![alt text][UM]
 
-    POST Users/Card/Block
+    PUT Users/Card/Block
 
 Request blocks users card.
 
@@ -244,7 +244,7 @@ Name     	    				| Type    		| Description
 
 
 
-
+ 
 ### Response
 
 [User details][UserDetailsProperties].
