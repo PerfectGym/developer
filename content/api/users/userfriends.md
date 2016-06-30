@@ -111,15 +111,53 @@ Name  	    | Type     		| Description
 
 ### Example request
 
-In this example we get information about user friends with `id` = `236`.
+In this example we get information about full member users connected to friend with `id` = `236`.
 
 ``` command-line
 
-curl -X POST 
+curl -X GET 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json" 
 	 
 	http://yoursubdomain.perfectgym.com/Api/Users/FriendStatus?userId=236
+```
+
+Example response
+
+<%= headers 200 %>
+<%= json(:userfriend_response) %>
+
+
+## Gets connected friends 
+
+    GET Users/Friends
+
+Get information on the relationship between the user and friends in time
+
+### Parameters
+
+Name  	    | Type     		| Description
+------------|---------------|------------
+`userId`    |`long`    		| **Required**. User identifier.
+
+ 
+
+### Response
+
+[Friends status][UserFriendStatus].
+
+
+### Example request
+
+In this example we get information about friends connected to full member user with `id` = `236`.
+
+``` command-line
+
+curl -X GET 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 
+	http://yoursubdomain.perfectgym.com/Api/Users/Friends?userId=236
 ```
 
 Example response
