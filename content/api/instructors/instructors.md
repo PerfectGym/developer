@@ -28,6 +28,7 @@ Name            | Type                        | Description
 `isDeleted`     |`bool`                       | Indicates if resource is deleted.
 `employeePosition`|`string`                   | Instructor's position.
 `clubs`         |`Array`                      | Instructor available in clubs.
+`categoriesClasses`|`Array`                   | Instructor conducts classes from the selected categories.
 
 
 
@@ -118,7 +119,7 @@ Name         | Type   	   | Description
 `startDate`  |`datetime`   | **Required**. Start date
 `endDate`    |`datetime`   | **Required**. End date
 
-
+ 
 ### Example request
 
 In this example we fetch list of activity assigned to employee with id `6456` between `2016-01-28` and `2016-01-29`
