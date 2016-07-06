@@ -29,6 +29,7 @@ Name            | Type                        | Description
 `employeePosition`|`string`                   | Instructor's position.
 `clubs`         |`Array`                      | Instructor available in clubs.
 `categoriesClasses`|`Array`                   | Instructor conducts classes from the selected categories.
+`services`      |`Array`                      | Services performed by instructor.
 
 
 
