@@ -27,9 +27,12 @@ Name         | Type     | Description
 `rating`     |[Rating][]| Class type rating.
 `ageFromMonths`	 |`int`	| Class type age restriction lower bound.
 `ageToMonths`	 |`int`	| Class type age restriction upper bound.
-`translations`|[ClassTypeTranslation][ClassTypeTranslation]| Class type translations.
+`category`	     |[Category][Category]	    | Class type category.
+`secondCategory` |[Category][Category]	| Class type second category.
+`translations`   |`Array` | An array of [ClassTypeTranslation][ClassTypeTranslation] objects, lass type translations.
+`attributes`     |`Array` | An array of [CustomAttribute][CustomAttribute] objects, class type custom attributes.
 
-
+ 
 
 ## List classes types with timestamp ![alt text][EM] ![alt text][UM]
 
@@ -63,9 +66,10 @@ curl -i
 <%= headers 200 %>
 <%= json(:classtype_response) %>
 
-
+[Category]:  /api/classes/categories#properties
 [Rating]:  /api/classes/ratings#properties
 [ClassTypeTranslation]:  /appendix/datatypes/classtypetranslation
+[CustomAttribute]:  /appendix/datatypes/customattribute
 
 [EM]: /assets/images/employee.png "Employee mode"
 [UM]: /assets/images/user.png "User mode"

@@ -21,6 +21,7 @@ Name         | Type     | Description
 `name`       |`string`  | Class category name.
 `description`|`string`  | Class category description.
 `imageUrl`   |`string`  | Class category image.
+`iconUrl`	 |`string`	| Class type icon URL.
 `classTypes` |`array`   | Classes types in this category.
 `isProductRequiredForBooking` |`string`  | Indicates if classes of this category can be paid for with products.
 
