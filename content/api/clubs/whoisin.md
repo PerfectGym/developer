@@ -9,7 +9,7 @@ This API gives access to information about users currently present in your club.
 {:toc}
 
 
-## List users present in your club ![alt text][EM]
+## List users present in your club ![alt text][UM]
 
     GET Clubs/WhoIsIn
 
