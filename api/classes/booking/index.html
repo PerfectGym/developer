@@ -62,6 +62,8 @@
 </a></li>
 <li><a href="#execute-class-cancel--" id="markdown-toc-execute-class-cancel--">Execute class cancel  
 </a></li>
+<li><a href="#execute-private-training-booking-" id="markdown-toc-execute-private-training-booking-">Execute private training booking 
+</a></li>
 </ul>
 
 <h2>
@@ -434,6 +436,124 @@ curl -i
       </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ClassNotBooked"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="execute-private-training-booking-" class="anchor" href="#execute-private-training-booking-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute private training booking <img src="/assets/images/user.png" alt="alt text" title="User mode">
+</h2>
+
+<pre><code>POST Classes/BookClass/PersonalTraining
+</code></pre>
+
+<p>Signs up user for fitness personal training.</p>
+
+<h3>
+<a id="user-mode-parameters-2" class="anchor" href="#user-mode-parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User mode parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. Reservation title.</td>
+</tr>
+<tr>
+<td><code>startDate</code></td>
+<td><code>datetime</code></td>
+<td>
+<strong>Required</strong>. Reservation starting time.</td>
+</tr>
+<tr>
+<td><code>endDate</code></td>
+<td><code>datetime</code></td>
+<td>
+<strong>Required</strong>. Reservation for a specific time .</td>
+</tr>
+<tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Club identifier.</td>
+</tr>
+<tr>
+<td><code>employeeId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Employee identifier. Employee leading personal training</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>Reservation comment</td>
+</tr>
+<tr>
+<td><code>clubZoneId</code></td>
+<td><code>long</code></td>
+<td>Club zone identifier.</td>
+</tr>
+<tr>
+<td><code>productId</code></td>
+<td><code>long</code></td>
+<td>Product identifier. Product bought by user, related to personal training</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="user-mode-example-request" class="anchor" href="#user-mode-example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User mode example request</h3>
+
+<p>In this example we sign up user for personal training with specific employee <code>id</code> = <code>1677</code></p>
+
+<pre class="command-line">
+curl -X POST 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json" 
+     -d '{
+        "title": "Reservation",
+        "startDate": "2015-12-03T06:15:00",
+        "endDate": "2015-12-03T08:15:00",
+        "clubId": 1,
+        "employeeId": "1677",
+        "clubId": 12            
+    }' 
+    http://yoursubdomain.perfectgym.com/Api/Classes/BookClass/PersonalTraining
+</pre>
+
+<h3>
+<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1324465"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reservation"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T06:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T08:15:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clubId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"employeeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1677"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clubZoneId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isCompleted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isCancelled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"deliveries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[]"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
