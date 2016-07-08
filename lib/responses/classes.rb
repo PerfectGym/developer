@@ -171,7 +171,27 @@ module GitHub
             "clubZone": "Fitness"
           }
         ] 
-      }        
+      } 
+
+      BOOKCLASSPT_RESPONSE ||= {
+		
+         "elements" =>	[
+			{
+				"id": "1324465",
+				"name": "Reservation",
+				"startDate": "2015-12-03T06:15:00",
+				"endDate": "2015-12-03T08:15:00",
+				"comments": "null",
+				"clubId": "12",
+				"employeeId": "1677",
+				"clubZoneId": "null",
+				"productId": "null",
+				"userId": "1",
+				"isCompleted": "false",
+				"isCancelled": "false",
+				"deliveries": "[]"
+			}
+	     ]}    
 
       CANCELCLASS_RESPONSE ||= {      
         

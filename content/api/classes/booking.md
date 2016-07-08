@@ -126,6 +126,59 @@ Subsequent cancel for class with `id` =`1677` and for user with `id` = `40` gene
 
 
 
+## Execute private training booking ![alt text][UM]
+
+    POST Classes/BookClass/PersonalTraining
+
+Signs up user for fitness personal training.
+
+
+
+### User mode parameters 
+
+Name         | Type       | Description
+-----|-------|------------|------------
+`title`      |`string`    | **Required**. Reservation title.
+`startDate`  |`datetime`  | **Required**. Reservation starting time.
+`endDate`    |`datetime`  | **Required**. Reservation for a specific time .
+`clubId`     |`long`      | **Required**. Club identifier.
+`employeeId` |`long`      | **Required**. Employee identifier. Employee leading personal training
+`description`|`string`    | 			  Reservation comment
+`clubZoneId` |`long`      | 			  Club zone identifier. 
+`productId`  |`long`      | 			  Product identifier. Product bought by user, related to personal training
+
+
+
+### User mode example request
+
+In this example we sign up user for personal training with specific employee `id` = `1677`
+
+``` command-line
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 -d '{
+	    "title": "Reservation",
+	    "startDate": "2015-12-03T06:15:00",
+		"endDate": "2015-12-03T08:15:00",
+	    "clubId": 1,
+	    "employeeId": "1677",
+	    "clubId": 12       	    
+	}' 
+	http://yoursubdomain.perfectgym.com/Api/Classes/BookClass/PersonalTraining
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:bookclasspt_response) %>
+
+
+
+
+
+
 [ClassesTypes]:  /api/classes/classestypes#properties
 [UserClassProperties]: /api/classes/userclasses#properties
 [Error]: /appendix/datatypes/error
