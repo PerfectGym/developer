@@ -133,6 +133,7 @@ module GitHub
           {
             "booked": true,
             "attended": true,
+            "standby": false,
             "userClassRating": 5,
             "userInstructorRating": 4,  
             "classType" => CLASSTYPE_BOX,
@@ -156,6 +157,7 @@ module GitHub
           {
             "booked": true,
             "attended": false,
+            "standby": false,
             "userClassRating": "",
             "userInstructorRating": "",  
             "classType" => CLASSTYPE_BOX,
@@ -199,6 +201,7 @@ module GitHub
           {
             "booked": false,
             "attended": false,
+            "standby": false,
             "userClassRating": "",
             "userInstructorRating": "",  
             "classType" => CLASSTYPE_BOX,
@@ -244,6 +247,7 @@ module GitHub
           {
             "booked": true,
             "attended": true,
+            "standby": false,
             "userClassRating": 5,
             "userInstructorRating": "",  
             "classType" => CLASSTYPE_BOX,
@@ -267,6 +271,7 @@ module GitHub
           {
             "booked": true,
             "attended": true,
+            "standby": false,
             "userClassRating": 5,
             "userInstructorRating": 4,  
             "classType" => CLASSTYPE_BOX,

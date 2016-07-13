@@ -19,6 +19,7 @@ Name            		| Type    | Description
 -----|------------------|----------------------
 `booked`     			|`bool`   | `true` if user is signed up for classes, `false` otherwise.
 `attended`    			|`bool`   | `true` if user has attended classes, `false` otherwise.
+`standby`               |`bool`   | `true` if user is on a standby list, `false` otherwise.
 `userClassRating`       |`int`    | User class rating. Value of `1` - `5`, represents user rating of selected class. `null` if user didn't rate class.
 `userInstructorRating`  |`int`    | User instructor rating. Value of `1` - `5`, represents user rating of instructor conducting class. `null` if user didn't rate instructor.
 
