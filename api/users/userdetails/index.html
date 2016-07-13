@@ -99,6 +99,11 @@ User details properties</a></li>
 <td>User membership card number.</td>
 </tr>
 <tr>
+<td><code>cardIsBlocked</code></td>
+<td><code>bool</code></td>
+<td>User membership current card status.</td>
+</tr>
+<tr>
 <td><code>facebookId</code></td>
 <td><code>long</code></td>
 <td>Identifier of Facebook account user has signed up for end user account with. For details see <a href="/api/users/passwordupdatingandvalidation#signupWithFacebook">Sign up with Facebook</a>.</td>
@@ -172,6 +177,11 @@ User details properties</a></li>
 <td><code>contracts</code></td>
 <td><code>array</code></td>
 <td>An array of <a href="/api/contracts/contractdetails#properties">Contract</a> objects, each representing user's contract.</td>
+</tr>
+<tr>
+<td><code>cards</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/appendix/datatypes/card">Card</a> objects, each representing user's membership card.</td>
 </tr>
 <tr>
 <td><code>directDebit</code></td>
