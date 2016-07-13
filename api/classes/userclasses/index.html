@@ -97,6 +97,12 @@ Only user specyfic properties are described here.</p>
 <code>true</code> if user has attended classes, <code>false</code> otherwise.</td>
 </tr>
 <tr>
+<td><code>standby</code></td>
+<td><code>bool</code></td>
+<td>
+<code>true</code> if user is on a standby list, <code>false</code> otherwise.</td>
+</tr>
+<tr>
 <td><code>userClassRating</code></td>
 <td><code>int</code></td>
 <td>User class rating. Value of <code>1</code> - <code>5</code>, represents user rating of selected class. <code>null</code> if user didn't rate class.</td>
@@ -228,6 +234,7 @@ curl -i
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"booked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"standby"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"userClassRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
       </span><span class="nt">"userInstructorRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
       </span><span class="nt">"classType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -400,6 +407,7 @@ curl -i
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"booked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"standby"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"userClassRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
       </span><span class="nt">"userInstructorRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
       </span><span class="nt">"classType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -561,6 +569,7 @@ curl -i
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"booked"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"standby"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="nt">"userClassRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
       </span><span class="nt">"userInstructorRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
       </span><span class="nt">"classType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
