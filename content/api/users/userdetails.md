@@ -18,6 +18,7 @@ Name            				| Type      				| Description
 `personalId`					|`string`					| User personal identifier.
 `number`          				|`string`   				| User number.
 `cardNumber`       				|`string`   				| User membership card number.
+`cardIsBlocked`       			|`bool`   				    | User membership current card status.
 `facebookId`                    |`long`                     | Identifier of Facebook account user has signed up for end user account with. For details see [Sign up with Facebook][SignUpWithFacebook].
 `email`          				|`string`   				| User email address.
 `emailAddressIsConfirmed`		|`bool`						| Does email address has been confirmed by the user.
@@ -33,6 +34,7 @@ Name            				| Type      				| Description
 `termsAndConditionsAgreement`  	|`bool`						| User identity card number.
 `address`           			|[Address][Address]     	| User address.
 `contracts`   					|`array`   					| An array of [Contract][Contract] objects, each representing user's contract.
+`cards`   					    |`array`   					| An array of [Card][Card] objects, each representing user's membership card.
 `directDebit`					|[DirectDebit][DirectDebit]	| User direct debit information.
 `homeClubId`					|`long`						| User home club identifier.
 `registeredAtClubId`			|`long`						| User registration club identifier.
@@ -138,6 +140,7 @@ curl -i
 [User]: /api/users/user#properties
 [Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
+[Card]: /appendix/datatypes/card
 [Employee]: /appendix/datatypes/employee
 [DirectDebit]: /appendix/datatypes/directdebit
 [SignUpWithFacebook]: /api/users/passwordupdatingandvalidation#signupWithFacebook
