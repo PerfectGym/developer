@@ -1,7 +1,7 @@
 ---
 title: Club details
 ---
-
+  
 # Club details
 
 Club details is detaild representation of single club in your company. 
@@ -27,6 +27,7 @@ Name            		| Type    | Description
 `contacts`              |`array`    		  | An array of [Contact][Contact] objects, each representing an individual or a departament in your club, user can reach using e-mail or phone.
 `zones`                 |`array`    		  | An array of [Zone][Zone] objects, each representing a distinct area in club.
 `photos`                |`array`    		  | An array of [Photo][Photo] objects, each representing photo of your club.
+`classes`               |`array`              | An array of [Class type][ClassesType] objects, each representing available class type.
 
 
 
