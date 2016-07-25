@@ -20,9 +20,9 @@ Request assigns new contract to new club user.
 
 Name     	    | Type       				| Description
 ----------------|---------------------------|------------
-`paymentPlanId` |`string`    				| Payment plan identifier. Request creates new contract based on payment plan identified by `paymentPlanId`
-`startDate`     |`string`    				| Contract start date.
-`signDate`     	|`string`    				| Contract sign date.
+`paymentPlanId` |`string`    				| **Required**. Payment plan identifier. Request creates new contract based on payment plan identified by `paymentPlanId`
+`startDate`     |`string`    				| **Required**. Contract start date.
+`signDate`     	|`string`    				| **Required**. Contract sign date.
 `discountIds`   |`array`					| Array of discount identifiers to be applied to contract.
 `email`     	|`string`    				| **Required**. User email address.
 `homeClubId`	|`long`    					| **Required**. User home club identifier.
@@ -80,7 +80,7 @@ curl -X POST
 	        "country": "Poland"
 	    }	    
 	}' 
-	http://yoursubdomain.perfectgym.com/Api/Users/Contract?userId=236
+	http://yoursubdomain.perfectgym.com/Api/Users/UserContract
 ```
 
 
@@ -109,9 +109,9 @@ Name  	    | Type       		| Description
 
 Name     	    | Type       		| Description
 ----------------|-------------------|------------
-`paymentPlanId` |`string`    		| Payment plan identifier. Request creates new contract based on payment plan identified by `paymentPlanId`
-`startDate`     |`string`    		| Contract start date.
-`signDate`     	|`string`    		| Contract sign date.
+`paymentPlanId` |`string`    		| **Required**. Payment plan identifier. Request creates new contract based on payment plan identified by `paymentPlanId`
+`startDate`     |`string`    		| **Required**. Contract start date.
+`signDate`     	|`string`    		| **Required**. Contract sign date.
 `discountIds`   |`array`			| Array of discount identifiers to be applied to contract.
 
 
@@ -207,7 +207,7 @@ Name     	    	| Type       		| Description
 `sourceIp`			|`string`			| IP address of client user signs contract on.
 `comment`			|`string`			| Contract signing comment
 
-
+ 
 ### Response
 
 [User details][UserDetailsProperties] including signed contract URL.

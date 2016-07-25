@@ -1,7 +1,7 @@
 ---
 title: User classes
 ---
-
+ 
 # User classes
 
 User class represents fitness class conducted in your club.
