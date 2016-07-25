@@ -93,18 +93,21 @@ Execute contract signing
 <tr>
 <td><code>paymentPlanId</code></td>
 <td><code>string</code></td>
-<td>Payment plan identifier. Request creates new contract based on payment plan identified by <code>paymentPlanId</code>
+<td>
+<strong>Required</strong>. Payment plan identifier. Request creates new contract based on payment plan identified by <code>paymentPlanId</code>
 </td>
 </tr>
 <tr>
 <td><code>startDate</code></td>
 <td><code>string</code></td>
-<td>Contract start date.</td>
+<td>
+<strong>Required</strong>. Contract start date.</td>
 </tr>
 <tr>
 <td><code>signDate</code></td>
 <td><code>string</code></td>
-<td>Contract sign date.</td>
+<td>
+<strong>Required</strong>. Contract sign date.</td>
 </tr>
 <tr>
 <td><code>discountIds</code></td>
@@ -231,7 +234,7 @@ curl -X POST
             "country": "Poland"
         }       
     }' 
-    http://yoursubdomain.perfectgym.com/Api/Users/Contract?userId=236
+    http://yoursubdomain.perfectgym.com/Api/Users/UserContract
 </pre>
 
 <h3>
@@ -375,18 +378,21 @@ curl -X POST
 <tr>
 <td><code>paymentPlanId</code></td>
 <td><code>string</code></td>
-<td>Payment plan identifier. Request creates new contract based on payment plan identified by <code>paymentPlanId</code>
+<td>
+<strong>Required</strong>. Payment plan identifier. Request creates new contract based on payment plan identified by <code>paymentPlanId</code>
 </td>
 </tr>
 <tr>
 <td><code>startDate</code></td>
 <td><code>string</code></td>
-<td>Contract start date.</td>
+<td>
+<strong>Required</strong>. Contract start date.</td>
 </tr>
 <tr>
 <td><code>signDate</code></td>
 <td><code>string</code></td>
-<td>Contract sign date.</td>
+<td>
+<strong>Required</strong>. Contract sign date.</td>
 </tr>
 <tr>
 <td><code>discountIds</code></td>
