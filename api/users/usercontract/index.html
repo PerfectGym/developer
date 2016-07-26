@@ -189,7 +189,12 @@ Execute contract signing
 <tr>
 <td><code>directDebit</code></td>
 <td><a href="/api/users/userdirectdebit">DirectDebit</a></td>
-<td>Direct debit</td>
+<td>Direct debit.</td>
+</tr>
+<tr>
+<td><code>additionalContracts</code></td>
+<td><code>array</code></td>
+<td>Array of <a href="/api/users/usercontract#parameters">Contracts body parameters</a> objects.</td>
 </tr>
 </tbody>
 </table>
@@ -364,7 +369,8 @@ curl -X POST
 </table>
 
 <h3>
-<a id="body-parameters-1" class="anchor" href="#body-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="--body-parameters" class="anchor" href="#--body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="parameters">  Body parameters</a>
+</h3>
 
 <table>
 <thead>
@@ -645,7 +651,7 @@ curl -X DELETE
 <p>Request is used to sign contract PDF document with a user signature.</p>
 
 <h3>
-<a id="body-parameters-2" class="anchor" href="#body-parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
+<a id="body-parameters-1" class="anchor" href="#body-parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
