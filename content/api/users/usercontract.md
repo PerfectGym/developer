@@ -37,7 +37,8 @@ Name     	    | Type       				| Description
 `isForeigner`	|`bool`						| Indicates if user is a forigner.
 `sex`     		|`string`    				| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     	|[Address][Address] 		| User address.
-`directDebit`   |[DirectDebit][DirectDebit] | Direct debit
+`directDebit`   |[DirectDebit][DirectDebit] | Direct debit.
+`additionalContracts`   |`array`			| Array of [Contracts body parameters][ContractParameters] objects.
 
 
 
@@ -105,7 +106,7 @@ Name  	    | Type       		| Description
 `userId`    |`long`	    		| **Required**. User identifier. Request assigns new contract to user identified by `userId`.
 
 
-### Body parameters
+### <a name="parameters">  Body parameters
 
 Name     	    | Type       		| Description
 ----------------|-------------------|------------
@@ -241,6 +242,7 @@ curl -X POST
 
 
 [UserDetailsProperties]: /api/users/userdetails#properties
+[ContractParameters]: /api/users/usercontract#parameters
 [Contract]: /api/contracts/contractdetails#properties
 [Address]: /appendix/datatypes/address
 [DirectDebit]:  /api/users/userdirectdebit
