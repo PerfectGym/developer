@@ -141,6 +141,87 @@ curl -i
 </span></code></pre>
 
 
+<h2>
+<a id="execute-online-payment-for-product-" class="anchor" href="#execute-online-payment-for-product-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute online payment for product <img src="/assets/images/user.png" alt="alt text" title="User mode">
+</h2>
+
+<pre><code>POST Products/Product/BuyOnline
+</code></pre>
+
+<p>Returns online payment URL and transaction identifier.</p>
+
+<h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>productId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Product identifier.</td>
+</tr>
+<tr>
+<td><code>quantity</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Product quantity.</td>
+</tr>
+<tr>
+<td><code>redirectUrl</code></td>
+<td><code>string</code></td>
+<td>URL with query <code>paymentId</code> parameter attached. Online payment system will redirect to a given url after transaction is completed.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/appendix/datatypes/paymentdetails">Payment details</a> including payment URL user should be redirected to, to proceed with a payment.</p>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we request payment URL, user can execute payment to buy product with <code>productId</code> = <code>2</code>.</p>
+
+<pre class="command-line">
+curl -i 
+     -X POST 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     -H "Content-Type: application/json" 
+     -d '{          
+            "productId": 2,
+            "quantity": 1
+         }' 
+    http://yoursubdomain.perfectgym.com/Api/Products/Product/BuyOnline
+</pre>
+
+<h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"paymentUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://yourcompany.perfectgym.com/example_payment_url"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PGAPI_a12b55c5-d526-4e4e-ae9c"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
 
     </div>
 
