@@ -11,7 +11,7 @@ This API gives access to information about users signed up for classes.
 
 ## List users signed up for given classes ![alt text][EM]
 
-    GET Clubs/WhoIsIn
+    GET Classes/WhoIsIn
 
 Returns list of users signed up for a given class. Only users that agreed to be listed are included. For details see [Update existing user][UpdateExistingUser], `showActivityInClub` property.
 
