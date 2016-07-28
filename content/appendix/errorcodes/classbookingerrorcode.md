@@ -20,6 +20,11 @@ Code            							| Type        | Description
 `DailyZoneBookingLimitReached`				|`string`     | Daily club zone booking limit has been exceeded.
 `UserNotAllowedToAccessClub`				|`string`     | User membership does not allow to access club during selected class.
 `StandbyListLimitReached`					|`string`     | Standby list limit has beed exceeded.
+`InvalidClub` 								|`string`     | Parameter describe by ClubId is invalid or has not occurred in the request.
+`InvalidUser` 								|`string`     | Parameter describe by UserId is invalid or has not occurred in the request.
+`InvalidEmployee` 							|`string`     | Parameter describe by EmployeeId is invalid or has not occurred in the request.
+`StartDateIsToLow` 							|`string`     | Parameter describe by StartDate is invalid or has not occurred in the request.
+`StartDateGtThenEndDate` 					|`string`     | Parameter describe by EndDate is invalid.
 
 
 
