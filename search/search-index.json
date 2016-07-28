@@ -757,7 +757,7 @@
     "title": "Add user error codes",
     
     "url": "/appendix/errorcodes/addusererrorcode/",
-    "body": " Add user error codes    Code Type Description     UserAlreadyExist string User with provided personal id, mobile phone or email already exists.   "
+    "body": " Add user error codes    Code Type Description     UserAlreadyExist string User with provided personal id, mobile phone or email already exists.   InvalidParameters string Parameter describe by 'property' is invalid or has not occurred in the request.     Legal guardian error codes    Code Type Description     NoSignature string Signature parameter has not occurred in the request.   CountrySymbolIsRequired string CountrySymbol parameter has not occurred in the request.   CityIsRequired string City parameter has not occurred in the request.   LastNameIsRequired string LastName parameter has not occurred in the request.   NameIsRequired string Name parameter has not occurred in the request.   InvalidIBAN string Invalid IBAN parameterd in the request.   "
   },
   
   
@@ -765,7 +765,7 @@
     "title": "Class booking error codes",
     
     "url": "/appendix/errorcodes/classbookingerrorcode/",
-    "body": " Class booking error codes    Code Type Description     ClassAlreadyBooked string Class is already booked by the user.   BookingRejected string Booking is rejected.   BookingBlockedForUser string Booking is blocked for user. Booking can be blocked if user signed up for class and didn't show up.   BookingInZoneNotAllowed string User membership does not allow to book classes in a specific club zone.   BookingWithDebitNotAllowed string User has debit.   BookingWithoutActiveContractNotAllowed string User does not have an active membership.   BookingNotAllowed string Booking for selected classes is not allowed.   BookingToLate string It is too late to book selected class.   BookingToSoon string It is to early to book selected class.   DailyBookingLimitReached string Daily club booking limit has beed exceeded.   DailyZoneBookingLimitReached string Daily club zone booking limit has been exceeded.   UserNotAllowedToAccessClub string User membership does not allow to access club during selected class.   StandbyListLimitReached string Standby list limit has beed exceeded.   "
+    "body": " Class booking error codes    Code Type Description     ClassAlreadyBooked string Class is already booked by the user.   BookingRejected string Booking is rejected.   BookingBlockedForUser string Booking is blocked for user. Booking can be blocked if user signed up for class and didn't show up.   BookingInZoneNotAllowed string User membership does not allow to book classes in a specific club zone.   BookingWithDebitNotAllowed string User has debit.   BookingWithoutActiveContractNotAllowed string User does not have an active membership.   BookingNotAllowed string Booking for selected classes is not allowed.   BookingToLate string It is too late to book selected class.   BookingToSoon string It is to early to book selected class.   DailyBookingLimitReached string Daily club booking limit has beed exceeded.   DailyZoneBookingLimitReached string Daily club zone booking limit has been exceeded.   UserNotAllowedToAccessClub string User membership does not allow to access club during selected class.   StandbyListLimitReached string Standby list limit has beed exceeded.   InvalidClub string Parameter describe by ClubId is invalid or has not occurred in the request.   InvalidUser string Parameter describe by UserId is invalid or has not occurred in the request.   InvalidEmployee string Parameter describe by EmployeeId is invalid or has not occurred in the request.   StartDateIsToLow string Parameter describe by StartDate is invalid or has not occurred in the request.   StartDateGtThenEndDate string Parameter describe by EndDate is invalid.   "
   },
   
   
@@ -773,7 +773,7 @@
     "title": "Class cancel error codes",
     
     "url": "/appendix/errorcodes/classcancelerrorcode/",
-    "body": " Class cancel error codes    Code Type Description     ClassNotBooked string User has not been signed up for class.   ToLateToCancel string It is to late to cancel selected class.   "
+    "body": " Class cancel error codes    Code Type Description     ClassNotBooked string User has not been signed up for class.   ToLateToCancel string It is to late to cancel selected class.   CancelLimitExceeded string Cancel limit exceeded in a specific period of time.   "
   },
   
   
@@ -789,7 +789,7 @@
     "title": "Credit card payment error codes",
     
     "url": "/appendix/errorcodes/creditcardpaymenterrorcode/",
-    "body": " Credit card payment error codes    Code Type Description     InvalidUser string User with provided id does not exist.   InvalidClub string User with provided id does not exist.   InvalidTotalAmount string Total amount is not equal to sum of all fees.   NoCreditCard string No credit card data.   PaymentError string Payment provider error.   "
+    "body": " Credit card payment error codes    Code Type Description     InvalidUser string User with provided id does not exist.   InvalidClub string Club with provided id does not exist.   InvalidTotalAmount string Total amount is not equal to sum of all fees.   NoCreditCard string No credit card data.   PaymentError string Payment provider error.   "
   },
   
   
@@ -806,6 +806,14 @@
     
     "url": "/appendix/errorcodes/directdebiterrorcodes/",
     "body": " Direct debit error codes    Code Type Description     InvalidIBAN string IBAN account number is invalid.   "
+  },
+  
+  
+  {
+    "title": "Error codes",
+    
+    "url": "/appendix/errorcodes/errorcode/",
+    "body": " Error codes    Code Type Description     StartDateIsRequired string StartDate is invalid or has not occurred in the request.   SignDateIsRequired string SignDate is invalid or has not occurred in the request.   EndDateIsRequired string EndDate is invalid or has not occurred in the request.   InvalidPropertyId string Object identifier describe by 'property' does not exist.   InvalidPropertyValue string Object identifier describe by 'property' has incorrect value.   UserHasNoCardAssigned string User does not have any card assigned.   CanNotBlockCard string Can't block card of someone else.   EmailTemplateNotDefined string Email template is not defined.   UnableToSendEmail string Unable to send email to reset password.   InvalidToken string Request Token is invalid.   "
   },
   
   
@@ -837,7 +845,7 @@
     "title": "Validate user credentials error codes",
     
     "url": "/appendix/errorcodes/validatecredentialserrorcode/",
-    "body": " Validate user credentials error codes    Code Type Description     InvalidUserNameOrPassword string Username or password is invalid.   "
+    "body": " Validate user credentials error codes    Code Type Description     InvalidUserNameOrPassword string Username or password is invalid.   InvalidPassword string Password has not occurred in the request.   UserNotFound string User does not exist.   InvalidFacebookUser string User does not exist.   "
   },
   
   

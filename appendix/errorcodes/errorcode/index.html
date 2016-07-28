@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Categories classes | Perfectgym Developer Guide</title>
+  <title>Error codes | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,38 +53,66 @@
       
 
 <h1>
-<a id="categories-classes" class="anchor" href="#categories-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Categories classes</h1>
-
-<p>Represents a categories classes.</p>
-
-<h2>
-<a id="categories-classes-properties" class="anchor" href="#categories-classes-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Categories classes properties</h2>
-
-<p>Categories classes is described by the following properties</p>
+<a id="error-codes" class="anchor" href="#error-codes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Error codes</h1>
 
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>Code</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of class.</td>
+<td><code>StartDateIsRequired</code></td>
+<td><code>string</code></td>
+<td>StartDate is invalid or has not occurred in the request.</td>
 </tr>
 <tr>
-<td><code>name</code></td>
+<td><code>SignDateIsRequired</code></td>
 <td><code>string</code></td>
-<td>Class name.</td>
+<td>SignDate is invalid or has not occurred in the request.</td>
 </tr>
 <tr>
-<td><code>description</code></td>
+<td><code>EndDateIsRequired</code></td>
 <td><code>string</code></td>
-<td>Class description.</td>
+<td>EndDate is invalid or has not occurred in the request.</td>
+</tr>
+<tr>
+<td><code>InvalidPropertyId</code></td>
+<td><code>string</code></td>
+<td>Object identifier describe by 'property' does not exist.</td>
+</tr>
+<tr>
+<td><code>InvalidPropertyValue</code></td>
+<td><code>string</code></td>
+<td>Object identifier describe by 'property' has incorrect value.</td>
+</tr>
+<tr>
+<td><code>UserHasNoCardAssigned</code></td>
+<td><code>string</code></td>
+<td>User does not have any card assigned.</td>
+</tr>
+<tr>
+<td><code>CanNotBlockCard</code></td>
+<td><code>string</code></td>
+<td>Can't block card of someone else.</td>
+</tr>
+<tr>
+<td><code>EmailTemplateNotDefined</code></td>
+<td><code>string</code></td>
+<td>Email template is not defined.</td>
+</tr>
+<tr>
+<td><code>UnableToSendEmail</code></td>
+<td><code>string</code></td>
+<td>Unable to send email to reset password.</td>
+</tr>
+<tr>
+<td><code>InvalidToken</code></td>
+<td><code>string</code></td>
+<td>Request Token is invalid.</td>
 </tr>
 </tbody>
 </table>
