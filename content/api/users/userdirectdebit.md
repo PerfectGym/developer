@@ -33,6 +33,7 @@ Name     	    	| Type       		| Description
 `cityAndPostalCode` |`int`				| Bank account owner city and zip code.
 `countrySymbol`     |`string`			| Bank account country symbol.
 `bic`               |`string`			| Bank account BIC number.
+`isPaidByDifferentPerson`	|`bool`						| Indicates if contract is paid by other person.
 
 
 

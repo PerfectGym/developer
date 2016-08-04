@@ -35,6 +35,7 @@ Name     	    | Type       				| Description
 `idCardNumber`  |`string`					| User identity card number.
 `legalGuardian`	|[LegalGuardian][LegalGuardian]	| User legal guardian.
 `isForeigner`	|`bool`						| Indicates if user is a forigner.
+`isPaidByDifferentPerson`	|`bool`						| Indicates if contract is paid by other person.
 `sex`     		|`string`    				| User sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
 `address`     	|[Address][Address] 		| User address.
 `directDebit`   |[DirectDebit][DirectDebit] | Direct debit.
