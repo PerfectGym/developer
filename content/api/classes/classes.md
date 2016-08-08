@@ -23,6 +23,7 @@ Name            | Type                        | Description
 `isDeleted`     |`bool`                       | Indicates if resource is deleted.
 `startDate`     |`datetime`                   | Class start date and time.
 `endDate`       |`datetime`                   | Class end date and time.
+`colorRGB`      |`string`                     | Representing the color set for class.
 `attendeesCount`|`int`                        | Number of users signed up for class.
 `attendeesLimit`|`int`                        | Maximum number of attendees allowed to attend class. `null` if there is no limit.
 

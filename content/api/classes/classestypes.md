@@ -22,6 +22,7 @@ Name         | Type     | Description
 `isDeleted`  |`bool`    | Indicates if resource is deleted.
 `name`       |`string`  | Class type name.
 `description`|`string`  | Class type description.
+`colorRGB`   |`string`  | Representing the color set for class.
 `photoUrl`	 |`string`	| Class type photo URL.
 `iconUrl`	 |`string`	| Class type icon URL.
 `rating`     |[Rating][]| Class type rating.
