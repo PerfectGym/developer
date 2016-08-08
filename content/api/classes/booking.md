@@ -109,7 +109,7 @@ curl -i
      	?classId=1677
      	&userId=40
 ```
-
+ 
 
 ### Example response
 
@@ -163,7 +163,7 @@ curl -X POST
 		"endDate": "2015-12-03T08:15:00",
 	    "clubId": 1,
 	    "employeeId": "1677",
-	    "clubId": 12       	    
+	    "clubZoneId": 12       	    
 	}' 
 	http://yoursubdomain.perfectgym.com/Api/Classes/BookClass/PersonalTraining
 ```
