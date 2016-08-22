@@ -32,6 +32,7 @@ Name         | Type     | Description
 `secondCategory` |[Category][Category]	| Class type second category.
 `translations`   |`Array` | An array of [ClassTypeTranslation][ClassTypeTranslation] objects, lass type translations.
 `attributes`     |`Array` | An array of [CustomAttribute][CustomAttribute] objects, class type custom attributes.
+`availableAtTheClub`     |`Array` | An array of clubs where classes are held.
 
  
 
