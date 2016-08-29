@@ -22,6 +22,7 @@ Name            		| Type    | Description
 `standby`               |`bool`   | `true` if user is on a standby list, `false` otherwise.
 `userClassRating`       |`int`    | User class rating. Value of `1` - `5`, represents user rating of selected class. `null` if user didn't rate class.
 `userInstructorRating`  |`int`    | User instructor rating. Value of `1` - `5`, represents user rating of instructor conducting class. `null` if user didn't rate instructor.
+`products`   |`array`			| Array of [Product][Product] objects. Products to pay for classes
 
 
 
@@ -167,6 +168,7 @@ curl -i
 
 
 [Classes]:  /api/classes/classes
+[Product]:  /appendix/datatypes/product
 [ClassesProperties]:  /api/classes/classes#properties
 
 [EM]: /assets/images/employee.png "Employee mode"
