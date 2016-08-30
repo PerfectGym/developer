@@ -186,6 +186,22 @@
   
   
   {
+    "title": "Measurement sets",
+    
+    "url": "/api/measurements/measurements/",
+    "body": " Measurement sets Measurement set represents a list of user's fitness measurements taken in a given moment.   Measurement set properties List user's measurement sets with timestamp     Measurement set properties Measurement set is described by the following properties    Name Type Description     id long Unique identifier of a measurement set.   timestamp long Timestamp. Indicates when resource was last modified.   addDate datetime Date measurements included in a set were taken.   measurements array An array of Measurement objects, each representing single fitness measurement.   isDeleted bool Indicates if resource is deleted.     List user's measurement sets with timestamp    GET Measurements/Measurements  Returns paginated list of user's measurement sets.  Employee mode parameters    Name Type Description     timestamp long Timestamp. Request returns measurement sets with timestamp grater then timestamp, defaults to 0      User mode parameters    Name Type Description     userId long  Required. User identifier. Request returns measurement sets for user identified with userId.   timestamp long Timestamp. Request returns measurement sets with timestamp grater then timestamp, defaults to 0      Example request In this example we fetch list of user's fitness measurements with timestamp greater then 254000  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Measurements/Measurements?timestamp=254000   Example response Status: 200 OK  { \"elements\": [ { \"addDate\": \"2015-04-17T12:05:29\", \"measurements\": [ { \"name\": \"Weight\", \"value\": 75.0, \"id\": 2798, \"timestamp\": 185000, \"isDeleted\": false }, { \"name\": \"BodyFat\", \"value\": 15.0, \"id\": 2799, \"timestamp\": 185001, \"isDeleted\": false }, { \"name\": \"FatMass\", \"value\": 18.0, \"id\": 2800, \"timestamp\": 185002, \"isDeleted\": false }, { \"name\": \"MuscleMass\", \"value\": 20.0, \"id\": 2801, \"timestamp\": 185003, \"isDeleted\": false }, { \"name\": \"Water\", \"value\": 60.0, \"id\": 2802, \"timestamp\": 185004, \"isDeleted\": false }, { \"name\": \"MetabolicAge\", \"value\": 18.0, \"id\": 2803, \"timestamp\": 185005, \"isDeleted\": false }, { \"name\": \"Visceral\", \"value\": 11.0, \"id\": 2804, \"timestamp\": 185006, \"isDeleted\": false }, { \"name\": \"BMR\", \"value\": 2000.0, \"id\": 2805, \"timestamp\": 185007, \"isDeleted\": false }, { \"name\": \"Height\", \"value\": 190.0, \"id\": 2806, \"timestamp\": 185008, \"isDeleted\": false } ], \"id\": 2560, \"timestamp\": 192992, \"isDeleted\": false } ] } "
+  },
+  
+  
+  {
+    "title": "Measurements",
+    
+    "url": "/api/measurements/",
+    "body": " Measurements The Measurements APIs provides access to club member fitness measurements.  Measurement sets  Measurement sets API gives you read only access to list of user's fitness measurements."
+  },
+  
+  
+  {
     "title": "Membership details",
     
     "url": "/api/memberships/membershipdetails/",
@@ -686,6 +702,14 @@
     
     "url": "/appendix/datatypes/legalGuardian/",
     "body": " Legal guardian Represents users legal guardian data and is used accress all PerfectGym API.  Legal guardian properties Legal guardian is described by the following properties    Name Type Description     name string  Required. Name.   secondName string Second name.   lastName string  Required. Last name.   city string  Required. City name.   country string Country name. Only for imformational purposes.   countrySymbol string  Required. Country ISO symbol. Country is set based on this parameter (not on country name).   postalCode string Postal code.   street string Street name.   bankAccount string Bank account number.   signatureDataBase64 string  Required. Signature photo data base64 encoded.   "
+  },
+  
+  
+  {
+    "title": "Measurement",
+    
+    "url": "/appendix/datatypes/measurement/",
+    "body": " Measuremen Represents single fitness measurement used accress all PerfectGym API.  Measurement properties Measurement is described by the following properties    Name Type Description     id long Unique measurement identifier.   name string Measurement name.   value decimal Measurement value.   timestamp long Timestamp. Indicates when resource was last modified.   isDeleted bool Indicates if resource is deleted.   "
   },
   
   

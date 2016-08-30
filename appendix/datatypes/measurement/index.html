@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Url | Perfectgym Developer Guide</title>
+  <title>Measurement | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -53,14 +53,14 @@
       
 
 <h1>
-<a id="url" class="anchor" href="#url" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Url</h1>
+<a id="measuremen" class="anchor" href="#measuremen" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Measuremen</h1>
 
-<p>Represents an url to your social media service site.</p>
+<p>Represents single fitness measurement used accress all PerfectGym API.</p>
 
 <h2>
-<a id="url-properties" class="anchor" href="#url-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Url properties</h2>
+<a id="measurement-properties" class="anchor" href="#measurement-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Measurement properties</h2>
 
-<p>Url is described by the following properties</p>
+<p>Measurement is described by the following properties</p>
 
 <table>
 <thead>
@@ -74,34 +74,22 @@
 <tr>
 <td><code>id</code></td>
 <td><code>long</code></td>
-<td>Unique identifier of an url.</td>
+<td>Unique measurement identifier.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Measurement name.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td><code>decimal</code></td>
+<td>Measurement value.</td>
 </tr>
 <tr>
 <td><code>timestamp</code></td>
 <td><code>long</code></td>
 <td>Timestamp. Indicates when resource was last modified.</td>
-</tr>
-<tr>
-<td><code>mediaType</code></td>
-<td><code>string</code></td>
-<td>Type of internet site or social media service. <br><strong>Possible values</strong>: <br><ul>
-<li>Facebook</li>
-<li>Twitter</li>
-<li>LinkedIn</li>
-<li>YouTube</li>
-<li>Pinterest</li>
-<li>Instagram,</li>
-<li>Foursquare</li>
-<li>Blog</li>
-<li>GooglePlus</li>
-<li>GoogleMaps</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td><code>url</code></td>
-<td><code>string</code></td>
-<td>Url to a site.</td>
 </tr>
 <tr>
 <td><code>isDeleted</code></td>
