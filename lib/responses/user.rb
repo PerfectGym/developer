@@ -69,7 +69,17 @@ module GitHub
 	        "dateFrom": "2016-01-26T00:00:00",
 	        "dateTo": "2016-02-26T00:00:00",
 		 ]                     
-      }                
+      }  
+
+       USER_PRODUCTS ||= {        
+        "elements" => [
+	        {
+            "productId": 10,	       
+	        "productName": "1 x PT",
+	        "quantity": "10"
+            }
+		 ]                     
+      }                   
 
 
       USER_RESPONSE ||= {

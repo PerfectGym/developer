@@ -22,6 +22,10 @@ The Users APIs provides access to users list available in your company.
 
 [User contract API][UserContract] lets you assign contract to a club user.
 
+## [User product][UserProduct]
+
+[User product API][UserProduct] lets you list user's products.
+
 
 ## [User credit card][UserCreditCard]
 
@@ -56,6 +60,7 @@ The Users APIs provides access to users list available in your company.
 [UserDetails]: /api/users/userdetails/
 [AddingUpdatingUser]: /api/users/addupdateuser
 [UserContract]: /api/users/usercontract
+[UserProduct]: /api/users/userproduct
 [UserCreditCard]: /api/users/usercreditcard
 [DirectDebit]: /api/users/userdirectdebit
 [Agreements]: /api/users/useragreements
