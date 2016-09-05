@@ -13,6 +13,7 @@
   
   <script src="/assets/javascripts/dev_mode.js" type="text/javascript"></script>
   
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500,300italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 
@@ -24,10 +25,12 @@
     <div>
       <a class="logo" href="/">PerfectGym:Developer</a>
       <ul class="nav">
-        <li><a href="/api/" class="nav-api">API</a></li>        
+        <!--<li><a href="/api/" class="nav-api">API</a></li>-->
+        <li><a href="/api/" class="">Reference</a></li>
+        <li><a href="/appendix/datatypes/address/" class="">Appendix</a></li>
         <!-- <li><a href="/changes/" class="nav-blog">Blog</a></li>         -->
         <li id="search-container">
-          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search ...</label>
           <div class="cancel-search"></div>
           <ul id="search-results">
 
@@ -39,126 +42,9 @@
 </div><!-- #header-wrapper -->
 
 
-  <div class="sub-nav">
-    <h2><a href="/api/">API</a></h2>
-
-    <ul>
-      <li><a href="/api/" class="active">Reference</a></li>      
-      <li><a href="/appendix/datatypes/address">Appendix</a></li>
-    </ul>
-  </div>
-
   <div id="wrapper">
-    <div class="content">
-      
-
-<h1>
-<a id="payment-status" class="anchor" href="#payment-status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Payment status</h1>
-
-<p>Payment status represents status of payment executed via online payment system.</p>
-
-<ul id="markdown-toc">
-<li><a href="#payment-status-properties" id="markdown-toc-payment-status-properties">
-Payment status properties</a></li>
-<li><a href="#retrive-payment-status-" id="markdown-toc-retrive-payment-status-">Retrive payment status 
-</a></li>
-</ul>
-
-<h2>
-<a id="payment-status-properties" class="anchor" href="#payment-status-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
-<a name="properties"></a>Payment status properties</h2>
-
-<p>Payment status is described by the following properties</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>status</code></td>
-<td><code>string</code></td>
-<td>Payment status. <br><strong>Possible values</strong>: <br><ul>
-<li>Success</li>
-<li>InProgress</li>
-<li>Error</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td><code>errorMessage</code></td>
-<td><code>string</code></td>
-<td>Error message in case <code>status</code> = <code>Error</code>.</td>
-</tr>
-</tbody>
-</table>
-
-<h2>
-<a id="retrive-payment-status-" class="anchor" href="#retrive-payment-status-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrive payment status <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
-</h2>
-
-<pre><code>GET Payments/PaymentStatus
-</code></pre>
-
-<p>Returns status for online payment identified with <code>paymentId</code>.</p>
-
-<h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>paymentId</code></td>
-<td><code>string</code></td>
-<td>Payment identifier returned by payment method in <a href="/appendix/datatypes/paymentdetails">payment details</a>
-</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
-
-<p>In this example we fetch payment status for payment identified with <code>paymentId</code> = <code>PGAPI_a12b55c5-d526-4e4e-ae9c</code></p>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Payments/PaymentStatus
-        ?paymentId=PGAPI_a12b55c5-d526-4e4e-ae9c
-</pre>
-
-<h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
-
-<pre class="highlight highlight-headers"><code>Status: 200 OK
-</code></pre>
-
-
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-
-
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -293,7 +179,125 @@ curl -i
 	<!-- <div class="sidebar-module api-status"><a href="https://status.github.com" class="unknown">API Status</a></div> -->
 </div><!-- /sidebar-shell -->
 
-  </div><!-- #wrapper -->
+
+    <div class="content">
+      
+
+<h1>
+<a id="payment-status" class="anchor" href="#payment-status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Payment status</h1>
+
+<p>Payment status represents status of payment executed via online payment system.</p>
+
+<ul id="markdown-toc">
+<li><a href="#payment-status-properties" id="markdown-toc-payment-status-properties">
+Payment status properties</a></li>
+<li><a href="#retrive-payment-status-" id="markdown-toc-retrive-payment-status-">Retrive payment status 
+</a></li>
+</ul>
+
+<h2>
+<a id="payment-status-properties" class="anchor" href="#payment-status-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<a name="properties"></a>Payment status properties</h2>
+
+<p>Payment status is described by the following properties</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Payment status. <br><strong>Possible values</strong>: <br><ul>
+<li>Success</li>
+<li>InProgress</li>
+<li>Error</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>errorMessage</code></td>
+<td><code>string</code></td>
+<td>Error message in case <code>status</code> = <code>Error</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="retrive-payment-status-" class="anchor" href="#retrive-payment-status-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrive payment status <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>GET Payments/PaymentStatus
+</code></pre>
+
+<p>Returns status for online payment identified with <code>paymentId</code>.</p>
+
+<h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paymentId</code></td>
+<td><code>string</code></td>
+<td>Payment identifier returned by payment method in <a href="/appendix/datatypes/paymentdetails">payment details</a>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch payment status for payment identified with <code>paymentId</code> = <code>PGAPI_a12b55c5-d526-4e4e-ae9c</code></p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Payments/PaymentStatus
+        ?paymentId=PGAPI_a12b55c5-d526-4e4e-ae9c
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+
+    </div>
+
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
+    </div>
+
+  </div>
+  <!-- #wrapper -->
 
     <!-- <div id="footer" >
     <div class="lower_footer">

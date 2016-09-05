@@ -13,6 +13,7 @@
   
   <script src="/assets/javascripts/dev_mode.js" type="text/javascript"></script>
   
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500,300italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 
@@ -24,10 +25,12 @@
     <div>
       <a class="logo" href="/">PerfectGym:Developer</a>
       <ul class="nav">
-        <li><a href="/api/" class="nav-api">API</a></li>        
+        <!--<li><a href="/api/" class="nav-api">API</a></li>-->
+        <li><a href="/api/" class="">Reference</a></li>
+        <li><a href="/appendix/datatypes/address/" class="">Appendix</a></li>
         <!-- <li><a href="/changes/" class="nav-blog">Blog</a></li>         -->
         <li id="search-container">
-          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search ...</label>
           <div class="cancel-search"></div>
           <ul id="search-results">
 
@@ -39,71 +42,9 @@
 </div><!-- #header-wrapper -->
 
 
-  <div class="sub-nav">
-    <h2><a href="/api/">API</a></h2>
-
-    <ul>
-      <li><a href="/api/" class="active">Reference</a></li>      
-      <li><a href="/appendix/datatypes/address">Appendix</a></li>
-    </ul>
-  </div>
-
   <div id="wrapper">
-    <div class="content">
-      
-
-<h1>
-<a id="classes" class="anchor" href="#classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Classes</h1>
-
-<p>The Classes APIs provides access to class schedule, bookings and ratings.</p>
-
-<h2>
-<a id="classes-types" class="anchor" href="#classes-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/classestypes/">Classes types</a>
-</h2>
-
-<p><a href="/api/classes/classestypes/">Classes types API</a> gives you read only access to list of classes types 
-available in your gym.</p>
-
-<h2>
-<a id="classes-1" class="anchor" href="#classes-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/classes/">Classes</a>
-</h2>
-
-<p><a href="/api/classes/classes/">Classes API</a> gives you read only access to list of fitness classes 
-available in your gym.</p>
-
-<h2>
-<a id="classes-categories" class="anchor" href="#classes-categories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/categories/">Classes categories</a>
-</h2>
-
-<p><a href="/api/classes/categories/">Classes categories API</a> gives you read only access to list of fitness classes categories
-available in your gym.</p>
-
-<h2>
-<a id="user-classes" class="anchor" href="#user-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/userclasses/">User classes</a>
-</h2>
-
-<p><a href="/api/classes/userclasses/">User Classes API</a> gives you read only access to user specyfic list of fitness classes 
-available in your gym. It also a</p>
-
-<h2>
-<a id="booking" class="anchor" href="#booking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/booking/">Booking</a>
-</h2>
-
-<p><a href="/api/classes/booking/">Booking API</a> allows to book and cancel fitness classes.</p>
-
-<h2>
-<a id="ratings" class="anchor" href="#ratings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/ratings/">Ratings</a>
-</h2>
-
-<p><a href="/api/classes/ratings/">Ratings API</a> allows to rate classes and instructors.</p>
-
-<h2>
-<a id="who-is-in" class="anchor" href="#who-is-in" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/whoisin/">Who is in</a>
-</h2>
-
-<p><a href="/api/classes/whoisin/">Who is in API</a> gives you read only access to information about users signed up for classes.</p>
-
-
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -238,7 +179,70 @@ available in your gym. It also a</p>
 	<!-- <div class="sidebar-module api-status"><a href="https://status.github.com" class="unknown">API Status</a></div> -->
 </div><!-- /sidebar-shell -->
 
-  </div><!-- #wrapper -->
+
+    <div class="content">
+      
+
+<h1>
+<a id="classes" class="anchor" href="#classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Classes</h1>
+
+<p>The Classes APIs provides access to class schedule, bookings and ratings.</p>
+
+<h2>
+<a id="classes-types" class="anchor" href="#classes-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/classestypes/">Classes types</a>
+</h2>
+
+<p><a href="/api/classes/classestypes/">Classes types API</a> gives you read only access to list of classes types 
+available in your gym.</p>
+
+<h2>
+<a id="classes-1" class="anchor" href="#classes-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/classes/">Classes</a>
+</h2>
+
+<p><a href="/api/classes/classes/">Classes API</a> gives you read only access to list of fitness classes 
+available in your gym.</p>
+
+<h2>
+<a id="classes-categories" class="anchor" href="#classes-categories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/categories/">Classes categories</a>
+</h2>
+
+<p><a href="/api/classes/categories/">Classes categories API</a> gives you read only access to list of fitness classes categories
+available in your gym.</p>
+
+<h2>
+<a id="user-classes" class="anchor" href="#user-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/userclasses/">User classes</a>
+</h2>
+
+<p><a href="/api/classes/userclasses/">User Classes API</a> gives you read only access to user specyfic list of fitness classes 
+available in your gym. It also a</p>
+
+<h2>
+<a id="booking" class="anchor" href="#booking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/booking/">Booking</a>
+</h2>
+
+<p><a href="/api/classes/booking/">Booking API</a> allows to book and cancel fitness classes.</p>
+
+<h2>
+<a id="ratings" class="anchor" href="#ratings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/ratings/">Ratings</a>
+</h2>
+
+<p><a href="/api/classes/ratings/">Ratings API</a> allows to rate classes and instructors.</p>
+
+<h2>
+<a id="who-is-in" class="anchor" href="#who-is-in" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/classes/whoisin/">Who is in</a>
+</h2>
+
+<p><a href="/api/classes/whoisin/">Who is in API</a> gives you read only access to information about users signed up for classes.</p>
+
+
+    </div>
+
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
+    </div>
+
+  </div>
+  <!-- #wrapper -->
 
     <!-- <div id="footer" >
     <div class="lower_footer">

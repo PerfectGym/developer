@@ -13,6 +13,7 @@
   
   <script src="/assets/javascripts/dev_mode.js" type="text/javascript"></script>
   
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500,300italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 
@@ -24,10 +25,12 @@
     <div>
       <a class="logo" href="/">PerfectGym:Developer</a>
       <ul class="nav">
-        <li><a href="/api/" class="nav-api">API</a></li>        
+        <!--<li><a href="/api/" class="nav-api">API</a></li>-->
+        <li><a href="/api/" class="">Reference</a></li>
+        <li><a href="/appendix/datatypes/address/" class="">Appendix</a></li>
         <!-- <li><a href="/changes/" class="nav-blog">Blog</a></li>         -->
         <li id="search-container">
-          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search ...</label>
           <div class="cancel-search"></div>
           <ul id="search-results">
 
@@ -39,16 +42,144 @@
 </div><!-- #header-wrapper -->
 
 
-  <div class="sub-nav">
-    <h2><a href="/api/">API</a></h2>
-
-    <ul>
-      <li><a href="/api/" class="active">Reference</a></li>      
-      <li><a href="/appendix/datatypes/address">Appendix</a></li>
-    </ul>
-  </div>
-
   <div id="wrapper">
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/">Overview</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/overview/requests/">Requests</a></li> 
+          <li><a href="/api/overview/pagination/">Pagination</a></li>          
+          <li><a href="/api/overview/responses/">Responses</a></li>          
+          <li><a href="/api/overview/authentication/">Authentication</a></li>          
+          <li><a href="/api/overview/versions/">Versions</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/classes/">Classes</a></h3>
+        <ul class="js-guides">
+          <li><a href="/api/classes/classestypes/">Classes types</a></li>
+          <li><a href="/api/classes/classes/">Classes</a></li>
+          <li><a href="/api/classes/categories/">Categories</a></li>
+          <li><a href="/api/classes/userclasses/">User classes</a></li>
+          <li><a href="/api/classes/booking/">Booking</a></li>
+          <li><a href="/api/classes/ratings/">Ratings</a></li>
+          <li><a href="/api/classes/whoisin/">Who is in</a></li>          
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/clubs/">Clubs</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/clubs/clubs/">Clubs</a></li> 
+          <li><a href="/api/clubs/clubdetails/">Club details</a></li> 
+          <li><a href="/api/clubs/whoisin/">Who is in</a></li> 
+        </ul>
+      </li> 
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/instructors/">Instructors</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/instructors/instructors/">Instructors</a></li>           
+        </ul>
+      </li>  
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/memberships/">Memberships</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/memberships/memberships/">Memberships</a></li>   
+          <li><a href="/api/memberships/membershipdetails/">Membership details</a></li>                               
+        </ul>
+      </li>  
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/paymentplans/">Payment plans</a></h3>
+        <ul class="js-guides">                    
+          <li><a href="/api/paymentplans/paymentplans/">Payment plans</a></li>   
+          <li><a href="/api/paymentplans/paymentplandetails/">Payment plan details</a></li>  
+          <li><a href="/api/paymentplans/discounts/">Discounts</a></li>   
+        </ul>
+      </li>   
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/contracts/">Contracts</a></h3>
+        <ul class="js-guides">                    
+          <li><a href="/api/contracts/contracts/">Contracts</a></li>   
+          <li><a href="/api/contracts/contractdetails/">Contract details</a></li>  
+          <li><a href="/api/contracts/freezereasons/">Freeze reasons</a></li>
+          <li><a href="/api/contracts/freezetypes/">Freeze types</a></li>            
+          <li><a href="/api/contracts/freezetypedetails/">Freeze type details</a></li>            
+          <li><a href="/api/contracts/contractfreezing/">Contract freezing</a></li> 
+        </ul>
+      </li>     
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/users/">Users</a></h3>
+        <ul class="js-guides">          
+        <li><a href="/api/users/user/">User</a></li>    
+          <li><a href="/api/users/userdetails/">User details</a></li>    
+          <li><a href="/api/users/addupdateuser/">Adding and updating user</a></li>   
+          <li><a href="/api/users/userphoto/">User photo</a></li>  
+          <li><a href="/api/users/usercontract/">User contract</a></li>           
+          <li><a href="/api/users/usercreditcard/">User credit card</a></li>           
+          <li><a href="/api/users/userdirectdebit/">User direct debit</a></li>  
+          <li><a href="/api/users/useragreements/">User agreements</a></li>   
+          <li><a href="/api/users/usermembershipcard/">User membership card</a></li>           
+          <li><a href="/api/users/userfriends/">Bring a friend</a></li>           
+          <li><a href="/api/users/passwordupdatingandvalidation/">Account signup, password reset & credentials validation</a></li>          
+          <li><a href="/api/users/clubvisits/">User club visits</a></li>          
+        </ul>
+      </li> 
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/measurements/">Measurements</a></h3>
+        <ul class="js-guides">          
+          <li><a href="/api/measurements/measurements/">Measurement sets</a></li>           
+        </ul>
+      </li>     
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/documents/">Documents</a></h3>
+        <ul class="js-guides">                    
+          <li><a href="/api/documents/documents/">User documents</a></li>           
+        </ul>
+      </li>     
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/messages/">Messages</a></h3>
+        <ul class="js-guides">                    
+          <li><a href="/api/messages/messages/">Messages</a></li>           
+          <li><a href="/api/messages/messagedetails/">Message details</a></li>           
+        </ul>
+      </li>     
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/payments/">Payments</a></h3>
+        <ul class="js-guides">                    
+          <li><a href="/api/payments/contractfees/">Pending contract fees</a></li>                        
+          <li><a href="/api/payments/payments/">Payments</a></li>                        
+          <li><a href="/api/payments/paymentstatus/">Payment status</a></li>                        
+        </ul>
+      </li>
+		<li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/products/">Products</a></h3>
+        <ul class="js-guides">                    
+          <li><a href="/api/products/products/">Products</a></li>
+          <li><a href="/api/products/buyproduct/">Buy product</a></li>                     
+        </ul>
+      </li>                  
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/miscellaneous/">Miscellaneous</a></h3>
+        <ul class="js-guides">                    
+          <li><a href="/api/miscellaneous/cities/">Cities</a></li>              
+          <li><a href="/api/miscellaneous/countries/">Countries</a></li>              
+        </ul>
+      </li>     
+             
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <!-- <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/github/developer.github.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div> -->
+	<!-- <div class="sidebar-module api-status"><a href="https://status.github.com" class="unknown">API Status</a></div> -->
+</div><!-- /sidebar-shell -->
+
+
     <div class="content">
       
 
@@ -538,139 +669,12 @@ curl -i
 
     </div>
 
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/">Overview</a></h3>
-        <ul class="js-guides">          
-          <li><a href="/api/overview/requests/">Requests</a></li> 
-          <li><a href="/api/overview/pagination/">Pagination</a></li>          
-          <li><a href="/api/overview/responses/">Responses</a></li>          
-          <li><a href="/api/overview/authentication/">Authentication</a></li>          
-          <li><a href="/api/overview/versions/">Versions</a></li>
-        </ul>
-      </li>
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/classes/">Classes</a></h3>
-        <ul class="js-guides">
-          <li><a href="/api/classes/classestypes/">Classes types</a></li>
-          <li><a href="/api/classes/classes/">Classes</a></li>
-          <li><a href="/api/classes/categories/">Categories</a></li>
-          <li><a href="/api/classes/userclasses/">User classes</a></li>
-          <li><a href="/api/classes/booking/">Booking</a></li>
-          <li><a href="/api/classes/ratings/">Ratings</a></li>
-          <li><a href="/api/classes/whoisin/">Who is in</a></li>          
-        </ul>
-      </li>
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/clubs/">Clubs</a></h3>
-        <ul class="js-guides">          
-          <li><a href="/api/clubs/clubs/">Clubs</a></li> 
-          <li><a href="/api/clubs/clubdetails/">Club details</a></li> 
-          <li><a href="/api/clubs/whoisin/">Who is in</a></li> 
-        </ul>
-      </li> 
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/instructors/">Instructors</a></h3>
-        <ul class="js-guides">          
-          <li><a href="/api/instructors/instructors/">Instructors</a></li>           
-        </ul>
-      </li>  
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/memberships/">Memberships</a></h3>
-        <ul class="js-guides">          
-          <li><a href="/api/memberships/memberships/">Memberships</a></li>   
-          <li><a href="/api/memberships/membershipdetails/">Membership details</a></li>                               
-        </ul>
-      </li>  
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/paymentplans/">Payment plans</a></h3>
-        <ul class="js-guides">                    
-          <li><a href="/api/paymentplans/paymentplans/">Payment plans</a></li>   
-          <li><a href="/api/paymentplans/paymentplandetails/">Payment plan details</a></li>  
-          <li><a href="/api/paymentplans/discounts/">Discounts</a></li>   
-        </ul>
-      </li>   
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/contracts/">Contracts</a></h3>
-        <ul class="js-guides">                    
-          <li><a href="/api/contracts/contracts/">Contracts</a></li>   
-          <li><a href="/api/contracts/contractdetails/">Contract details</a></li>  
-          <li><a href="/api/contracts/freezereasons/">Freeze reasons</a></li>
-          <li><a href="/api/contracts/freezetypes/">Freeze types</a></li>            
-          <li><a href="/api/contracts/freezetypedetails/">Freeze type details</a></li>            
-          <li><a href="/api/contracts/contractfreezing/">Contract freezing</a></li> 
-        </ul>
-      </li>     
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/users/">Users</a></h3>
-        <ul class="js-guides">          
-        <li><a href="/api/users/user/">User</a></li>    
-          <li><a href="/api/users/userdetails/">User details</a></li>    
-          <li><a href="/api/users/addupdateuser/">Adding and updating user</a></li>   
-          <li><a href="/api/users/userphoto/">User photo</a></li>  
-          <li><a href="/api/users/usercontract/">User contract</a></li>           
-          <li><a href="/api/users/usercreditcard/">User credit card</a></li>           
-          <li><a href="/api/users/userdirectdebit/">User direct debit</a></li>  
-          <li><a href="/api/users/useragreements/">User agreements</a></li>   
-          <li><a href="/api/users/usermembershipcard/">User membership card</a></li>           
-          <li><a href="/api/users/userfriends/">Bring a friend</a></li>           
-          <li><a href="/api/users/passwordupdatingandvalidation/">Account signup, password reset & credentials validation</a></li>          
-          <li><a href="/api/users/clubvisits/">User club visits</a></li>          
-        </ul>
-      </li> 
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/measurements/">Measurements</a></h3>
-        <ul class="js-guides">          
-          <li><a href="/api/measurements/measurements/">Measurement sets</a></li>           
-        </ul>
-      </li>     
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/documents/">Documents</a></h3>
-        <ul class="js-guides">                    
-          <li><a href="/api/documents/documents/">User documents</a></li>           
-        </ul>
-      </li>     
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/messages/">Messages</a></h3>
-        <ul class="js-guides">                    
-          <li><a href="/api/messages/messages/">Messages</a></li>           
-          <li><a href="/api/messages/messagedetails/">Message details</a></li>           
-        </ul>
-      </li>     
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/payments/">Payments</a></h3>
-        <ul class="js-guides">                    
-          <li><a href="/api/payments/contractfees/">Pending contract fees</a></li>                        
-          <li><a href="/api/payments/payments/">Payments</a></li>                        
-          <li><a href="/api/payments/paymentstatus/">Payment status</a></li>                        
-        </ul>
-      </li>
-		<li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/products/">Products</a></h3>
-        <ul class="js-guides">                    
-          <li><a href="/api/products/products/">Products</a></li>
-          <li><a href="/api/products/buyproduct/">Buy product</a></li>                     
-        </ul>
-      </li>                  
-      <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/miscellaneous/">Miscellaneous</a></h3>
-        <ul class="js-guides">                    
-          <li><a href="/api/miscellaneous/cities/">Cities</a></li>              
-          <li><a href="/api/miscellaneous/countries/">Countries</a></li>              
-        </ul>
-      </li>     
-             
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <!-- <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/github/developer.github.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div> -->
-	<!-- <div class="sidebar-module api-status"><a href="https://status.github.com" class="unknown">API Status</a></div> -->
-</div><!-- /sidebar-shell -->
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
+    </div>
 
-  </div><!-- #wrapper -->
+  </div>
+  <!-- #wrapper -->
 
     <!-- <div id="footer" >
     <div class="lower_footer">

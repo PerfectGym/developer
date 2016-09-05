@@ -13,6 +13,7 @@
   
   <script src="/assets/javascripts/dev_mode.js" type="text/javascript"></script>
   
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500,300italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 
@@ -24,10 +25,12 @@
     <div>
       <a class="logo" href="/">PerfectGym:Developer</a>
       <ul class="nav">
-        <li><a href="/api/" class="nav-api">API</a></li>        
+        <!--<li><a href="/api/" class="nav-api">API</a></li>-->
+        <li><a href="/api/" class="">Reference</a></li>
+        <li><a href="/appendix/datatypes/address/" class="">Appendix</a></li>
         <!-- <li><a href="/changes/" class="nav-blog">Blog</a></li>         -->
         <li id="search-container">
-          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search ...</label>
           <div class="cancel-search"></div>
           <ul id="search-results">
 
@@ -39,134 +42,9 @@
 </div><!-- #header-wrapper -->
 
 
-  <div class="sub-nav">
-    <h2><a href="/api/">API</a></h2>
-
-    <ul>
-      <li><a href="/api/" class="active">Reference</a></li>      
-      <li><a href="/appendix/datatypes/address">Appendix</a></li>
-    </ul>
-  </div>
-
   <div id="wrapper">
-    <div class="content">
-      
-
-<h1>
-<a id="countries" class="anchor" href="#countries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Countries</h1>
-
-<ul id="markdown-toc">
-<li><a href="#country-properties" id="markdown-toc-country-properties">
-Country properties</a></li>
-<li><a href="#list-countries-with-given-name-" id="markdown-toc-list-countries-with-given-name-">List countries with given name 
-</a></li>
-</ul>
-
-<h2>
-<a id="country-properties" class="anchor" href="#country-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
-<a name="properties"></a>Country properties</h2>
-
-<p>Country is described by the following properties</p>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>id</code></td>
-<td><code>long</code></td>
-<td>Unique identifier of country.</td>
-</tr>
-<tr>
-<td><code>symbol</code></td>
-<td><code>string</code></td>
-<td>Country symbol.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>Country name.</td>
-</tr>
-<tr>
-<td><code>nativeName</code></td>
-<td><code>string</code></td>
-<td>Country name in native language.</td>
-</tr>
-</tbody>
-</table>
-
-<h2>
-<a id="list-countries-with-given-name-" class="anchor" href="#list-countries-with-given-name-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List countries with given name <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
-</h2>
-
-<pre><code>GET Geo/Countries
-</code></pre>
-
-<p>Returns paginated countries list.</p>
-
-<h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>Country name. Request returns countries with with name containing <code>name</code> parameter value.</td>
-</tr>
-<tr>
-<td><code>page</code></td>
-<td><code>int</code></td>
-<td>Page number, defaults to <code>1</code>.</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
-
-<p>In this example we fetch list of all countries that name contains <code>pol</code> string.</p>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Geo/Countries?name=pol
-</pre>
-
-<h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
-
-<pre class="highlight highlight-headers"><code>Status: 200 OK
-</code></pre>
-
-
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PL"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"nativeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Polska"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-
-
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -301,7 +179,133 @@ curl -i
 	<!-- <div class="sidebar-module api-status"><a href="https://status.github.com" class="unknown">API Status</a></div> -->
 </div><!-- /sidebar-shell -->
 
-  </div><!-- #wrapper -->
+
+    <div class="content">
+      
+
+<h1>
+<a id="countries" class="anchor" href="#countries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Countries</h1>
+
+<ul id="markdown-toc">
+<li><a href="#country-properties" id="markdown-toc-country-properties">
+Country properties</a></li>
+<li><a href="#list-countries-with-given-name-" id="markdown-toc-list-countries-with-given-name-">List countries with given name 
+</a></li>
+</ul>
+
+<h2>
+<a id="country-properties" class="anchor" href="#country-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<a name="properties"></a>Country properties</h2>
+
+<p>Country is described by the following properties</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>long</code></td>
+<td>Unique identifier of country.</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>string</code></td>
+<td>Country symbol.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Country name.</td>
+</tr>
+<tr>
+<td><code>nativeName</code></td>
+<td><code>string</code></td>
+<td>Country name in native language.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="list-countries-with-given-name-" class="anchor" href="#list-countries-with-given-name-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List countries with given name <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>GET Geo/Countries
+</code></pre>
+
+<p>Returns paginated countries list.</p>
+
+<h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Country name. Request returns countries with with name containing <code>name</code> parameter value.</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td><code>int</code></td>
+<td>Page number, defaults to <code>1</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch list of all countries that name contains <code>pol</code> string.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Geo/Countries?name=pol
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poland"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"nativeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Polska"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+
+    </div>
+
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
+    </div>
+
+  </div>
+  <!-- #wrapper -->
 
     <!-- <div id="footer" >
     <div class="lower_footer">

@@ -13,6 +13,7 @@
   
   <script src="/assets/javascripts/dev_mode.js" type="text/javascript"></script>
   
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500,300italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 
@@ -24,10 +25,12 @@
     <div>
       <a class="logo" href="/">PerfectGym:Developer</a>
       <ul class="nav">
-        <li><a href="/api/" class="nav-api">API</a></li>        
+        <!--<li><a href="/api/" class="nav-api">API</a></li>-->
+        <li><a href="/api/" class="">Reference</a></li>
+        <li><a href="/appendix/datatypes/address/" class="">Appendix</a></li>
         <!-- <li><a href="/changes/" class="nav-blog">Blog</a></li>         -->
         <li id="search-container">
-          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search ...</label>
           <div class="cancel-search"></div>
           <ul id="search-results">
 
@@ -39,102 +42,9 @@
 </div><!-- #header-wrapper -->
 
 
-  <div class="sub-nav">
-    <h2><a href="/api/">API</a></h2>
-
-    <ul>
-      <li><a href="/api/" class="active">Reference</a></li>      
-      <li><a href="/appendix/datatypes/address">Appendix</a></li>
-    </ul>
-  </div>
-
   <div id="wrapper">
-    <div class="content">
-      
-
-<h1>
-<a id="who-is-in" class="anchor" href="#who-is-in" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Who is in</h1>
-
-<p>This API gives access to information about users currently present in your club.</p>
-
-<ul id="markdown-toc">
-<li><a href="#list-users-present-in-your-club-" id="markdown-toc-list-users-present-in-your-club-">List users present in your club 
-</a></li>
-</ul>
-
-<h2>
-<a id="list-users-present-in-your-club-" class="anchor" href="#list-users-present-in-your-club-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List users present in your club <img src="/assets/images/user.png" alt="alt text" title="User mode">
-</h2>
-
-<pre><code>GET Clubs/WhoIsIn
-</code></pre>
-
-<p>Returns list of users present in club. Only users that agreed to be listed are included. For details see <a href="/api/users/addupdateuser#update_user">Update existing user</a>, <code>showActivityInClub</code> property.</p>
-
-<h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>clubId</code></td>
-<td><code>long</code></td>
-<td>
-<strong>Required</strong>. Club identifier. Request returns list of users present in club identified with <code>clubId</code>.</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
-
-<p>Collection of <a href="/api/users/user">Users</a>.</p>
-
-<h3>
-<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
-
-<p>In this example we fetch list of users present in club identified with <code>id</code> = <code>16</code></p>
-
-<pre class="command-line">
-curl -i 
-     -X GET 
-     -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Clubs/WhoIsIn/
-        ?clubId=16      
-</pre>
-
-<h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
-
-<pre class="highlight highlight-headers"><code>Status: 200 OK
-</code></pre>
-
-
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jan"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nowak"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"photoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isPresent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447183</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-
-
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -269,7 +179,101 @@ curl -i
 	<!-- <div class="sidebar-module api-status"><a href="https://status.github.com" class="unknown">API Status</a></div> -->
 </div><!-- /sidebar-shell -->
 
-  </div><!-- #wrapper -->
+
+    <div class="content">
+      
+
+<h1>
+<a id="who-is-in" class="anchor" href="#who-is-in" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Who is in</h1>
+
+<p>This API gives access to information about users currently present in your club.</p>
+
+<ul id="markdown-toc">
+<li><a href="#list-users-present-in-your-club-" id="markdown-toc-list-users-present-in-your-club-">List users present in your club 
+</a></li>
+</ul>
+
+<h2>
+<a id="list-users-present-in-your-club-" class="anchor" href="#list-users-present-in-your-club-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List users present in your club <img src="/assets/images/user.png" alt="alt text" title="User mode">
+</h2>
+
+<pre><code>GET Clubs/WhoIsIn
+</code></pre>
+
+<p>Returns list of users present in club. Only users that agreed to be listed are included. For details see <a href="/api/users/addupdateuser#update_user">Update existing user</a>, <code>showActivityInClub</code> property.</p>
+
+<h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Club identifier. Request returns list of users present in club identified with <code>clubId</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+
+<p>Collection of <a href="/api/users/user">Users</a>.</p>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch list of users present in club identified with <code>id</code> = <code>16</code></p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Clubs/WhoIsIn/
+        ?clubId=16      
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jan"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nowak"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"photoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isPresent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447183</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+
+    </div>
+
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
+    </div>
+
+  </div>
+  <!-- #wrapper -->
 
     <!-- <div id="footer" >
     <div class="lower_footer">

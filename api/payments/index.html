@@ -13,6 +13,7 @@
   
   <script src="/assets/javascripts/dev_mode.js" type="text/javascript"></script>
   
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500,300italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 
@@ -24,10 +25,12 @@
     <div>
       <a class="logo" href="/">PerfectGym:Developer</a>
       <ul class="nav">
-        <li><a href="/api/" class="nav-api">API</a></li>        
+        <!--<li><a href="/api/" class="nav-api">API</a></li>-->
+        <li><a href="/api/" class="">Reference</a></li>
+        <li><a href="/appendix/datatypes/address/" class="">Appendix</a></li>
         <!-- <li><a href="/changes/" class="nav-blog">Blog</a></li>         -->
         <li id="search-container">
-          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search</label>
+          <input type="text" id="searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /><label class="search-placeholder">Search ...</label>
           <div class="cancel-search"></div>
           <ul id="search-results">
 
@@ -39,37 +42,9 @@
 </div><!-- #header-wrapper -->
 
 
-  <div class="sub-nav">
-    <h2><a href="/api/">API</a></h2>
-
-    <ul>
-      <li><a href="/api/" class="active">Reference</a></li>      
-      <li><a href="/appendix/datatypes/address">Appendix</a></li>
-    </ul>
-  </div>
-
   <div id="wrapper">
-    <div class="content">
-      
-
-<h1>
-<a id="payments" class="anchor" href="#payments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Payments</h1>
-
-<p>The Payments APIs provides access to contract payments list and allows user to execute payments using online payments.</p>
-
-<h2>
-<a id="pending-contract-fees" class="anchor" href="#pending-contract-fees" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/payments/contractfees/">Pending contract fees</a>
-</h2>
-
-<p><a href="/api/payments/contractfees/">Pending contract fees API</a> gives you read only access to list of due and future contract fees to be paid by the user.</p>
-
-<h2>
-<a id="payments-1" class="anchor" href="#payments-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/payments/payments">Payments</a>
-</h2>
-
-<p><a href="/api/payments/payments">Payments API</a> allows you to pay contract fees using online payment systems.</p>
-
-
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -204,7 +179,36 @@
 	<!-- <div class="sidebar-module api-status"><a href="https://status.github.com" class="unknown">API Status</a></div> -->
 </div><!-- /sidebar-shell -->
 
-  </div><!-- #wrapper -->
+
+    <div class="content">
+      
+
+<h1>
+<a id="payments" class="anchor" href="#payments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Payments</h1>
+
+<p>The Payments APIs provides access to contract payments list and allows user to execute payments using online payments.</p>
+
+<h2>
+<a id="pending-contract-fees" class="anchor" href="#pending-contract-fees" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/payments/contractfees/">Pending contract fees</a>
+</h2>
+
+<p><a href="/api/payments/contractfees/">Pending contract fees API</a> gives you read only access to list of due and future contract fees to be paid by the user.</p>
+
+<h2>
+<a id="payments-1" class="anchor" href="#payments-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/payments/payments">Payments</a>
+</h2>
+
+<p><a href="/api/payments/payments">Payments API</a> allows you to pay contract fees using online payment systems.</p>
+
+
+    </div>
+
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
+    </div>
+
+  </div>
+  <!-- #wrapper -->
 
     <!-- <div id="footer" >
     <div class="lower_footer">
