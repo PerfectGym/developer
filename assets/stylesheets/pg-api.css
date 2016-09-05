@@ -1,0 +1,476 @@
+/***** Perfect Gym Api *****/
+/*** Variables ***/
+/*** / Variables ***/
+/*** Fonts ***/
+@font-face {
+  font-family: 'Averta-Bold';
+  src: url('../fonts/Averta/webfonts/309D95_2_0.eot');
+  src: url('../fonts/Averta/webfonts/309D95_2_0.eot?#iefix') format('embedded-opentype'), url('../fonts/Averta/webfonts/309D95_2_0.woff2') format('woff2'), url('../fonts/Averta/webfonts/309D95_2_0.woff') format('woff'), url('../fonts/Averta/webfonts/309D95_2_0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Averta-Light';
+  src: url('../fonts/Averta/webfonts/309D95_8_0.eot');
+  src: url('../fonts/Averta/webfonts/309D95_8_0.eot?#iefix') format('embedded-opentype'), url('../fonts/Averta/webfonts/309D95_8_0.woff2') format('woff2'), url('../fonts/Averta/webfonts/309D95_8_0.woff') format('woff'), url('../fonts/Averta/webfonts/309D95_8_0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Averta-Regular';
+  src: url('../fonts/Averta/webfonts/309D95_A_0.eot');
+  src: url('../fonts/Averta/webfonts/309D95_A_0.eot?#iefix') format('embedded-opentype'), url('../fonts/Averta/webfonts/309D95_A_0.woff2') format('woff2'), url('../fonts/Averta/webfonts/309D95_A_0.woff') format('woff'), url('../fonts/Averta/webfonts/309D95_A_0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Averta-Semibold';
+  src: url('../fonts/Averta/webfonts/309D95_C_0.eot');
+  src: url('../fonts/Averta/webfonts/309D95_C_0.eot?#iefix') format('embedded-opentype'), url('../fonts/Averta/webfonts/309D95_C_0.woff2') format('woff2'), url('../fonts/Averta/webfonts/309D95_C_0.woff') format('woff'), url('../fonts/Averta/webfonts/309D95_C_0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Averta-ThinItalic';
+  src: url('../fonts/Averta/webfonts/309D95_F_0.eot');
+  src: url('../fonts/Averta/webfonts/309D95_F_0.eot?#iefix') format('embedded-opentype'), url('../fonts/Averta/webfonts/309D95_F_0.woff2') format('woff2'), url('../fonts/Averta/webfonts/309D95_F_0.woff') format('woff'), url('../fonts/Averta/webfonts/309D95_F_0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Averta-ExtraBold';
+  src: url('../fonts/Averta/webfonts/309D95_4_0.eot');
+  src: url('../fonts/Averta/webfonts/309D95_4_0.eot?#iefix') format('embedded-opentype'), url('../fonts/Averta/webfonts/309D95_4_0.woff2') format('woff2'), url('../fonts/Averta/webfonts/309D95_4_0.woff') format('woff'), url('../fonts/Averta/webfonts/309D95_4_0.ttf') format('truetype');
+}
+/*** / Fonts ***/
+/*** Mixins ***/
+.pg-ff-averta-light {
+  font-family: 'Averta-Light', Verdana, Geneva, sans-serif;
+  font-weight: lighter;
+  font-weight: 200;
+}
+.pg-ff-averta-thin-italic {
+  font-family: 'Averta-ThinItalic', Verdana, Geneva, sans-serif;
+  font-weight: lighter;
+  font-weight: 200;
+  font-style: italic;
+}
+.pg-ff-averta-regular {
+  font-family: 'Averta-Regular', Verdana, Geneva, sans-serif;
+  font-weight: normal;
+  font-weight: 400;
+}
+.pg-ff-averta-semi-bold {
+  font-family: 'Averta-Semibold', Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  font-weight: 600;
+}
+.pg-ff-averta-bold {
+  font-family: 'Averta-Bold', Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  font-weight: 700;
+}
+.pg-ff-averta-extra-bold {
+  font-family: 'Averta-ExtraBold', Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  font-weight: 800;
+}
+.pg-ff-roboto-light {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+.pg-ff-roboto-light-italic {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+.pg-ff-roboto-normal {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+.pg-ff-roboto-medium {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+.pg-ff-roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+.pg-api-code {
+  font: 14px Consolas, 'Liberation Mono', Courier, monospace;
+  color: #697277;
+  background-color: transparent;
+  border: none;
+}
+.pg-container {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+.pg-code {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #697277;
+  font-size: 14px;
+  line-height: 30px;
+  background: none;
+  border: none;
+}
+.pg-highlight {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #bec3c7;
+  color: #697277;
+  font: 14px/18px Consolas, 'Liberation Mono', Courier, monospace;
+  background: none;
+}
+/*** / Mixins ***/
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #697277;
+  background-color: #e9edf0;
+  font-size: 18px;
+  line-height: 30px;
+}
+#header-wrapper,
+#wrapper {
+  max-width: 1366px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+#header-wrapper {
+  height: 80px;
+  background: #ffffff;
+}
+#header {
+  padding: 0 100px;
+  max-width: 1366px;
+  margin: 0 auto;
+}
+#header .logo {
+  float: left;
+  margin-top: 17px;
+  width: 273px;
+  height: 42px;
+  background: url(/assets/images/perfectgym-api.png) 0 0 no-repeat;
+}
+#header .nav {
+  margin-top: 0;
+}
+#header .nav li a {
+  color: #343f54;
+  font-size: 15px;
+  line-height: 80px;
+  font-family: 'Averta-Regular', Verdana, Geneva, sans-serif;
+  font-weight: normal;
+  font-weight: 400;
+  padding: 15px 10px;
+  display: inline;
+  margin-left: 10px;
+}
+#header .nav li a:active,
+#header .nav li a:focus {
+  outline: 0;
+}
+#searchfield {
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(5, 138, 215, 0.4);
+  background: none;
+  padding: 5px 30px 5px 20px;
+  margin-left: 10px;
+  width: 80px;
+}
+#searchfield:focus {
+  border: 1px solid #058ad7;
+}
+.search-placeholder {
+  color: #343f54;
+  font-family: 'Averta-Regular', Verdana, Geneva, sans-serif;
+  font-weight: normal;
+  font-weight: 400;
+  font-size: 15px;
+  top: 2px;
+}
+.cancel-search {
+  top: 5px;
+  right: 10px;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #697277;
+  font-size: 18px;
+  line-height: 30px;
+  margin-top: 0;
+}
+a {
+  color: #058ad7;
+}
+a:hover {
+  color: #058ad7;
+  text-decoration: underline;
+}
+.button {
+  background-color: #058ad7;
+}
+.button:hover {
+  background-color: #ffffff;
+  color: #058ad7;
+  border: 1px solid #058ad7;
+}
+.content {
+  padding: 100px;
+  width: 776px;
+}
+.content h1 {
+  font-family: 'Averta-ExtraBold', Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  font-weight: 800;
+  color: #058ad7;
+  font-size: 36px;
+  line-height: 38px;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+.content h2 {
+  font-family: 'Averta-Regular', Verdana, Geneva, sans-serif;
+  font-weight: normal;
+  font-weight: 400;
+  color: #343f54;
+  font-size: 26px;
+  line-height: 32px;
+  margin: 60px 0 20px 0;
+  padding: 0;
+  position: relative;
+}
+.content h2 code {
+  font: 14px Consolas, 'Liberation Mono', Courier, monospace;
+  color: #697277;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+.content h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #697277;
+  font-size: 18px;
+  line-height: 30px;
+  margin: 0px 0 5px 0;
+  padding: 0;
+  position: relative;
+}
+.content p code {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #697277;
+  font-size: 14px;
+  line-height: 30px;
+  background: none;
+  border: none;
+}
+.content table {
+  width: 100%;
+  overflow: auto;
+  display: block;
+  margin: 15px 0;
+}
+.content table thead {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+.content table th {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #697277;
+  font-size: 18px;
+  line-height: 22px;
+  white-space: nowrap;
+  background-color: #e9edf0;
+  border: 1px solid #bec3c7;
+  padding: 12px 15px;
+  text-align: left;
+}
+.content table tbody {
+  vertical-align: middle;
+  border-color: inherit;
+}
+.content table tr {
+  border-top: 1px solid #bec3c7;
+  background-color: #fff;
+  vertical-align: inherit;
+}
+.content table td {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+  color: #697277;
+  border: 1px solid #bec3c7;
+  padding: 12px 15px;
+  vertical-align: top;
+}
+.content table td code {
+  font: 14px Consolas, 'Liberation Mono', Courier, monospace;
+  color: #697277;
+  background-color: transparent;
+}
+.content ul code {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #697277;
+  font-size: 14px;
+  line-height: 30px;
+  background: none;
+  border: none;
+}
+/***** Sidebar & nav  *****/
+.sidebar-shell {
+  float: left;
+  padding: 100px 0 100px 100px;
+  margin: 0;
+  width: 290px;
+}
+.sidebar-module {
+  -webkit-box-shadow: 0 10px 40px 0 rgba(16, 17, 75, 0.1);
+  -moz-box-shadow: 0 10px 40px 0 rgba(16, 17, 75, 0.1);
+  box-shadow: 0 10px 40px 0 rgba(16, 17, 75, 0.1);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  border: none;
+}
+.js-toggle-list .js-topic h3 a {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #697277;
+  font-size: 14px;
+  line-height: 22px;
+  border: none;
+  padding: 6px 20px;
+}
+.js-toggle-list .js-topic h3 .js-expand-btn {
+  padding: 0 5px;
+  right: 20px;
+  left: auto;
+}
+.js-toggle-list .js-topic .js-guides li a {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #697277;
+  line-height: 21px;
+  font-size: 1.4rem;
+  line-height: 2.0999999999999996rem;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 6px 20px 6px 30px;
+}
+.js-toggle-list .js-current h3 a {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #058ad7;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 6px 20px;
+}
+.js-toggle-list .js-current h3 .js-expand-btn {
+  right: 20px;
+  left: auto;
+  padding: 0 5px;
+}
+.js-toggle-list .js-current .js-guides li a {
+  color: #058ad7;
+}
+/***** / Sidebar & nav  *****/
+pre {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  background-color: #e9edf0;
+  border: 1px solid #bec3c7;
+  padding: 10px 15px;
+  font-size: 18px;
+  line-height: 22px;
+}
+.command-line {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #bec3c7;
+  color: #697277;
+  font: 14px/18px Consolas, 'Liberation Mono', Courier, monospace;
+  padding: 20px;
+  overflow: auto;
+  font-size: 14px;
+  line-height: 18px;
+  background-color: #fff;
+  margin: 2em 0;
+}
+.command-line .command {
+  color: #ff5614;
+  margin-bottom: 30px;
+}
+.command-line span.output {
+  color: #697277;
+}
+.highlight {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #bec3c7;
+  color: #697277;
+  font: 14px/18px Consolas, 'Liberation Mono', Courier, monospace;
+  background: none;
+}
+.highlight code .nt {
+  color: #697277;
+}
+.highlight code .mi,
+.highlight code .kc {
+  color: #058ad7;
+}
+.highlight code .s2 {
+  color: #ff5614;
+}
+.highlight-headers {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #bec3c7;
+  color: #697277;
+  font: 14px/18px Consolas, 'Liberation Mono', Courier, monospace;
+  background: none;
+  border-bottom: 0px solid #bec3c7;
+}
+.highlight-headers + pre {
+  border-top: 1px solid #bec3c7;
+}
+#markdown-toc li a {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #697277;
+  font-size: 18px;
+  line-height: 30px;
+}
+#markdown-toc li a:hover {
+  color: #058ad7;
+}
+.pg-api-graphic-block {
+  margin: 50px 0 0 0;
+}
+/*** Start page ***/
+.overview .wrapper.feature {
+  position: relative;
+  max-width: 1166px;
+  background-color: #ffffff;
+  padding: 100px;
+}
+.overview .wrapper.feature .logo_hero {
+  z-index: 1;
+  right: 100px;
+  top: 100px;
+}
+/*** / Start page ***/
+/***** / Perfect Gym Api *****/

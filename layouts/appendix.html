@@ -3,18 +3,18 @@
 <body class="api <%= ENV['DEV_MODE'] ? 'dev-mode' : '' %>">
   <%= renderp '/header.*' %>
 
-  <div class="sub-nav">
-    <h2><a href="/api/">API</a></h2>
+  <!--<div class="sub-nav">-->
+    <!--<h2><a href="/api/">API</a></h2>-->
 
-    <ul>
-      <li><a href="/api/">Reference</a></li>      
-      <li><a href="/appendix/datatypes/address" class="active">Appendix</a></li>      
-    </ul>
-  </div>
+    <!--<ul>-->
+      <!--<li><a href="/api/">Reference</a></li>      -->
+      <!--<li><a href="/appendix/datatypes/address" class="active">Appendix</a></li>      -->
+    <!--</ul>-->
+  <!--</div>-->
 
   <div id="wrapper">
-    <div class="content">
-      <%= yield %>
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -22,7 +22,7 @@
         <ul>
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/appendix/datatypes/address">Additional data types</a></h3>
-            <ul class="js-guides">                        
+            <ul class="js-guides">
               <li><a href="/appendix/datatypes/address/">Address</a></li>
               <li><a href="/appendix/datatypes/clubaccessrule/">Club access rule</a></li>
               <li><a href="/appendix/datatypes/contact/">Club contact</a></li>
@@ -31,38 +31,46 @@
               <li><a href="/appendix/datatypes/openinghours/">Club opening hours</a></li>
               <li><a href="/appendix/datatypes/clubphoto/">Club photos</a></li>
               <li><a href="/appendix/datatypes/url/">Club url</a></li>
-              <li><a href="/appendix/datatypes/zone/">Club zone</a></li>   
-              <li><a href="/appendix/datatypes/zonetype/">Club zone type</a></li>                 
-              <li><a href="/appendix/datatypes/contractfees/">Contract fees</a></li>  
-              <li><a href="/appendix/datatypes/contractfreeze/">Contract freeze</a></li>  
-              <li><a href="/appendix/datatypes/directdebit/">Direct debit</a></li>  
-              <li><a href="/appendix/datatypes/error/">Error</a></li>  
-              <li><a href="/appendix/datatypes/fee/">Fee</a></li>   
-              <li><a href="/appendix/datatypes/freezestartdate/">Freeze start date</a></li>   
-              <li><a href="/appendix/datatypes/passwordresettoken/">Password reset token</a></li>   
-              <li><a href="/appendix/datatypes/paymentdetails/">Payment details</a></li>                                            
-              <li><a href="/appendix/datatypes/measurement/">Measurement</a></li>                                            
+              <li><a href="/appendix/datatypes/zone/">Club zone</a></li>
+              <li><a href="/appendix/datatypes/zonetype/">Club zone type</a></li>
+              <li><a href="/appendix/datatypes/contractfees/">Contract fees</a></li>
+              <li><a href="/appendix/datatypes/contractfreeze/">Contract freeze</a></li>
+              <li><a href="/appendix/datatypes/directdebit/">Direct debit</a></li>
+              <li><a href="/appendix/datatypes/error/">Error</a></li>
+              <li><a href="/appendix/datatypes/fee/">Fee</a></li>
+              <li><a href="/appendix/datatypes/freezestartdate/">Freeze start date</a></li>
+              <li><a href="/appendix/datatypes/passwordresettoken/">Password reset token</a></li>
+              <li><a href="/appendix/datatypes/paymentdetails/">Payment details</a></li>
             </ul>
-          </li>          
+          </li>
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/appendix/errorcodes/classbookingerrorcode">Error codes</a></h3>
             <ul class="js-guides">
-              <li><a href="/appendix/errorcodes/addusererrorcode/">Add user error codes</a></li>                
-              <li><a href="/appendix/errorcodes/classbookingerrorcode/">Class booking error codes</a></li>                
-              <li><a href="/appendix/errorcodes/classcancelerrorcode/">Class cancel error codes</a></li>                
-              <li><a href="/appendix/errorcodes/classratingerrorcode/">Class rating error codes</a></li>                
-              <li><a href="/appendix/errorcodes/creditcardpaymenterrorcode/">Credit card payment error codes</a></li>                
-              <li><a href="/appendix/errorcodes/directdebiterrorcode/">Direct debit error codes</a></li>                
-              <li><a href="/appendix/errorcodes/freezecontracterrorcode/">Freeze contract error codes</a></li>                
-              <li><a href="/appendix/errorcodes/instructorratingerrorcode/">Instructor rating error codes</a></li>                
-              <li><a href="/appendix/errorcodes/updateusererrorcode/">Update user error codes</a></li>     
+              <li><a href="/appendix/errorcodes/addusererrorcode/">Add user error codes</a></li>
+              <li><a href="/appendix/errorcodes/classbookingerrorcode/">Class booking error codes</a></li>
+              <li><a href="/appendix/errorcodes/classcancelerrorcode/">Class cancel error codes</a></li>
+              <li><a href="/appendix/errorcodes/classratingerrorcode/">Class rating error codes</a></li>
+              <li><a href="/appendix/errorcodes/creditcardpaymenterrorcode/">Credit card payment error codes</a></li>
+              <li><a href="/appendix/errorcodes/directdebiterrorcode/">Direct debit error codes</a></li>
+              <li><a href="/appendix/errorcodes/freezecontracterrorcode/">Freeze contract error codes</a></li>
+              <li><a href="/appendix/errorcodes/instructorratingerrorcode/">Instructor rating error codes</a></li>
+              <li><a href="/appendix/errorcodes/updateusererrorcode/">Update user error codes</a></li>
               <li><a href="/appendix/errorcodes/validatecredentialserrorcode/">Validate user credentials error codes</a></li>
-              <li><a href="/appendix/errorcodes/errorcode/">Custom error codes</a></li>                 
-            </ul>     
-          </li>   
+              <li><a href="/appendix/errorcodes/errorcode/">Custom error codes</a></li>
+            </ul>
+          </li>
         </ul>
-      </div>      
+      </div>
     </div><!-- sidebar-shell -->
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <div class="pg-api-graphic-block">
+      <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
+    </div>
+
   </div><!-- #wrapper -->
 
   <%= renderp '/footer.*' %>

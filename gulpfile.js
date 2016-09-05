@@ -26,7 +26,8 @@ gulp.task("css", function() {
     "assets/stylesheets/documentation.css",
     "assets/stylesheets/pagination.css",
     "assets/stylesheets/pygments.css",
-    "assets/vendor/octicons/octicons/octicons.css"
+    "assets/vendor/octicons/octicons/octicons.css",
+    "assets/stylesheets/pg-api.css",
     ])
     .pipe(concat("application.css"))
     .pipe(gulpif(IS_PRODUCTION, minifyCss()))

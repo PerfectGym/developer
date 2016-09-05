@@ -1,0 +1,517 @@
+  /***** Perfect Gym Api *****/
+
+  /*** Variables ***/
+
+  @pg-api-color-blue-1: #058ad7;
+  @pg-api-color-blue-2: #343f54;
+  @pg-api-color-grey-1: #697277;
+  @pg-api-color-grey-2: #bec3c7;
+  @pg-api-color-grey-3: #e9edf0;
+  @pg-api-color-orange: #ff5614;
+  @pg-api-color-white: #ffffff;
+
+  @pg-api-max-width: 1366px;
+
+  /*** / Variables ***/
+
+  /*** Fonts ***/
+
+  @font-face {font-family: 'Averta-Bold';src: url('../fonts/Averta/webfonts/309D95_2_0.eot');src: url('../fonts/Averta/webfonts/309D95_2_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/webfonts/309D95_2_0.woff2') format('woff2'),url('../fonts/Averta/webfonts/309D95_2_0.woff') format('woff'),url('../fonts/Averta/webfonts/309D95_2_0.ttf') format('truetype');}
+  @font-face {font-family: 'Averta-Light';src: url('../fonts/Averta/webfonts/309D95_8_0.eot');src: url('../fonts/Averta/webfonts/309D95_8_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/webfonts/309D95_8_0.woff2') format('woff2'),url('../fonts/Averta/webfonts/309D95_8_0.woff') format('woff'),url('../fonts/Averta/webfonts/309D95_8_0.ttf') format('truetype');}
+  @font-face {font-family: 'Averta-Regular';src: url('../fonts/Averta/webfonts/309D95_A_0.eot');src: url('../fonts/Averta/webfonts/309D95_A_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/webfonts/309D95_A_0.woff2') format('woff2'),url('../fonts/Averta/webfonts/309D95_A_0.woff') format('woff'),url('../fonts/Averta/webfonts/309D95_A_0.ttf') format('truetype');}
+  @font-face {font-family: 'Averta-Semibold';src: url('../fonts/Averta/webfonts/309D95_C_0.eot');src: url('../fonts/Averta/webfonts/309D95_C_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/webfonts/309D95_C_0.woff2') format('woff2'),url('../fonts/Averta/webfonts/309D95_C_0.woff') format('woff'),url('../fonts/Averta/webfonts/309D95_C_0.ttf') format('truetype');}
+  @font-face {font-family: 'Averta-ThinItalic';src: url('../fonts/Averta/webfonts/309D95_F_0.eot');src: url('../fonts/Averta/webfonts/309D95_F_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/webfonts/309D95_F_0.woff2') format('woff2'),url('../fonts/Averta/webfonts/309D95_F_0.woff') format('woff'),url('../fonts/Averta/webfonts/309D95_F_0.ttf') format('truetype');}
+  @font-face {font-family: 'Averta-ExtraBold';src: url('../fonts/Averta/webfonts/309D95_4_0.eot');src: url('../fonts/Averta/webfonts/309D95_4_0.eot?#iefix') format('embedded-opentype'),url('../fonts/Averta/webfonts/309D95_4_0.woff2') format('woff2'),url('../fonts/Averta/webfonts/309D95_4_0.woff') format('woff'),url('../fonts/Averta/webfonts/309D95_4_0.ttf') format('truetype');}
+
+  /*** / Fonts ***/
+
+  /*** Mixins ***/
+
+  .pg-ff-averta-light {
+    font-family: 'Averta-Light', Verdana, Geneva, sans-serif;
+    font-weight:lighter;
+    font-weight:200;
+  }
+
+  .pg-ff-averta-thin-italic {
+    font-family: 'Averta-ThinItalic', Verdana, Geneva, sans-serif;
+    font-weight:lighter;
+    font-weight:200;
+    font-style: italic;
+  }
+
+  .pg-ff-averta-regular {
+    font-family: 'Averta-Regular', Verdana, Geneva, sans-serif;
+    font-weight:normal;
+    font-weight:400;
+  }
+
+  .pg-ff-averta-semi-bold {
+    font-family: 'Averta-Semibold', Verdana, Geneva, sans-serif;
+    font-weight:bold;
+    font-weight:600;
+  }
+
+  .pg-ff-averta-bold {
+    font-family: 'Averta-Bold', Verdana, Geneva, sans-serif;
+    font-weight:bold;
+    font-weight:700;
+  }
+
+  .pg-ff-averta-extra-bold {
+    font-family: 'Averta-ExtraBold', Verdana, Geneva, sans-serif;
+    font-weight:bold;
+    font-weight:800;
+  }
+
+  .pg-ff-roboto-light {
+    font-family: 'Roboto', sans-serif;
+    font-weight:300;
+  }
+
+  .pg-ff-roboto-light-italic {
+    font-family: 'Roboto', sans-serif;
+    font-weight:300;
+    font-style: italic;
+  }
+
+  .pg-ff-roboto-normal {
+    font-family: 'Roboto', sans-serif;
+    font-weight:400;
+  }
+
+  .pg-ff-roboto-medium {
+    font-family: 'Roboto', sans-serif;
+    font-weight:500;
+  }
+
+  .pg-ff-roboto-bold {
+    font-family: 'Roboto', sans-serif;
+    font-weight:700;
+  }
+
+  .pg-font-size(@font-size: 16){
+    @pxFontValue: (@font-size / 10);
+    @pxLineValue: (@font-size / 10 * 1.5);
+    font-size: @font-size * 1px;
+    line-height: @font-size * 1.5 * 1px;
+    font-size: ~"@{pxFontValue}rem";
+    line-height: ~"@{pxLineValue}rem";
+  }
+
+  .pg-api-code {
+    font: 14px Consolas, 'Liberation Mono', Courier, monospace;
+    color:@pg-api-color-grey-1;
+    background-color: transparent;
+    border:none;
+  }
+
+  .pg-border-radius(@radius) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+  }
+
+  .pg-container {
+    max-width: @pg-api-max-width;
+    margin: 0 auto;
+  }
+
+  .pg-box-shadow(@string) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow:    @string;
+    box-shadow:         @string;
+  }
+
+  .pg-code {
+    .pg-ff-roboto-light();
+    color:@pg-api-color-grey-1;
+    font-size:14px;
+    line-height: 30px;
+    background: none;
+    border:none;
+  }
+
+  .pg-highlight {
+    .pg-border-radius(0);
+    border: 1px solid @pg-api-color-grey-2;
+    color:@pg-api-color-grey-1;
+    font: 14px/18px Consolas, 'Liberation Mono', Courier, monospace;
+    background: none;
+  }
+
+  /*** / Mixins ***/
+
+  body {
+    .pg-ff-roboto-light();
+    color:@pg-api-color-grey-1;
+    background-color: @pg-api-color-grey-3;
+    font-size:18px;
+    line-height: 30px;
+  }
+
+  #header-wrapper, #wrapper {
+    .pg-container();
+     background-color: @pg-api-color-white;
+  }
+
+  #header-wrapper {
+    height:80px;
+    background: @pg-api-color-white;
+    //border-bottom: 1px solid @pg-api-color-blue-1;
+  }
+
+  #header {
+    padding:0 100px;
+    .pg-container();
+    .logo {
+      float: left;
+      margin-top: 17px;
+      width: 273px;
+      height: 42px;
+      background: url(/assets/images/perfectgym-api.png) 0 0 no-repeat;
+    }
+    .nav {
+      margin-top: 0;
+      li {
+        a {
+          color:@pg-api-color-blue-2;
+          font-size:15px;
+          line-height: 80px;
+          .pg-ff-averta-regular();
+          padding:15px 10px;
+          display: inline;
+          margin-left:10px;
+          &:active, &:focus {
+            outline: 0;
+          }
+        }
+      }
+    }
+  }
+
+  #searchfield {
+    .pg-border-radius(20px);
+    //border: 1px solid @pg-api-color-blue-1;
+    border: 1px solid rgba(5, 138, 215,0.4);
+    background: none;
+    padding:5px 30px 5px 20px;
+    margin-left: 10px;
+    width:80px;
+    &:focus {
+      border: 1px solid @pg-api-color-blue-1;
+    }
+  }
+
+  .search-placeholder {
+    color:@pg-api-color-blue-2;
+    .pg-ff-averta-regular();
+    font-size:15px;
+    top:2px;
+  }
+
+  .cancel-search {
+    top:5px;
+    right:10px;
+  }
+
+  p {
+    .pg-ff-roboto-light();
+    color: @pg-api-color-grey-1;
+    font-size:18px;
+    line-height: 30px;
+    margin-top:0;
+  }
+
+  a {
+    //color: @pg-api-color-grey-1;
+    color: @pg-api-color-blue-1;
+    &:hover {
+      color: @pg-api-color-blue-1;
+      text-decoration:underline;
+    }
+  }
+
+
+
+  .button {
+    background-color: @pg-api-color-blue-1;
+  }
+  .button:hover {
+    background-color: @pg-api-color-white;
+    color: @pg-api-color-blue-1;
+    border: 1px solid @pg-api-color-blue-1;
+  }
+
+  .content {
+    padding:100px;
+    width:776px;
+
+    h1 {
+      .pg-ff-averta-extra-bold();
+      color:@pg-api-color-blue-1;
+      font-size:36px;
+      line-height: 38px;
+      margin: 0 0 20px 0;
+      padding:0;
+    }
+
+    h2 {
+      .pg-ff-averta-regular();
+      color:@pg-api-color-blue-2;
+      font-size:26px;
+      line-height: 32px;
+      margin: 60px 0 20px 0;
+      padding:0;
+      position: relative;
+      code {
+        .pg-api-code();
+        font-size:20px;
+      }
+    }
+    h3 {
+      .pg-ff-roboto-medium();
+      color:@pg-api-color-grey-1;
+      font-size:18px;
+      line-height: 30px;
+      margin: 0px 0 5px 0;
+      padding:0;
+      position: relative;
+    }
+
+    p {
+      code {
+        .pg-code();
+      }
+    }
+
+    table {
+      width: 100%;
+      overflow: auto;
+      display: block;
+      margin: 15px 0;
+
+      thead {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+
+      th {
+        .pg-ff-roboto-medium();
+        color:@pg-api-color-grey-1;
+        font-size:18px;
+        line-height: 22px;
+        white-space: nowrap;
+        background-color: @pg-api-color-grey-3;
+        border: 1px solid @pg-api-color-grey-2;
+        padding: 12px 15px;
+        text-align: left;
+      }
+
+      tbody {
+        vertical-align: middle;
+        border-color: inherit;
+      }
+
+      tr {
+        border-top: 1px solid @pg-api-color-grey-2;
+        background-color: #fff;
+        vertical-align: inherit;
+      }
+
+      td {
+        .pg-ff-roboto-light();
+        font-size:14px;
+        line-height: 22px;
+        color:@pg-api-color-grey-1;
+        border: 1px solid @pg-api-color-grey-2;
+        padding: 12px 15px;
+        vertical-align: top;
+
+        code {
+          font: 14px Consolas, 'Liberation Mono', Courier, monospace;
+          color:@pg-api-color-grey-1;
+          background-color: transparent;
+        }
+      }
+    }
+
+    ul {
+      code {
+        .pg-code();
+      }
+    }
+  }
+
+  /***** Sidebar & nav  *****/
+
+  .sidebar-shell {
+    float:left;
+    padding: 100px 0 100px 100px;
+    margin:0;
+    width:290px;
+  }
+
+  .sidebar-module {
+    .pg-box-shadow(0 10px 40px 0 rgba(16, 17, 75, 0.1));
+    .pg-ff-roboto-normal();
+    border:none;
+  }
+
+  .js-toggle-list {
+    .js-topic {
+      h3 {
+        a {
+          .pg-ff-roboto-normal();
+          color:@pg-api-color-grey-1;
+          //.pg-font-size(14);
+          font-size: 14px;
+          line-height: 22px;
+          border:none;
+          //background: none;
+          padding:6px 20px;
+        }
+        .js-expand-btn {
+          padding:0 5px;
+          right:20px;
+          left:auto;
+        }
+      }
+      .js-guides {
+        li {
+          a {
+            .pg-ff-roboto-normal();
+            color:@pg-api-color-grey-1;
+            .pg-font-size(14);
+            font-size: 14px;
+            line-height: 22px;
+            padding:6px 20px 6px 30px;
+          }
+        }
+      }
+    }
+    .js-current {
+      h3 {
+        a {
+          .pg-ff-roboto-medium();
+          color:@pg-api-color-blue-1;
+          font-size: 14px;
+          line-height: 22px;
+          padding:6px 20px;
+        }
+        .js-expand-btn {
+          right:20px;
+          left:auto;
+          padding:0 5px;
+        }
+      }
+      .js-guides {
+        li {
+          a {
+            color:@pg-api-color-blue-1;
+          }
+        }
+      }
+    }
+  }
+
+  /***** / Sidebar & nav  *****/
+
+  pre {
+    .pg-border-radius(0);
+    background-color:@pg-api-color-grey-3;
+    border: 1px solid @pg-api-color-grey-2;
+    padding:10px 15px;
+    font-size:18px;
+    line-height: 22px;
+  }
+
+  .command-line {
+    .pg-border-radius(0);
+    border: 1px solid @pg-api-color-grey-2;
+    color:@pg-api-color-grey-1;
+    font: 14px/18px Consolas, 'Liberation Mono', Courier, monospace;
+    padding: 20px;
+    overflow:auto;
+    font-size:14px;
+    line-height: 18px;
+    background-color: #fff;
+    margin: 2em 0;
+
+    .command {
+      color:@pg-api-color-orange;
+      margin-bottom: 30px;
+    }
+    span.output {
+      color:@pg-api-color-grey-1;
+    }
+  }
+
+  .highlight {
+    .pg-highlight();
+    code {
+      .nt {
+        color:@pg-api-color-grey-1;
+      }
+      .mi, .kc {
+        color:@pg-api-color-blue-1;
+      }
+      .s2{
+        color:@pg-api-color-orange;
+      }
+    }
+  }
+
+  .highlight-headers {
+    .pg-highlight();
+    border-bottom: 0px solid @pg-api-color-grey-2;
+    & + pre {
+      border-top: 1px solid @pg-api-color-grey-2;
+    }
+  }
+
+  #markdown-toc {
+    li {
+      a {
+        .pg-ff-roboto-light();
+        color: @pg-api-color-grey-1;
+        font-size:18px;
+        line-height: 30px;
+        &:hover {
+          color: @pg-api-color-blue-1;
+        }
+      }
+    }
+  }
+
+  .pg-api-graphic-block {
+    //background: url(/assets/images/pg-api-graphic.png) 0 0 no-repeat;
+    margin:50px 0 0 0;
+  }
+
+  /*** Start page ***/
+
+  .overview {
+    .wrapper.feature {
+      position: relative;
+      max-width: 1166px;
+      background-color: @pg-api-color-white;
+      padding:100px;
+
+      .logo_hero {
+        z-index: 1;
+        right:100px;
+        top:100px;
+      }
+
+    }
+  }
+
+  /*** / Start page ***/
+
+  /***** / Perfect Gym Api *****/
