@@ -99,7 +99,8 @@
 .pg-code {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  color: #697277;
+  color: #343f54;
+  font-weight: 400;
   font-size: 14px;
   line-height: 30px;
   background: none;
@@ -245,7 +246,8 @@ a:hover {
   border: none;
   font-size: 20px;
 }
-.content h3 {
+.content h3,
+.content h4 {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   color: #697277;
@@ -255,10 +257,15 @@ a:hover {
   padding: 0;
   position: relative;
 }
+.content h4 {
+  font-size: 16px;
+  line-height: 22px;
+}
 .content p code {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  color: #697277;
+  color: #343f54;
+  font-weight: 400;
   font-size: 14px;
   line-height: 30px;
   background: none;
@@ -314,14 +321,52 @@ a:hover {
   color: #697277;
   background-color: transparent;
 }
-.content ul code {
+.content ul li,
+.content ol li {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
   color: #697277;
+}
+.content ul code,
+.content ol code {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #343f54;
+  font-weight: 400;
   font-size: 14px;
   line-height: 30px;
   background: none;
   border: none;
+}
+.content ul strong,
+.content ol strong,
+.content ul b,
+.content ol b {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+.content ol > li::before {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #343f54;
+  font-size: 16px;
+}
+.content .alert {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border: 1px solid #058ad7;
+  background-color: transparent;
+  padding: 10px 15px;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 2em 0;
+}
+.content .alert p:last-child {
+  margin-bottom: 0;
 }
 /***** Sidebar & nav  *****/
 .sidebar-shell {
@@ -338,7 +383,7 @@ a:hover {
   font-weight: 400;
   border: none;
 }
-.js-toggle-list .js-topic h3 a {
+.sidebar-module li h3 a {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: #697277;
@@ -347,12 +392,12 @@ a:hover {
   border: none;
   padding: 6px 20px;
 }
-.js-toggle-list .js-topic h3 .js-expand-btn {
+.sidebar-module li h3 .js-expand-btn {
   padding: 0 5px;
   right: 20px;
   left: auto;
 }
-.js-toggle-list .js-topic .js-guides li a {
+.sidebar-module li .js-guides li a {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: #697277;
@@ -363,7 +408,7 @@ a:hover {
   line-height: 22px;
   padding: 6px 20px 6px 30px;
 }
-.js-toggle-list .js-current h3 a {
+.sidebar-module .js-current h3 a {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   color: #058ad7;
@@ -371,12 +416,12 @@ a:hover {
   line-height: 22px;
   padding: 6px 20px;
 }
-.js-toggle-list .js-current h3 .js-expand-btn {
+.sidebar-module .js-current h3 .js-expand-btn {
   right: 20px;
   left: auto;
   padding: 0 5px;
 }
-.js-toggle-list .js-current .js-guides li a {
+.sidebar-module .js-current .js-guides li a {
   color: #058ad7;
 }
 /***** / Sidebar & nav  *****/
@@ -409,6 +454,10 @@ pre {
 .command-line .command {
   color: #ff5614;
   margin-bottom: 30px;
+}
+.command-line em {
+  color: #697277;
+  font-weight: bold;
 }
 .command-line span.output {
   color: #697277;
