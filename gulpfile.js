@@ -67,6 +67,12 @@ gulp.task("images", function() {
     .pipe(gulp.dest("output/assets/images"));
 });
 
+gulp.task("fonts", function() {
+  return gulp.src("assets/fonts/**/*")
+      .pipe(gulp.dest("output/assets/fonts"));
+});
+
+
 gulp.task("nanoc:compile", function (cb) {
   exec("bundle exec nanoc compile", {maxBuffer: 1024 * 1000}, function (err, stdout, stderr) {
     console.log(stdout);
@@ -100,6 +106,6 @@ gulp.task("watch:assets", function() {
 });
 
 gulp.task("serve", [ "server", "watch:nanoc", "watch:assets" ]);
-gulp.task("assets", [ "css", "javascript", "javascript_workers", "octicons", "images" ]);
+gulp.task("assets", [ "css", "javascript", "javascript_workers", "octicons", "images", "fonts" ]);
 gulp.task("build", [ "nanoc:compile", "assets" ]);
 gulp.task("default", [ "build", "serve" ]);

@@ -20,7 +20,7 @@ layout: overview
         </p>
     </div>
 
-    <div class="pg-api-graphic-block">
+    <div class="pg-api-graphic-block-bottom">
       <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
     </div>
 

@@ -3,6 +3,11 @@
   /*** Variables ***/
 
   @pg-api-color-blue-1: #058ad7;
+  @pg-color-blue: @pg-api-color-blue-1;
+  @pg-color-blue-11: #2bacf6;
+  @pg-color-grey: #c8d1dc;
+  @pg-color-white: #ffffff;
+
   @pg-api-color-blue-2: #343f54;
   @pg-api-color-grey-1: #697277;
   @pg-api-color-grey-2: #bec3c7;
@@ -11,6 +16,9 @@
   @pg-api-color-white: #ffffff;
 
   @pg-api-max-width: 1366px;
+  @pg-content-container-large:      (1166px);
+  @pg-content-container-large-max:  (1366px);
+  @pg-content-container-medium:     (920px);
 
   /*** / Variables ***/
 
@@ -143,7 +151,31 @@
     background: none;
   }
 
+  .pg-box-sizing(@sizing: inherit) {
+    -webkit-box-sizing: @sizing;
+    -moz-box-sizing: @sizing;
+    box-sizing: @sizing;
+  }
+
   /*** / Mixins ***/
+
+  /* partial bootstrap integration */
+
+  * {
+    .pg-box-sizing(inherit)
+  }
+
+  .container-fluid
+  {
+    .pg-box-sizing(border-box);
+  }
+
+  .container-fluid *
+  {
+    .pg-box-sizing(border-box);
+  }
+
+  /* partial bootstrap integration */
 
   body {
     .pg-ff-roboto-light();
@@ -151,6 +183,13 @@
     background-color: @pg-api-color-grey-3;
     font-size:18px;
     line-height: 30px;
+  }
+
+  input {
+    &:focus, &:active {
+      outline: none;
+      border:none;
+    }
   }
 
   #header-wrapper, #wrapper {
@@ -185,8 +224,11 @@
           padding:15px 10px;
           display: inline;
           margin-left:10px;
-          &:active, &:focus {
+          &:active, &:focus, &:hover {
+            color:@pg-api-color-blue-2;
             outline: 0;
+            background-color: transparent;
+            background: none;
           }
         }
       }
@@ -234,8 +276,6 @@
       text-decoration:underline;
     }
   }
-
-
 
   .button {
     background-color: @pg-api-color-blue-1;
@@ -385,7 +425,6 @@
         }
       }
     }
-
   }
 
   /***** Sidebar & nav  *****/
@@ -398,7 +437,6 @@
   }
 
   .sidebar-module {
-
     .pg-box-shadow(0 10px 40px 0 rgba(16, 17, 75, 0.1));
     .pg-ff-roboto-normal();
     border:none;
@@ -536,6 +574,9 @@
     //background: url(/assets/images/pg-api-graphic.png) 0 0 no-repeat;
     margin:50px 0 0 0;
   }
+  .pg-api-graphic-block-bottom {
+    margin:50px 0 40px 0;
+  }
 
   /*** Start page ***/
 
@@ -551,10 +592,193 @@
         right:100px;
         top:100px;
       }
-
     }
   }
 
   /*** / Start page ***/
 
+  /*** Footer ***/
+
+  .pg-content-container {
+    max-width: @pg-content-container-large;
+    width:100%;
+    height:100%;
+    margin:0 auto;
+    position: relative;
+  }
+
+  .pg-footer {
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+    .pg-container();
+    background-color: @pg-color-blue;
+    color:@pg-color-white;
+    padding-top: 70px;
+
+    .col-footer-2 {
+      position: static;
+    }
+  }
+
+  .panel-footer {
+    .pg-ff-roboto-light();
+    padding:0;
+    box-shadow: none;
+    background-color: transparent;
+    border:none;
+    margin-bottom: 0;
+    .panel-heading {
+      .pg-ff-averta-light();
+      font-size:20px;
+      line-height: 30px;
+      border:none;
+      font-weight: 200;
+    }
+    .panel-body {
+      p {
+        .pg-ff-roboto-light();
+        color:@pg-color-white;
+        font-size:14px;
+        line-height: 20px;
+        border:none;
+      }
+
+    }
+    .nav-pills {
+      li {
+        display: inline-block;
+        float:none;
+        width:100%;
+        margin-left: 0;
+        a {
+          color:@pg-color-grey;
+          font-size:14px;
+          line-height: 20px;
+          padding: 0 0 5px 0;
+
+          &:hover {
+            background-color: transparent;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .row-pg-footer-bottom {
+    color:@pg-color-grey;
+    padding: 40px 0;
+
+    .nav-pills {
+      a {
+        color:@pg-color-grey;
+        .pg-ff-roboto-light();
+        font-size:14px;
+        line-height: 20px;
+        //line-height: 18px;
+
+        font-size:14px;
+
+        &:hover {
+          background-color: transparent;
+          text-decoration: underline;
+        }
+      }
+    }
+    .pg-btn-select {
+      margin-left: 10px;
+    }
+  }
+
+  .row-pg-footer-bottom-col-1 {
+    .pg-ff-roboto-light();
+    line-height:40px;
+    font-size:14px;
+  }
+  .row-pg-footer-bottom-col-3 {
+    .pg-ff-roboto-light();
+    line-height:40px;
+    font-size:14px;
+    a {
+      color:@pg-color-grey;
+    }
+  }
+
+  .pg-footer-language-box {
+    text-align: right;
+    margin-top: 10px;
+  }
+
+  .pg-footer-ihrsa-box {
+    text-align: right;
+  }
+
+  .pg-vertical-line {
+    background-color: @pg-color-blue-11;
+    width:1px;
+    height:100%;
+    margin:0 auto;
+  }
+
+  .col-footer-2 {
+    .pg-vertical-line {
+      min-height:100px;
+      margin-top: 30px;
+    }
+  }
+
+  /*** / Footer ***/
+
   /***** / Perfect Gym Api *****/
+
+
+  //@media only screen and (min-width : @screen-xs) and (max-width : @screen-sm)
+  /********************** Custom, iPhone Retina **********************/
+  /********************************************************************/
+  @screen-sm: 768px;
+
+  @media only screen and (max-width : @screen-sm) {
+
+    /***** Perfrctgym footer *****/
+
+    .pg-footer {
+      .col-footer-1 {
+        text-align: center;
+      }
+    }
+    .row-pg-footer-bottom {
+      padding: 40px 0;
+
+      .row-pg-footer-bottom-col-1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .row-pg-footer-bottom-col-2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .row-pg-footer-bottom-col-3 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+
+    .pg-footer-terms-box {
+      padding-right:15px;
+    }
+
+    .pg-sites-select {
+      float:none;
+    }
+
+    .col-footer-2 {
+      .pg-vertical-line {
+        display: none;
+      }
+    }
+
+    /***** / Perfrctgym footer *****/
+
+  }
