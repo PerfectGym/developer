@@ -2105,6 +2105,23 @@ code .il { color: #009999 } /* Literal.Number.Integer.Long */
   background: none;
 }
 /*** / Mixins ***/
+/* partial bootstrap integration */
+* {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+.container-fluid {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.container-fluid * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* partial bootstrap integration */
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -2112,6 +2129,11 @@ body {
   background-color: #e9edf0;
   font-size: 18px;
   line-height: 30px;
+}
+input:focus,
+input:active {
+  outline: none;
+  border: none;
 }
 #header-wrapper,
 #wrapper {
@@ -2150,8 +2172,12 @@ body {
   margin-left: 10px;
 }
 #header .nav li a:active,
-#header .nav li a:focus {
+#header .nav li a:focus,
+#header .nav li a:hover {
+  color: #343f54;
   outline: 0;
+  background-color: transparent;
+  background: none;
 }
 #searchfield {
   -moz-border-radius: 20px;
@@ -2497,6 +2523,9 @@ pre {
 .pg-api-graphic-block {
   margin: 50px 0 0 0;
 }
+.pg-api-graphic-block-bottom {
+  margin: 50px 0 40px 0;
+}
 /*** Start page ***/
 .overview .wrapper.feature {
   position: relative;
@@ -2510,4 +2539,150 @@ pre {
   top: 100px;
 }
 /*** / Start page ***/
+/*** Footer ***/
+.pg-content-container {
+  max-width: 1166px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.pg-footer {
+  max-width: 1366px;
+  margin: 0 auto;
+  background-color: #058ad7;
+  color: #ffffff;
+  padding-top: 70px;
+}
+.pg-footer p:last-child {
+  margin-bottom: 0;
+}
+.pg-footer .col-footer-2 {
+  position: static;
+}
+.panel-footer {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  padding: 0;
+  box-shadow: none;
+  background-color: transparent;
+  border: none;
+  margin-bottom: 0;
+}
+.panel-footer .panel-heading {
+  font-family: 'Averta-Light', Verdana, Geneva, sans-serif;
+  font-weight: lighter;
+  font-size: 20px;
+  line-height: 30px;
+  border: none;
+  font-weight: 200;
+}
+.panel-footer .panel-body p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 20px;
+  border: none;
+}
+.panel-footer .nav-pills li {
+  display: inline-block;
+  float: none;
+  width: 100%;
+  margin-left: 0;
+}
+.panel-footer .nav-pills li a {
+  color: #c8d1dc;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 0 5px 0;
+}
+.panel-footer .nav-pills li a:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+.row-pg-footer-bottom {
+  color: #c8d1dc;
+  padding: 40px 0;
+}
+.row-pg-footer-bottom .nav-pills a {
+  color: #c8d1dc;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  line-height: 20px;
+  font-size: 14px;
+}
+.row-pg-footer-bottom .nav-pills a:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+.row-pg-footer-bottom .pg-btn-select {
+  margin-left: 10px;
+}
+.row-pg-footer-bottom-col-1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  line-height: 40px;
+  font-size: 14px;
+}
+.row-pg-footer-bottom-col-3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  line-height: 40px;
+  font-size: 14px;
+}
+.row-pg-footer-bottom-col-3 a {
+  color: #c8d1dc;
+}
+.pg-footer-language-box {
+  text-align: right;
+  margin-top: 10px;
+}
+.pg-footer-ihrsa-box {
+  text-align: right;
+}
+.pg-vertical-line {
+  background-color: #2bacf6;
+  width: 1px;
+  height: 100%;
+  margin: 0 auto;
+}
+.col-footer-2 .pg-vertical-line {
+  min-height: 100px;
+  margin-top: 30px;
+}
+/*** / Footer ***/
 /***** / Perfect Gym Api *****/
+/********************** Custom, iPhone Retina **********************/
+/********************************************************************/
+@media only screen and (max-width: 768px) {
+  /***** Perfrctgym footer *****/
+  .pg-footer .col-footer-1 {
+    text-align: center;
+  }
+  .row-pg-footer-bottom {
+    padding: 40px 0;
+  }
+  .row-pg-footer-bottom .row-pg-footer-bottom-col-1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .row-pg-footer-bottom .row-pg-footer-bottom-col-2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .row-pg-footer-bottom .row-pg-footer-bottom-col-3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .pg-footer-terms-box {
+    padding-right: 15px;
+  }
+  .pg-sites-select {
+    float: none;
+  }
+  .col-footer-2 .pg-vertical-line {
+    display: none;
+  }
+  /***** / Perfrctgym footer *****/
+}
