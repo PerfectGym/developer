@@ -193,6 +193,7 @@
   }
 
   #header-wrapper, #wrapper {
+    overflow:hidden;
     .pg-container();
      background-color: @pg-api-color-white;
   }
@@ -287,8 +288,10 @@
   }
 
   .content {
+    overflow:hidden;
     padding:100px;
-    width:776px;
+    @contentWidth: 590px;
+    width: calc(~"100%" - @contentWidth);
 
     h1 {
       .pg-ff-averta-extra-bold();
