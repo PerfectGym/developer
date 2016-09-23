@@ -147,9 +147,12 @@ input:active {
   outline: none;
   border: none;
 }
-#header-wrapper,
 #wrapper {
   overflow: hidden;
+}
+#header-wrapper,
+#wrapper {
+  min-width: 900px;
   max-width: 1366px;
   margin: 0 auto;
   background-color: #ffffff;
