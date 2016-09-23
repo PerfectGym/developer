@@ -2137,6 +2137,7 @@ input:active {
 }
 #header-wrapper,
 #wrapper {
+  overflow: hidden;
   max-width: 1366px;
   margin: 0 auto;
   background-color: #ffffff;
@@ -2229,8 +2230,9 @@ a:hover {
   border: 1px solid #058ad7;
 }
 .content {
+  overflow: hidden;
   padding: 100px;
-  width: 776px;
+  width: calc(100% - 590px);
 }
 .content h1 {
   font-family: 'Averta-ExtraBold', Verdana, Geneva, sans-serif;
