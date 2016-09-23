@@ -565,6 +565,7 @@ pre {
   position: relative;
 }
 .pg-footer {
+  min-width: 900px;
   max-width: 1366px;
   margin: 0 auto;
   background-color: #058ad7;
