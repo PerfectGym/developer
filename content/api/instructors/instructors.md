@@ -13,28 +13,59 @@ Instructor is a summary representation of a fitness class instructor.
 
 Instructor is described by the following properties
 
-Name            | Type                        | Description
------|----------|------------------------------------------
-`id`            |`long`                       | Unique identifier of instructor.
-`timestamp`    	|`long`     				  | Timestamp. Indicates when resource was last modified.
-`firstName`     |`string`                     | Instructor's name.
-`lastName`      |`string`                     | Instructor's last name.
-`displayName`   |`string`                     | Instructor's display name.
-`email`         |`string`                     | Instructor's email.
-`photoUrl`		|`string`					  | Instructor's photo URL.
-`sex`           |`string`                     | Instructor's sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
-`rating`        |[Rating][]					  | Instructor's rating.
-`isActive`      |`bool`                       | Indicates if instructor is active.
-`isDeleted`     |`bool`                       | Indicates if resource is deleted.
-`employeePosition`|`string`                   | Instructor's position.
-`clubs`         |`Array`                      | Instructor available in clubs.
-`categoriesClasses`|`Array`                   | Instructor conducts classes from the selected categories.
-`services`      |`Array`                      | Services performed by instructor.
+Name               | Type         | Description
+-------------------|--------------|------------
+`id`               |`long`        | Unique identifier of instructor.
+`timestamp`        |`long`        | Timestamp. Indicates when resource was last modified.
+`firstName`        |`string`      | Instructor's name.
+`lastName`         |`string`      | Instructor's last name.
+`displayName`      |`string`      | Instructor's display name.
+`email`            |`string`      | Instructor's email.
+`photoUrl`         |`string`      | Instructor's photo URL.
+`sex`              |`string`      | Instructor's sex. <br><strong>Possible values</strong>: <br><ul><li>Male</li><li>Female</li></ul>
+`rating`           |[Rating][]    | Instructor's rating.
+`isActive`         |`bool`        | Indicates if instructor is active.
+`isDeleted`        |`bool`        | Indicates if resource is deleted.
+`employeePosition` |`string`      | Instructor's position.
+`clubs`            |`Array`       | Instructor available in clubs.
+`categoriesClasses`|`Array`       | Instructor conducts classes from the selected categories.
+`services`         |`Array`       | Services performed by instructor.
+
+
+## List of instructors at the club ![alt text][EM] ![alt text][UM]
+
+    GET Instructors/Instructors
+
+Returns list of active instructors at the club.
+
+
+### Parameters
+
+Name      | Type   | Description
+----------|--------|------------
+`clubId`  |`long`  | **Required**. Club identifier
 
 
 
+### Example request
 
-## List instructors with timestamp ![alt text][EM] ![alt text][UM]
+In this example we fetch list of all instructors at the club with identifier 10
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Instructors/Instructors?clubId=10
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:instructors_response) %>
+
+
+## List of instructors with timestamp ![alt text][EM] ![alt text][UM]
 
     GET Instructors/Instructors
 
@@ -44,9 +75,9 @@ Returns paginated list of instructors available in your company.
 ### Parameters
 
 Name         | Type   | Description
------|-------|--------|------------
-`timestamp`  |`long`  | Timestamp. Request returns instructors with timestamp grater then `timestamp`, defaults to `0`
-`page`       |`int`   | Limited number of results (page size `100`)
+-------------|--------|------------
+`timestamp`  |`long`  | Timestamp. Request returns instructors with timestamp grater then `timestamp`, defaults to `0`.
+`page`       |`int`   | The desired page number (1-based index). Page size is 100. Default to 1.
 
 
 ### Example request
