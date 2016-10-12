@@ -103,6 +103,46 @@ curl -i
 <%= headers 200 %>
 <%= json(:prepaidstatus_response) %>
 
+
+## Calculate prepaid bonus value ![alt text][EM]
+
+    GET Payments/Prepaid/Bonus
+
+Use to check prepaid bonus 
+
+### Parameters
+
+Name 	     	    	| Type  	| Description
+------------------------|-----------|--------------------
+`amount` 			    |`decimal`  | **Required**. Amount to calculate.
+`source`			    |`string`	| The source from which the bonus should come: MembershipPortal, Internet, Web, Api.
+
+
+### Response
+
+[Prepaid Bonus][PrepaidBonus] 
+
+
+### Example request
+
+In this example we request to check prepaid bonus for amount '200'.
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Payments/Prepaid/Bonus
+     	?amount=200
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:prepaidbonus_response) %>
+
+
+
 ## Execute payment with credit card ![alt text][EM]
 
     POST Payments/PayWithCreditCard
@@ -162,6 +202,7 @@ Total amount is not equal to sum of all fees to be paid.
 [PaymentStatus]: /api/payments/paymentstatus#properties
 [PaymentDetails]: /appendix/datatypes/paymentdetails
 [PrepaidStatus]: /appendix/datatypes/prepaiddetails
+[PrepaidBonus]: /appendix/datatypes/prepaidbonus
 [CreditCard]: /api/users/usercreditcard
 [Error]: /appendix/datatypes/error
 [CreditCardPaymentErrorCode]: /appendix/errorcodes/creditcardpaymenterrorcode

@@ -76,6 +76,18 @@ module GitHub
         ]
       }
 
+      PREPAIDBONUS_RESPONSE ||= {
+
+        "elements" => [
+          {
+            "amount": "200",
+            "bonusAmount": "2",
+            "totalAmount": "202"
+          }
+        ]
+      }
+
+
 	 PREPAIDSTATUS_RESPONSE ||= {
 
         "elements" => [
