@@ -205,6 +205,8 @@
 </a></li>
 <li><a href="#change-user-prepaid-account-value-" id="markdown-toc-change-user-prepaid-account-value-">Change user prepaid account value 
 </a></li>
+<li><a href="#calculate-prepaid-bonus-value-" id="markdown-toc-calculate-prepaid-bonus-value-">Calculate prepaid bonus value 
+</a></li>
 <li><a href="#execute-payment-with-credit-card-" id="markdown-toc-execute-payment-with-credit-card-">Execute payment with credit card 
 </a></li>
 </ul>
@@ -390,6 +392,78 @@ curl -i
 
 
 <h2>
+<a id="calculate-prepaid-bonus-value-" class="anchor" href="#calculate-prepaid-bonus-value-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Calculate prepaid bonus value <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>GET Payments/Prepaid/Bonus
+</code></pre>
+
+<p>Use to check prepaid bonus </p>
+
+<h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>amount</code></td>
+<td><code>decimal</code></td>
+<td>
+<strong>Required</strong>. Amount to calculate.</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>string</code></td>
+<td>The source from which the bonus should come: MembershipPortal, Internet, Web, Api.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/appendix/datatypes/prepaidbonus">Prepaid Bonus</a> </p>
+
+<h3>
+<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we request to check prepaid bonus for amount '200'.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Payments/Prepaid/Bonus
+        ?amount=200
+</pre>
+
+<h3>
+<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bonusAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"202"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
 <a id="execute-payment-with-credit-card-" class="anchor" href="#execute-payment-with-credit-card-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute payment with credit card <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
@@ -432,12 +506,12 @@ curl -i
 </table>
 
 <h3>
-<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-3" class="anchor" href="#response-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/payments/paymentstatus#properties">Payment status</a> if operation is successful, or collection of <a href="/appendix/datatypes/error">errors</a> with <a href="/appendix/errorcodes/creditcardpaymenterrorcode">credit card payment error codes</a> otherwise.</p>
 
 <h3>
-<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+<a id="example-request-3" class="anchor" href="#example-request-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
 <p>In this example we request payment of pending contract fees for user identified with <code>id</code> = <code>236</code>.</p>
 
@@ -455,7 +529,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-3" class="anchor" href="#example-response-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
