@@ -1,5 +1,5 @@
 ---
-title: Adding and updateing user
+title: Adding and updating user 
 ---
 
 # Adding and updating users
