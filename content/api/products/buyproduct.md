@@ -1,5 +1,5 @@
 ---
-title: Buy products
+title: Buy products 
 ---
 # Product purchase
 
@@ -16,6 +16,7 @@ Name 	     	    | Type  	| Description
 `userId`  	   		|`long`     | **Required**. User identifier.
 `productId`  	    |`long`     | **Required**. Product identifier.
 `quantity`  	    |`long`     | **Required**. Product quantity.
+`paymentMethod`  	|`string`   | Payment method - 'Prepaid' (default) or 'Debit'.
 
 
 ### Response
