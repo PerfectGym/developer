@@ -21,6 +21,7 @@ Name            | Type      					| Description
 `startDate`    	|`string`   					| Contract's start date.
 `cancelDate`    |`string`   					| Contract's cancel date.
 `endDate`   	|`string`   					| Contract's end date.
+`commitmentDate`|`string`   					| Contract's commitment date.
 `isActive`     	|`bool`     					| Indicates if contract is marked as active.
 `isDeleted`     |`bool`                         | Indicates if resource is deleted.
 

@@ -26,6 +26,7 @@ Name            				| Type      				| Description
 `isForeigner`					|`bool`						| Indicates if user is a forigner.
 `hasAccount`					|`bool`						| Indicates if user has signed up for end user account.
 `hasPassword`                   |`bool`                     | Indicates if user has provided password for his end user account.
+`language`      				|`string`   				| User preferred language .
 `phoneNumber`      				|`string`   				| User phone number.
 `idCardName`					|`string`					| User identity card name.
 `idCardNumber`  				|`string`					| User identity card number.
