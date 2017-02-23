@@ -7,7 +7,7 @@ title: Buy products
 
     POST Products/Product/Buy
 
-Use to buy product using user's prepaid account 
+Use to buy product 
 
 ### Body parameters
 
@@ -16,12 +16,12 @@ Name 	     	    | Type  	| Description
 `userId`  	   		|`long`     | **Required**. User identifier.
 `productId`  	    |`long`     | **Required**. Product identifier.
 `quantity`  	    |`long`     | **Required**. Product quantity.
-`paymentMethod`  	|`string`   | Payment method - 'Prepaid' (default) or 'Debit'.
+`paymentMethod`  	|`string`   | Payment method - 'Prepaid' (default), 'Debit', 'Credit'.
 
 
 ### Response
 
-[Prepaid Status][PrepaidStatus] 
+[Status][PrepaidStatus] 
 
 
 

@@ -1,23 +1,24 @@
 ---
-title: Prepaid status details
+title: Paid status details
 layout: appendix
 ---
 
-# Prepaid status details
+# Paid status details
 
-Represents prepaid operation result.
+Represents paid operation result.
 
 
-## Prepaid status details properties
+## Paid status details properties
 
-Prepaid status details is described by the following properties
+Paid status details is described by the following properties
 
 
 Name             | Type      | Description
 -----|-----------|----------------------
 `operationType`  |`string`   | Operation type
-`billNumber`	 |`long`     | Bill identifier.
-`customerBalance`|`decimal` | User prepaid account value.
+`paymentKey`     |`string`   | Payment key
+`billNumber`	 |`long`     | Bill identifier
+`customerBalance`|`decimal`  | User prepaid account value
 `operationDate`  |`datetime` | Date of operation
 
 
