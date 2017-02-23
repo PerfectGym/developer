@@ -9,7 +9,7 @@ This API allows user to pay contract fees using online payment systems.
 {:toc}
 
 
-
+ 
 ## Execute online payment ![alt text][EM]
 
     GET Payments/Pay
@@ -22,7 +22,7 @@ Returns online payment URL and transaction identifier.
 Name      	   | Type  	   | Description
 ---------------|-----------|--------------------
 `userId`  	   |`long`     | **Required**. User identifier.
-`amount`  	   |`decimal`  | **Required**. Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first.
+`amount`  	   |`long`     | **Required**. Amount to be paid. After successful payment amount is automaticly distributet to satisfy earliest pending fees first. The parameter is divided by 100 eg. 1250 will be converted to 12.50 
 `redirectUrl`  |`string`   | URL with query `paymentId` parameter attached. Online payment system will redirect to a given url after transaction is completed. 
 
 
