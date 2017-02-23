@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Prepaid status details | Perfectgym Developer Guide</title>
+  <title>Paid status details | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
@@ -109,14 +109,14 @@
       
 
 <h1>
-<a id="prepaid-status-details" class="anchor" href="#prepaid-status-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prepaid status details</h1>
+<a id="paid-status-details" class="anchor" href="#paid-status-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Paid status details</h1>
 
-<p>Represents prepaid operation result.</p>
+<p>Represents paid operation result.</p>
 
 <h2>
-<a id="prepaid-status-details-properties" class="anchor" href="#prepaid-status-details-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prepaid status details properties</h2>
+<a id="paid-status-details-properties" class="anchor" href="#paid-status-details-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Paid status details properties</h2>
 
-<p>Prepaid status details is described by the following properties</p>
+<p>Paid status details is described by the following properties</p>
 
 <table>
 <thead>
@@ -133,14 +133,19 @@
 <td>Operation type</td>
 </tr>
 <tr>
+<td><code>paymentKey</code></td>
+<td><code>string</code></td>
+<td>Payment key</td>
+</tr>
+<tr>
 <td><code>billNumber</code></td>
 <td><code>long</code></td>
-<td>Bill identifier.</td>
+<td>Bill identifier</td>
 </tr>
 <tr>
 <td><code>customerBalance</code></td>
 <td><code>decimal</code></td>
-<td>User prepaid account value.</td>
+<td>User prepaid account value</td>
 </tr>
 <tr>
 <td><code>operationDate</code></td>
