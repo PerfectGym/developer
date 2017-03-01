@@ -12,7 +12,7 @@ Club details is detaild representation of single club in your company.
 ## Club details properties
 
 Club details holds the same data as [Club][ClubProperties] plus some detailed features of a club.
-Only club details specyfic properties are described here.
+Only club details specific properties are described here.
 
 
 Name            		| Type    | Description
@@ -31,7 +31,7 @@ Name            		| Type    | Description
 
 
 
-## <a name="clubdetails"></a>Retrive detailed information about specyfic club ![alt text][EM] ![alt text][UM]
+## <a name="clubdetails"></a>Retrive detailed information about specific club ![alt text][EM] ![alt text][UM]
 
     GET Clubs/Club
 
