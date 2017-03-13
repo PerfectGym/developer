@@ -52,6 +52,11 @@ module GitHub
         "isHidden": false,        
       }
 
+	
+	  ACQUIRECOUPON_RESPONSE ||= {
+        "elements" => [34327]
+      }
+
 
       CLUBZONE_SPA ||= {
         "id": 1,

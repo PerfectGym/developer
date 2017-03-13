@@ -23,8 +23,13 @@ available in your company.
 
 [Who is in API][WhoIsIn] gives you read only access to information about users currently present in your club.
 
+## [Coupons][Coupons]
+
+[Coupons][Coupons] lets you create one day pass to club
+
 
 
 [Clubs]: /api/clubs/clubs/
 [ClubDetails]: /api/clubs/clubdetails/
 [WhoIsIn]: /api/clubs/whoisin
+[Coupons]: /api/clubs/coupons
