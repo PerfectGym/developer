@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Documents | Perfectgym Developer Guide</title>
+  <title>Coupons | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
@@ -197,15 +197,137 @@
       
 
 <h1>
-<a id="documents" class="anchor" href="#documents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documents</h1>
+<a id="coupons" class="anchor" href="#coupons" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Coupons</h1>
 
-<p>The Documents APIs provides access to various documents stored in Perfect Gym.</p>
+<p>This API lets you create one day pass to club and send it to user.</p>
+
+<ul id="markdown-toc">
+<li><a href="#create-one-day-pass-coupon-" id="markdown-toc-create-one-day-pass-coupon-">Create one day pass coupon 
+</a></li>
+</ul>
 
 <h2>
-<a id="documents-1" class="anchor" href="#documents-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/documents/documents/">Documents</a>
+<a id="create-one-day-pass-coupon-" class="anchor" href="#create-one-day-pass-coupon-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create one day pass coupon <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
-<p><a href="/api/documents/documents/">Documents API</a> gives you read only access to list of user documents.</p>
+<pre><code>POST Coupons/AcquireCoupon
+</code></pre>
+
+<h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. User first name.</td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. User last name.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. User email.</td>
+</tr>
+<tr>
+<td><code>phoneNumber</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. User phone number.</td>
+</tr>
+<tr>
+<td><code>personalId</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. User personal identifier.</td>
+</tr>
+<tr>
+<td><code>homeClubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Club identifier.</td>
+</tr>
+<tr>
+<td><code>couponName</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. Coupon name.</td>
+</tr>
+<tr>
+<td><code>couponDescription</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. Coupon description.</td>
+</tr>
+<tr>
+<td><code>couponValidFrom</code></td>
+<td><code>date</code></td>
+<td>
+<strong>Required</strong>. Coupon valid from date.</td>
+</tr>
+<tr>
+<td><code>couponValidTo</code></td>
+<td><code>date</code></td>
+<td>
+<strong>Required</strong>. Coupon valid to date.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we create one day pass for user</p>
+
+<pre class="command-line">
+curl -X POST 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json" 
+     -d '{      
+        "couponValidFrom": "2016-01-26T00:00:00",
+        "couponValidTo": "2017-01-26T00:00:00",
+        "firstName": "John",
+        "lastName": "Fibo",
+        "email": "john.fibo@perfectgym.pl",
+        "phoneNumber": "0048123456789",
+        "personalId": "88120834567",
+        "homeClubId": "0048123456789",
+        "couponName": "Coupon",
+        "couponDescription": "Description"        
+    }'  
+     http://yoursubdomain.perfectgym.com/Api/Coupons/AcquireCoupon      
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<p>Return coupon identifier</p>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">34327</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 
 
     </div>

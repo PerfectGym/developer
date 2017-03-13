@@ -82,6 +82,14 @@
   
   
   {
+    "title": "Coupons",
+    
+    "url": "/api/clubs/coupons/",
+    "body": " Coupons This API lets you create one day pass to club and send it to user.  Create one day pass coupon    Create one day pass coupon   POST Coupons/AcquireCoupon   Parameters    Name Type Description     firstName string  Required. User first name.   lastName string  Required. User last name.   email string  Required. User email.   phoneNumber string  Required. User phone number.   personalId string  Required. User personal identifier.   homeClubId long  Required. Club identifier.   couponName string  Required. Coupon name.   couponDescription string  Required. Coupon description.   couponValidFrom date  Required. Coupon valid from date.   couponValidTo date  Required. Coupon valid to date.     Example request In this example we create one day pass for user  curl -X POST -H \"Authorization: Bearer $ACCESS_TOKEN\" -H \"Content-Type: application/json\" -d '{ \"couponValidFrom\": \"2016-01-26T00:00:00\", \"couponValidTo\": \"2017-01-26T00:00:00\", \"firstName\": \"John\", \"lastName\": \"Fibo\", \"email\": \"john.fibo@perfectgym.pl\", \"phoneNumber\": \"0048123456789\", \"personalId\": \"88120834567\", \"homeClubId\": \"0048123456789\", \"couponName\": \"Coupon\", \"couponDescription\": \"Description\" }' http://yoursubdomain.perfectgym.com/Api/Coupons/AcquireCoupon   Example response Return coupon identifier Status: 200 OK  { \"elements\": [ 34327 ] } "
+  },
+  
+  
+  {
     "title": "Who is in",
     
     "url": "/api/clubs/whoisin/",
@@ -93,7 +101,7 @@
     "title": "Clubs",
     
     "url": "/api/clubs/",
-    "body": " Clubs The Clubs APIs provides access to clubs list and club details that are part of your company.  Clubs  Clubs API gives you read only access to list of clubs available in your company.  Club details  Club details API gives you read only access to detailed information about clubs available in your company.  Who is in  Who is in API gives you read only access to information about users currently present in your club."
+    "body": " Clubs The Clubs APIs provides access to clubs list and club details that are part of your company.  Clubs  Clubs API gives you read only access to list of clubs available in your company.  Club details  Club details API gives you read only access to detailed information about clubs available in your company.  Who is in  Who is in API gives you read only access to information about users currently present in your club.  Coupons  Coupons lets you create one day pass to club"
   },
   
   
