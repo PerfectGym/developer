@@ -22,7 +22,7 @@ module GitHub
           "category" => {
             "id": 2,            
             "category": "MIX",
-            "imageUrl": "http://pure/Api/Files/Photo?photoId=45",
+            "imageUrl": "https://yourdomain.perfectgym.pl/Api/Files/Photo?xxxxxxxxx",
             "isDeleted": false,
             "isProductRequiredForBooking": false,
             "name": "Mix",
@@ -46,7 +46,7 @@ module GitHub
           "category" => {
             "id": 2,            
             "category": "MIX",
-            "imageUrl": "http://pure/Api/Files/Photo?photoId=45",
+            "imageUrl": "https://yourdomain.perfectgym.pl/Api/Files/Photo?xxxxxxxxx",
             "isDeleted": false,
             "isProductRequiredForBooking": false,
             "name": "Mix",
@@ -65,7 +65,7 @@ module GitHub
       CLASSCATEGORY_RESPONSE ||= {
         "id": 2,            
         "category": "MIX",
-        "imageUrl": "http://pure/Api/Files/Photo?photoId=45",
+        "imageUrl": "https://yourdomain.perfectgym.pl/Api/Files/Photo?xxxxxxxxx",
         "isDeleted": false,
         "isProductRequiredForBooking": false,
         "name": "Mix",
@@ -87,7 +87,9 @@ module GitHub
             "endDate": "2015-12-03T07:15:00",
             "attendeesCount": 7,
             "attendeesLimit": 20,
-            "clubZone": "Fitness"                
+            "clubZone": "Fitness",          
+			"clubZoneMapUrl": "https://yourdomain.perfectgym.pl/Api/Files/Photo?xxxxxxxxx",
+			"allowBookSeatNumber": true
           }
         ]              
       }
@@ -260,7 +262,7 @@ module GitHub
             "endDate": "2015-12-03T07:15:00",
             "attendeesCount": 7,
             "attendeesLimit": 20,
-            "clubZone": "Fitness"
+            "clubZone": "Fitness",
           }
         ] 
       }    

@@ -14,18 +14,21 @@ Class represents fitness class conducted in your club.
 Class is described by the following properties
 
 Name            | Type                        | Description
------|----------|------------------------------------------
+----------------|-----------------------------|------------------------------------------
 `classType`     |[Class type][ClassesType]    | Class type.
 `instructor`    |[Instructor][Instructor]     | Instructor conducting class.
 `club`			|[Club][Club]				  | Club class take place in.
+`startDate`     |`datetime`                   | Class start date and time.
+`endDate`       |`datetime`                   | Class end date and time.
+`attendeesCount`|`int`                        | Number of users signed up for class.
+`attendeesLimit`|`int`                        | Maximum number of attendees allowed to attend class. `null` if there is no limit.
+`clubZone`      |`string`					  | Name of club zone.
+`clubZoneMapUrl`|`string`					  | Url to club zone map if defined, otherwise empty.
+`colorRGB`      |`string`                     | Representing the color set for class.
+`allowBookSeatNumber`|`bool` 				  | Is it allows to book a specific seat number.
 `id`            |`long`                       | Unique identifier of class.
 `timestamp`     |`long`                       | Timestamp. Indicates when resource was last modified.
 `isDeleted`     |`bool`                       | Indicates if resource is deleted.
-`startDate`     |`datetime`                   | Class start date and time.
-`endDate`       |`datetime`                   | Class end date and time.
-`colorRGB`      |`string`                     | Representing the color set for class.
-`attendeesCount`|`int`                        | Number of users signed up for class.
-`attendeesLimit`|`int`                        | Maximum number of attendees allowed to attend class. `null` if there is no limit.
 
 
 
@@ -40,7 +43,7 @@ Returns paginated classes list.
 ### Parameters
 
 Name         | Type       | Description
------|-------|------------|------------
+-------------|------------|------------
 `clubId`     |`long`      | **Required**. Club identifier. Request returns classes that take place in club identified by `clubId`.
 `startDate`  |`datetime`  | **Required**. Start date. Request returns classes that starts leter then `startDate`.
 `endDate`    |`datetime`  | **Required**. End date. Request returns classes that ends earlier then `endtDate`.
