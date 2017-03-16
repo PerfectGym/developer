@@ -312,7 +312,17 @@ module GitHub
             "message": ""
           }
         ]
-      }            
+      }
+
+		AVAILABLESEATNUMBERS_RESPONSE ||= {
+			"elements" => [
+				2,
+				3,
+				4,
+				7,
+				8				
+			]
+		}
     end
   end
 end

@@ -68,6 +68,38 @@ Subsequent booking for class with `id` =`1677` and for user with `id` = `40` gen
 <%= json(:bookclass_error_response) %>
 
 
+## List of available seat numbers to book ![alt text][EM] ![alt text][UM]
+
+    GET Classes/AvailableSeatNumbers
+	
+Gets the list of available seat number to book.
+
+### Request parameters
+
+Name         | Type       | Description
+-------------|------------|------------
+`classId`    |`long`      | **Required**. Class identifier. Request cancels user booking for fitness class identified by `classId`.
+
+### Response
+
+
+### Example request
+
+In this example we request about booking available seat numbers for class with `id` = `1677`
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Classes/AvailableSeatNumbers
+     	?classId=1677
+```
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:availableseatnumbers_response) %>
+
 
 
 ## Execute class cancel ![alt text][EM] ![alt text][UM]
