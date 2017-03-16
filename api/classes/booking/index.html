@@ -243,6 +243,11 @@
 <td>
 <strong>Required</strong>. User identifier.  Request signs up user identified with <code>userId</code> for fitness class.</td>
 </tr>
+<tr>
+<td><code>seatNumber</code></td>
+<td><code>int</code></td>
+<td>When class allow book a seat number, you can pass specific seat number to book. Book given seat or first available.</td>
+</tr>
 </tbody>
 </table>
 
@@ -263,6 +268,11 @@
 <td><code>long</code></td>
 <td>
 <strong>Required</strong>. Class identifier. Request signs up authenticated user for fitness class identified by <code>classId</code>.</td>
+</tr>
+<tr>
+<td><code>seatNumber</code></td>
+<td><code>int</code></td>
+<td>When class allow book a seat number, you can pass specific seat number to book. Book given seat or first available.</td>
 </tr>
 </tbody>
 </table>
@@ -317,7 +327,7 @@ curl -i
         </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
           </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIX"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://pure/Api/Files/Photo?photoId=45"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://yourdomain.perfectgym.pl/Api/Files/Photo?xxxxxxxxx"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="nt">"isProductRequiredForBooking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mix"</span><span class="p">,</span><span class="w">
@@ -506,7 +516,7 @@ curl -i
         </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
           </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIX"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://pure/Api/Files/Photo?photoId=45"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://yourdomain.perfectgym.pl/Api/Files/Photo?xxxxxxxxx"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="nt">"isProductRequiredForBooking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mix"</span><span class="p">,</span><span class="w">

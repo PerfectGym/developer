@@ -241,6 +241,46 @@ Class properties</a></li>
 <td>Club class take place in.</td>
 </tr>
 <tr>
+<td><code>startDate</code></td>
+<td><code>datetime</code></td>
+<td>Class start date and time.</td>
+</tr>
+<tr>
+<td><code>endDate</code></td>
+<td><code>datetime</code></td>
+<td>Class end date and time.</td>
+</tr>
+<tr>
+<td><code>attendeesCount</code></td>
+<td><code>int</code></td>
+<td>Number of users signed up for class.</td>
+</tr>
+<tr>
+<td><code>attendeesLimit</code></td>
+<td><code>int</code></td>
+<td>Maximum number of attendees allowed to attend class. <code>null</code> if there is no limit.</td>
+</tr>
+<tr>
+<td><code>clubZone</code></td>
+<td><code>string</code></td>
+<td>Name of club zone.</td>
+</tr>
+<tr>
+<td><code>clubZoneMapUrl</code></td>
+<td><code>string</code></td>
+<td>Url to club zone map if defined, otherwise empty.</td>
+</tr>
+<tr>
+<td><code>colorRGB</code></td>
+<td><code>string</code></td>
+<td>Representing the color set for class.</td>
+</tr>
+<tr>
+<td><code>allowBookSeatNumber</code></td>
+<td><code>bool</code></td>
+<td>Is it allows to book a specific seat number.</td>
+</tr>
+<tr>
 <td><code>id</code></td>
 <td><code>long</code></td>
 <td>Unique identifier of class.</td>
@@ -254,31 +294,6 @@ Class properties</a></li>
 <td><code>isDeleted</code></td>
 <td><code>bool</code></td>
 <td>Indicates if resource is deleted.</td>
-</tr>
-<tr>
-<td><code>startDate</code></td>
-<td><code>datetime</code></td>
-<td>Class start date and time.</td>
-</tr>
-<tr>
-<td><code>endDate</code></td>
-<td><code>datetime</code></td>
-<td>Class end date and time.</td>
-</tr>
-<tr>
-<td><code>colorRGB</code></td>
-<td><code>string</code></td>
-<td>Representing the color set for class.</td>
-</tr>
-<tr>
-<td><code>attendeesCount</code></td>
-<td><code>int</code></td>
-<td>Number of users signed up for class.</td>
-</tr>
-<tr>
-<td><code>attendeesLimit</code></td>
-<td><code>int</code></td>
-<td>Maximum number of attendees allowed to attend class. <code>null</code> if there is no limit.</td>
 </tr>
 </tbody>
 </table>
@@ -370,7 +385,7 @@ curl -i
         </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
           </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIX"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://pure/Api/Files/Photo?photoId=45"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://yourdomain.perfectgym.pl/Api/Files/Photo?xxxxxxxxx"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="nt">"isProductRequiredForBooking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mix"</span><span class="p">,</span><span class="w">
@@ -424,7 +439,9 @@ curl -i
       </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T07:15:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
+      </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clubZoneMapUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://yourdomain.perfectgym.pl/Api/Files/Photo?xxxxxxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"allowBookSeatNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -505,7 +522,7 @@ curl -i
         </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
           </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIX"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://pure/Api/Files/Photo?photoId=45"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"imageUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://yourdomain.perfectgym.pl/Api/Files/Photo?xxxxxxxxx"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="nt">"isProductRequiredForBooking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mix"</span><span class="p">,</span><span class="w">
@@ -559,7 +576,9 @@ curl -i
       </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-03T07:15:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attendeesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attendeesLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="w">
+      </span><span class="nt">"clubZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fitness"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"clubZoneMapUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://yourdomain.perfectgym.pl/Api/Files/Photo?xxxxxxxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"allowBookSeatNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
