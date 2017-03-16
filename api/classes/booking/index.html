@@ -204,6 +204,8 @@
 <ul id="markdown-toc">
 <li><a href="#execute-class-booking--" id="markdown-toc-execute-class-booking--">Execute class booking  
 </a></li>
+<li><a href="#list-of-available-seat-numbers-to-book--" id="markdown-toc-list-of-available-seat-numbers-to-book--">List of available seat numbers to book  
+</a></li>
 <li><a href="#execute-class-cancel--" id="markdown-toc-execute-class-cancel--">Execute class cancel  
 </a></li>
 <li><a href="#execute-private-training-booking-" id="markdown-toc-execute-private-training-booking-">Execute private training booking 
@@ -410,6 +412,71 @@ curl -i
 
 
 <h2>
+<a id="list-of-available-seat-numbers-to-book--" class="anchor" href="#list-of-available-seat-numbers-to-book--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List of available seat numbers to book <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
+</h2>
+
+<pre><code>GET Classes/AvailableSeatNumbers
+</code></pre>
+
+<p>Gets the list of available seat number to book.</p>
+
+<h3>
+<a id="request-parameters" class="anchor" href="#request-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Request parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Class identifier. Request cancels user booking for fitness class identified by <code>classId</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we request about booking available seat numbers for class with <code>id</code> = <code>1677</code></p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Classes/AvailableSeatNumbers
+        ?classId=1677
+</pre>
+
+<h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="mi">8</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
 <a id="execute-class-cancel--" class="anchor" href="#execute-class-cancel--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute class cancel <img src="/assets/images/employee.png" alt="alt text" title="Employee mode"> <img src="/assets/images/user.png" alt="alt text" title="User mode">
 </h2>
 
@@ -467,7 +534,7 @@ curl -i
 </table>
 
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
 
 <p><a href="/api/classes/userclasses#properties">Class details</a> if class cancel is successful, or collection of <a href="/appendix/datatypes/error">errors</a> 
 with <a href="/appendix/errorcodes/classcancelerrorcode">class cancel error codes</a> otherwise.</p>
@@ -487,7 +554,7 @@ curl -i
 </pre>
 
 <h3>
-<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
@@ -688,7 +755,7 @@ curl -X POST
 </pre>
 
 <h3>
-<a id="example-response-2" class="anchor" href="#example-response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+<a id="example-response-3" class="anchor" href="#example-response-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
 
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
