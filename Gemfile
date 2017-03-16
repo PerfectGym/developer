@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.3'
 
 gem 'nanoc', '~> 4.0'
 gem 'nanoc-conref-fs', '~> 0.5'
