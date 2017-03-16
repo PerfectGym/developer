@@ -19,16 +19,18 @@ Signs up user for fitness class.
 ### Employee mode parameters 
 
 Name         | Type       | Description
------|-------|------------|------------
+-------------|------------|------------
 `classId`    |`long`      | **Required**. Class identifier. Request signs up user for fitness class identified with `classId`.
 `userId`     |`long`      | **Required**. User identifier.  Request signs up user identified with `userId` for fitness class.
+`seatNumber` |`int`       | When class allow book a seat number, you can pass specific seat number to book. Book given seat or first available.
 
 
 ### User mode parameters 
 
 Name         | Type       | Description
------|-------|------------|------------
+-------------|------------|------------
 `classId`    |`long`      | **Required**. Class identifier. Request signs up authenticated user for fitness class identified by `classId`.
+`seatNumber` |`int`       | When class allow book a seat number, you can pass specific seat number to book. Book given seat or first available.
 
 
 
@@ -78,7 +80,7 @@ Cancels user booking.
 ### Employee mode parameters
 
 Name         | Type       | Description
------|-------|------------|------------
+-------------|------------|------------
 `classId`    |`long`      | **Required**. Class identifier. Request cancels user booking for fitness class identified by `classId`.
 `userId`     |`long`      | **Required**. User identifier.  Request cancels user identified by `userId` booking for fitness class.
 
@@ -86,7 +88,7 @@ Name         | Type       | Description
 ### User mode parameters
 
 Name         | Type       | Description
------|-------|------------|------------
+-------------|------------|------------
 `classId`    |`long`      | **Required**. Class identifier. Request cancels authenticated user booking for fitness class identified by `classId`.
 
 
@@ -137,7 +139,7 @@ Signs up user for fitness personal training.
 ### User mode parameters 
 
 Name         | Type       | Description
------|-------|------------|------------
+-------------|------------|------------
 `title`      |`string`    | **Required**. Reservation title.
 `startDate`  |`datetime`  | **Required**. Reservation starting time.
 `endDate`    |`datetime`  | **Required**. Reservation for a specific time .
