@@ -94,6 +94,7 @@ Name            | Type       | Description
 `cardNumber`    |`string`    | User card number.
 `personalId`    |`long`      | User personal id.
 `userId`        |`long`      | User id.
+`Phone`         |`string`    | User mobile phone number
 
 ### Example request
 
