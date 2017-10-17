@@ -76,7 +76,8 @@ module GitHub
 	        {
             "productId": 10,	       
 	        "productName": "1 x PT",
-	        "quantity": "10"
+	        "quantity": "10",
+			"expireDate": "2019-10-01T00:00:00"
             }
 		 ]                     
       }                   

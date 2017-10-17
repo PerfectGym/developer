@@ -107,6 +107,36 @@ curl -i
 <%= json(:classes_response) %>
 
 
+## Set up presence for a booked user ![alt text][EM] 
+
+    POST Classes/UserPresence
+
+
+### Parameters
+
+Name         | Type       | Description
+-------------|------------|------------
+`classId`    |`long`      | **Required**. Class identifier.
+`userId`     |`long`      | **Required**. User identifier.
+`isPresent`  |`boolean`   | **Required**. Indicates presence in class
+
+
+
+### Example request
+
+In this example, we set the user's presence with the identifier `25` for the class with the identifier` 6`
+
+``` command-line
+curl -X POST 
+	 -H "Authorization: Bearer $ACCESS_TOKEN" 
+	 -H "Content-Type: application/json" 
+	 -d '{
+	    "classId": 6,
+	    "userId": 25,
+		"isPresent": true	      	    
+	}' 
+	http://yoursubdomain.perfectgym.com/Api/Classes/UserPresence
+```
 
 
 [ClassesType]:  /api/classes/classestypes#properties
