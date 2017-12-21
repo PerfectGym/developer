@@ -1,4 +1,4 @@
----
+---  
 title: User details
 ---
 
@@ -32,7 +32,7 @@ Name            				| Type      				| Description
 `idCardNumber`  				|`string`					| User identity card number.
 `legalGuardian`  				|`string`					| User legal guardian full name.
 `newsletterAgreement`			|`bool`						| Indicates if user accept newsletter agreement.
-`termsAndConditionsAgreement`  	|`bool`						| Indicates if user accept terms and conditions agreement.
+`termsAndConditionsAgreement`  	|`bool`						| Indicates if user accept terms and conditions  agreement.
 `address`           			|[Address][Address]     	| User address.
 `contracts`   					|`array`   					| An array of [Contract][Contract] objects, each representing user's contract.
 `cards`   					    |`array`   					| An array of [Card][Card] objects, each representing user's membership card.

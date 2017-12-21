@@ -80,7 +80,31 @@ module GitHub
 			"expireDate": "2019-10-01T00:00:00"
             }
 		 ]                     
-      }                   
+      }   
+
+		USERPRODUCTS_RESPONSE ||= {
+
+        "elements" => [          
+          {
+            "id": 10,      
+	        "expireDate": "2019-10-01T00:00:00",
+            "unitOfMeasure": "Piece",
+			"transactionId": 99075,
+			"quantity":1,
+			"price":0,
+			"name": "BodyShaping",
+			"isStartPackageOnlyForNewcomer": "False",
+			"isStartPackage": "True",
+			"isActive": "True",
+			"initialQuantity": 1,
+			"categoriesClasses" => [
+				"description": "MIX1",
+				"id": 2,
+				"name": "MIX1"
+			]            
+           }          
+        ]        
+      }               
 
 
       USER_RESPONSE ||= {
