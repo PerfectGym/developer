@@ -41,7 +41,7 @@ Name  	    | Type     		| Description
 `clubId`    |`long`    		| Club identifier.
 `created`   |`long`    		| Filter results by user created date.
 `updated`   |`long`    		| Filter results by user last modified date.
-`paige`     |`long`    		| Result paige - defaults to `1`.
+`page`     |`long`    		| Result page - defaults to `1`.
  
 
 ### Example request
