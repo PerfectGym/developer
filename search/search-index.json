@@ -514,6 +514,14 @@
   
   
   {
+    "title": "Products",
+    
+    "url": "/api/users/userproducts/",
+    "body": " Products This API lets you list all purchases made by the user.  Get user products    Get user products   Get Users/UserProducts  Get information about user's products bought at the club.  Parameters    Name Type Description     userId long  Required. User identifier.   clubId long  Required. Club identifier.     Response User products.  Example request In this example we get all products belongs to user with id 22.  curl -i -X GET -H \"Authorization: Bearer $ACCESS_TOKEN\" http://yoursubdomain.perfectgym.com/Api/Users/UserProducts?userId=22&amp;clubId=1   Example response Status: 200 OK  { \"elements\": [ { \"id\": 10, \"expireDate\": \"2019-10-01T00:00:00\", \"unitOfMeasure\": \"Piece\", \"transactionId\": 99075, \"quantity\": 1, \"price\": 0, \"name\": \"BodyShaping\", \"isStartPackageOnlyForNewcomer\": \"False\", \"isStartPackage\": \"True\", \"isActive\": \"True\", \"initialQuantity\": 1, \"categoriesClasses\": [ { \"description\": \"MIX1\", \"id\": 2, \"name\": \"MIX1\" } ] } ] } "
+  },
+  
+  
+  {
     "title": "Users",
     
     "url": "/api/users/",
@@ -790,6 +798,14 @@
     
     "url": "/appendix/datatypes/url/",
     "body": " Url Represents an url to your social media service site.  Url properties Url is described by the following properties    Name Type Description     id long Unique identifier of an url.   timestamp long Timestamp. Indicates when resource was last modified.   mediaType string Type of internet site or social media service. Possible values:  Facebook Twitter LinkedIn YouTube Pinterest Instagram, Foursquare Blog GooglePlus GoogleMaps     url string Url to a site.   isDeleted bool Indicates if resource is deleted.   "
+  },
+  
+  
+  {
+    "title": "Product",
+    
+    "url": "/appendix/datatypes/userproducts/",
+    "body": " Product Product is described by the following properties.    Name Type Description     Id long Product identifier.   TransactionId long Transaction identifier.   ExpireDate date Product expier date.   Quantity int Product quantity.   InitialQuantity int Product initial quantity.   Name string Product name.   Price decimal Product price.   IsActive boolean Is product active.   UnitOfMeasure string Product unit of measure.   CreatedTime datetime Purchase time.   Category string Product category.   Type string Product type.   IsStartPackage boolean Is product part of start package.   IsStartPackageOnlyForNewcomer boolean Is product part of start package for newcomers.   Translations Array Transaltions.   CategoriesClasses Array Categories.   ClubZoneTypes Array ClubZoneTypes.   EmployeePositions Array Employee positions.   "
   },
   
   

@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>User products | Perfectgym Developer Guide</title>
+  <title>Products | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
@@ -198,21 +198,23 @@
       
 
 <h1>
-<a id="user-products" class="anchor" href="#user-products" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User products</h1>
+<a id="products" class="anchor" href="#products" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Products</h1>
 
-<p>This API lets you list bought products available in club.</p>
+<p>This API lets you list all purchases made by the user.</p>
 
 <ul id="markdown-toc">
-<li><a href="#list-all-users-products-" id="markdown-toc-list-all-users-products-">List all user's products 
+<li><a href="#get-user-products-" id="markdown-toc-get-user-products-">Get user products 
 </a></li>
 </ul>
 
 <h2>
-<a id="list-all-users-products-" class="anchor" href="#list-all-users-products-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List all user's products <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="get-user-products-" class="anchor" href="#get-user-products-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get user products <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
-<pre><code>GET Users/User/Product
+<pre><code>Get Users/UserProducts
 </code></pre>
+
+<p>Get information about user's products bought at the club.</p>
 
 <h3>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
@@ -242,16 +244,21 @@
 </table>
 
 <h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/appendix/datatypes/userproducts">User products</a>.</p>
+
+<h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we list products bought by user with <code>id</code> = <code>521</code> in club with <code>id</code> = <code>1</code>.</p>
+<p>In this example we get all products belongs to user with id <code>22</code>.</p>
 
 <pre class="command-line">
 
-curl -X POST 
-     -H "Authorization: Bearer $ACCESS_TOKEN" 
-     -H "Content-Type: application/json"      
-    http://yoursubdomain.perfectgym.com/Api/Users/User/Product?userId=521&amp;clubId=1
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Users/UserProducts?userId=22&amp;clubId=1
 </pre>
 
 <h3>
@@ -264,10 +271,24 @@ curl -X POST
 <pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"productId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"productName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 x PT"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"expireDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-01T00:00:00"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"expireDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-01T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"unitOfMeasure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piece"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">99075</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BodyShaping"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isStartPackageOnlyForNewcomer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isStartPackage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"initialQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"categoriesClasses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIX1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIX1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
