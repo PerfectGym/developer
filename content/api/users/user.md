@@ -27,4 +27,43 @@ Name            				| Type      				| Description
 `isDeleted`     				|`bool`                 	| Indicates if resource is deleted.
 
 
+## Get users list ![alt text][EM]
+
+    Get Users/Users
+
+Returns paginated list of users.
+
+
+### Parameters
+
+Name  	    | Type     		| Description
+------------|---------------|------------
+`clubId`    |`long`    		| Club identifier.
+`created`   |`long`    		| Filter results by user created date.
+`updated`   |`long`    		| Filter results by user last modified date.
+`paige`     |`long`    		| Result paige - defaults to `1`.
+ 
+
+### Example request
+
+In this example we get all users from club with id `21` .
+
+``` command-line
+
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Users/Users?clubId=21
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:userlist_response) %>
+
+
+[EM]: /assets/images/employee.png "Employee mode"
+
+
 

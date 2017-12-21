@@ -82,6 +82,33 @@ module GitHub
 		 ]                     
       }   
 
+		USERLIST_RESPONSE ||= {
+
+        "elements" => [          
+          {
+            "id": 10,      
+	        "birthDate": "2000-10-01T00:00:00",
+            "coverPhotoUrl": "null",
+			"created": "2017-12-21T09:47:01",
+			"updated": "2017-12-22T09:40:00",
+			"email": "test1111test@wp.pl",
+			"firstName": "John",
+			"lastName": "Fibo",
+			"number": "002023500",
+			"homeClubId": 1,
+			"personalId": "null",
+			"isAccepted": "True",			
+			"isActive": "True",
+			"isDeleted": "True",
+			"phoneNumber": "654444444",
+			"photoUrl": "https://pure/Api/Files/UserPhoto/sYew224q$$2fyc$$3d?=635670411821628066",
+			"sex": "Male",
+		    "timestamp": 495037225
+				          
+           }          
+        ]        
+      }               
+
 		USERPRODUCTS_RESPONSE ||= {
 
         "elements" => [          
