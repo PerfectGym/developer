@@ -205,6 +205,8 @@
 <ul id="markdown-toc">
 <li><a href="#user-properties" id="markdown-toc-user-properties">
 User properties</a></li>
+<li><a href="#get-users-list-" id="markdown-toc-get-users-list-">Get users list 
+</a></li>
 </ul>
 
 <h2>
@@ -274,6 +276,97 @@ User properties</a></li>
 </tr>
 </tbody>
 </table>
+
+<h2>
+<a id="get-users-list-" class="anchor" href="#get-users-list-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get users list <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>Get Users/Users
+</code></pre>
+
+<p>Returns paginated list of users.</p>
+
+<h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>Club identifier.</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td><code>long</code></td>
+<td>Filter results by user created date.</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td><code>long</code></td>
+<td>Filter results by user last modified date.</td>
+</tr>
+<tr>
+<td><code>paige</code></td>
+<td><code>long</code></td>
+<td>Result paige - defaults to <code>1</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we get all users from club with id <code>21</code> .</p>
+
+<pre class="command-line">
+
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Users/Users?clubId=21
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000-10-01T00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"coverPhotoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-21T09:47:01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-22T09:40:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1111test@wp.pl"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fibo"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"002023500"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"homeClubId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"personalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isAccepted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"True"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"654444444"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"photoUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pure/Api/Files/UserPhoto/sYew224q$$2fyc$$3d?=635670411821628066"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">495037225</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 
 
     </div>
