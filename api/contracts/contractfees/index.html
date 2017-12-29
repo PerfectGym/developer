@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Contract details | Perfectgym Developer Guide</title>
+  <title>Contract fees | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
@@ -199,23 +199,15 @@
       
 
 <h1>
-<a id="contract-details" class="anchor" href="#contract-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contract details</h1>
+<a id="contract-fees" class="anchor" href="#contract-fees" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contract fees</h1>
 
-<p>Contract details is detaild representation of single user contract. </p>
-
-<ul id="markdown-toc">
-<li><a href="#contract-details-properties" id="markdown-toc-contract-details-properties">
-Contract details properties</a></li>
-<li><a href="#retrieve-detailed-information-about-specific-user-contract-" id="markdown-toc-retrieve-detailed-information-about-specific-user-contract-">Retrieve detailed information about specific user contract 
-</a></li>
-</ul>
+<p>This section provides an overview of contract fees. </p>
 
 <h2>
-<a id="contract-details-properties" class="anchor" href="#contract-details-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
-<a name="properties"></a>Contract details properties</h2>
+<a id="contract-fee-properties" class="anchor" href="#contract-fee-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<a name="properties"></a>Contract fee properties</h2>
 
-<p>Contract details holds the same data as <a href="/api/contracts/contracts#properties">Contract</a> plus some detailed features of a contract.
-Only contract details specyfic properties are described here.</p>
+<p>Contract fee specyfic properties are described here.</p>
 
 <table>
 <thead>
@@ -227,58 +219,91 @@ Only contract details specyfic properties are described here.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>isCurrent</code></td>
+<td><code>id</code></td>
+<td><code>long</code></td>
+<td>Unique identifier of contract.</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp. Indicates when resource was last modified.</td>
+</tr>
+<tr>
+<td><code>signDate</code></td>
+<td><code>string</code></td>
+<td>Contract sign date.</td>
+</tr>
+<tr>
+<td><code>startDate</code></td>
+<td><code>string</code></td>
+<td>Contract start date.</td>
+</tr>
+<tr>
+<td><code>cancelDate</code></td>
+<td><code>string</code></td>
+<td>Contract cancel date.</td>
+</tr>
+<tr>
+<td><code>endDate</code></td>
+<td><code>string</code></td>
+<td>Contract end date.</td>
+</tr>
+<tr>
+<td><code>isActive</code></td>
 <td><code>bool</code></td>
-<td>
-<code>true</code> if contract is user's current contract, <code>false</code> otherwise.</td>
+<td>Indicates if contract is marked as active.</td>
 </tr>
 <tr>
-<td><code>status</code></td>
-<td><code>string</code></td>
-<td>Contract status. <br><strong>Possible values</strong>: <br><ul>
-<li>Current</li>
-<li>Ended</li>
-<li>NotStarted</li>
-<li>Freezed</li>
-</ul>
-</td>
+<td><code>isDeleted</code></td>
+<td><code>bool</code></td>
+<td>Indicates if resource is deleted.</td>
 </tr>
 <tr>
-<td><code>documentUrl</code></td>
-<td><code>string</code></td>
-<td>URL to contract agreement PDF file signed by user (for details see <a href="/api/users/usercontract#contractsigning">contract agreement signing</a>).</td>
+<td><code>administarationFee</code></td>
+<td><code>decimal</code></td>
+<td>Contract administaration fee.</td>
 </tr>
 <tr>
-<td><code>membership</code></td>
-<td><a href="/api/memberships/memberships#properties">Membership</a></td>
-<td>Contract's membership.</td>
+<td><code>freezFee</code></td>
+<td><code>decimal</code></td>
+<td>Contract freez fee.</td>
 </tr>
 <tr>
-<td><code>paymentPlan</code></td>
-<td><a href="/api/paymentplans/paymentplans#properties">Payment paln</a></td>
-<td>Contract's payment plan.</td>
+<td><code>joiningFee</code></td>
+<td><code>decimal</code></td>
+<td>Contract joining fee.</td>
 </tr>
 <tr>
-<td><code>discounts</code></td>
+<td><code>membershipFee</code></td>
+<td><code>decimal</code></td>
+<td>Contract membership fee.</td>
+</tr>
+<tr>
+<td><code>totalFee</code></td>
+<td><code>decimal</code></td>
+<td>Contract total fee.</td>
+</tr>
+<tr>
+<td><code>paidTransactions</code></td>
 <td><code>array</code></td>
-<td>An array of <a href="/api/paymentplans/discounts#properties">discount</a> objects representing discounts applied to contract.</td>
+<td>An array of [ContractFeeDetails][Fee details] objects representing fee details.</td>
 </tr>
 <tr>
-<td><code>freezes</code></td>
+<td><code>pendingTransactions</code></td>
 <td><code>array</code></td>
-<td>An array of <a href="/appendix/datatypes/contractfreeze">freeze</a> objects representing freezes applied to contract.</td>
+<td>An array of [ContractFeeDetails][Fee details] objects representing fee details.</td>
 </tr>
 </tbody>
 </table>
 
 <h2>
-<a id="retrieve-detailed-information-about-specific-user-contract-" class="anchor" href="#retrieve-detailed-information-about-specific-user-contract-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrieve detailed information about specific user contract <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+<a id="retrieve-detailed-information-about-specific-user-contract-fees--" class="anchor" href="#retrieve-detailed-information-about-specific-user-contract-fees--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrieve detailed information about specific user contract fees  <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
-<pre><code>GET Contracts/Contract
+<pre><code>GET Contracts/Contract/Fees
 </code></pre>
 
-<p>Returns detailed user contract informations.</p>
+<p>Returns detailed contract fees informations.</p>
 
 <h3>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
@@ -304,13 +329,13 @@ Only contract details specyfic properties are described here.</p>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch user contract with <code>id</code> = <code>10358</code> detailed information.</p>
+<p>In this example we fetch contract fees with <code>id</code> = <code>10358</code> detailed information.</p>
 
 <pre class="command-line">
 curl -i 
      -X GET 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Contracts/Contract?contractId=10358        
+     http://yoursubdomain.perfectgym.com/Api/Contracts/Contract/Fees?contractId=10358       
 </pre>
 
 <h3>
@@ -329,36 +354,98 @@ curl -i
       </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T00:00:00"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cancelDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"membership"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">349423</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"paymentPlan"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">447623</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open 24m"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isAddOnPaymentPlan"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"discounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="nt">"administarationFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"freezFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"joiningFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"membershipFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"totalFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1217</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"paidTransactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50%"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"administartionFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ValueDiscount"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"joiningFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"membershipFeeDiscountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PercentDiscount"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"administartionFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"joiningFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"membershipFeeDiscountValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-29T10:07:14"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AdminFee"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-29T10:07:14"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JoiningFee"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"freezes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
+      </span><span class="nt">"pendingTransactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"amountToSettle"</span><span class="p">:</span><span class="w"> </span><span class="mi">-100</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-01T00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membership"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"isCurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
