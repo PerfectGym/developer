@@ -49,6 +49,118 @@ module GitHub
         ]        
       }   
 
+	  CONTRACTFEE_RESPONSE ||= {
+
+        "elements" => [
+           {
+            "id": 10358,
+            "timestamp": 350287,
+            "signUpDate": "2016-01-26T00:00:00",
+            "startDate": "2016-01-26T00:00:00",
+            "cancelDate": "",
+            "endDate": "",
+            "administarationFee": 12, 
+			"freezFee": 0,
+			"joiningFee": 5,
+			"membershipFee": 100,
+			"totalFee": 1217,
+            "paidTransactions" => [
+              {
+				"amount":12,
+				"amountToSettle":0,	
+				"date": "2017-10-29T10:07:14",
+				"type": "AdminFee"
+			  },
+			  {
+				"amount":5,
+				"amountToSettle":0,	
+				"date": "2017-10-29T10:07:14",
+				"type": "JoiningFee"
+			  }
+            ],  
+            "pendingTransactions" => [
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2017-10-01T00:00:00",
+				"type": "Membership"
+			  },
+			    {
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2017-11-01T00:00:00",
+				"type": "Membership"
+			  },
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2017-12-01T00:00:00",
+				"type": "Membership"
+			  },
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2018-01-01T00:00:00",
+				"type": "Membership"
+			  },
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2018-02-01T00:00:00",
+				"type": "Membership"
+			  },
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2018-03-01T00:00:00",
+				"type": "Membership"
+			  },
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2018-04-01T00:00:00",
+				"type": "Membership"
+			  },
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2018-05-01T00:00:00",
+				"type": "Membership"
+			  },
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2018-06-01T00:00:00",
+				"type": "Membership"
+			  },
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2018-07-01T00:00:00",
+				"type": "Membership"
+			  },
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2018-08-01T00:00:00",
+				"type": "Membership"
+			  },
+				{
+				"amount":100,
+				"amountToSettle": -100,	
+				"date": "2018-09-01T00:00:00",
+				"type": "Membership"
+			  }
+              ],
+            "status": "Current",
+            "isCurrent": true,        
+            "isActive": true,
+            "isDeleted": false
+          }
+        ]        
+      }   
+
+
       CONTRACT_FREEZE_RESPONSE ||= {
 
         "elements" => [

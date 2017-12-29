@@ -5,7 +5,7 @@ layout: appendix
 
 # Fee
 
-Represents a fee and is used accress all PerfectGym API.
+Represents a fee and is used across all all PerfectGym API.
 
 
 ## Fee properties

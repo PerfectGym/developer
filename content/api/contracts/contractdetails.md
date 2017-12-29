@@ -27,7 +27,7 @@ Name        	| Type    						| Description
 
 
 
-## Retrive detailed information about specyfic user contract ![alt text][EM]
+## Retrieve detailed information about specific user contract ![alt text][EM]
 
     GET Contracts/Contract
 
