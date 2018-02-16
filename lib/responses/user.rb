@@ -702,6 +702,7 @@ module GitHub
               "isHidden": false
             },
             "id": 219,
+			"userId": 123,
             "timestamp": 219102,
             "isDeleted": false
           },
@@ -732,6 +733,7 @@ module GitHub
               "isHidden": false
             },
             "id": 333,
+			"userId": 123,
             "timestamp": 410378,
             "isDeleted": false
           },
@@ -762,6 +764,7 @@ module GitHub
               "isHidden": false
             },
             "id": 340,
+			"userId": 123,
             "timestamp": 410472,
             "isDeleted": false
           },
@@ -792,6 +795,7 @@ module GitHub
               "isHidden": false
             },
             "id": 349,
+			"userId": 123,
             "timestamp": 412023,
             "isDeleted": false
           }

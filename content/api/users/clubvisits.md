@@ -16,6 +16,7 @@ Club visit is described by the following properties
 Name            | Type            | Description
 ----------------|-----------------|-----------------------------------------
 `id`            |`long`           | Unique identifier of club visit.
+`userId`        |`long`           | User identifier.
 `timestamp`    	|`long`     	  | Timestamp. Indicates when resource was last modified.
 `enterDate`     |`datetime`       | Club entrance date.
 `exitDate`      |`datetime`       | Club exit date.
@@ -57,14 +58,36 @@ curl -i
      http://yoursubdomain.perfectgym.com/Api/Users/ClubVisits?userId=123&timestamp=254000
 ```
 
-
 ### Example response
 
 <%= headers 200 %>
 <%= json(:userclubvisits_response) %>
 
 
+## List all club visits with timestamp ![alt text][EM] 
 
+    GET Users/ClubVisits/All
+
+Returns paginated list of all user's club visits.
+
+
+### Employee mode parameters
+
+Name         | Type   | Description
+-------------|--------|--------------------
+`timestamp`  |`long`  | **Required**. Timestamp. Request returns club visits with timestamp grater then `timestamp`, defaults to `0`
+
+
+### Example request
+
+In this example we fetch list of all club visits with `timestamp` greater then `254000`
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Users/ClubVisits/All?timestamp=254000
+```
 
 
 
