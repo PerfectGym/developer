@@ -61,6 +61,35 @@ curl -i
 
 
 
+## Retrieve detailed information about all contracts ![alt text][EM]
+
+    GET Contracts/Contracts
+
+Returns detailed contracts informations.
+
+
+### Parameters
+
+Name            | Type       | Description
+----------------|------------|------------------------
+`timestamp`  	|`long`  	 | Timestamp. Request returns contracts with timestamp grater then `timestamp`, defaults to `0`.
+`page`       	|`int`       | The desired page number (1-based index). Page size is 100. Default to 1.
+
+
+
+### Example request
+
+In this example we fetch contracts with `timestamp` greater then `454000`.
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Contracts/Contracts?timestamp=454000    	
+```
+
+
+
 [ContractProperties]: /api/contracts/contracts#properties 
 [ContractSigning]: /api/users/usercontract#contractsigning
 [Membership]: /api/memberships/memberships#properties
