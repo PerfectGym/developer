@@ -208,6 +208,8 @@
 Contract details properties</a></li>
 <li><a href="#retrieve-detailed-information-about-specific-user-contract-" id="markdown-toc-retrieve-detailed-information-about-specific-user-contract-">Retrieve detailed information about specific user contract 
 </a></li>
+<li><a href="#retrieve-detailed-information-about-all-contracts-" id="markdown-toc-retrieve-detailed-information-about-all-contracts-">Retrieve detailed information about all contracts 
+</a></li>
 </ul>
 
 <h2>
@@ -369,6 +371,52 @@ curl -i
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+
+<h2>
+<a id="retrieve-detailed-information-about-all-contracts-" class="anchor" href="#retrieve-detailed-information-about-all-contracts-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrieve detailed information about all contracts <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>GET Contracts/Contracts
+</code></pre>
+
+<p>Returns detailed contracts informations.</p>
+
+<h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>long</code></td>
+<td>Timestamp. Request returns contracts with timestamp grater then <code>timestamp</code>, defaults to <code>0</code>.</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td><code>int</code></td>
+<td>The desired page number (1-based index). Page size is 100. Default to 1.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we fetch contracts with <code>timestamp</code> greater then <code>454000</code>.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     http://yoursubdomain.perfectgym.com/Api/Contracts/Contracts?timestamp=454000       
+</pre>
 
 
     </div>
