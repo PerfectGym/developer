@@ -92,9 +92,10 @@ Name            | Type       | Description
 ----------------|------------|------------------------
 `email`	        |`string`    | User email address.
 `cardNumber`    |`string`    | User card number.
+`userNumber`    |`string`    | User number.
 `personalId`    |`long`      | User personal id.
 `userId`        |`long`      | User id.
-`Phone`         |`string`    | User mobile phone number
+`phone`         |`string`    | User mobile phone number
 
 ### Example request
 
