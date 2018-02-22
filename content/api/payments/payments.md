@@ -198,6 +198,57 @@ Total amount is not equal to sum of all fees to be paid.
 
 
 
+## Execute manula payment ![alt text][EM]
+
+    POST Payments/ManualContractPayment
+
+Request executes manual payment for user.
+
+
+
+### Header parameters
+
+Name            | Type       | Description
+----------------|------------|------------------------
+`userId`  	   		|`long`     | **Required**. User identifier.
+
+### Body parameters
+
+Name 	     	    | Type  	| Description
+--------------------|-----------|--------------------
+`paidAmount`  		|`decimal`  | **Required**. Total amount paid.
+`description`  		|`string`   | Transaction description.
+`contractTransactionType`  		|`string`   | **Required**. Transaction type. <br><strong>Possible values</strong>: <br><ul><li>Prorata</li><li>AdminFee</li><li>JoiningFee</li><li>Membership</li><li>Membership</li><li>Manual</li></ul>
+
+
+### Example request
+
+In this example we request manual payment of pending contract for user identified with `id` = `236`.
+
+``` command-line
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     -H "Content-Type: application/json" 
+     -d '{
+        	"paidAmount": 100,
+        	"description": "Transaction description",
+    		"contractTransactionType": "Manual"
+    }' 
+    http://yoursubdomain.perfectgym.com/Api/Payments/ManualContractPayment?userId=236     	
+```
+
+
+### Example response
+
+<%= headers 200 %>
+<%= json(:MANUALPAYMENTSTATUS_RESPONSE) %>
+
+
+
+
+
+
 [Fee]: /appendix/datatypes/fee
 [PaymentStatus]: /api/payments/paymentstatus#properties
 [PaymentDetails]: /appendix/datatypes/paymentdetails

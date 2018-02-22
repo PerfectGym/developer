@@ -76,6 +76,17 @@ module GitHub
         ]
       }
 
+	  MANUALPAYMENTSTATUS_RESPONSE ||= {
+
+        "elements" => [
+          {
+            "status": "Success",
+            "errorMessage": "",
+			"transactionId": 32228336
+          }
+        ]
+      }
+
       PREPAIDBONUS_RESPONSE ||= {
 
         "elements" => [
