@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Instructors | Perfectgym Developer Guide</title>
+  <title>Leads | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
@@ -207,16 +207,113 @@
       
 
 <h1>
-<a id="instructors" class="anchor" href="#instructors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructors</h1>
+<a id="adding-lead" class="anchor" href="#adding-lead" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adding lead</h1>
 
-<p>The Instructors APIs provides access to instructors list available in your company.</p>
+<p>Lead is a person who is potentially interested in a given product or service.
+This API allow to add new lead</p>
+
+<ul id="markdown-toc">
+<li><a href="#add-new-lead-" id="markdown-toc-add-new-lead-">Add new lead 
+</a></li>
+</ul>
 
 <h2>
-<a id="instructors-1" class="anchor" href="#instructors-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="/api/instructors/instructors/">Instructors</a>
+<a id="add-new-lead-" class="anchor" href="#add-new-lead-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add new lead <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
 </h2>
 
-<p><a href="/api/instructors/instructors/">Instructors API</a> gives you read only access to list of instructors 
-available in your company.</p>
+<pre><code>POST Crm/Lead
+</code></pre>
+
+<p>Request creates new user and adds it to your company user's list.</p>
+
+<h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>firstName</code></td>
+<td><code>string</code></td>
+<td>Lead first name.</td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td><code>string</code></td>
+<td>Lead last name.</td>
+</tr>
+<tr>
+<td><code>sex</code></td>
+<td><code>string</code></td>
+<td>Lead sex. <br><strong>Possible values</strong>: <br><ul>
+<li>Male</li>
+<li>Female</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>string</code></td>
+<td>Lead email address.</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td><code>string</code></td>
+<td>Lead phone number.</td>
+</tr>
+<tr>
+<td><code>birthDate</code></td>
+<td><code>string</code></td>
+<td>Lead birth date.</td>
+</tr>
+<tr>
+<td><code>clubId</code></td>
+<td><code>string</code></td>
+<td>Club identifier.</td>
+</tr>
+<tr>
+<td><code>sourceId</code></td>
+<td><code>string</code></td>
+<td>Source identifier.</td>
+</tr>
+<tr>
+<td><code>phoneMarketingAgreement</code></td>
+<td><code>string</code></td>
+<td>Consent to telephone contact.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Fields requirements depends on system settings</strong></p>
+
+<h3>
+<a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we add new lead with some sample data.</p>
+
+<pre class="command-line">
+
+curl -X POST 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json" 
+     -d '{
+        "firstName": "John",
+        "lastName": "Fibo",
+        "email": "john.fibo@perfectgym.pl",
+        "phone": "0048123456789",
+        "birthDate": "1978-06-01T00:00:00",
+        "clubId": 10,
+        "sourceId": 1,
+        "phoneMarketingAgreement": true     
+    }' 
+    http://yoursubdomain.perfectgym.com/Api/Crm/Lead
+</pre>
 
 
     </div>

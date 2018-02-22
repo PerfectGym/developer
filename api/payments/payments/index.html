@@ -177,7 +177,15 @@
           <li><a href="/api/products/products/">Products</a></li>
           <li><a href="/api/products/buyproduct/">Buy product</a></li>                     
         </ul>
-      </li>                  
+      </li>
+	  <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/crm/">Crm</a></h3>
+        <ul class="js-guides">                    
+          <li><a href="/api/crm/lead/">Lead</a></li>                      
+        </ul>
+      </li>   
+
+                  
       <li class="js-topic">
         <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/api/miscellaneous/">Miscellaneous</a></h3>
         <ul class="js-guides">                    
@@ -211,6 +219,8 @@
 <li><a href="#calculate-prepaid-bonus-value-" id="markdown-toc-calculate-prepaid-bonus-value-">Calculate prepaid bonus value 
 </a></li>
 <li><a href="#execute-payment-with-credit-card-" id="markdown-toc-execute-payment-with-credit-card-">Execute payment with credit card 
+</a></li>
+<li><a href="#execute-manula-payment-" id="markdown-toc-execute-manula-payment-">Execute manula payment 
 </a></li>
 </ul>
 
@@ -564,6 +574,113 @@ curl -i
       </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidTotalAmount"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="execute-manula-payment-" class="anchor" href="#execute-manula-payment-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Execute manula payment <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
+
+<pre><code>POST Payments/ManualContractPayment
+</code></pre>
+
+<p>Request executes manual payment for user.</p>
+
+<h3>
+<a id="header-parameters" class="anchor" href="#header-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Header parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>userId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. User identifier.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="body-parameters-2" class="anchor" href="#body-parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paidAmount</code></td>
+<td><code>decimal</code></td>
+<td>
+<strong>Required</strong>. Total amount paid.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>Transaction description.</td>
+</tr>
+<tr>
+<td><code>contractTransactionType</code></td>
+<td><code>string</code></td>
+<td>
+<strong>Required</strong>. Transaction type. <br><strong>Possible values</strong>: <br><ul>
+<li>Prorata</li>
+<li>AdminFee</li>
+<li>JoiningFee</li>
+<li>Membership</li>
+<li>Membership</li>
+<li>Manual</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>
+<a id="example-request-4" class="anchor" href="#example-request-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we request manual payment of pending contract for user identified with <code>id</code> = <code>236</code>.</p>
+
+<pre class="command-line">
+curl -i 
+     -X GET 
+     -H "Authorization: Bearer  $ACCESS_TOKEN"  
+     -H "Content-Type: application/json" 
+     -d '{
+            "paidAmount": 100,
+            "description": "Transaction description",
+            "contractTransactionType": "Manual"
+    }' 
+    http://yoursubdomain.perfectgym.com/Api/Payments/ManualContractPayment?userId=236       
+</pre>
+
+<h3>
+<a id="example-response-4" class="anchor" href="#example-response-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"errorMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">32228336</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
