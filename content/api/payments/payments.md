@@ -198,7 +198,7 @@ Total amount is not equal to sum of all fees to be paid.
 
 
 
-## Execute manula payment ![alt text][EM]
+## Execute manual payment ![alt text][EM]
 
     POST Payments/ManualContractPayment
 
