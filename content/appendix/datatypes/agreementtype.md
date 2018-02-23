@@ -5,7 +5,7 @@ layout: appendix
 
 #  Agreement type
 
-Represent available contract
+Represent available agreement
 
 
 ## Agreement type properties
