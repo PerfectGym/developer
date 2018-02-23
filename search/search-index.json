@@ -173,7 +173,7 @@
     "title": "Leads",
     
     "url": "/api/crm/lead/",
-    "body": " Adding lead Lead is a person who is potentially interested in a given product or service. This API allow to add new lead  Add new lead    Add new lead   POST Crm/Lead  Request creates new user and adds it to your company user's list.  Body parameters    Name Type Description     firstName string Lead first name.   lastName string Lead last name.   sex string Lead sex. Possible values:  Male Female     email string Lead email address.   phone string Lead phone number.   birthDate string Lead birth date.   clubId string Club identifier.   sourceId string Source identifier.   phoneMarketingAgreement string Consent to telephone contact.    Fields requirements depends on system settings  Example request In this example we add new lead with some sample data.  curl -X POST -H \"Authorization: Bearer $ACCESS_TOKEN\" -H \"Content-Type: application/json\" -d '{ \"firstName\": \"John\", \"lastName\": \"Fibo\", \"email\": \"john.fibo@perfectgym.pl\", \"phone\": \"0048123456789\", \"birthDate\": \"1978-06-01T00:00:00\", \"clubId\": 10, \"sourceId\": 1, \"phoneMarketingAgreement\": true }' http://yoursubdomain.perfectgym.com/Api/Crm/Lead "
+    "body": " Adding lead Lead is a person who is potentially interested in a given product or service. This API allow to add new lead  Add new lead  Get lead sources Get lead agreements   Add new lead   POST Crm/Lead  Request creates new user and adds it to your company user's list.  Body parameters    Name Type Description     firstName string Lead first name.   lastName string Lead last name.   secondName string Lead second name.   sex string Lead sex. Possible values:  Male Female     email string Lead email address.   phone string Lead phone number.   rating int Lead rating Possible values: (1,2,3).   zipCode string Lead zip code.   address string Lead address.   birthDate dateTime Lead birth date.   clubId long Club identifier.   sourceId long Source identifier.   referralId long Recommending club memeber identifier.   consultantId long Lead consultant identifier.   phoneMarketingAgreement bool Consent to telephone contact.   agreement array An array of Agreement objects.    Fields requirements depends on system settings  Example request In this example we add new lead with some sample data.  curl -X POST -H \"Authorization: Bearer $ACCESS_TOKEN\" -H \"Content-Type: application/json\" -d '{ \"firstName\": \"John\", \"lastName\": \"Fibo\", \"email\": \"john.fibo@perfectgym.pl\", \"phone\": \"0048123456789\", \"birthDate\": \"1978-06-01T00:00:00\", \"clubId\": 10, \"sourceId\": 1, \"phoneMarketingAgreement\": true }' http://yoursubdomain.perfectgym.com/Api/Crm/Lead   Get lead sources GET Crm/Lead/Sources  Get lead source defined by dictionary.  Example request In this example we get information about leas sources.  curl -X POST -H \"Authorization: Bearer $ACCESS_TOKEN\" -H \"Content-Type: application/json\" http://yoursubdomain.perfectgym.com/Api/Crm/LeadSources   Example response Status: 200 OK  { \"elements\": [ { \"id\": 2, \"name\": \"MarketingCampaign\", \"description\": \"MarketingCampaign\" }, { \"id\": 3, \"name\": \"WalkIn\", \"description\": \"WalkIn\" } ] }   Get lead agreements GET Crm/Lead/Agreements  Get agreements to present to a potential customer.  Response Agreement types.  Example request In this example we get information about types of agreements.  curl -X POST -H \"Authorization: Bearer $ACCESS_TOKEN\" -H \"Content-Type: application/json\" http://yoursubdomain.perfectgym.com/Api/Crm/LeadAgreements   Example response Status: 200 OK  { \"elements\": [ { \"id\": 2, \"name\": \"Newsletter\", \"description\": \"Newsletter\" } ] } "
   },
   
   
@@ -578,10 +578,18 @@
   
   
   {
+    "title": "Agreement",
+    
+    "url": "/appendix/datatypes/agreement/",
+    "body": " Agreement Expression of consent   Agreement properties Agreement is described by the following properties    Name Type Description     id long Unique identifier of agreement.   flag boolean Consent or opposition to agreement.   "
+  },
+  
+  
+  {
     "title": "Agreement type",
     
     "url": "/appendix/datatypes/agreementtype/",
-    "body": " Agreement type Represent available contract  Agreement type properties Agreement type is described by the following properties    Name Type Description     id long Unique identifier of agreement.   name string Agreement name.   description string Agreement description.   signOnClientSide bool Is sign on client side.   "
+    "body": " Agreement type Represent available agreement  Agreement type properties Agreement type is described by the following properties    Name Type Description     id long Unique identifier of agreement.   name string Agreement name.   description string Agreement description.   signOnClientSide bool Is sign on client side.   "
   },
   
   

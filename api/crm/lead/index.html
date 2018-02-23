@@ -215,6 +215,8 @@ This API allow to add new lead</p>
 <ul id="markdown-toc">
 <li><a href="#add-new-lead-" id="markdown-toc-add-new-lead-">Add new lead 
 </a></li>
+<li><a href="#get-lead-sources" id="markdown-toc-get-lead-sources">Get lead sources</a></li>
+<li><a href="#get-lead-agreements" id="markdown-toc-get-lead-agreements">Get lead agreements</a></li>
 </ul>
 
 <h2>
@@ -249,6 +251,11 @@ This API allow to add new lead</p>
 <td>Lead last name.</td>
 </tr>
 <tr>
+<td><code>secondName</code></td>
+<td><code>string</code></td>
+<td>Lead second name.</td>
+</tr>
+<tr>
 <td><code>sex</code></td>
 <td><code>string</code></td>
 <td>Lead sex. <br><strong>Possible values</strong>: <br><ul>
@@ -268,24 +275,54 @@ This API allow to add new lead</p>
 <td>Lead phone number.</td>
 </tr>
 <tr>
-<td><code>birthDate</code></td>
+<td><code>rating</code></td>
+<td><code>int</code></td>
+<td>Lead rating <strong>Possible values</strong>: (1,2,3).</td>
+</tr>
+<tr>
+<td><code>zipCode</code></td>
 <td><code>string</code></td>
+<td>Lead zip code.</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td><code>string</code></td>
+<td>Lead address.</td>
+</tr>
+<tr>
+<td><code>birthDate</code></td>
+<td><code>dateTime</code></td>
 <td>Lead birth date.</td>
 </tr>
 <tr>
 <td><code>clubId</code></td>
-<td><code>string</code></td>
+<td><code>long</code></td>
 <td>Club identifier.</td>
 </tr>
 <tr>
 <td><code>sourceId</code></td>
-<td><code>string</code></td>
+<td><code>long</code></td>
 <td>Source identifier.</td>
 </tr>
 <tr>
+<td><code>referralId</code></td>
+<td><code>long</code></td>
+<td>Recommending club memeber identifier.</td>
+</tr>
+<tr>
+<td><code>consultantId</code></td>
+<td><code>long</code></td>
+<td>Lead consultant identifier.</td>
+</tr>
+<tr>
 <td><code>phoneMarketingAgreement</code></td>
-<td><code>string</code></td>
+<td><code>bool</code></td>
 <td>Consent to telephone contact.</td>
+</tr>
+<tr>
+<td><code>agreement</code></td>
+<td><code>array</code></td>
+<td>An array of <a href="/appendix/datatypes/agreement">Agreement</a> objects.</td>
 </tr>
 </tbody>
 </table>
@@ -314,6 +351,98 @@ curl -X POST
     }' 
     http://yoursubdomain.perfectgym.com/Api/Crm/Lead
 </pre>
+
+<h2>
+<a id="get-lead-sources" class="anchor" href="#get-lead-sources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get lead sources</h2>
+
+<pre><code>GET Crm/Lead/Sources
+</code></pre>
+
+<p>Get lead source defined by dictionary.</p>
+
+<h3>
+<a id="example-request-1" class="anchor" href="#example-request-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we get information about leas sources.</p>
+
+<pre class="command-line">
+
+curl -X POST 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json"
+     
+    http://yoursubdomain.perfectgym.com/Api/Crm/LeadSources
+</pre>
+
+<h3>
+<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MarketingCampaign"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MarketingCampaign"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WalkIn"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WalkIn"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+
+<h2>
+<a id="get-lead-agreements" class="anchor" href="#get-lead-agreements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get lead agreements</h2>
+
+<pre><code>GET Crm/Lead/Agreements
+</code></pre>
+
+<p>Get agreements to present to a potential customer.</p>
+
+<h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+
+<p><a href="/appendix/datatypes/agreementType">Agreement types</a>.</p>
+
+<h3>
+<a id="example-request-2" class="anchor" href="#example-request-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
+
+<p>In this example we get information about types of agreements.</p>
+
+<pre class="command-line">
+
+curl -X POST 
+     -H "Authorization: Bearer $ACCESS_TOKEN" 
+     -H "Content-Type: application/json"
+     
+    http://yoursubdomain.perfectgym.com/Api/Crm/LeadAgreements
+</pre>
+
+<h3>
+<a id="example-response-1" class="anchor" href="#example-response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
+
+<pre class="highlight highlight-headers"><code>Status: 200 OK
+</code></pre>
+
+
+<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Newsletter"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Newsletter"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 
 
     </div>
