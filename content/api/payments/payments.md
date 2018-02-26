@@ -181,7 +181,7 @@ curl -i
     http://yoursubdomain.perfectgym.com/Api/Payments/PayWithCreditCard     	
 ```
 
-
+ 
 ### Example response
 
 <%= headers 200 %>
@@ -218,7 +218,7 @@ Name 	     	    | Type  	| Description
 --------------------|-----------|--------------------
 `paidAmount`  		|`decimal`  | **Required**. Total amount paid.
 `description`  		|`string`   | Transaction description.
-`contractTransactionType`  		|`string`   | **Required**. Transaction type. <br><strong>Possible values</strong>: <br><ul><li>Prorata</li><li>AdminFee</li><li>JoiningFee</li><li>Membership</li><li>Membership</li><li>Manual</li></ul>
+`contractTransactionType`  		|`string`   | **Required**. Transaction type. <br><strong>Possible values</strong>: <br><ul><li>Prorata</li><li>AdminFee</li><li>JoiningFee</li><li>Membership</li><li>Prepaid</li><li>Manual</li></ul>
 
 
 ### Example request

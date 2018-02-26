@@ -31,7 +31,7 @@ In this example we request to buy product with `productId` = `2` for user identi
 
 ``` command-line
 curl -i 
-     -X GET 
+     -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
      -H "Content-Type: application/json" 
      -d '{
