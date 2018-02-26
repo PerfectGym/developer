@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>Freeze types | Perfectgym Developer Guide</title>
+  <title>Use products | Perfectgym Developer Guide</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="/assets/stylesheets/application.css" rel="stylesheet" type="text/css" />
@@ -208,22 +208,19 @@
       
 
 <h1>
-<a id="freeze-types" class="anchor" href="#freeze-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Freeze types</h1>
-
-<p>Freeze type is a summary representation of contract freeze parameters.</p>
-
-<ul id="markdown-toc">
-<li><a href="#freeze-type-properties" id="markdown-toc-freeze-type-properties">
-Freeze type properties</a></li>
-<li><a href="#list-available-freeze-types-for-given-contract-" id="markdown-toc-list-available-freeze-types-for-given-contract-">List available freeze types for given contract 
-</a></li>
-</ul>
+<a id="product-usage" class="anchor" href="#product-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Product usage</h1>
 
 <h2>
-<a id="freeze-type-properties" class="anchor" href="#freeze-type-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
-<a name="properties"></a>Freeze type properties</h2>
+<a id="use-product-" class="anchor" href="#use-product-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use product <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
+</h2>
 
-<p>Freeze type is described by the following properties</p>
+<pre><code>POST Products/Product/Use
+</code></pre>
+
+<p>Action to reduce quantity of product </p>
+
+<h3>
+<a id="body-parameters" class="anchor" href="#body-parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body parameters</h3>
 
 <table>
 <thead>
@@ -235,74 +232,35 @@ Freeze type properties</a></li>
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>userId</code></td>
 <td><code>long</code></td>
-<td>Unique identifier of freeze type.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>Freeze type name.</td>
-</tr>
-<tr>
-<td><code>isActive</code></td>
-<td><code>bool</code></td>
 <td>
-<code>true</code> if freeze type is active, <code>false</code> otherwise.</td>
+<strong>Required</strong>. User identifier.</td>
 </tr>
 <tr>
-<td><code>freezePeriod</code></td>
-<td><code>string</code></td>
-<td>Freeze period. <br><strong>Possible values</strong>: <br><ul>
-<li>Day</li>
-<li>Month</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td><code>minimumInterval</code></td>
-<td><code>int</code></td>
-<td>Minimum time interval freeze has to last (in units represented with <code>freezePeriod</code>).</td>
-</tr>
-<tr>
-<td><code>maximumIntarval</code></td>
-<td><code>int</code></td>
-<td>Maximum time interval freeze can last (in units represented with <code>freezePeriod</code>).</td>
-</tr>
-<tr>
-<td><code>fixedFee</code></td>
-<td><code>decimal</code></td>
-<td>Freeze fixed fee.</td>
-</tr>
-<tr>
-<td><code>administrationFee</code></td>
-<td><code>decimal</code></td>
-<td>Freeze administration fee.</td>
-</tr>
-<tr>
-<td><code>isDeleted</code></td>
-<td><code>bool</code></td>
-<td>Indicates if resource is deleted.</td>
-</tr>
-<tr>
-<td><code>timestamp</code></td>
+<td><code>productId</code></td>
 <td><code>long</code></td>
-<td>Timestamp. Indicates when resource was last modified.</td>
+<td>
+<strong>Required</strong>. Product identifier.</td>
+</tr>
+<tr>
+<td><code>quantity</code></td>
+<td><code>long</code></td>
+<td>Product quantity. Default value is 1</td>
+</tr>
+<tr>
+<td><code>clubId</code></td>
+<td><code>long</code></td>
+<td>
+<strong>Required</strong>. Club identifier.</td>
 </tr>
 </tbody>
 </table>
 
-<h2>
-<a id="list-available-freeze-types-for-given-contract-" class="anchor" href="#list-available-freeze-types-for-given-contract-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List available freeze types for given contract <img src="/assets/images/employee.png" alt="alt text" title="Employee mode">
-</h2>
-
-<pre><code>GET Contracts/FreezeTypes
-</code></pre>
-
-<p>Returns list of available freeze types.</p>
-
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+
+<p>Response is described by the following properties</p>
 
 <table>
 <thead>
@@ -314,10 +272,18 @@ Freeze type properties</a></li>
 </thead>
 <tbody>
 <tr>
-<td><code>contractId</code></td>
-<td><code>long</code></td>
-<td>
-<strong>Required</strong>. Contract identifier. Request returns freeze types available for contract identified with <code>conractId</code> parameter..</td>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Action status. <br><strong>Possible values</strong>: <br><ul>
+<li>Success</li>
+<li>Error</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>errorMessage</code></td>
+<td><code>string</code></td>
+<td>Error message in case <code>status</code> = <code>Error</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -325,48 +291,22 @@ Freeze type properties</a></li>
 <h3>
 <a id="example-request" class="anchor" href="#example-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example request</h3>
 
-<p>In this example we fetch all available freeze types.</p>
+<p>In this example we request to use product with <code>productId</code> = <code>2</code> for user identified with <code>id</code> = <code>236</code>.</p>
 
 <pre class="command-line">
 curl -i 
-     -X GET 
+     -X POST 
      -H "Authorization: Bearer  $ACCESS_TOKEN"  
-     http://yoursubdomain.perfectgym.com/Api/Contracts/FreezeTypes?contractId=10358 
+     -H "Content-Type: application/json" 
+     -d '{
+            "userId": 236,          
+            "productId": 2,
+            "quantity": 1,
+            "clubId": 14
+
+    }' 
+    http://yoursubdomain.perfectgym.com/Api/Products/Product/Use        
 </pre>
-
-<h3>
-<a id="example-response" class="anchor" href="#example-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example response</h3>
-
-<pre class="highlight highlight-headers"><code>Status: 200 OK
-</code></pre>
-
-
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily Freeze"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isSystem"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"fixedFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"administrationFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"freezePeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly Freeze"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"isSystem"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"fixedFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"administrationFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"freezePeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Month"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
 
 
     </div>
