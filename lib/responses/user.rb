@@ -82,12 +82,34 @@ module GitHub
 		 ]                     
       }   
 
+
 		USERLIST_RESPONSE ||= {
 
         "elements" => [          
           {
             "id": 10,      
 	        "birthDate": "2000-10-01T00:00:00",
+			"contracts": [{ 
+							"endDate": "2018-03-30T23:59:59",
+							"isActive": "True",
+							"isAdditionalContract": "False",							
+							"paymentPlanId": 16861,
+							"paymentPlanName": "LIFESTYLE GYM 99",
+							"startDate": "2018-01-20T00:00:00"},
+						  {	
+							"addons":[ {	"clubServiceType": "DrinkingMachine",
+											"description": "Water service",
+											"endDate": "2018-03-30T23:59:59",
+											"isActive": "True",
+											"name": "Test",
+											"startDate": "2018-01-09T00:00:00"
+										}],
+							"endDate": "2018-03-30T23:59:59",
+							"isActive": "True",
+							"isAdditionalContract": "True",							
+							"paymentPlanId": 5006,
+							"paymentPlanName": "CHANGE YOUR LIFE_13 PT Membership_2000_xyz",
+							"startDate": "2018-01-20T00:00:00"}],
             "coverPhotoUrl": "null",
 			"created": "2017-12-21T09:47:01",
 			"updated": "2017-12-22T09:40:00",
