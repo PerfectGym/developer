@@ -81,11 +81,11 @@ In this example we get information about leas sources.
 
 ``` command-line
 
-curl -X POST 
+curl -X GET 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json"
 	 
-	http://yoursubdomain.perfectgym.com/Api/Crm/LeadSources
+	http://yoursubdomain.perfectgym.com/Api/Crm/Lead/Sources
 ```
 ### Example response
 
@@ -111,11 +111,11 @@ In this example we get information about types of agreements.
 
 ``` command-line
 
-curl -X POST 
+curl -X GET 
 	 -H "Authorization: Bearer $ACCESS_TOKEN" 
 	 -H "Content-Type: application/json"
 	 
-	http://yoursubdomain.perfectgym.com/Api/Crm/LeadAgreements
+	http://yoursubdomain.perfectgym.com/Api/Crm/Lead/Agreements
 ```
 ### Example response
 
