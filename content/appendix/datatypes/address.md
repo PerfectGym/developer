@@ -20,6 +20,7 @@ Name            | Type      | Description
 `postalCode`    |`string`   | Zip code or equivalent.
 `city`    		|`string`   | City name.
 `country`   	|`string`   | Country name.
+`countrySymbol` |`string`   | Country symbol.
 
 
 

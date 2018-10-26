@@ -71,7 +71,7 @@ curl -X POST
 	        "line2": "",
 	        "city": "Warszawa",
 	        "postalCode": "20-259",
-	        "country": "Poland"
+	        "countrySymbol": "PL"
 	    }
 	}' 
 	http://yoursubdomain.perfectgym.com/Api/Users/User
@@ -155,7 +155,7 @@ curl -X PUT
 	        "line2": "",
 	        "city": "Warszawa",
 	        "postalCode": "02-962",
-	        "country": "Poland"
+	        "countrySymbol": "PL"
 	    }
 	}' 
 	http://yoursubdomain.perfectgym.com/Api/Users/User?userId=236
