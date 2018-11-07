@@ -718,7 +718,10 @@ pre {
   margin: 0;
   padding: 0;
 }
-h1 span.h1-background-text {
+h1.new-version {
+  margin-bottom: 4rem;
+}
+h1.new-version span.h1-background-text {
   position: absolute;
   left: -1rem;
   top: -1rem;
