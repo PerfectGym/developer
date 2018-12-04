@@ -739,6 +739,74 @@
     }
   }
 
+  /*** / Header New API Notification ***/
+
+  #notification-new-version {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    max-height: 30vh;
+    background-color: @pg-api-color-blue-1;
+    box-shadow: 0 0 3px 0 @pg-api-color-grey-1;
+    color: white;
+    z-index: 10;
+    position: relative;
+
+    .copy {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      h3 {
+        padding: 0;
+        margin: 0;
+        font-size: 1.4rem;
+        .pg-ff-averta-regular();
+        text-align: center;
+        color: white;
+      }
+
+      a {
+        color: white;
+        margin-left: 30px;
+        padding: 8px 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        font-weight: normal;
+        font-size: 1.2rem;
+        line-height: 1em;
+        
+
+        &:hover {
+          text-decoration: none;
+          background-color: white;
+          color:  @pg-api-color-blue-1;
+        }
+      }
+
+      p {
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  h1.new-version {
+    margin-bottom: 4rem;
+    
+    span.h1-background-text {
+      position: absolute;
+      left: -1rem;
+      top: -1rem;
+      font-size: 10rem;
+      color: @pg-api-color-grey-3;
+      z-index: -1;
+    }
+  }
+
   /*** / Footer ***/
 
   /***** / Perfect Gym Api *****/
