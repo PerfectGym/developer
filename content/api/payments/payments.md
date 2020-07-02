@@ -155,7 +155,7 @@ Name 	     	    | Type  	| Description
 --------------------|-----------|--------------------
 `userId`  	   		|`long`     | **Required**. User identifier.
 `feeIds`  			|`array`  	| **Required**. An array of `long` values, each representing fee identifier to be paid.
-`totalAmmount`  	|`decimal`  | **Required**. Total amount to be paid (must be equal to sum of all fees).
+`totalAmount`  	|`decimal`  | **Required**. Total amount to be paid (must be equal to sum of all fees).
 
 
 ### Response
