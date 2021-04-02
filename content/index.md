@@ -24,5 +24,6 @@ layout: overview
       <img src="/assets/images/pg-api-graphic.png" alt="Perfect Gym api">
     </div>
 
+    <span style="display:none" class="test-abc"></span>
 </div>
 
