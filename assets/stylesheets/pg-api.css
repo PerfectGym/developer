@@ -399,6 +399,13 @@ a:hover {
 .content .alert p:last-child {
   margin-bottom: 0;
 }
+.content .alert.warning {
+  font-size: 16px;
+  line-height: 20px;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+  color: #856404;
+}
 /***** Sidebar & nav  *****/
 .sidebar-shell {
   float: left;
@@ -720,6 +727,7 @@ pre {
 }
 h1.new-version {
   margin-bottom: 4rem;
+  margin-top: 6rem;
 }
 h1.new-version span.h1-background-text {
   position: absolute;
@@ -764,3 +772,4 @@ h1.new-version span.h1-background-text {
   }
   /***** / Perfrctgym footer *****/
 }
+/*# sourceMappingURL=pg-api.css.map */
