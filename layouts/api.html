@@ -1,7 +1,7 @@
 <%= renderp '/head.*' %>
 
 <body class="api <%= ENV['DEV_MODE'] ? 'dev-mode' : '' %>">
-  <%= renderp '/header.*' %>
+  <%= renderp '/header-api.*' %>
 
   <!--<div class="sub-nav">-->
     <!--<h2><a href="/api/">API</a></h2>-->
@@ -20,6 +20,9 @@
     <%= renderp '/sidebar.*' %>
 
     <div class="content">
+      <div class="alert warning">
+        Deprecated - API v1 will be switched off on 01.07.2022. Please <a href="/">upgrade to API v2</a>
+      </div>
       <%= yield %>
     </div>
 

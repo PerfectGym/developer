@@ -22,7 +22,7 @@ layout: overview
         <p>
         Always up-to-date API Docs are available directly on your's company site.
         <br>
-        Just fill adress below and enjoy unlimited power of our <span>next-gen&nbsp;API<span>.
+        Just fill adress below and enjoy unlimited power of our <span>next-gen&nbsp;API</span>.
         </p>
         <pre>https://your-perfectgym-url/Api/Docs</pre>
         <p>For example <a href="#">https://presentation.perfectgym.pl/Api/Docs</a></p>
@@ -35,8 +35,5 @@ layout: overview
         Check out our fully-working Demo API.<br><br>
         <a href="https://presentation.perfectgym.com/Api/Docs" class="button">See our Demo API</a>
         </p>
-
-        <span style="display:none" class="test-abcd"></span>
     </div>
 </div>
-
