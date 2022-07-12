@@ -17,7 +17,8 @@ layout: overview
         </p>
         <p>
             We strongly reccommend you to use it in any new implementations of yours.<br>
-            Old version of API will be deprecated and switched off for all new customers on 01.07.2022. If you are still using API v1 please contact your Customer Success Manager and set the migration plan.
+            Old version of API will be deprecated and switched off for all new customers on 01.07.2022.
+            If you are still using API v1 please contact your Customer Success Manager and set the migration plan.
         </p>
         <h2>How to access it?</h2>
         <p>
